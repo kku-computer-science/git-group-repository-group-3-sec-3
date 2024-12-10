@@ -5,6 +5,7 @@
 
 | Name      |  Student ID                          |
 |-------------------|-------------------------------|
+|Jetsadakorn Dutphayap | 653380192-7|
 |Teeraphat Kaewboran | 653380203-8|
 |Atjamaporn Thawornpisandilok |653380219-3|
 |Aekkarat Chaisong| 653380355-5|
