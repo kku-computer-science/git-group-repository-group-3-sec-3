@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
             'layouts.layout', 
             function ($view) {
                 $view->with('dn', \App\Models\Program::where('degree_id', '=', 1)->get());
+                
             }
         );
     }

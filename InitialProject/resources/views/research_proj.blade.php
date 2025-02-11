@@ -2,33 +2,45 @@
 @section('content')
 
 <div class="container refund">
-    <p>โครงการบริการวิชาการ/ โครงการวิจัย</p>
+    <p>{{ trans('researchproject.Title') }}</p>
 
     <div class="table-refund table-responsive">
         <table id="example1" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th style="font-weight: bold;">ลำดับ</th>
-                    <th class="col-md-1" style="font-weight: bold;">ปี</th>
-                    <th class="col-md-4" style="font-weight: bold;">ชื่อโครงการ </th>
+                    <th style="font-weight: bold;">{{ trans('researchproject.Order') }}</th>
+                    <th class="col-md-1" style="font-weight: bold;">{{ trans('researchproject.Year') }}</th>
+                    <th class="col-md-4" style="font-weight: bold;">{{ trans('researchproject.ProjectName') }}</th>
+
                     <!-- <th>ระยะเวลาโครงการ</th>
                     <th>ผู้รับผิดชอบโครงการ</th>
                     <th>ประเภททุนวิจัย</th>
                     <th>หน่วยงานที่สนันสนุนทุน</th>
                     <th>งบประมาณที่ได้รับจัดสรร</th> -->
-                    <th class="col-md-4" style="font-weight: bold;">รายละเอียด</th>
-                    <th class="col-md-2" style="font-weight: bold;">ผู้รับผิดชอบโครงการ</th>
+                    <th class="col-md-4" style="font-weight: bold;">{{ trans('researchproject.Detail') }}</th>
+                    <th class="col-md-2" style="font-weight: bold;">{{ trans('researchproject.ProjectSuper') }}</th>
                     <!-- <th class="col-md-5">หน่วยงานที่รับผิดชอบ</th> -->
-                    <th class="col-md-1" style="font-weight: bold;">สถานะ</th>
+                    <th class="col-md-1" style="font-weight: bold;">{{ trans('researchproject.Status') }}</th>
                 </tr>
             </thead>
 
-            
+
             <tbody>
                 @foreach($resp as $i => $re)
                 <tr>
                     <td style="vertical-align: top;text-align: left;">{{$i+1}}</td>
-                    <td style="vertical-align: top;text-align: left;">{{($re->project_year)+543}}</td>
+                    <td style="vertical-align: top;text-align: left;">
+                        <!-- {{($re->project_year)+543}} -->
+                        @if (app()->getLocale() == 'th')
+                        <!-- {{ \Carbon\Carbon::parse($re->project_start)->locale('th')->translatedFormat('Y') }}  -->
+                        <!-- {{ \Carbon\Carbon::parse($re->project_year) }}  -->
+                        {{($re->project_year)+543}}
+
+                        @else
+                        {{($re->project_year)}}
+
+                        @endif
+                    </td>
                     <td style="vertical-align: top;text-align: left;">
                         {{$re->project_name}}
 
@@ -36,12 +48,13 @@
                     <td>
                         <div style="padding-bottom: 10px">
 
-                            @if ($re->project_start != null)
+                            <!-- @if ($re->project_start != null)
                             <span style="font-weight: bold;">
                                 ระยะเวลาโครงการ
                             </span>
                             <span style="padding-left: 10px;">
-                                {{\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y') }} ถึง {{\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y') }}
+                                {{\Carbon\Carbon::parse($re->project_start)->thaidate('j F Y') }} {{ trans('researchproject.To') }} {{\Carbon\Carbon::parse($re->project_end)->thaidate('j F Y') }}
+                                
                             </span>
                             @else
                             <span style="font-weight: bold;">
@@ -50,7 +63,35 @@
                             <span>
 
                             </span>
+                            @endif -->
+                            @if ($re->project_start != null)
+                            <span style="font-weight: bold;">
+                                {{ trans('researchproject.Duration') }}
+
+                            </span>
+                            <span style="padding-left: 10px;">
+                                @if (app()->getLocale() == 'th')
+                                {{ \Carbon\Carbon::parse($re->project_start)->locale('th')->translatedFormat('j F') }}
+                                {{ \Carbon\Carbon::parse($re->project_start)->year + 543 }}
+                                {{ trans('researchproject.To') }}
+                                {{ \Carbon\Carbon::parse($re->project_end)->locale('th')->translatedFormat('j F') }}
+                                {{ \Carbon\Carbon::parse($re->project_end)->year + 543 }}
+                                @else
+                                {{ \Carbon\Carbon::parse($re->project_start)->locale('en')->translatedFormat('j F Y') }}
+                                {{ trans('researchproject.To') }}
+                                {{ \Carbon\Carbon::parse($re->project_end)->locale('en')->translatedFormat('j F Y') }}
+                                @endif
+                            </span>
+                            @else
+                            <span style="font-weight: bold;">
+                                {{ trans('researchproject.Duration') }}
+
+                            </span>
+
                             @endif
+
+
+
                         </div>
 
 
@@ -77,50 +118,111 @@
                     </td> -->
                         <!-- <td>{{$re->budget}}</td> -->
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">ประเภททุนวิจัย</span>
-                            <span style="padding-left: 10px;"> @if(is_null($re->fund))
+                            <span style="font-weight: bold;">{{ trans('researchproject.ResearchType') }}</span>
+                            <!-- <span style="padding-left: 10px;"> 
+                                @if(is_null($re->fund))
                                 @else
                                 {{$re->fund->fund_type}}
-                                @endif</span>
+                                @endif
+                            </span> -->
+
+
+
+                            <span style="padding-left: 10px;">
+
+                                @if (!is_null($re->fund))
+                                {{ app()->getLocale() == 'en' ? $re->fund->fund_type_en : $re->fund->fund_type }}
+                                @endif
+
+
+
+
+                            </span>
                         </div>
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">หน่วยงานที่สนันสนุนทุน</span>
-                            <span style="padding-left: 10px;"> @if(is_null($re->fund))
+                            <span style="font-weight: bold;">{{ trans('researchproject.Funding_Agency') }}</span>
+                            <span style="padding-left: 10px;">
+                                <!-- @if(is_null($re->fund))
                                 @else
                                 {{$re->fund->support_resource}}
-                                @endif</span>
+                                @endif</span> -->
+                                
+                                @if (!is_null($re->fund))
+                                {{ app()->getLocale() == 'en' ? $re->fund->support_resource_en : $re->fund->support_resource}}
+                                @endif
+
                         </div>
                         <div style="padding-bottom: 10px;">
-                            <span style="font-weight: bold;">หน่วยงานที่รับผิดชอบ</span>
+                            <span style="font-weight: bold;">{{ trans('researchproject.Responsible_agency') }}</span>
                             <span style="padding-left: 10px;">
-                                {{$re->responsible_department}}
+                            <!-- {{$re->responsible_department}} -->
+                            @if (!is_null($re->responsible_department))
+                                {{ app()->getLocale() == 'en' ? $re->responsible_department_en: $re-> responsible_department}}
+                                @endif
+
+                            
+                                
+
+                                
                             </span>
                         </div>
                         <div style="padding-bottom: 10px;">
 
-                            <span style="font-weight: bold;">งบประมาณที่ได้รับจัดสรร</span>
-                            <span style="padding-left: 10px;"> {{number_format($re->budget)}} บาท</span>
+                            <span style="font-weight: bold;">{{ trans('researchproject.Budget') }}</span>
+                            <span style="padding-left: 10px;"> {{number_format($re->budget)}} {{ trans('researchproject.Baht') }}</span>
                         </div>
                     </td>
 
                     <td style="vertical-align: top;text-align: left;">
-                        <div style="padding-bottom: 10px;">
+                        <!-- <div style="padding-bottom: 10px;">
                             <span>@foreach($re->user as $user)
                                 {{$user->position_th }} {{$user->fname_th}} {{$user->lname_th}}<br>
                                 @endforeach</span>
+                        </div> -->
+
+                        <div style="padding-bottom: 10px;">
+                            <span>
+
+
+
+                                @foreach ($re->user as $r)
+                                @if($r->hasRole('teacher'))
+                                @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
+                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                                <br>
+                                @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
+                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                                <br>
+                                @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
+                                {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                                <br>
+                                @else
+                                {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                                <br>
+                                @endif
+
+                                @endif
+                                @endforeach
                         </div>
+
+
+
+
+
+
+
                     </td>
                     @if($re->status == 1)
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge badge-success">ยื่นขอ</label></h6>
+                        <h6><label class="badge badge-success">{{ trans('researchproject.Request') }}</label></h6>
                     </td>
                     @elseif($re->status == 2)
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge bg-warning text-dark">ดำเนินการ</label></h6>
+                        <h6><label class="badge bg-warning text-dark">{{ trans('researchproject.On_going') }}</label></h6>
                     </td>
                     @else
                     <td style="vertical-align: top;text-align: left;">
-                        <h6><label class="badge bg-dark">ปิดโครงการ</label>
+                        <h6><label class="badge bg-dark">{{ trans('researchproject.Completed') }}</label>
                             <h6>
                     </td>
                     @endif
@@ -142,8 +244,12 @@
 <script>
     $(document).ready(function() {
 
-        var table1 = $('#example1').DataTable({
+        var table1 = $('#example1').DataTable(
+            {
             responsive: true,
+            language: {
+                search:"{{ trans('researchers.serach') }}",
+            }
         });
     });
 </script>
