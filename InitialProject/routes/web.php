@@ -38,6 +38,9 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+
+use App\Http\Controllers\WOSCallController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,6 +67,12 @@ use App\Http\Controllers\TcicallController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+use App\Http\Controllers\TciScraperController;
+
+Route::get('/scrape-authors', [TciScraperController::class, 'searchAuthorsFromDatabase']);
+
+
+
 
 
 Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
@@ -71,8 +80,8 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
 });
 
 
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/test', [WOSCallController::class, 'index'])->name('test');
 //Route::get('/researchers',[ResearcherController::class,'index'])->name('researchers');
 Route::get('researchers/{id}', [ResearcherController::class, 'request'])->name('researchers');
 Route::get('researchers/{id}/search', [ResearcherController::class, 'search'])->name('searchresearchers');
@@ -96,6 +105,8 @@ Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 
 Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class, 'create'])->name('callscopus');
 //Route::get('/showscopus', [App\Http\Controllers\ScopuscallController::class, 'index'])->name('showscopus');
+
+
 
 Route::group(['middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     //Route::post('change-profile-picture',[ProfileuserController::class,'updatePicture'])->name('adminPictureUpdate');
