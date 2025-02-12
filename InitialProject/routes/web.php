@@ -38,6 +38,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,11 +67,32 @@ use App\Http\Controllers\TcicallController;
 //     return view('welcome');
 // });
 
+use App\Http\Controllers\TciScraperController;
+
+Route::get('/tci-scraper/{id}', [TciScraperController::class, 'create'])->name('calltci');
+
+
+
+use App\Http\Controllers\WOSCallController;
+
+Route::get('/woscall/{id}', [WOSCallController::class, 'create'])->name('callwos');
+
+
+use App\Http\Controllers\ScholarCallController;
+
+Route::get('/scholarcall/{id}', [App\Http\Controllers\ScholarCallController::class, 'create'])->name('callscholar');
+
+
+
+
+
+
+
+
 
 Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
-
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -96,6 +119,8 @@ Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 
 Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class, 'create'])->name('callscopus');
 //Route::get('/showscopus', [App\Http\Controllers\ScopuscallController::class, 'index'])->name('showscopus');
+
+
 
 Route::group(['middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     //Route::post('change-profile-picture',[ProfileuserController::class,'updatePicture'])->name('adminPictureUpdate');
