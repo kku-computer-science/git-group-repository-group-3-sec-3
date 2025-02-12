@@ -521,17 +521,6 @@
 
         datasets: [{
                 label: 'SCOPUS',
-                backgroundColor: '#83E4B5',
-                borderColor: 'rgba(255, 255, 255, 0.5)',
-                pointRadius: false,
-                pointColor: '#83E4B5',
-                pointStrokeColor: '#3b8bba',
-                pointHighlightFill: '#fff',
-                pointHighlightStroke: '#83E4B5',
-                data: paper_scopus
-            },
-            {
-                label: 'TCI',
                 backgroundColor: '#3994D6',
                 borderColor: 'rgba(210, 214, 222, 1)',
                 pointRadius: false,
@@ -539,6 +528,17 @@
                 pointStrokeColor: '#c1c7d1',
                 pointHighlightFill: '#fff',
                 pointHighlightStroke: '#3994D6',
+                data: paper_scopus
+            },
+            {
+                label: 'TCI',
+                backgroundColor: '#83E4B5',
+                borderColor: 'rgba(255, 255, 255, 0.5)',
+                pointRadius: false,
+                pointColor: '#83E4B5',
+                pointStrokeColor: '#3b8bba',
+                pointHighlightFill: '#fff',
+                pointHighlightStroke: '#83E4B5',
                 data: paper_tci
             },
             {

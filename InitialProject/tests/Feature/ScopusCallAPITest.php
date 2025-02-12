@@ -43,8 +43,8 @@ class ScopusCallAPITest extends TestCase
     {
         // สร้าง user
         $user = User::factory()->create([
-            'fname' => 'John',
-            'lname' => 'Doe'
+            'fname_en' => 'John',
+            'lname_en' => 'Doe'
         ]);
 
         // สร้าง source data
