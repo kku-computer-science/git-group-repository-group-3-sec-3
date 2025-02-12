@@ -38,6 +38,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
+use App\Http\Controllers\ScholarCallController;
+use App\Http\Controllers\UpdatePaperCallController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,6 +96,8 @@ Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 //Route::get('bib/{id}', [BibtexController::class, 'index'])->name('bibtex');
 //Route::get('change/lang', [LocalizationController::class,'lang_change'])->name('LangChange');
 
+Route::get('/callpaper/{id}', [App\Http\Controllers\UpdatePaperController::class, 'create'])->name('callpaper');
+Route::get('/test-scholar/{id}', [App\Http\Controllers\ScholarCallController::class, 'create'])->name('callscholar');
 Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class, 'create'])->name('callscopus');
 //Route::get('/showscopus', [App\Http\Controllers\ScopuscallController::class, 'index'])->name('showscopus');
 
