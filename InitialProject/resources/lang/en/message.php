@@ -10,4 +10,5 @@ return [
 'publications' => 'Publications (In the Last 5 Years)',
 'education'=>'Education',
 'publications2' => 'Publications',
+'login'=>'Login',
 ];

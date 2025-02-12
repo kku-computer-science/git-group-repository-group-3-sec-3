@@ -42,7 +42,7 @@
 <div class="container card-cart d-sm-flex  justify-content-center mt-5">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title" style="padding: 16px;">สถิติจำนวนบทความทั้งหมด 5 ปี</h4>
+            <h5 class="card-title" style="padding: 16px;">{{ trans('report.StatReport') }}</h4>
                 <div class="row">
                     <div class="col-md-6 p-5">
                         <div style="width:520px;height:250px">
@@ -70,7 +70,7 @@
 <div class="container card-cart d-sm-flex  justify-content-center mt-5">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"  style="padding: 16px;">สถิติจำนวนบทความที่ได้รับการอ้างอิง</h4>
+            <h5 class="card-title"  style="padding: 16px;">{{ trans('report.StatRef') }}</h4>
                 <div class="row">
                     <div class="col-md-6 p-5">
                         <div style="width:520px;height:250px">
@@ -99,6 +99,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
 var year = <?php echo $year; ?>;
+
+console.log(year);
+
+let currentLocale = '{{ app()->getLocale() }}';
+
+if (currentLocale === 'th') {
+    year = year.map(y => typeof y === "number" ? y + 543 : y);  // Add 543 for Thai year
+} else {
+    // For English or other languages, leave the year as is
+    year = year.map(y => typeof y === "number" ? y : y);
+}
+
+console.log(year);
+
 var paper_tci = <?php echo $paper_tci; ?>;
 var paper_scopus = <?php echo $paper_scopus; ?>;
 var paper_wos = <?php echo $paper_wos; ?>;
@@ -107,7 +121,8 @@ var paper_tci_cit = <?php echo $paper_tci_cit; ?>;
 var paper_scopus_cit = <?php echo $paper_scopus_cit; ?>;
 var paper_wos_cit = <?php echo $paper_wos_cit; ?>;
 
-year.unshift("source");
+// year.unshift("source");
+year.unshift("{{ trans('report.Source') }}");
 paper_tci.unshift("tci");
 
 //console.log(paper_scopus_cit);
@@ -197,6 +212,15 @@ generateTable(table2, res2);
 
 <script>
 var year = <?php echo $year; ?>;
+
+if (currentLocale === 'th') {
+    year = year.map(y => typeof y === "number" ? y + 543 : y);  // Add 543 for Thai year
+} else {
+    // For English or other languages, leave the year as is
+    year = year.map(y => typeof y === "number" ? y : y);
+}
+
+
 var paper_tci = <?php echo $paper_tci; ?>;
 var paper_scopus = <?php echo $paper_scopus; ?>;
 var paper_wos = <?php echo $paper_wos; ?>;
@@ -251,6 +275,7 @@ var barChartCanvas = $('#barChart1').get(0).getContext('2d')
 
 var barChartData = $.extend(true, {}, areaChartData)
 var temp0 = areaChartData.datasets[0]
+console.log(temp0);
 var temp1 = areaChartData.datasets[1]
 barChartData.datasets[0] = temp1
 barChartData.datasets[1] = temp0
@@ -275,6 +300,9 @@ new Chart(barChartCanvas3, {
 </script>
 <script>
 var year = <?php echo $year; ?>;
+
+
+
 var paper_tci = <?php echo $paper_tci_cit; ?>;
 var paper_scopus = <?php echo $paper_scopus_cit; ?>;
 var paper_wos = <?php echo $paper_wos_cit; ?>;
@@ -344,6 +372,13 @@ new Chart(barChartCanvas, {
 </script>
 <script>
 var year = <?php echo $year; ?>;
+
+if (currentLocale === 'th') {
+    year = year.map(y => typeof y === "number" ? y + 543 : y);  // Add 543 for Thai year
+} else {
+    // For English or other languages, leave the year as is
+    year = year.map(y => typeof y === "number" ? y : y);
+}
 var paper_tci = <?php echo $paper_tci_cit; ?>;
 var paper_scopus = <?php echo $paper_scopus_cit; ?>;
 var paper_wos = <?php echo $paper_wos_cit; ?>;
