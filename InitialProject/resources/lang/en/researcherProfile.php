@@ -10,13 +10,13 @@ return [
 'documenttype'=>'Document Type',
 'page'=>'Page',
 'journals'=>'Journals/Transactions',
-'cite'=>'Ciations',
+'cite'=>'Citations',
 'doi'=>'Doi',
 'source'=>'Source',
 'summary'=>'Summary',
 'book'=>'Book',
 'other'=>'Other Academic Works',
-'email'=>'อีเมล',
+'email'=>'email',
 'number'=>'Number',
 'name'=>'Name',
 'pub'=>'ตีพิมพ์',
@@ -25,9 +25,7 @@ return [
 'placePub'=>'Place of Publication',
 'type'=>'Type',
 'date'=>'Registration Date',
-'ืnumRegis'=>'Registration Number',
-
-
+'numdata'=>'Registration Number',
 
 ];
 

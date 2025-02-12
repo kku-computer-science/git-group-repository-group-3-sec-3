@@ -7,6 +7,6 @@ return [
 'graphtext' => 'Report the total number of articles ( 5 years : cumulative)',
 'year' => 'year',
 'number' => 'Number',
-'before' => 'ฺBefore ',
+'before' => 'Before ',
 ];
 
