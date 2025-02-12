@@ -18,7 +18,7 @@ class CreatePapersTable extends Migration
             $table->string("paper_name");
             $table->string("paper_type")->nullable();
             $table->string("paper_sourcetitle")->nullable();
-            $table->string("paper_url")->nullable();
+            $table->text('paper_url')->change();
             $table->date("paper_yearpub")->nullable();
             $table->string("paper_volume")->nullable();
             $table->string("paper_issue")->nullable();

@@ -143,6 +143,9 @@
             <button class="nav-link" id="tci-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="tci" aria-selected="false">TCI</button>
         </li>
         <li class="nav-item" role="presentation">
+            <button class="nav-link" id="Google-Scholar-tab" data-bs-toggle="tab" data-bs-target="#tci" type="button" role="tab" aria-controls="Google Scholar" aria-selected="false">Google Scholar</button>
+        </li>
+        <li class="nav-item" role="presentation">
             <button class="nav-link" id="book-tab" data-bs-toggle="tab" data-bs-target="#book" type="button" role="tab" aria-controls="book" aria-selected="false">หนังสือ</button>
         </li>
         <li class="nav-item" role="presentation">
@@ -552,6 +555,17 @@
                 pointHighlightStroke: '#FCC29A',
                 data: paper_wos
             },
+            {
+                label: 'Google Scholar',
+                backgroundColor: '#ec407a',
+                borderColor: 'rgba(0, 0, 255, 1)',
+                pointRadius: false,
+                pointColor: '#ec407a',
+                pointStrokeColor: '#c1c7d1',
+                pointHighlightFill: '#fff',
+                pointHighlightStroke: '#ec407a',
+                data: paper_wos
+            },
         ]
     }
 
@@ -676,6 +690,8 @@
         document.getElementById("tci_sum").innerHTML += `  
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
+
+       
 
 
         //document.getElementById("scopus").appendChild('data-to="100"');

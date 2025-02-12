@@ -39,7 +39,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TcicallController;
 
-use App\Http\Controllers\WOSCallController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,9 +66,25 @@ use App\Http\Controllers\WOSCallController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
 use App\Http\Controllers\TciScraperController;
 
-Route::get('/scrape-authors', [TciScraperController::class, 'searchAuthorsFromDatabase']);
+Route::get('/tci-scraper/{id}', [TciScraperController::class, 'create'])->name('calltci');
+
+
+
+use App\Http\Controllers\WOSCallController;
+
+Route::get('/woscall/{id}', [WOSCallController::class, 'create'])->name('callwos');
+
+
+use App\Http\Controllers\ScholarCallController;
+
+Route::get('/scholarcall/{id}', [App\Http\Controllers\ScholarCallController::class, 'create'])->name('callscholar');
+
+
+
+
 
 
 
@@ -81,7 +96,6 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/test', [WOSCallController::class, 'index'])->name('test');
 //Route::get('/researchers',[ResearcherController::class,'index'])->name('researchers');
 Route::get('researchers/{id}', [ResearcherController::class, 'request'])->name('researchers');
 Route::get('researchers/{id}/search', [ResearcherController::class, 'search'])->name('searchresearchers');
