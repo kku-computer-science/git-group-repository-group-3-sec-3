@@ -2374,7 +2374,7 @@ CREATE TABLE `files` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funds`
+-- Dumping data for table funds
 --
 
 CREATE TABLE `funds` (
@@ -2426,7 +2426,6 @@ INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_type_
 (29, 'ทุนสนับสนุนการวิจัยปีงบประมาณ 2564', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'คณะวิทยาศาสตร์ มข.', 'Faculty od Science,KKU', 22, '2022-05-16 07:21:18', '2022-05-16 07:21:18'),
 (30, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'Internal funding', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 'College of Computing,KKU', 6, '2022-05-18 05:02:56', '2022-05-18 05:02:56'),
 (31, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'Internal funding', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 'College of Computing,KKU', 6, '2022-05-18 05:03:05', '2022-05-18 05:03:05');
-
 -- --------------------------------------------------------
 
 --
