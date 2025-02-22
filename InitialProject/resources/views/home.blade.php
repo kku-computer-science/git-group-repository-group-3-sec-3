@@ -68,7 +68,6 @@
     <!-- Modal -->
 
 
-
     <div class="container card-cart d-sm-flex justify-content-center mt-5">
         <div class="col-md-8">
             <div class="card">
@@ -113,14 +112,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Reference (APA)</h5>
+                    <h5 class="modal-title">{{ trans('home.references') }} (APA)</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="name">
                     <!-- <p>Modal body text goes here.</p> -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ trans('home.close') }} </button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>
@@ -129,27 +128,42 @@
 
 
 
-
     <div class="container mixpaper pb-10 mt-3">
         <h3>{{ trans('message.publications') }}</h3>
         @foreach($papers as $n => $pe)
+
+        
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$n}}" aria-expanded="true" aria-controls="collapseOne">
                         @if (!$loop->last)
-                        {{$n}}
+                        @if (app()->getLocale() == 'th')
+                        {{$n+543}}
                         @else
-                        Before {{$n}}
+                        {{$n}}
                         @endif
+
+                        @else
+                        {{ trans('home.before') }}
+                        @if (app()->getLocale() == 'th')
+                        {{$n+543}}
+                        @else
+                        {{$n}}
+                        @endif
+                        @endif
+                        
+                        
 
                     </button>
                 </h2>
                 <div id="collapse{{$n}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         @foreach($pe as $n => $p)
+                        <!-- dropdown from year -->
                         <div class="row mt-2 mb-3 border-bottom">
                             <div id="number" class="col-sm-1">
+                                <!-- <h6>[{{$n+1}}]</h6> -->
                                 <h6>[{{$n+1}}]</h6>
                             </div>
                             <div id="paper2" class="col-sm-11">
@@ -161,7 +175,7 @@
                                     <!-- <a href="{{ route('bibtex',['id'=>$p['id']])}}">
                                         [อ้างอิง]
                                     </a> -->
-                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[อ้างอิง]</button>
+                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[{{ trans('home.ref') }}]</button>
                                 </p>
                             </div>
                         </div>
@@ -194,6 +208,19 @@
 </script>
 <script>
     var year = <?php echo $year; ?>;
+    let currentLocale = '{{ app()->getLocale() }}';
+
+if (currentLocale === 'th') {
+    year = year.map(y => typeof y === "number" ? y + 543 : y);  // Add 543 for Thai year
+
+
+
+} else {
+    // For English or other languages, leave the year as is
+    year = year.map(y => typeof y === "number" ? y : y);
+}
+
+
     var paper_tci = <?php echo $paper_tci; ?>;
     var paper_scopus = <?php echo $paper_scopus; ?>;
     var paper_wos = <?php echo $paper_wos; ?>;
@@ -260,7 +287,7 @@
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'Number',
+                     labelString: currentLocale === 'th' ? 'จำนวนบทความ' : 'Number',
 
                 },
                 ticks: {
@@ -271,14 +298,15 @@
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Year'
+                    labelString: currentLocale === 'th' ? 'ปี' : 'Year'
                 }
             }]
         },
 
         title: {
+
             display: true,
-            text: 'Report the total number of articles ( 5 years : cumulative)',
+            text: currentLocale === 'th' ? 'รายงานจำนวนบทความทั้งหมด (สะสมตลอด 5 ปี)' : 'Report the total number of articles ( 5 years : cumulative)',
             fontSize: 20
         }
 
@@ -290,6 +318,9 @@
         data: barChartData,
         options: barChartOptions
     })
+
+
+
 </script>
 <script>
     var paper_tci = <?php echo $paper_tci_numall; ?>;
@@ -307,7 +338,7 @@
         document.getElementById("all").innerHTML += `
                 <i class="count-icon fa fa-book fa-2x"></i>
                 <h2 class="timer count-title count-number" data-to="${sum}" data-speed="1500"></h2>
-                <p class="count-text ">SUMMARY</p>`
+                <p class="count-text ">{{ trans('home.summary') }}</p>`
         document.getElementById("scopus").innerHTML += `
                 <i class="count-icon fa fa-book fa-2x"></i>
                 <h2 class="timer count-title count-number" data-to="${sumsco}" data-speed="1500"></h2>

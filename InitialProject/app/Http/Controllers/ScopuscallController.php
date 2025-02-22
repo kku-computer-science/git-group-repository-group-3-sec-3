@@ -172,61 +172,6 @@ class ScopuscallController extends Controller
                     $length = count($all_au);
                     foreach ($all_au as $i) {
 
-                        //return $i;
-                        /*if (Author::where([['author_fname', '=', $i['ce:given-name']], ['author_lname', '=', $i['ce:surname']]])->first() == null) { //เช็คว่ามีชื่อผู้แต่งคนนี้มีหรือยังในฐานข้อมูล ถ้ายังให้
-                                $author = new Author;
-                                if (User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first() == null) { //เช็คว่าคนนี้อยู่ใน user ไหม ถ้าไม่มี
-                                    //$comp = User::select(DB::raw("concat(left(fname_en,1),'.') as name"))->get();
-                                    //return $comp;
-                                    $author->author_fname = $i['ce:given-name'];
-                                    $author->author_lname = $i['ce:surname'];
-                                    $author->save();
-                                    if ($x === 1) {
-                                        $paper->author()->attach($author, ['author_type' => 1]);
-                                    } else if ($x === $length) {
-                                        $paper->author()->attach($author, ['author_type' => 3]);
-                                    } else {
-                                        $paper->author()->attach($author, ['author_type' => 2]);
-                                    }
-                                } else {
-                                    $us = User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first();
-                                    $usid = $us->id;
-                                    if ($x === 1) {
-                                        $paper->teacher()->attach($usid, ['author_type' => 1]);
-                                    } else if ($x === $length) {
-                                        $paper->teacher()->attach($usid, ['author_type' => 3]);
-                                    } else {
-                                        $paper->teacher()->attach($usid, ['author_type' => 2]);
-                                    }
-                                }
-
-                            } else {
-                               
-                                if (User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first() == null) { //เช็คว่าคนนี้อยู่ใน user ไหม ถ้าไม่มี
-                                    $author = Author::where([['author_fname', '=', $i['ce:given-name']], ['author_lname', '=', $i['ce:surname']]])->first();
-                                    $authorid = $author->id;
-                                    if ($x === 1) {
-                                        $paper->author()->attach($authorid, ['author_type' => 1]);
-                                    } else if ($x === $length) {
-                                        $paper->author()->attach($authorid, ['author_type' => 3]);
-                                    } else {
-                                        $paper->author()->attach($authorid, ['author_type' => 2]);
-                                    }
-                                } else {
-                                    $us = User::where([['fname_en', '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->orWhere([[DB::raw("concat(left(fname_en,1),'.')"), '=', $i['ce:given-name']], ['lname_en', '=', $i['ce:surname']]])->first();
-                                    $usid = $us->id;
-                                    if ($x === 1) {
-                                        $paper->teacher()->attach($usid, ['author_type' => 1]);
-                                    } else if ($x === $length) {
-                                        $paper->teacher()->attach($usid, ['author_type' => 3]);
-                                    } else {
-                                        $paper->teacher()->attach($usid, ['author_type' => 2]);
-                                    }
-                                }
-
-                                //$paper->author()->attach($authorid);
-                                //$user = User::find($id);
-                            }*/
                             if (array_key_exists('ce:given-name', $i)) {
                                 $i['ce:given-name'] = $i['ce:given-name'];
                             }else{
