@@ -586,8 +586,13 @@
                         <th scope="col">{{ trans('researcherProfile.name') }}</th>
                         <th scope="col">{{ trans('researcherProfile.author') }}</th>
                         <th scope="col">{{ trans('researcherProfile.type') }}</th>
+<<<<<<< HEAD
                         <th scope="col">{{ trans('researcherProfile.date') }}</th>
                         <th scope="col">{{ trans('researcherProfile.numdata') }}</th>
+=======
+                        <th scope="col">{{ trans('researcherProfile.type') }}</th>
+                        <th scope="col">{{ trans('researcherProfile.type') }}</th>
+>>>>>>> 2ef77f2b49f3b0a62a98d71267161f4f036bda23
 
                     </tr>
                 </thead>
