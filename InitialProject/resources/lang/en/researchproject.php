@@ -1,6 +1,6 @@
 <?php
 return [
-'Title' => 'Research Project',
+'Title' => 'Academic Service Project / Research Project',
 'Order' => 'Order',
 'Year' => 'Year',
 'ProjectName' => 'Project Name',
