@@ -3,45 +3,106 @@
 Documentation    Test suite for verifying language switching functionality on the report page
 Library    SeleniumLibrary
 Library    String
+Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
 ${URL}    http://127.0.0.1:8000/researchgroup  
-@{EXPECTED_THAI_TEXTS}    กลุ่มวิจัย    หัวหน้าห้องปฏิบัติการ    รายละเอียดเพิ่มเติม
-@{EXPECTED_ENGLISH_TEXTS}    Research Group    Laboratory Supervisor    More details
+${WAIT_TIME}  3s
+
+@{EXPECTED_THAI_TEXTS}    
+...    กลุ่มวิจัย    
+...    หัวหน้าห้องปฏิบัติการ    
+...    รายละเอียดเพิ่มเติม
+@{EXPECTED_ENGLISH_TEXTS}    
+...    Research Group    
+...    Laboratory Supervisor    
+...    More details
 
 ${LANG_TO_THAI}    xpath=//a[contains(text(), 'ไทย')]
 ${LANG_TO_ENGLISH}    xpath=//a[contains(text(), 'English')]
 
 *** Keywords ***
-Open Browser To Report Page
+Open Browser To Home Page
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
 
-Wait And Click    [Arguments]    ${locator}
+Wait And Click
+    [Arguments]    ${locator}
     Wait Until Element Is Visible    ${locator}    timeout=10s
     Click Element    ${locator}
 
-Verify Page Contains Texts    [Arguments]    @{expected_texts}
+Verify Page Contains Texts
+    [Arguments]    @{expected_texts}
     ${html_source}=    Get Source
     Log    HTML Source: ${html_source}
-    FOR    ${word}    IN    @{expected_texts}
-        Should Contain    ${html_source}    ${word}
+    FOR    ${text}    IN    @{expected_texts}
+        Should Contain    ${html_source}    ${text}
     END
 
 *** Test Cases ***
-Switch Language And Verify Summary In HTML
-    Open Browser To Report Page
-    Sleep    3s
-
-    # ถ้าหน้าปัจจุบันเป็นภาษาไทยอยู่แล้ว ไม่ต้องกด
-    ${is_thai_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${LANG_TO_THAI}
-    Run Keyword If    ${is_thai_visible}    Wait And Click    ${LANG_TO_THAI}
-
-    Sleep    3s
-    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}    and    @{EXPECTED_data_th}
-
-    # เปลี่ยนกลับเป็นอังกฤษ
+Thai To English
+    [Documentation]    Starting from default Thai, switch to English and verify.
+    Open Browser To Home Page
+    Sleep    ${WAIT_TIME}
+    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
     Wait And Click    ${LANG_TO_ENGLISH}
-    Sleep    3s
-    Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}    and    @{EXPECTED_data_en}
+    Sleep    ${WAIT_TIME}
+    Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+
+# Thai To Chinese
+#     [Documentation]    Starting from default Thai, switch to Chinese and verify.
+#     Open Browser To Home Page
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+#     Wait And Click    ${LANG_TO_CHINESE}
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+
+# English To Chinese
+#     [Documentation]    Switch from Thai to English then to Chinese.
+#     Open Browser To Home Page
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+#     Wait And Click    ${LANG_TO_ENGLISH}
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+#     Wait And Click    ${LANG_TO_CHINESE}
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+
+# Chinese To Thai
+#     [Documentation]    Switch from Thai to Chinese then back to Thai.
+#     Open Browser To Home Page
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+#     Wait And Click    ${LANG_TO_CHINESE}
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+#     Wait And Click    ${LANG_TO_THAI}
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+
+English To Thai
+    [Documentation]    Switch from Thai to English then back to Thai.
+    Open Browser To Home Page
+    Sleep    ${WAIT_TIME}
+    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Wait And Click    ${LANG_TO_ENGLISH}
+    Sleep    ${WAIT_TIME}
+    Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+    Wait And Click    ${LANG_TO_THAI}
+    Sleep    ${WAIT_TIME}
+    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+
+# Chinese To English
+#     [Documentation]    Switch from Thai to Chinese then to English.
+#     Open Browser To Home Page
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+#     Wait And Click    ${LANG_TO_CHINESE}
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+#     Wait And Click    ${LANG_TO_ENGLISH}
+#     Sleep    ${WAIT_TIME}
+#     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
