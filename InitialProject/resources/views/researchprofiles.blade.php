@@ -490,7 +490,8 @@
                                         {{$author -> fname_th}} {{$author -> lname_th}}
                                         @else
                                         {{$author -> fname_en}} {{$author -> lname_en}}
-
+                                        @else
+                                        {{$author -> fname_cn}} {{$author -> lname_cn}}
                                         @endif
                                     </teacher>
                                 </a>
@@ -501,6 +502,8 @@
                             <!-- {{$paper->paper_type}} -->
                             @if (app()->getLocale() == 'th')
                             {{$paper->paper_type_th}}
+                            @else (app()->getLocale() == 'cn')
+                            {{$paper->paper_type}}
                             @else
                             {{$paper->paper_type}}
 
@@ -568,7 +571,8 @@
                                         {{$author -> fname_th}} {{$author -> lname_th}}
                                         @else
                                         {{$author -> fname_en}} {{$author -> lname_en}}
-
+                                        @else
+                                        {{$author -> fname_cn}} {{$author -> lname_cn}}
                                         @endif
                                     </teacher>
                                 </a>
@@ -579,9 +583,10 @@
                             <!-- {{$paper->paper_type}} -->
                             @if (app()->getLocale() == 'th')
                             {{$paper->paper_type_th}}
+                            @else (app()->getLocale() == 'cn')
+                            {{$paper->paper_type_cn}}
                             @else
                             {{$paper->paper_type}}
-
                             @endif
 
                         </td>
@@ -619,7 +624,7 @@
                             @if (app()->getLocale() == 'th')
                             {{date('Y', strtotime($paper->ac_year))+543 }}
 
-                            @else
+                            @else 
                             {{date('Y', strtotime($paper->ac_year)) }}
 
                             @endif
@@ -638,11 +643,13 @@
                             <span>
                                 <!-- <a> {{$author -> fname_en}} {{$author -> lname_en}}</a> -->
                                 <a>@if (app()->getLocale() == 'th')
-                                    {{$author -> fname_th}} {{$author -> lname_th}}
+                                        {{ $author->fname_th }} {{ $author->lname_th }}
+                                    @elseif (app()->getLocale() == 'cn')
+                                        {{ $author->fname_cn }} {{ $author->lname_cn }}
                                     @else
-                                    {{$author -> fname_en}} {{$author -> lname_en}}
-
+                                        {{ $author->fname_en }} {{ $author->lname_en }}
                                     @endif
+
                                 </a>
                             </span>
                             @endforeach
@@ -909,7 +916,6 @@
     var paper_wos_s = <?php echo $paper_wos_s; ?>;
     var paper_book_s = <?php echo $paper_book_s; ?>;
     var paper_patent_s = <?php echo $paper_patent_s; ?>;
-    //console.log(paper_book_s);
     let sumtci = 0;
     let sumsco = 0;
     let sumwos = 0;
@@ -1052,15 +1058,66 @@
         }
     });
 </script>
-<!-- <script>
-    // get the p element
-    $(document).ready(function() {
-    const a = document.getElementById('authtd');
-    console.log(a.text)
-    const myArray =  a.text.toString().split(" ");
-    console.log(myArray)
-    document.getElementById("authtd").innerHTML = "name :"+ myArray;
-    
-});
-</script> -->
+@extends('layouts.layout')
+
+@section('content')
+
+<div class="container cardprofile mt-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-2">
+                <img class="card-image" src="{{$res->picture}}" alt="">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h6 class="card-text">
+                        <b>
+                            @if (app()->getLocale() == 'th')
+                                {{$res->position_th}} {{$res->fname_th}} {{$res->lname_th}}
+                            @elseif (app()->getLocale() == 'cn')
+                                {{$res->position_cn}} {{$res->fname_cn}} {{$res->lname_cn}}
+                            @else
+                                {{$res->fname_en}} {{$res->lname_en}}, {{$res->doctoral_degree ?? ''}}
+                            @endif
+                        </b>
+                    </h6>
+
+                    <h6 class="card-text1">
+                        <b>
+                            {{ app()->getLocale() == 'th' ? $res->academic_ranks_th : (app()->getLocale() == 'cn' ? $res->academic_ranks_cn : $res->academic_ranks_en) }}
+                        </b>
+                    </h6>
+
+                    <h6 class="card-text1">{{ trans('researcherProfile.email') }}: {{$res->email}}</h6>
+                    <h6 class="card-title">{{ trans('message.education') }}</h6>
+
+                    @foreach($res->education as $edu)
+                        <h6 class="card-text2 col-sm-10">
+                            {{ app()->getLocale() == 'th' ? ($edu->year + 543) : $edu->year }}
+                            {{ app()->getLocale() == 'th' ? $edu->qua_name : $edu->qua_name_en }}
+                            {{ app()->getLocale() == 'th' ? $edu->uname : $edu->uname_en }}
+                        </h6>
+                    @endforeach
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h6 class="title-pub">{{ trans('message.publications2') }}</h6>
+                <div class="col-xs-12 text-center bt">
+                    <div class="row text-center">
+                        <div class="col"><div class="count" id='all'></div></div>
+                        <div class="col"><div class="count" id='scopus_sum'></div></div>
+                        <div class="col"><div class="count" id='wos_sum'></div></div>
+                        <div class="col"><div class="count" id='tci_sum'></div></div>
+                    </div>
+                    <br>
+                    <div class="chart">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
