@@ -5411,8 +5411,11 @@ ALTER TABLE `education`
 -- Indexes for table `expertises`
 --
 ALTER TABLE `expertises`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `expertises_user_id_foreign` (`user_id`);
+  ADD CONSTRAINT `expertises_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  ADD COLUMN `expert_name_th` VARCHAR(255) NULL AFTER `expert_name`,
+  ADD COLUMN `expert_name_cn` VARCHAR(255) NULL AFTER `expert_name_th`;
+
+
 
 --
 -- Indexes for table `failed_jobs`
@@ -5858,3 +5861,112 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การวิเคราะห์ข้อมูลขนาดใหญ่', 
+    `expert_name_cn` = '大数据分析' 
+WHERE `expert_name` = 'Big Data Analytics';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การมองเห็นของคอมพิวเตอร์', 
+    `expert_name_cn` = '计算机视觉' 
+WHERE `expert_name` = 'Computer Vision';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'ออโตมาตาของเซลล์', 
+    `expert_name_cn` = '元胞自动机' 
+WHERE `expert_name` = 'Cellular Automata';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การประมวลผลภาษาธรรมชาติและคำพูด', 
+    `expert_name_cn` = '自然语言和语音处理' 
+WHERE `expert_name` = 'Natural Language and Speech Processing';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การเรียนรู้ของเครื่องและระบบอัจฉริยะ', 
+    `expert_name_cn` = '机器学习与智能系统' 
+WHERE `expert_name` = 'Machine Learning and Intelligent Systems';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'ระบบฐานข้อมูลและการรวมข้อมูล', 
+    `expert_name_cn` = '数据库和信息集成系统' 
+WHERE `expert_name` = 'Database and Information Integration Systems';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'วิทยาศาสตร์ข้อมูลและปัญญาประดิษฐ์', 
+    `expert_name_cn` = '数据科学与人工智能' 
+WHERE `expert_name` = 'Data science and Artificial Intelligence';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'ปัญญาประดิษฐ์เชิงคำนวณ', 
+    `expert_name_cn` = '计算智能' 
+WHERE `expert_name` = 'Computational Intelligence';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'อัลกอริทึมการเพิ่มประสิทธิภาพที่ได้รับแรงบันดาลใจจากธรรมชาติ', 
+    `expert_name_cn` = '自然启发的优化算法' 
+WHERE `expert_name` = 'Nature-Inspired Optimization Algorithm';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'เครือข่ายเซ็นเซอร์ไร้สาย', 
+    `expert_name_cn` = '无线传感器网络' 
+WHERE `expert_name` = 'Wireless Sensor Networks';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'ปัญญาประดิษฐ์', 
+    `expert_name_cn` = '人工智能' 
+WHERE `expert_name` = 'Artificial Intelligence';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'เครือข่ายและความปลอดภัยทางคอมพิวเตอร์', 
+    `expert_name_cn` = '计算机与网络安全' 
+WHERE `expert_name` = 'Computer and Network Security';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การเรียนรู้เชิงลึก', 
+    `expert_name_cn` = '深度学习' 
+WHERE `expert_name` = 'Deep Learning';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การคำนวณแบบคลาวด์', 
+    `expert_name_cn` = '云计算' 
+WHERE `expert_name` = 'Cloud computing';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'อินเทอร์เน็ตของสรรพสิ่งและเทคโนโลยีอัจฉริยะ', 
+    `expert_name_cn` = '物联网与智能技术' 
+WHERE `expert_name` = 'Internet of Things and Smart Technology';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'เครือข่ายไร้สายและเครือข่ายเซลลูลาร์', 
+    `expert_name_cn` = '无线与蜂窝网络' 
+WHERE `expert_name` = 'Wireless and Cellular Networks';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'วิศวกรรมซอฟต์แวร์', 
+    `expert_name_cn` = '软件工程' 
+WHERE `expert_name` = 'Software Engineering';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'ระบบตัวแทนอัจฉริยะบนมือถือและมัลติเอเจนต์', 
+    `expert_name_cn` = '移动代理与多代理系统' 
+WHERE `expert_name` = 'Mobile Agent and Multi-Agent Systems';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การสกัดและบูรณาการข้อมูล', 
+    `expert_name_cn` = '信息提取与集成' 
+WHERE `expert_name` = 'Information Extraction and Integration';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การวิเคราะห์เครือข่ายสังคมออนไลน์', 
+    `expert_name_cn` = '社交网络分析' 
+WHERE `expert_name` = 'Social Network Analysis';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'การเขียนโปรแกรมเชิงวัตถุ', 
+    `expert_name_cn` = '面向对象编程' 
+WHERE `expert_name` = 'Object-Oriented Programming Languages';
+
+UPDATE `expertises` SET 
+    `expert_name_th` = 'โปรโตคอลการกำหนดเส้นทางและอินเทอร์เน็ตเวิร์กกิ้ง', 
+    `expert_name_cn` = '路由协议与互联网络' 
+WHERE `expert_name` = 'Routing Protocols and Internetworking';
