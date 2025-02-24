@@ -224,6 +224,7 @@ if (currentLocale === 'th') {
     var paper_tci = <?php echo $paper_tci; ?>;
     var paper_scopus = <?php echo $paper_scopus; ?>;
     var paper_wos = <?php echo $paper_wos; ?>;
+    var peper_scholar = <?php echo $paper_scholar; ?>;
     var areaChartData = {
 
         labels: year,
@@ -260,6 +261,17 @@ if (currentLocale === 'th') {
                 pointHighlightFill: '#fff',
                 pointHighlightStroke: '#FCC29A',
                 data: paper_wos
+            },
+            {
+                label: 'Google Scholar',
+                backgroundColor: '#FCC29A',
+                borderColor: 'rgb(72, 255, 0)',
+                pointRadius: false,
+                pointColor: '#FCC29A',
+                pointStrokeColor: '#c1c7d1',
+                pointHighlightFill: '#fff',
+                pointHighlightStroke: '#FCC29A',
+                data: peper_scholar
             },
         ]
     }
@@ -326,13 +338,15 @@ if (currentLocale === 'th') {
     var paper_tci = <?php echo $paper_tci_numall; ?>;
     var paper_scopus = <?php echo $paper_scopus_numall; ?>;
     var paper_wos = <?php echo $paper_wos_numall; ?>;
+    var paper_scholar = <?php echo $paper_scholar_numall; ?>;
     //console.log(paper_scopus)
     let sumtci = paper_tci;
     let sumsco = paper_scopus;
     let sumwos = paper_wos;
+    let sumscholar = paper_scholar;
     (function($) {
         
-        let sum = paper_wos + paper_tci + paper_scopus;
+        let sum = paper_wos + paper_tci + paper_scopus + paper_scholar;
         //console.log(sum);
         //$("#scopus").append('data-to="100"');
         document.getElementById("all").innerHTML += `
@@ -351,6 +365,10 @@ if (currentLocale === 'th') {
                 <i class="count-icon fa fa-book fa-2x"></i>
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
+        document.getElementById("scholar").innerHTML += `
+                <i class="count-icon fa fa-book fa-2x"></i>
+                <h2 class="timer count-title count-number" data-to="${sumscholar}" data-speed="1500"></h2>
+                <p class="count-text ">Google Scholar</p>`
         //document.getElementById("scopus").appendChild('data-to="100"');
         $.fn.countTo = function(options) {
             options = options || {};
