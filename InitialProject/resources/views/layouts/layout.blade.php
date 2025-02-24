@@ -56,7 +56,18 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand logo-image" href="#"><img src="{{asset('img/logo2.png')}}" alt="alternative"></a>
+        @php
+            $locale = app()->getLocale();
+        @endphp
+            <a class="navbar-brand logo-image" href="#">
+                @if($locale == 'th')
+                    <img src="{{ asset('/img/th/logo2.png') }}" alt="Logo TH">
+                @elseif($locale == 'cn')
+                    <img src="{{ asset('/img/cn/logo2.png') }}" alt="Logo CN">
+                @else
+                    <img src="{{ asset('/img/en/logo2.png') }}" alt="Logo EN">
+                @endif
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
