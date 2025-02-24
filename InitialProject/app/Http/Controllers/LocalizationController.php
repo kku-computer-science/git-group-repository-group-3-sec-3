@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App;
 use App\Models\ResearchGroup;
 use App\Models\ResearchProject;
 use Illuminate\Support\Facades\Config;
