@@ -74,6 +74,36 @@ return [
 'Action' => 'การกระทำ',
 'Previous' => 'ก่อนหน้า',
 'Next' => 'ถัดไป',
+
+//Add funds
+'Add Fund' => 'เพิ่มทุนวิจัย',
+'Fill in the research fund details' => 'กรอกข้อมูลเกี่ยวกับทุนวิจัย',
+'Type Funds' => 'ประเภททุน',
+'Please specify the type of capital' => '---- กรุณาระบุประเภททุน ----',
+'Internal Capital' => 'ทุนภายใน',
+'External capital' => 'ทุนภายนอก',
+'Level Funds' => 'ระดับทุน',
+'Please specify the level of fund' => '---- กรุณาระบุระดับทุน ----',
+'Not specified' => 'ไม่ได้ระบุ',
+'Low' => 'ต่ำ',
+'Medium' => 'ปานกลาง',
+'High' => 'สูง',
+'Funds Name' => 'ชื่อทุน',
+'Supporting Agencies Research Projects' => 'หน่วยงานที่สนับสนุน / โครงการวิจัย',
+'Submit' => 'ส่ง',
+'Cancel' => 'ยกเลิก',
+
+//fund Detail
+'Fund Detail' => 'รายละเอียดทุนวิจัย',
+'Fund Description' => 'รายละเอียดทุนวิจัย',
+'Description' => 'รายละเอียด',
+'Agency' => 'หน่วยงาน',
+'Add details by' => 'เพิ่มรายละเอียดโดย',
+
+
+//Edit Funds
+'Edit Funds' => 'แก้ไขทุนวิจัย',
+'Fill in the information to edit research fund details.' => 'กรอกข้อมูลแก้ไขรายละเอียดทุนงานวิจัย',
 //------------------------------------
 
 

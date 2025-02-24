@@ -72,6 +72,40 @@ return [
 'Action' => 'Action',
 'Previous' => 'Previous',
 'Next' => 'Next',
+
+
+
+//Add funds
+'Add Fund' => 'Add Fund',
+'Fill in the research fund details' => 'Fill in the research fund details',
+'Type Funds' => 'Type Funds',
+'Please specify the type of capital' => '---- Please specify the type of capital ----',
+'Internal Capital' => 'Internal Capital',
+'External capital' => 'External capital',
+'Level Funds' => 'Level Funds',
+'Please specify the level of fund' => '---- Please specify the level of fund ----',
+'Not specified' => 'Not specified',
+'Low' => 'Low',
+'Medium' => 'Medium',
+'High' => 'High',
+'Funds Name' => 'Funds Name',
+'Supporting Agencies Research Projects' => 'Supporting Agencies / Research Projects',
+'Submit' => 'Submit',
+'Cancel' => 'Cancel',
+
+
+//fund Detail
+'Fund Detail' => 'Fund Detail',
+'Fund Description' => 'Fund Description',
+'Description' => 'Description',
+'Agency' => 'Agency',
+'Add details by' => 'Add details by',
+
+
+//Edit Funds
+'Edit Funds' => 'Edit Fund',
+'Fill in the information to edit research fund details.' => 'Fill in the information to edit research fund details.',
+
 //------------------------------------
 
 
