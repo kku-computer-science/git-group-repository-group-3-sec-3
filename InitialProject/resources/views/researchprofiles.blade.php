@@ -133,102 +133,24 @@
 
         </div>
     </div>
-    @extends('layouts.layout')
-@section('content')
-
-<div class="container card-2">
-    <p class="title">{{ trans('researchers.res') }}</p>
-    <form method="GET" action="" id="languageForm">
-        <select name="lang" id="languageSwitcher" class="form-select">
-            <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
-            <option value="th" {{ app()->getLocale() == 'th' ? 'selected' : '' }}>ไทย</option>
-            <option value="cn" {{ app()->getLocale() == 'cn' ? 'selected' : '' }}>中文</option>
-        </select>
-    </form>
-
-    @foreach($request as $res)
-    <span>
-        <ion-icon name="caret-forward-outline" size="small"></ion-icon>
-        {{ app()->getLocale() == 'en' ? $res->program_name_en : (app()->getLocale() == 'cn' ? $res->program_name_cn : $res->program_name_th) }}
-    </span>
-
-    <div class="d-flex">
-        <div class="ml-auto">
-            <form class="row row-cols-lg-auto g-3" method="GET" action="{{ route('searchresearchers',['id'=>$res->id])}}">
-                <div class="col-md-8">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="textsearch" placeholder="{{ trans('researchers.ph') }}">
-                    </div>
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ความเชี่ยวชาญ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-primary">{{ trans('researchers.serach') }}</button>
+                <div class="modal-body">
+                @foreach($res->expertise as $exper)
+                                <p class="card-text"> {{$exper->expert_name}}</p>
+                                @endforeach
                 </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-2 g-0">
-        @foreach($users as $r)
-        <a href="#" data-bs-toggle="modal" data-bs-target="#expertiseModal{{ $r->id }}">
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-sm-4">
-                        <img class="card-image" src="{{ $r->picture}}" alt="">
-                    </div>
-                    <div class="col-sm-8 overflow-hidden">
-                        <div class="card-body">
-                            @if(app()->getLocale() == 'en')
-                                <h5 class="card-title">{{ $r->fname_en }} {{ $r->lname_en }}</h5>
-                                <h5 class="card-title-2">{{ $r->academic_ranks_en }}</h5>
-                            @elseif(app()->getLocale() == 'cn')
-                                <h5 class="card-title">{{ $r->fname_cn }} {{ $r->lname_cn }}</h5>
-                                <h5 class="card-title-2">{{ $r->academic_ranks_cn }}</h5>
-                            @else
-                                <h5 class="card-title">{{ $r->fname_th }} {{ $r->lname_th }}</h5>
-                            @endif
-
-                            <p class="card-text-1">{{ trans('message.expertise') }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <div class="modal fade" id="expertiseModal{{ $r->id }}" tabindex="-1" aria-labelledby="expertiseModalLabel{{ $r->id }}" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="expertiseModalLabel{{ $r->id }}">{{ trans('message.expertise') }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        @foreach($r->expertise as $exper)
-                            <p class="card-text">
-                                {{ app()->getLocale() == 'cn' ? $exper->expert_name_cn : (app()->getLocale() == 'th' ? $exper->expert_name_th : $exper->expert_name) }}
-                            </p>
-                        @endforeach
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-        @endforeach
-    @endforeach
-    </div>
-</div>
-
-<script>
-    document.getElementById('languageSwitcher').addEventListener('change', function() {
-        let lang = this.value;
-        let url = new URL(window.location.href);
-        url.searchParams.set('lang', lang);
-        window.location.href = url.toString();
-    });
-</script>
-
-@stop
-
+    </div> -->
     <br>
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -490,8 +412,7 @@
                                         {{$author -> fname_th}} {{$author -> lname_th}}
                                         @else
                                         {{$author -> fname_en}} {{$author -> lname_en}}
-                                        @else
-                                        {{$author -> fname_cn}} {{$author -> lname_cn}}
+
                                         @endif
                                     </teacher>
                                 </a>
@@ -502,8 +423,6 @@
                             <!-- {{$paper->paper_type}} -->
                             @if (app()->getLocale() == 'th')
                             {{$paper->paper_type_th}}
-                            @else (app()->getLocale() == 'cn')
-                            {{$paper->paper_type}}
                             @else
                             {{$paper->paper_type}}
 
@@ -571,8 +490,7 @@
                                         {{$author -> fname_th}} {{$author -> lname_th}}
                                         @else
                                         {{$author -> fname_en}} {{$author -> lname_en}}
-                                        @else
-                                        {{$author -> fname_cn}} {{$author -> lname_cn}}
+
                                         @endif
                                     </teacher>
                                 </a>
@@ -583,10 +501,9 @@
                             <!-- {{$paper->paper_type}} -->
                             @if (app()->getLocale() == 'th')
                             {{$paper->paper_type_th}}
-                            @else (app()->getLocale() == 'cn')
-                            {{$paper->paper_type_cn}}
                             @else
                             {{$paper->paper_type}}
+
                             @endif
 
                         </td>
@@ -624,7 +541,7 @@
                             @if (app()->getLocale() == 'th')
                             {{date('Y', strtotime($paper->ac_year))+543 }}
 
-                            @else 
+                            @else
                             {{date('Y', strtotime($paper->ac_year)) }}
 
                             @endif
@@ -643,13 +560,11 @@
                             <span>
                                 <!-- <a> {{$author -> fname_en}} {{$author -> lname_en}}</a> -->
                                 <a>@if (app()->getLocale() == 'th')
-                                        {{ $author->fname_th }} {{ $author->lname_th }}
-                                    @elseif (app()->getLocale() == 'cn')
-                                        {{ $author->fname_cn }} {{ $author->lname_cn }}
+                                    {{$author -> fname_th}} {{$author -> lname_th}}
                                     @else
-                                        {{ $author->fname_en }} {{ $author->lname_en }}
-                                    @endif
+                                    {{$author -> fname_en}} {{$author -> lname_en}}
 
+                                    @endif
                                 </a>
                             </span>
                             @endforeach
@@ -916,6 +831,7 @@
     var paper_wos_s = <?php echo $paper_wos_s; ?>;
     var paper_book_s = <?php echo $paper_book_s; ?>;
     var paper_patent_s = <?php echo $paper_patent_s; ?>;
+    //console.log(paper_book_s);
     let sumtci = 0;
     let sumsco = 0;
     let sumwos = 0;
@@ -1058,66 +974,15 @@
         }
     });
 </script>
-@extends('layouts.layout')
-
-@section('content')
-
-<div class="container cardprofile mt-5">
-    <div class="card">
-        <div class="row g-0">
-            <div class="col-md-2">
-                <img class="card-image" src="{{$res->picture}}" alt="">
-            </div>
-            <div class="col-md-6">
-                <div class="card-body">
-                    <h6 class="card-text">
-                        <b>
-                            @if (app()->getLocale() == 'th')
-                                {{$res->position_th}} {{$res->fname_th}} {{$res->lname_th}}
-                            @elseif (app()->getLocale() == 'cn')
-                                {{$res->position_cn}} {{$res->fname_cn}} {{$res->lname_cn}}
-                            @else
-                                {{$res->fname_en}} {{$res->lname_en}}, {{$res->doctoral_degree ?? ''}}
-                            @endif
-                        </b>
-                    </h6>
-
-                    <h6 class="card-text1">
-                        <b>
-                            {{ app()->getLocale() == 'th' ? $res->academic_ranks_th : (app()->getLocale() == 'cn' ? $res->academic_ranks_cn : $res->academic_ranks_en) }}
-                        </b>
-                    </h6>
-
-                    <h6 class="card-text1">{{ trans('researcherProfile.email') }}: {{$res->email}}</h6>
-                    <h6 class="card-title">{{ trans('message.education') }}</h6>
-
-                    @foreach($res->education as $edu)
-                        <h6 class="card-text2 col-sm-10">
-                            {{ app()->getLocale() == 'th' ? ($edu->year + 543) : $edu->year }}
-                            {{ app()->getLocale() == 'th' ? $edu->qua_name : $edu->qua_name_en }}
-                            {{ app()->getLocale() == 'th' ? $edu->uname : $edu->uname_en }}
-                        </h6>
-                    @endforeach
-
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <h6 class="title-pub">{{ trans('message.publications2') }}</h6>
-                <div class="col-xs-12 text-center bt">
-                    <div class="row text-center">
-                        <div class="col"><div class="count" id='all'></div></div>
-                        <div class="col"><div class="count" id='scopus_sum'></div></div>
-                        <div class="col"><div class="count" id='wos_sum'></div></div>
-                        <div class="col"><div class="count" id='tci_sum'></div></div>
-                    </div>
-                    <br>
-                    <div class="chart">
-                        <canvas id="barChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- <script>
+    // get the p element
+    $(document).ready(function() {
+    const a = document.getElementById('authtd');
+    console.log(a.text)
+    const myArray =  a.text.toString().split(" ");
+    console.log(myArray)
+    document.getElementById("authtd").innerHTML = "name :"+ myArray;
+    
+});
+</script> -->
 @endsection
