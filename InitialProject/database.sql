@@ -5970,3 +5970,154 @@ UPDATE `expertises` SET
     `expert_name_th` = 'โปรโตคอลการกำหนดเส้นทางและอินเทอร์เน็ตเวิร์กกิ้ง', 
     `expert_name_cn` = '路由协议与互联网络' 
 WHERE `expert_name` = 'Routing Protocols and Internetworking';
+
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'เครือข่าย Ad Hoc บนมือถือ',
+        `expert_name_cn` = '移动自组织网络'
+    WHERE `expert_name` = 'Mobile Ad Hoc Networks';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'อินเทอร์เน็ตของสรรพสิ่งและเทคโนโลยีอัจฉริยะ',
+        `expert_name_cn` = '物联网和智能技术'
+    WHERE `expert_name` = 'Internet of Things and Smart Technologies';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'อัลกอริทึมเชิงวิวัฒนาการ',
+        `expert_name_cn` = '进化算法'
+    WHERE `expert_name` = 'Evolutionary Algorithms';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'วิศวกรรมซอฟต์แวร์',
+        `expert_name_cn` = '软件工程'
+    WHERE `expert_name` = 'Software Engineering';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'กระบวนการพัฒนาซอฟต์แวร์',
+        `expert_name_cn` = '软件开发过程'
+    WHERE `expert_name` = 'Software Process';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'กลิ่นโค้ดและคุณภาพซอฟต์แวร์',
+        `expert_name_cn` = '代码异味与软件质量'
+    WHERE `expert_name` = 'Code Smells and Software Quality';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'วิศวกรรมซอฟต์แวร์ที่ปลอดภัย',
+        `expert_name_cn` = '安全软件工程'
+    WHERE `expert_name` = 'Secure Software Engineering';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'ความปลอดภัยเครือข่ายคอมพิวเตอร์',
+        `expert_name_cn` = '计算机网络安全'
+    WHERE `expert_name` = 'Computer Network Security';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'ตัวแทนอัจฉริยะบนมือถือและระบบหลายตัวแทน',
+        `expert_name_cn` = '移动代理与多代理系统'
+    WHERE `expert_name` = 'Mobile Agent and Multi-Agent Systems';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การสกัดและรวมข้อมูล',
+        `expert_name_cn` = '信息提取与集成'
+    WHERE `expert_name` = 'Information Extraction and Integration';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'ระบบสารสนเทศอินเทอร์เน็ตและเว็บ',
+        `expert_name_cn` = '互联网和网页信息系统'
+    WHERE `expert_name` = 'Internet and Web Information Systems';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การเขียนโปรแกรมเชิงวัตถุ',
+        `expert_name_cn` = '面向对象编程'
+    WHERE `expert_name` = 'Object Oriented Programming';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การวิเคราะห์เหตุและผลเชิงเวลา',
+        `expert_name_cn` = '时间因果分析'
+    WHERE `expert_name` = 'Temporal Causality Analysis';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'ทฤษฎีสารสนเทศ',
+        `expert_name_cn` = '信息理论'
+    WHERE `expert_name` = 'Information Theory';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การวิเคราะห์เครือข่ายสังคม',
+        `expert_name_cn` = '社交网络分析'
+    WHERE `expert_name` = 'Social Network Analysis';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การเรียนรู้ของเครื่อง',
+        `expert_name_cn` = '机器学习'
+    WHERE `expert_name` = 'Machine Learning';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'ปัญญาประดิษฐ์',
+        `expert_name_cn` = '人工智能'
+    WHERE `expert_name` = 'Artificial Intelligence';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'ระบบปรับตัวที่ซับซ้อน',
+        `expert_name_cn` = '复杂适应系统'
+    WHERE `expert_name` = 'Complex Adaptive System';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การมองเห็นของคอมพิวเตอร์',
+        `expert_name_cn` = '计算机视觉'
+    WHERE `expert_name` = 'Computer Vision';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การเรียนรู้เชิงลึก',
+        `expert_name_cn` = '深度学习'
+    WHERE `expert_name` = 'Deep Learning';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'วิทยาศาสตร์ข้อมูล',
+        `expert_name_cn` = '数据科学'
+    WHERE `expert_name` = 'Data science';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การวิเคราะห์ข้อมูลขนาดใหญ่',
+        `expert_name_cn` = '大数据分析'
+    WHERE `expert_name` = 'Big Data Analytics';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'เว็บเชิงความหมายและวิศวกรรมออนโทโลยี',
+        `expert_name_cn` = '语义网和本体工程'
+    WHERE `expert_name` = 'Semantic Web and Ontology Engineering';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การรวมข้อมูลบนพื้นฐานออนโทโลยี',
+        `expert_name_cn` = '基于本体的数据集成'
+    WHERE `expert_name` = 'Ontology-based Data Integration';
+    
+
+    UPDATE `expertises`
+    SET `expert_name_th` = 'การวิเคราะห์อารมณ์เชิงความหมาย',
+        `expert_name_cn` = '语义情感分析'
+    WHERE `expert_name` = 'Semantic Sentiment Analysis';
+    

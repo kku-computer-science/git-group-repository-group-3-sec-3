@@ -17,7 +17,7 @@
             <div class="card" style="padding: 16px;">
                 <div class="card-body">
                     <h4 class="card-title mb-5">เพิ่มผู้ใช้งาน</h4>
-                    <p class="card-description">กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน</p>
+                    <p class="card-description">กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน</p> 
                     {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
                     <div class="form-group row">
                         <div class="col-sm-6">
