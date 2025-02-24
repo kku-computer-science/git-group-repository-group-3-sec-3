@@ -122,6 +122,7 @@ class HomeController extends Controller
         $paper_tci = [];
         $paper_scopus = [];
         $paper_wos = [];
+        $paper_scholar = [];
 
         foreach ($year as $key => $value) {
             $paper_scopus[] = Paper::whereHas('source', function ($query) {
@@ -143,6 +144,11 @@ class HomeController extends Controller
                 return $query->where('source_data_id', '=', 2);
             })->whereIn('paper_type', ['Conference Proceeding', 'Journal'])
                 ->where(DB::raw('(paper_yearpub)'), $value)->count();
+        }
+        foreach ($year as $key => $value) {
+            $paper_scholar[] = Paper::whereHas('source', function ($query) {
+                return $query->where('source_data_id', '=', 5);
+            })->where(DB::raw('(paper_yearpub)'), $value)->count();
         }
         //return $paper_tci;
         //---------------------------------//
