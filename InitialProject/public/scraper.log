@@ -123,3 +123,38 @@
 2025-02-12 18:24:25,779 INFO: Get LATEST chromedriver version for google-chrome
 2025-02-12 18:24:25,834 INFO: Get LATEST chromedriver version for google-chrome
 2025-02-12 18:24:25,897 INFO: Driver [C:\Users\aekka\.wdm\drivers\chromedriver\win64\133.0.6943.53\chromedriver-win32/chromedriver.exe] found in cache
+2025-02-12 23:00:20,844 INFO: Searching for author: Sartra Wongthanavasu
+2025-02-12 23:00:20,845 INFO: ====== WebDriver manager ======
+2025-02-12 23:00:21,781 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-12 23:00:22,120 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-12 23:00:22,438 INFO: Driver [C:\Users\aekka\.wdm\drivers\chromedriver\win64\133.0.6943.53\chromedriver-win32/chromedriver.exe] found in cache
+2025-02-12 23:09:23,523 INFO: Searching for author: Sirapat Chiewchanwattana
+2025-02-12 23:09:23,523 INFO: ====== WebDriver manager ======
+2025-02-12 23:09:24,153 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-12 23:09:24,818 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-12 23:09:24,998 INFO: Driver [C:\Users\aekka\.wdm\drivers\chromedriver\win64\133.0.6943.53\chromedriver-win32/chromedriver.exe] found in cache
+2025-02-12 23:14:56,556 INFO: Searching for author (English): Sirapat Chiewchanwattana
+2025-02-12 23:14:56,556 INFO: Searching for author (Thai): \u0e2a\u0e34\u0e23\u0e20\u0e31\u0e17\u0e23 \u0e40\u0e0a\u0e35\u0e48\u0e22\u0e27\u0e0a\u0e32\u0e0d\u0e27\u0e31\u0e12\u0e19\u0e32
+2025-02-12 23:14:56,558 INFO: ====== WebDriver manager ======
+2025-02-12 23:14:57,266 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-12 23:14:57,429 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-12 23:14:57,638 INFO: Driver [C:\Users\aekka\.wdm\drivers\chromedriver\win64\133.0.6943.53\chromedriver-win32/chromedriver.exe] found in cache
+2025-02-12 23:19:00,708 INFO: Searching for author (English): Sirapat Chiewchanwattana
+2025-02-12 23:19:00,708 INFO: Searching for author (Thai): \u0e2a\u0e34\u0e23\u0e20\u0e31\u0e17\u0e23 \u0e40\u0e0a\u0e35\u0e48\u0e22\u0e27\u0e0a\u0e32\u0e0d\u0e27\u0e31\u0e12\u0e19\u0e32
+2025-02-12 23:19:00,708 INFO: ====== WebDriver manager ======
+2025-02-12 23:19:01,375 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-12 23:19:01,541 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-12 23:19:01,674 INFO: Driver [C:\Users\aekka\.wdm\drivers\chromedriver\win64\133.0.6943.53\chromedriver-win32/chromedriver.exe] found in cache
+2025-02-24 19:54:45,179 INFO: Searching for author (English): Sartra Wongthanavasu
+2025-02-24 19:54:45,180 INFO: Searching for author (Thai): \u0e28\u0e32\u0e2a\u0e15\u0e23\u0e32 \u0e27\u0e07\u0e28\u0e4c\u0e18\u0e19\u0e27\u0e2a\u0e38
+2025-02-24 19:54:45,180 INFO: ====== WebDriver manager ======
+2025-02-24 19:54:45,896 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-24 19:54:45,999 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-24 19:54:46,050 INFO: There is no [win64] chromedriver "133.0.6943.126" for browser google-chrome "133.0.6943" in cache
+2025-02-24 19:54:46,050 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-24 19:54:46,443 INFO: WebDriver version 133.0.6943.126 selected
+2025-02-24 19:54:46,445 INFO: Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/win32/chromedriver-win32.zip
+2025-02-24 19:54:46,445 INFO: About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/win32/chromedriver-win32.zip
+2025-02-24 19:54:46,654 INFO: Driver downloading response is 200
+2025-02-24 19:54:48,041 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-24 19:54:48,345 INFO: Driver has been saved in cache [C:\Users\aekka\.wdm\drivers\chromedriver\win64\133.0.6943.126]

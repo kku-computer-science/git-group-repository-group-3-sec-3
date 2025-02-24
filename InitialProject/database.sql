@@ -2374,29 +2374,29 @@ CREATE TABLE `files` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funds`
+-- Table structure for table funds
 --
 
-CREATE TABLE `funds` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `fund_name` text NOT NULL,
-  `fund_details` text DEFAULT NULL,
-  `fund_type` varchar(10) NOT NULL,
-  `fund_type_en` varchar(20) NOT NULL,
-  `fund_level` varchar(10) DEFAULT NULL,
-  `fund_agency` varchar(150) DEFAULT NULL,
-  `support_resource` varchar(150) DEFAULT NULL,
-  `support_resource_en` varchar(150) DEFAULT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE funds (
+  id bigint(20) UNSIGNED NOT NULL,
+  fund_name text NOT NULL,
+  fund_details text DEFAULT NULL,
+  fund_type varchar(10) NOT NULL,
+  fund_type_en varchar(20) NOT NULL,
+  fund_level varchar(10) DEFAULT NULL,
+  fund_agency varchar(150) DEFAULT NULL,
+  support_resource varchar(150) DEFAULT NULL,
+  support_resource_en varchar(150) DEFAULT NULL,
+  user_id bigint(20) UNSIGNED DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `funds`
+-- Dumping data for table funds
 --
 
-INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_type_en`, `fund_level`, `fund_agency`, `support_resource`, `support_resource_en`, `user_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO funds (id, fund_name, fund_details, fund_type, fund_type_en, fund_level, fund_agency, support_resource, support_resource_en, user_id, created_at, updated_at) VALUES
 (2, 'Statistical Thai – Isarn Dialect Machine Translation System using Parallel Corpus', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 16, '2022-05-04 12:28:09', '2022-05-04 12:28:09'),
 (4, 'นวัตกรรมดัชนีสุขภาพของประชากรไทยโดยวิทยาการข้อมูลเพื่อประโยชน์ในการปรับเปลี่ยนพฤติกรรม', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 34, '2022-05-04 13:23:28', '2022-05-04 13:23:28'),
 (5, 'Morphological analysis for edible mushrooms using artificial neural networks ANN Model', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:20:53', '2022-05-08 06:20:53'),
@@ -2412,7 +2412,7 @@ INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_type_
 (15, 'การจัดอบรมหลักสูตรประกาศนียบัตร (Non-Degree) โครงการพัฒนาทักษะกำลังคนของประเทศ (Reskill/Upskill/Newskill) เพื่อการมีงานทำและเตรียมความพร้อมรองรับการทำงานในอนาคตหลังวิกฤตการระบาดของไวรัสโคโรนา 2019 (COVID-19)', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'สำนักงานปลัดกระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม', 'Office of the Permanent Secretary (OPS) , MHESI Thailand', 1, '2022-05-15 05:37:19', '2022-05-15 05:37:19'),
 (16, 'ทุน สกว. ฝ่ายอุตสาหกรรม', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:10:05', '2022-05-15 06:10:05'),
 (17, 'ทุนอุดหนุนการวิจัย มข. ประเภทบูรณาการวิจัยและนวัตกรรม', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'สำนักงานคณะกรรมการวิจัยแห่งชาติ', 'National Research Council of Thailand (NRCT)', 1, '2022-05-15 06:16:38', '2022-05-15 06:16:38'),
-(18, 'ทุนวิจัย CEMB  (โครงการย่อยที่ 1)', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:21:33', '2022-05-15 06:21:33'),
+(18, 'ทุนวิจัย CEMB  (โครงการย่อยที่ 1)', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:21:33', '2022-05-15 06:21:33'),
 (19, 'ERASMUS+ : Curriculum Development in Data Science and Artificial Intelligence/DS&AI', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:25:30', '2022-05-15 06:25:30'),
 (20, '“เครือข่ายวิจัยเทคโนโลยีทันสมัยของเครือข่ายอันชาญฉลาดที่แพร่หลาย” (Pervasive inteLligent and Network Emerging Technology (PLANET))', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:29:50', '2022-05-15 06:29:50'),
 (21, 'โครงการจัดการพลังงานที่มีประสิทธิภาพ ในเครือข่ายเซ็นเซอร์ไร้สายแบบเติมได้', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:31:07', '2022-05-15 06:31:07'),
@@ -2426,7 +2426,6 @@ INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_type_
 (29, 'ทุนสนับสนุนการวิจัยปีงบประมาณ 2564', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'คณะวิทยาศาสตร์ มข.', 'Faculty od Science,KKU', 22, '2022-05-16 07:21:18', '2022-05-16 07:21:18'),
 (30, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'Internal funding', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 'College of Computing,KKU', 6, '2022-05-18 05:02:56', '2022-05-18 05:02:56'),
 (31, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'Internal funding', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 'College of Computing,KKU', 6, '2022-05-18 05:03:05', '2022-05-18 05:03:05');
-
 -- --------------------------------------------------------
 
 --

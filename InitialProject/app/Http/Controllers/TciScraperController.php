@@ -40,18 +40,23 @@ class TciScraperController extends Controller
             return redirect()->back()->with('error', 'User not found');
         }
 
+        // ดึงชื่อภาษาอังกฤษ
         $fname = $user->fname_en;
         $lname = $user->lname_en;
+        // สมมุติว่าในตาราง User มีชื่อภาษาไทยด้วย
+        $fname_th = isset($user->fname_th) ? $user->fname_th : '';
+        $lname_th = isset($user->lname_th) ? $user->lname_th : '';
+
         $fullName = trim($fname . ' ' . $lname);
-        // Comment out log นี้หากไม่ต้องการให้แสดง
-        // Log::info("TciScraperController: Starting scraping for teacher: " . $fullName);
+        Log::info("TciScraperController: Starting scraping for teacher: " . $fullName);
 
         // กำหนด path ของ Python script (ตรวจสอบว่าอยู่ในโฟลเดอร์ scripts)
         $pythonScript = base_path('scripts' . DIRECTORY_SEPARATOR . 'web_scraper.py');
 
-        // สร้างคำสั่งรัน Python script (สำหรับ Windows ใช้ 'python')
+        // สร้างคำสั่งรัน Python script พร้อมส่งพารามิเตอร์ทั้งภาษาอังกฤษและภาษาไทย
         $cmd = "python " . escapeshellarg($pythonScript) . " " 
-             . escapeshellarg($fname) . " " . escapeshellarg($lname) . " 2>&1";
+             . escapeshellarg($fname) . " " . escapeshellarg($lname) . " " 
+             . escapeshellarg($fname_th) . " " . escapeshellarg($lname_th) . " 2>&1";
         Log::info("TciScraperController: Running command: " . $cmd);
 
         $output = shell_exec($cmd);
@@ -83,12 +88,13 @@ class TciScraperController extends Controller
 
         $importedCount = 0;
         foreach ($data as $item) {
-            $title = $this->emptyToNull($item['title']);
+            // ใช้ title_th ถ้ามี ถ้าไม่มีให้ใช้ title_eng
+            $title = $this->emptyToNull(isset($item['title_th']) && $item['title_th'] ? $item['title_th'] : $item['title_eng']);
             if (!$title) {
                 continue;
             }
 
-            // Duplicate check แบบโค้ดเก่า: ใช้ paper_name ตรงกัน (ไม่เปลี่ยน caseหรือ trimเพิ่มเติม)
+            // Duplicate check แบบเดิม: ใช้ paper_name ตรงกัน (ไม่เปลี่ยน case หรือ trim เพิ่มเติม)
             $existingPaper = Paper::where('paper_name', $title)->first();
             if (!$existingPaper) {
                 $paper = new Paper;
@@ -103,8 +109,15 @@ class TciScraperController extends Controller
                 $paper->paper_url          = $this->emptyToNull($item['article_url']);
                 $paper->paper_doi          = $this->emptyToNull($item['doi']);
                 $paper->paper_citation     = $this->emptyToNull($item['citation_count']);
-                $paper->abstract           = $this->emptyToNull($item['abstract']);
-                $paper->keyword            = $this->emptyToNull($item['keywords']);
+
+                // ใช้ abstract จากภาษาไทยถ้ามี ไม่เช่นนั้นใช้ภาษาอังกฤษ
+                $abstract = $this->emptyToNull(isset($item['abstract_th']) && $item['abstract_th'] ? $item['abstract_th'] : $item['abstract_eng']);
+                $paper->abstract           = $abstract;
+
+                // ใช้ keywords จากภาษาไทยถ้ามี ไม่เช่นนั้นใช้ภาษาอังกฤษ
+                $keywords = $this->emptyToNull(isset($item['keywords_th']) && $item['keywords_th'] ? $item['keywords_th'] : $item['keywords_eng']);
+                $paper->keyword            = $keywords;
+
                 $paper->save();
                 $importedCount++;
 
@@ -120,7 +133,7 @@ class TciScraperController extends Controller
                 // ประมวลผล Authors จาก key "authors" ใน JSON
                 if (isset($item['authors']) && is_array($item['authors']) && count($item['authors']) > 0) {
                     $allAuthorsRaw = [];
-                    // Loop ผ่านทุก elementใน authors array
+                    // Loop ผ่านทุก element ใน authors array
                     foreach ($item['authors'] as $authString) {
                         // Explode ด้วย comma
                         $names = explode(',', $authString);
