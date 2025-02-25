@@ -32,6 +32,7 @@
         color: #4ad1e5;
     }
 </style>
+
 @section('content')
 <div class="container home">
     <div class="container d-sm-flex justify-content-center mt-5">
@@ -42,12 +43,16 @@
                 <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                 aria-label="Slide 3"></button> -->
             </div>
+
+            @php
+                $locale = app()->getLocale();
+            @endphp
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('img/Banner1.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{ asset("img/$locale/Banner1.png") }}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/Banner2.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{ asset("img/$locale/Banner2.png") }}" class="d-block w-100" alt="...">
                 </div>
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">

@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Test suite to verify translation on the home page.
+Documentation    Test suite for verifying translation on the home page including Banner image.
 Library          SeleniumLibrary
 Library          String
 Test Teardown    Close Browser
@@ -58,69 +58,96 @@ Verify Page Contains Texts
         Should Contain    ${html_source}    ${text}
     END
 
+Verify Banner For Language
+    [Arguments]    ${lang_code}
+    # ดึง src attribute ของ Banner แรกใน carousel
+    ${banner_src}=    Get Element Attribute    xpath=//div[@class="carousel-inner"]/div[1]/img    src
+    Log    Banner src is: ${banner_src}
+    # ตรวจสอบว่า src มี path ที่ตรงกับโฟลเดอร์ของภาษาที่คาดหวัง (เช่น /img/th/Banner)
+    Should Contain    ${banner_src}    /img/${lang_code}/Banner
+
 *** Test Cases ***
 Thai To English
-    [Documentation]    Starting from default Thai, switch to English and verify.
+    [Documentation]    Starting from default Thai, switch to English and verify texts and banner.
     Open Browser To Home Page
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Banner For Language    th
     Wait And Click    ${LANG_TO_ENGLISH}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+    Verify Banner For Language    en
 
 Thai To Chinese
-    [Documentation]    Starting from default Thai, switch to Chinese and verify.
+    [Documentation]    Starting from default Thai, switch to Chinese and verify texts and banner.
     Open Browser To Home Page
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Banner For Language    th
     Wait And Click    ${LANG_TO_CHINESE}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+    Verify Banner For Language    cn
 
 English To Chinese
-    [Documentation]    Switch from Thai to English then to Chinese.
+    [Documentation]    Switch from Thai to English then to Chinese, verify texts and banner.
     Open Browser To Home Page
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Banner For Language    th
     Wait And Click    ${LANG_TO_ENGLISH}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+    Verify Banner For Language    en
     Wait And Click    ${LANG_TO_CHINESE}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+    Verify Banner For Language    cn
 
 Chinese To Thai
-    [Documentation]    Switch from Thai to Chinese then back to Thai.
+    [Documentation]    Switch from Thai to Chinese then back to Thai, verify texts and banner.
     Open Browser To Home Page
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Banner For Language    th
     Wait And Click    ${LANG_TO_CHINESE}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+    Verify Banner For Language    cn
     Wait And Click    ${LANG_TO_THAI}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Banner For Language    th
 
 English To Thai
-    [Documentation]    Switch from Thai to English then back to Thai.
+    [Documentation]    Switch from Thai to English then back to Thai, verify texts and banner.
     Open Browser To Home Page
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Banner For Language    th
     Wait And Click    ${LANG_TO_ENGLISH}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+    Verify Banner For Language    en
     Wait And Click    ${LANG_TO_THAI}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Banner For Language    th
 
 Chinese To English
-    [Documentation]    Switch from Thai to Chinese then to English.
+    [Documentation]    Switch from Thai to Chinese then to English, verify texts and banner.
     Open Browser To Home Page
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
+    Verify Banner For Language    th
     Wait And Click    ${LANG_TO_CHINESE}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
+    Verify Banner For Language    cn
     Wait And Click    ${LANG_TO_ENGLISH}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+    Verify Banner For Language    en
+
+
+#Test_Complete
