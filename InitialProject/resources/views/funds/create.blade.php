@@ -37,7 +37,7 @@
                             <select name="fund_type" class="custom-select my-select" id="fund_type" onchange='toggleDropdown(this);' required>
                                 <option value="" disabled selected >{{ trans('dashboard.Please specify the type of capital') }}</option>
                                 <option value="ทุนภายใน">{{ trans('dashboard.Internal Capital') }}</option>
-                                <option value="ทุนภายนอก">{{ trans('dashboard.External Capital') }}</option>
+                                <option value="ทุนภายนอก">{{ trans('dashboard.External capital') }}</option>
                             </select>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                     <div class="form-group row">
                         <label for="exampleInputsupport_resource" class="col-sm-2 ">{{ trans('dashboard.Supporting Agencies Research Projects') }}</label>
                         <div class="col-sm-8">
-                            <input type="text" name="support_resource" class="form-control" placeholder="Support Resource">
+                            <input type="text" name="support_resource" class="form-control" placeholder="{{ trans('dashboard.Supporting Agencies Research Projects') }}">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2">{{ trans('dashboard.Submit') }}</button>

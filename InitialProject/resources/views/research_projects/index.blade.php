@@ -2,136 +2,195 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
+
 @section('title','Project')
 
 @section('content')
-
 <div class="container">
-
     @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">โครงการวิจัย</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD</a>
-            <!-- <div class="table-responsive"> -->
-                <table id="example1" class="table table-striped">
-                    <thead>
+            <h4 class="card-title">{{ trans('dashboard.Reseach Project') }}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}">
+                <i class="mdi mdi-plus btn-icon-prepend"></i> {{ trans('dashboard.Add') }}
+            </a>
+            <table id="example1" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{ trans('dashboard.Reseach Project') }}</th>
+                        <th>{{ trans('dashboard.Year') }}</th>
+                        <th>{{ trans('dashboard.Project Name') }}</th>
+                        <th>{{ trans('dashboard.Head') }}</th>
+                        <th>{{ trans('dashboard.Member') }}</th>
+                        <th width="auto">{{ trans('dashboard.Action') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php
+                        // ตรวจสอบ locale
+                        $locale = app()->getLocale();
+                    @endphp
+                    @foreach ($researchProjects as $i => $researchProject)
                         <tr>
-                            <th>No.</th>
-                            <th>Year</th>
-                            <th>Project name</th>
-                            <th>Head</th>
-                            <th>Member</th>
-                            <th width="auto">Action</th>
-                        </tr>
-                        <thead>
-                        <tbody>
-                            @foreach ($researchProjects as $i=>$researchProject)
-                            <tr>
-                                <td>{{ $i+1 }}</td>
-                                <td>{{ $researchProject->project_year }}</td>
-                                {{-- <td>{{ $researchProject->project_name }}</td> --}}
-                                <td>{{ Str::limit($researchProject->project_name,70) }}</td>
-                                <td>
-                                    @foreach($researchProject->user as $user)
-                                    @if ( $user->pivot->role == 1)
-                                    {{ $user->fname_en}}
+                            <td>{{ $i + 1 }}</td>
+                            <td>{{ $researchProject->project_year }}</td>
+                            <td>{{ Str::limit($researchProject->project_name,70) }}</td>
+                            
+                            <!-- หัวหน้า (role = 1) -->
+                            <td>
+                                @foreach($researchProject->user as $user)
+                                    @if ($user->pivot->role == 1)
+                                        @if($locale == 'th')
+                                            {{ $user->fname_th }} {{ $user->lname_th }}
+                                        @else
+                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                        @endif
                                     @endif
+                                @endforeach
+                            </td>
 
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach($researchProject->user as $user)
-                                    @if ( $user->pivot->role == 2)
-                                    {{ $user->fname_en}}
+                            <!-- สมาชิก (role = 2) -->
+                            <td>
+                                @foreach($researchProject->user as $user)
+                                    @if ($user->pivot->role == 2)
+                                        @if($locale == 'th')
+                                            {{ $user->fname_th }} {{ $user->lname_th }}
+                                        @else
+                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                        @endif
                                     @endif
+                                @endforeach
+                            </td>
 
-                                    @endforeach
-                                </td>
-                                <td>
-                                    <form action="{{ route('researchProjects.destroy',$researchProject->id) }}"method="POST">
+                            <td>
+                                <form action="{{ route('researchProjects.destroy',$researchProject->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
                                     <li class="list-inline-item">
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="view"
-                                            href="{{ route('researchProjects.show',$researchProject->id) }}"><i
-                                                class="mdi mdi-eye"></i></a>
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view"
+                                           href="{{ route('researchProjects.show',$researchProject->id) }}">
+                                           <i class="mdi mdi-eye"></i>
+                                        </a>
                                     </li>
-                                        <!-- @if(Auth::user()->can('update',$researchProject))
-                                <a class="btn btn-primary"
-                                    href="{{ route('researchProjects.edit',$researchProject->id) }}">Edit</a>
-                                @endif -->
-                               
-                                        @if(Auth::user()->can('update',$researchProject)) 
+                                    @if(Auth::user()->can('update',$researchProject))
                                         <li class="list-inline-item">
-                                        <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip"
-                                            data-placement="top" title="Edit"
-                                            href="{{ route('researchProjects.edit',$researchProject->id) }}"><i
-                                                class="mdi mdi-pencil"></i></a>
-                                             </li>
-                                        @endif
-                               
-                                        @if(Auth::user()->can('delete',$researchProject))
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <li class="list-inline-item">
-                                            <button class="btn btn-outline-danger btn-sm show_confirm" type="submit"
-                                                data-toggle="tooltip" data-placement="top" title="Delete"><i
-                                                    class="mdi mdi-delete"></i></button>
+                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit"
+                                               href="{{ route('researchProjects.edit',$researchProject->id) }}">
+                                               <i class="mdi mdi-pencil"></i>
+                                            </a>
                                         </li>
-                                        @endif
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                    <tbody>
-                        
-                </table>
-            <!-- </div> -->
+                                    @endif
+                                    @if(Auth::user()->can('delete',$researchProject))
+                                        <li class="list-inline-item">
+                                            <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <i class="mdi mdi-delete"></i>
+                                            </button>
+                                        </li>
+                                    @endif
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
             <br>
-            
         </div>
     </div>
-    
-
 </div>
+
+<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
-<script src = "https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer ></script>
-<script src = "https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer ></script>
+<script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
+<script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
+<script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script>
     $(document).ready(function() {
+        // ดึง locale จาก Blade
+        let locale = "{{ app()->getLocale() }}";
+
+        // สร้าง object languageSettings สำหรับ DataTables
+        let languageSettings = {};
+
+        if (locale === 'en') {
+            languageSettings = {
+                lengthMenu: "Show _MENU_ entries",
+                zeroRecords: "No matching records found",
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                infoEmpty: "No records available",
+                infoFiltered: "(filtered from _MAX_ total records)",
+                search: "Search:",
+                paginate: {
+                    first: "First",
+                    last: "Last",
+                    next: "Next",
+                    previous: "Previous"
+                }
+            };
+        } else if (locale === 'cn') {
+            languageSettings = {
+                lengthMenu: "显示 _MENU_ 条目",
+                zeroRecords: "未找到匹配的记录",
+                info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                infoEmpty: "没有可用记录",
+                infoFiltered: "(从 _MAX_ 条记录中过滤)",
+                search: "搜索:",
+                paginate: {
+                    first: "首页",
+                    last: "末页",
+                    next: "下页",
+                    previous: "上页"
+                }
+            };
+        } else {
+            // สมมติว่าถ้าเป็น 'th' หรือภาษาอื่น ใช้ภาษาไทย
+            languageSettings = {
+                lengthMenu: "แสดง _MENU_ รายการ",
+                zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
+                info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
+                infoEmpty: "ไม่มีข้อมูล",
+                infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
+                search: "ค้นหา:",
+                paginate: {
+                    first: "หน้าแรก",
+                    last: "หน้าสุดท้าย",
+                    next: "ถัดไป",
+                    previous: "ก่อนหน้า"
+                }
+            };
+        }
+
         var table1 = $('#example1').DataTable({
             responsive: true,
+            language: languageSettings
         });
     });
 </script>
+
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
-        var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Delete Successfully", {
-                        icon: "success",
-                    }).then(function() {
-                        location.reload();
-                        form.submit();
-                    });
-                }
-            });
+            title: "Are you sure?",
+            text: "If you delete this, it will be gone forever.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("Delete Successfully", {
+                    icon: "success",
+                }).then(function() {
+                    location.reload();
+                    form.submit();
+                });
+            }
+        });
     });
 </script>
 @stop

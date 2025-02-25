@@ -36,7 +36,7 @@
                         <div class="col-sm-4">
                             <select name="fund_type" class="custom-select my-select" id="fund_type" onchange='toggleDropdown(this);' required>
                                 <option value="ทุนภายใน" {{ $fund->fund_type == 'ทุนภายใน' ? 'selected' : '' }}>{{ trans('dashboard.Internal Capital') }}</option>
-                                <option value="ทุนภายนอก" {{ $fund->fund_type == 'ทุนภายนอก' ? 'selected' : '' }}>{{ trans('dashboard.External Capital') }}</option>
+                                <option value="ทุนภายนอก" {{ $fund->fund_type == 'ทุนภายนอก' ? 'selected' : '' }}>{{ trans('dashboard.External capital') }}</option>
                             </select>
                         </div>
                     </div>

@@ -1,7 +1,8 @@
 @extends('dashboards.users.layouts.user-dash-layout')
+
 @section('content')
 <style>
-.my-select {
+    .my-select {
         background-color: #fff;
         color: #212529;
         border: #000 0.2 solid;
@@ -19,7 +20,7 @@
 
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ trans('dashboard.Whoops!') }}</strong> {{ trans('dashboard.There were some problems with your input.') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -30,159 +31,130 @@
     <div class="col-md-8 grid-margin stretch-card">
         <div class="card" style="padding: 16px;">
             <div class="card-body">
-                <h4 class="card-title">แก้ไขรายละเอียด</h4>
-                <p class="card-description">กรอกข้อมูลรายละเอียดงานสิทธิบัตร</p>
-                <form class="forms-sample" action="{{ route('patents.update',$patent->id) }}" method="POST">
+                <h4 class="card-title">{{ trans('dashboard.Edit Patent Detail') }}</h4>
+                <p class="card-description">{{ trans('dashboard.Enter Patent Information') }}</p>
+                <form class="forms-sample" action="{{ route('patents.update', $patent->id) }}" method="POST">
                     @csrf
                     @method('PUT')
+                    <!-- Title -->
                     <div class="form-group row">
-                        <label for="exampleInputac_name" class="col-sm-3 col-form-label">ชื่อ</label>
+                        <label for="exampleInputac_name" class="col-sm-3 col-form-label">{{ trans('dashboard.Title') }}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_name" value="{{ $patent->ac_name }}" class="form-control" placeholder="Name">
+                            <input type="text" name="ac_name" value="{{ $patent->ac_name }}" class="form-control" placeholder="{{ trans('dashboard.Title') }}">
                         </div>
                     </div>
+                    <!-- Type -->
                     <div class="form-group row">
-                        <label for="exampleInputac_type" class="col-sm-3 col-form-label">ประเภท</label>
+                        <label for="exampleInputac_type" class="col-sm-3 col-form-label">{{ trans('dashboard.Type') }}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_type" value="{{ $patent->ac_type }}" class="form-control" placeholder="ac_type">
+                            <input type="text" name="ac_type" value="{{ $patent->ac_type }}" class="form-control" placeholder="{{ trans('dashboard.Type') }}">
                         </div>
                     </div>
+                    <!-- Registration Date -->
                     <div class="form-group row">
-                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">วันที่ได้รับลิขสิทธิ์</label>
+                        <label for="exampleInputac_year" class="col-sm-3 col-form-label">{{ trans('dashboard.Registration Date') }}</label>
                         <div class="col-sm-9">
-                            <input type="date" name="ac_year" value="{{ $patent->ac_year }}" class="form-control" placeholder="ac_year">
+                            <input type="date" name="ac_year" value="{{ $patent->ac_year }}" class="form-control" placeholder="{{ trans('dashboard.Registration Date') }}">
                         </div>
                     </div>
+                    <!-- Registration Number -->
                     <div class="form-group row">
-                        <label for="exampleInputac_refnumber" class="col-sm-3 col-form-label">เลขทะเบียน</label>
+                        <label for="exampleInputac_refnumber" class="col-sm-3 col-form-label">{{ trans('dashboard.Registration Number') }}</label>
                         <div class="col-sm-9">
-                            <input type="text" name="ac_refnumber" value="{{ $patent->ac_refnumber }}" class="form-control" placeholder="เลขทะเบียน">
+                            <input type="text" name="ac_refnumber" value="{{ $patent->ac_refnumber }}" class="form-control" placeholder="{{ trans('dashboard.Registration Number') }}">
                         </div>
                     </div>
-                    <!-- <div class="form-group row">
-                        <label for="exampleInputac_author" class="col-sm-3 col-form-label">ชื่อผู้รับผิดชอบ</label>
-                        <div class="col-sm-9">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dynamic_field">
-                                    <tr>
-                                        <td></td>
-                                        
-                                        <td><button type="button" name="add" id="add" class="btn btn-success btn-sm add"><i class="fas fa-plus"></i></button></td>
-                                    </tr>
-                                </table>
-                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> 
-                            </div>
-                        </div>
-                    </div> -->
+                    <!-- Internal Faculty -->
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">อาจารย์ในสาขา</label>
+                        <label class="col-sm-3 col-form-label">{{ trans('dashboard.Internal Faculty') }}</label>
                         <div class="col-sm-9">
-                            <table class="table table-bordered " id="dynamicAddRemove">
+                            <table class="table table-bordered" id="dynamicAddRemove">
                                 <tr>
-                                    <th><button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm add"><i class="mdi mdi-plus"></i></button>
+                                    <th>
+                                        <button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm add">
+                                            <i class="mdi mdi-plus"></i>
+                                        </button>
                                     </th>
                                 </tr>
                             </table>
                         </div>
                     </div>
+                    <!-- External Faculty -->
                     <div class="form-group row">
-                        <label for="exampleInput" class="col-sm-3 ">บุคลลภายนอก</label>
+                        <label for="exampleInput" class="col-sm-3">{{ trans('dashboard.External Faculty') }}</label>
                         <div class="col-sm-9">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamic_field">
-                                    
-                                    <tr>  
-                                        <td><button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
-                                        </td>  
+                                    <tr>
+                                        <td>
+                                            <button type="button" name="add" id="add" class="btn btn-success btn-sm">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </td>
                                     </tr>
-                                    
                                 </table>
-                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> -->
                             </div>
                         </div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary me-2 mt-5">Submit</button>
-                    <a class="btn btn-light mt-5" href="{{ route('patents.index') }}">Cancel</a>
+                    <button type="submit" class="btn btn-primary me-2 mt-5">{{ trans('dashboard.Submit') }}</button>
+                    <a class="btn btn-light mt-5" href="{{ route('patents.index') }}">{{ trans('dashboard.Cancel') }}</a>
                 </form>
             </div>
         </div>
     </div>
-
 </div>
+<!-- Script for Internal Faculty Dynamic Fields -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-
-
-        var patent = <?php echo $patent->user; ?>;
+        $("#selUser0").select2();
+        $("#head0").select2();
         var i = 0;
-
-        for (i = 0; i < patent.length; i++) {
-            console.log(patent);
-            var obj = patent[i];
-            $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
-            );
-            document.getElementById("selUser" + i).value = obj.id;
-            $("#selUser" + i).select2()
-
-
-            //document.getElementById("#dynamicAddRemove").value = "10";
-        }
         $("#add-btn2").click(function() {
             ++i;
-            $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_en }} {{ $user->lname_en }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
-            );
-            $("#selUser" + i).select2()
-
+            $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i + '][userid]" style="width: 200px;"><option value="">{{ trans("dashboard.Select User") }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>');
+            $("#selUser" + i).select2();
         });
         $(document).on('click', '.remove-tr', function() {
             $(this).parents('tr').remove();
         });
-
     });
 </script>
+<!-- Script for External Faculty Dynamic Fields -->
+<script>
+    $(document).ready(function() {
+        $('#addMore2').on('click', function() {
+            var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
+            data.find("input").val('');
+        });
+        $(document).on('click', '.remove', function() {
+            var trIndex = $(this).closest("tr").index();
+            if (trIndex > 1) {
+                $(this).closest("tr").remove();
+            } else {
+                alert("{{ trans('dashboard.Cannot remove first row') }}");
+            }
+        });
+    });
+</script>
+<!-- Script for Additional External Faculty Fields -->
 <script type="text/javascript">
     $(document).ready(function() {
         var patent = <?php echo $patent->author; ?>;
-
         var postURL = "<?php echo url('addmore'); ?>";
         var i = 0;
-        //console.log(patent)
-
         for (i = 0; i < patent.length; i++) {
-            //console.log(patent);
             var obj = patent[i];
-            $("#dynamic_field").append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" value="'+ obj.author_fname +'" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" value="'+ obj.author_lname +'" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
-                i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
-            //document.getElementById("selUser" + i).value = obj.id;
-            //console.log(obj.author_fname)
-            // let doc=document.getElementById("row" + i)
-            // doc.setAttribute('fname','aaa');
-            // doc.setAttribute('lname','bbb');
-            //document.getElementById("row" + i).value = obj.author_lname;
-            //document.getAttribute("lname").value = obj.author_lname;
-            //$("#selUser" + i).select2()
-
-
-            //document.getElementById("#dynamicAddRemove").value = "10";
+            $("#dynamic_field").append('<tr id="row' + i + '" class="dynamic-added"><td><input type="text" name="fname[]" value="' + obj.author_fname + '" placeholder="{{ trans("dashboard.Enter your First Name") }}" class="form-control name_list" /></td><td><input type="text" name="lname[]" value="' + obj.author_lname + '" placeholder="{{ trans("dashboard.Enter your Last Name") }}" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
         }
-
         $('#add').click(function() {
             i++;
-            $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
-                i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
+            $('#dynamic_field').append('<tr id="row' + i + '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="{{ trans("dashboard.Enter your First Name") }}" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="{{ trans("dashboard.Enter your Last Name") }}" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
         });
-
         $(document).on('click', '.btn_remove', function() {
             var button_id = $(this).attr("id");
-            $('#row' + button_id + '').remove();
+            $('#row' + button_id).remove();
         });
-
     });
 </script>
 @endsection

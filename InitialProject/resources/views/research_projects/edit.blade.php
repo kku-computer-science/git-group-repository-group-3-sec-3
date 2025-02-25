@@ -14,7 +14,7 @@
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Whoops!</strong> {{ __('dashboard.There were some problems with your input.') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -24,86 +24,92 @@
     @endif
     <div class="card col-md-12" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">แก้ไขข้อมูลโครงการวิจัย</h4>
-            <p class="card-description">กรอกข้อมูลแก้ไขรายละเอียดโครงการวิจัย</p>
-            <form action="{{ route('researchProjects.update',$researchProject->id) }}" method="POST">
+            <h4 class="card-title">{{ trans('dashboard.Edit Research Project') }}</h4>
+            <p class="card-description">{{ trans('dashboard.Fill in the edited project details') }}</p>
+            <form action="{{ route('researchProjects.update', $researchProject->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>ชื่อโครงการ</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Project Name') }}</b></p>
                     <div class="col-sm-8">
-                        <textarea name="project_name" value="{{ $researchProject->project_name }}" class="form-control" style="height:90px">{{ $researchProject->project_name }}</textarea>
+                        <textarea name="project_name" class="form-control" style="height:90px">{{ $researchProject->project_name }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>วันเริ่มต้นโครงการ</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Project Start Date') }}</b></p>
                     <div class="col-sm-4">
                         <input type="date" name="project_start" value="{{ $researchProject->project_start }}" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>วันสิ้นสุดโครงการ</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Project End Date') }}</b></p>
                     <div class="col-sm-4">
                         <input type="date" name="project_end" value="{{ $researchProject->project_end }}" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row mt-2">
-                    <p for="exampleInputfund_details" class="col-sm-3"><b>เลือกทุน</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Select Fund') }}</b></p>
                     <div class="col-sm-9">
-                        <select id='fund' style='width: 200px;' class="custom-select my-select" name="fund">
-                            <option value='' disabled selected>เลือกทุนวิจัย</option>@foreach($funds as $f)<option value="{{ $f->id }}" {{ $f->fund_name == $researchProject->fund->fund_name ? 'selected' : '' }}>{{ $f->fund_name }}</option>
+                        <select class="custom-select my-select" name="fund">
+                            <option value='' disabled selected>{{ trans('dashboard.Research Fund Source') }}</option>
+                            @foreach($funds as $f)
+                            <option value="{{ $f->id }}" {{ $f->fund_name == $researchProject->fund->fund_name ? 'selected' : '' }}>{{ $f->fund_name }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group row mt-2">
-                    <p class="col-sm-3 "><b>ปีที่ยื่น (ค.ศ.)</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Year of submission (A.D.)') }}</b></p>
                     <div class="col-sm-8">
-                        <input type="year" name="project_year" class="form-control" placeholder="ปี" value="{{$researchProject->project_year}}">
+                        <input type="year" name="project_year" class="form-control" placeholder="{{ trans('dashboard.Year') }}" value="{{ $researchProject->project_year }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>งบประมาณ</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Budget') }}</b></p>
                     <div class="col-sm-4">
                         <input type="number" name="budget" value="{{ $researchProject->budget }}" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row mt-2">
-                    <p class="col-sm-3 "><b>หน่วยงานที่รับผิดชอบ</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Responsible Department') }}</b></p>
                     <div class="col-sm-3">
-                        <select id='dep' style='width: 200px;' class="custom-select my-select"  name="responsible_department">
-                            <option value=''>เลือกสาขาวิชา</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}" {{ $dep->department_name_th == $researchProject->responsible_department ? 'selected' : '' }}>{{ $dep->department_name_th }}</option>@endforeach
+                        <select class="custom-select my-select" name="responsible_department">
+                            <option value=''>{{ trans('dashboard.Select Major') }}</option>
+                            @foreach($deps as $dep)
+                            <option value="{{ $dep->department_name_th }}" {{ $dep->department_name_th == $researchProject->responsible_department ? 'selected' : '' }}>{{ $dep->department_name_th }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>รายละเอียดโครงการวิจัย</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Project Details') }}</b></p>
                     <div class="col-sm-8">
                         <textarea name="note" class="form-control" style="height:90px">{{ $researchProject->note }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>สถานะ</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Status') }}</b></p>
                     <div class="col-sm-8">
-                        <select id='status' class="custom-select my-select" style='width: 200px;' name="status">
-                            <option value="1" {{ 1 == $researchProject->status ? 'selected' : '' }}>ยื่นขอ</option>
-                            <option value="2" {{ 2 == $researchProject->status ? 'selected' : '' }}>ดำเนินการ</option>
-                            <option value="3" {{ 3 == $researchProject->status ? 'selected' : '' }}>ปิดโครงการ</option>
+                        <select class="custom-select my-select" name="status">
+                            <option value="1" {{ 1 == $researchProject->status ? 'selected' : '' }}>{{ trans('dashboard.Pending') }}</option>
+                            <option value="2" {{ 2 == $researchProject->status ? 'selected' : '' }}>{{ trans('dashboard.In Progress') }}</option>
+                            <option value="3" {{ 3 == $researchProject->status ? 'selected' : '' }}>{{ trans('dashboard.Closed') }}</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <table class="table">
                         <tr>
-                            <th>ผู้รับผิดชอบโครงการ</th>
+                            <th>{{ trans('dashboard.Project Lead') }}</th>
+                        </tr>
                         <tr>
                             <td>
-                                <select id='head0' style='width: 200px;' name="head">
+                                <select name="head" style='width: 200px;'>
                                     @foreach($researchProject->user as $u)
                                     @if($u->pivot->role == 1)
                                     @foreach($users as $user)
-                                    <option value="{{ $user->id }}" @if($u->id == $user->id) selected @endif>
+                                    <option value="{{ $user->id }}" {{ $u->id == $user->id ? 'selected' : '' }}>
                                         {{ $user->fname_th }} {{ $user->lname_th }}
                                     </option>
                                     @endforeach
@@ -115,31 +121,28 @@
                     </table>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                    <table class="table " id="dynamicAddRemove">
+                    <table class="table" id="dynamicAddRemove">
                         <tr>
-                            <th width="522.98px">ผู้รับผิดชอบโครงการ (ร่วม) ภายใน</th>
-                            <th><button type="button" name="add" id="add-btn2" class="btn btn-success btn-sm add"><i class="mdi mdi-plus"></i></button></th>
+                            <th>{{ trans('dashboard.Project Lead (Co-Internal)') }}</th>
+                            <th><button type="button" id="add-btn2" class="btn btn-success btn-sm add"><i class="mdi mdi-plus"></i></button></th>
                         </tr>
                     </table>
                 </div>
                 <div class="form-group row">
-                        <label for="exampleInputpaper_author" class="col-sm-3 col-form-label">ผู้รับผิดชอบโครงการ (ร่วม) ภายนอก</label>
-                        <div class="col-sm-9">
-                            <div class="table-responsive">
-                                <table class="table table-bordered w-75" id="dynamic_field">
-
-                                    <tr>
-                                        <td><button type="button" name="add" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button>
-                                        </td>
-                                    </tr>
-
-                                </table>
-                                <!-- <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" /> -->
-                            </div>
+                    <label for="exampleInputpaper_author" class="col-sm-3 col-form-label">{{ trans('dashboard.Project Lead (Co-External)') }}</label>
+                    <div class="col-sm-9">
+                        <div class="table-responsive">
+                            <table class="table table-bordered w-75" id="dynamic_field">
+                                <tr>
+                                    <td><button type="button" id="add" class="btn btn-success btn-sm"><i class="mdi mdi-plus"></i></button>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        </div>
-                <button type="submit" class="btn btn-primary mt-5">Submit</button>
-                <a class="btn btn-light mt-5" href="{{ route('researchProjects.index') }}"> Back</a>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-5">{{ trans('dashboard.Submit') }}</button>
+                <a class="btn btn-light mt-5" href="{{ route('researchProjects.index') }}">{{ trans('dashboard.Back') }}</a>
             </form>
         </div>
     </div>
@@ -201,17 +204,7 @@
             $("#dynamic_field").append('<tr id="row' + i +
                 '" class="dynamic-added"><td><p>ตำแหน่งหรือคำนำหน้า :</p><input type="text" name="title_name[]" value="'+ obj.title_name +'" placeholder="ตำแหน่งหรือคำนำหน้า" style="width: 200px;" class="form-control name_list" /><br><p>ชื่อ :</p><input type="text" name="fname[]" value="'+ obj.fname +'" placeholder="ชื่อ" style="width: 300px;" class="form-control name_list" /><br><p>นามสกุล :</p><input type="text" name="lname[]" value="'+ obj.lname +'" placeholder="นามสกุล" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove"><i class="mdi mdi-minus"></i></button></td></tr>');
-            //document.getElementById("selUser" + i).value = obj.id;
-            //console.log(obj.author_fname)
-            // let doc=document.getElementById("row" + i)
-            // doc.setAttribute('fname','aaa');
-            // doc.setAttribute('lname','bbb');
-            //document.getElementById("row" + i).value = obj.author_lname;
-            //document.getAttribute("lname").value = obj.author_lname;
-            //$("#selUser" + i).select2()
-
-
-            //document.getElementById("#dynamicAddRemove").value = "10";
+            
         }
 
         $('#add').click(function() {
