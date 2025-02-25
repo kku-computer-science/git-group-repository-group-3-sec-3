@@ -444,7 +444,7 @@
 	<div class="form">
 		<div class="form-panel one">
 			<div class="form-header">
-				<h1>{{ __('login.login') }}</h1>
+				<h1>{{ __('login.title') }}</h1>
 			</div>
 			<div class="form-content">
 				<form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
@@ -452,7 +452,7 @@
 					@if($errors->any())
 					<div class="alert alert-danger alert-block">
 						<button type="button" class="close" data-dismiss="alert"></button>
-						<strong>{{ $errors->first() }}</strong>
+						<strong>{{__('login.login_failed') }}</strong>
 					</div>
 					@endif
 					
@@ -478,7 +478,7 @@
 					</div>
 					
 					<div class="form-group">
-						<button type="submit">{{ __('login.login') }}</button>
+						<button type="submit">{{ __('login.title') }}</button>
 					</div>
 					
 					<div class="form-remember pb-3">
