@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <img src="{{asset('img/'.$rg->group_image)}}" alt="...">
                     <h1 class="card-text-1"> {{ trans('researchgroupdetail.labSuper') }} </h1>
-                    <h2 class="card-text-2">
+                    <!-- <h2 class="card-text-2">
                         @foreach ($rg->user as $r)
                         @if($r->hasRole('teacher'))
                         @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
@@ -34,16 +34,66 @@
                         
                         @endif
                         @endforeach
-                    </h2>
-                    <h1 class="card-text-1">{{ trans('researchgroupdetail.student') }}</h1>
+                    </h2> -->
+
                     <h2 class="card-text-2">
+                        @foreach ($rg->user as $r)
+                        @if($r->hasRole('teacher'))
+                        @php
+                        // ตรวจสอบว่าภาษาคือ en หรือ cn
+                        $locale = app()->getLocale();
+                        $isEnOrCn = ($locale == 'en' || $locale == 'cn');
+                        $fname = ($isEnOrCn) ? $r->fname_en : $r->{'fname_'.$locale};
+                        $lname = ($isEnOrCn) ? $r->lname_en : $r->{'lname_'.$locale};
+                        $position = ($isEnOrCn) ? $r->position_en : $r->{'position_'.$locale};
+                        @endphp
+
+                        @if($isEnOrCn and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
+                        {{ $fname }} {{ $lname }}, Ph.D.
+                        <br>
+                        @elseif($isEnOrCn and $r->academic_ranks_en == 'Lecturer')
+                        {{ $fname }} {{ $lname }}
+                        <br>
+                        @elseif($isEnOrCn and $r->doctoral_degree == 'Ph.D.')
+                        {{ str_replace('Dr.', ' ', $position) }} {{ $fname }} {{ $lname }}, Ph.D.
+                        <br>
+                        @else
+                        {{ $position }} {{ $fname }} {{ $lname }}
+                        <br>
+                        @endif
+                        @endif
+                        @endforeach
+                    </h2>
+
+                    <h1 class="card-text-1">{{ trans('researchgroupdetail.student') }}</h1>
+                    <!-- <h2 class="card-text-2">
                         @foreach ($rg->user as $user)
                         @if($user->hasRole('student'))
                         {{$user->{'position_'.app()->getLocale()} }} {{$user->{'fname_'.app()->getLocale()} }} {{$user->{'lname_'.app()->getLocale()} }}
                         <br>
                         @endif
                         @endforeach
-                    </h2>
+                    </h2> -->
+
+                    <h2 class="card-text-2">
+    @foreach ($rg->user as $user)
+        @if($user->hasRole('student'))
+            @php
+                // ตรวจสอบว่าภาษาคือ en หรือ cn
+                $locale = app()->getLocale();
+                $isEnOrCh = ($locale == 'en' || $locale == 'cn');
+                
+                // ใช้ภาษาอังกฤษเสมอเมื่อเป็น cn
+                $position = ($isEnOrCh) ? $user->position_en : $user->{'position_'.$locale};
+                $fname = ($isEnOrCh) ? $user->fname_en : $user->{'fname_'.$locale};
+                $lname = ($isEnOrCh) ? $user->lname_en : $user->{'lname_'.$locale};
+            @endphp
+            
+            {{ $position }} {{ $fname }} {{ $lname }}
+            <br>
+        @endif
+    @endforeach
+</h2>
                 </div>
             </div>
             <div class="col-md-8">

@@ -35,10 +35,8 @@
                         <!-- {{ \Carbon\Carbon::parse($re->project_start)->locale('th')->translatedFormat('Y') }}  -->
                         <!-- {{ \Carbon\Carbon::parse($re->project_year) }}  -->
                         {{($re->project_year)+543}}
-
                         @else
                         {{($re->project_year)}}
-
                         @endif
                     </td>
                     <td style="vertical-align: top;text-align: left;">
@@ -76,6 +74,10 @@
                                 {{ trans('researchproject.To') }}
                                 {{ \Carbon\Carbon::parse($re->project_end)->locale('th')->translatedFormat('j F') }}
                                 {{ \Carbon\Carbon::parse($re->project_end)->year + 543 }}
+                                @elseif (app()->getLocale() == 'cn')
+                                {{ \Carbon\Carbon::parse($re->project_start)->locale('cn')->translatedFormat('Y年n月j日') }}
+                                {{ trans('researchproject.To') }}
+                                {{ \Carbon\Carbon::parse($re->project_end)->locale('cn')->translatedFormat('Y年n月j日') }}
                                 @else
                                 {{ \Carbon\Carbon::parse($re->project_start)->locale('en')->translatedFormat('j F Y') }}
                                 {{ trans('researchproject.To') }}
@@ -119,23 +121,17 @@
                         <!-- <td>{{$re->budget}}</td> -->
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ trans('researchproject.ResearchType') }}</span>
-                            <!-- <span style="padding-left: 10px;"> 
-                                @if(is_null($re->fund))
-                                @else
-                                {{$re->fund->fund_type}}
-                                @endif
-                            </span> -->
-
 
 
                             <span style="padding-left: 10px;">
 
-                                @if (!is_null($re->fund))
-                                {{ app()->getLocale() == 'en' ? $re->fund->fund_type_en : $re->fund->fund_type }}
+                                @if (app()->getLocale() == 'en')
+                                {{ $re->fund->fund_type_en }}
+                                @elseif (app()->getLocale() == 'cn')
+                                {{ $re->fund->fund_type_cn }}
+                                @else
+                                {{ $re->fund->fund_type }}
                                 @endif
-
-
-
 
                             </span>
                         </div>
@@ -146,26 +142,54 @@
                                 @else
                                 {{$re->fund->support_resource}}
                                 @endif</span> -->
-                                
-                                @if (!is_null($re->fund))
+
+                                <!-- @if (!is_null($re->fund))
                                 {{ app()->getLocale() == 'en' ? $re->fund->support_resource_en : $re->fund->support_resource}}
+                                @endif -->
+
+                                @if (!is_null($re->fund))
+                                @php
+                                $locale = app()->getLocale();
+
+                                if ($locale == 'cn' && !empty($re->fund->support_resource_cn)) {
+                                $supportResource = $re->fund->support_resource_cn;
+                                } elseif ($locale == 'th' && !empty($re->fund->support_resource)) {
+                                $supportResource = $re->fund->support_resource;
+                                } else {
+                                $supportResource = $re->fund->support_resource_en;
+                                }
+                                @endphp
+                                {{ $supportResource }}
                                 @endif
+
+
+
+
 
                         </div>
                         <div style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">{{ trans('researchproject.Responsible_agency') }}</span>
                             <span style="padding-left: 10px;">
-                            <!-- {{$re->responsible_department}} -->
-                            @if (!is_null($re->responsible_department))
-                                {{ app()->getLocale() == 'en' ? $re->responsible_department_en: $re-> responsible_department}}
+                                @if (app()->getLocale() == 'cn')
+                                @if (!empty($re->responsible_department_cn) && $re->responsible_department_cn !== null && $re->responsible_department_cn !== 'NULL')
+                                {{ $re->responsible_department_cn }}
+                                @elseif (!empty($re->responsible_department_en) && $re->responsible_department_en !== null && $re->responsible_department_en !== 'NULL')
+                                {{ $re->responsible_department_en }}
+                                @else
+                                {{ $re->responsible_department }}
                                 @endif
-
-                            
-                                
-
-                                
+                                @elseif (app()->getLocale() == 'en')
+                                @if (!empty($re->responsible_department_en) && $re->responsible_department_en !== null && $re->responsible_department_en !== 'NULL')
+                                {{ $re->responsible_department_en }}
+                                @else
+                                {{ $re->responsible_department }}
+                                @endif
+                                @else
+                                {{ $re->responsible_department }}
+                                @endif
                             </span>
                         </div>
+
                         <div style="padding-bottom: 10px;">
 
                             <span style="font-weight: bold;">{{ trans('researchproject.Budget') }}</span>
@@ -183,33 +207,33 @@
                         <div style="padding-bottom: 10px;">
                             <span>
 
-
-
                                 @foreach ($re->user as $r)
                                 @if($r->hasRole('teacher'))
-                                @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
-                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                                @php
+                                // ตรวจสอบว่าภาษาคือ en หรือ cn
+                                $locale = app()->getLocale();
+                                $isEnOrCn = ($locale == 'en' || $locale == 'cn');
+                                $fname = ($isEnOrCn) ? $r->fname_en : $r->{'fname_'.$locale};
+                                $lname = ($isEnOrCn) ? $r->lname_en : $r->{'lname_'.$locale};
+                                $position = ($isEnOrCn) ? $r->position_en : $r->{'position_'.$locale};
+                                @endphp
+
+                                @if($isEnOrCn and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
+                                {{ $fname }} {{ $lname }}, Ph.D.
                                 <br>
-                                @elseif(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer')
-                                {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                                @elseif($isEnOrCn and $r->academic_ranks_en == 'Lecturer')
+                                {{ $fname }} {{ $lname }}
                                 <br>
-                                @elseif(app()->getLocale() == 'en' and $r->doctoral_degree == 'Ph.D.')
-                                {{ str_replace('Dr.', ' ', $r->{'position_'.app()->getLocale()}) }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, Ph.D.
+                                @elseif($isEnOrCn and $r->doctoral_degree == 'Ph.D.')
+                                {{ str_replace('Dr.', ' ', $position) }} {{ $fname }} {{ $lname }}, Ph.D.
                                 <br>
                                 @else
-                                {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                                {{ $position }} {{ $fname }} {{ $lname }}
                                 <br>
                                 @endif
-
                                 @endif
                                 @endforeach
                         </div>
-
-
-
-
-
-
 
                     </td>
                     @if($re->status == 1)
@@ -244,11 +268,10 @@
 <script>
     $(document).ready(function() {
 
-        var table1 = $('#example1').DataTable(
-            {
+        var table1 = $('#example1').DataTable({
             responsive: true,
             language: {
-                search:"{{ trans('researchers.serach') }}",
+                search: "{{ trans('researchers.serach') }}",
             }
         });
     });

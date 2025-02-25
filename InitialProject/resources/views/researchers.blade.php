@@ -5,9 +5,18 @@
     @foreach($request as $res)
     <span>
         <ion-icon name="caret-forward-outline" size="small"> </ion-icon>
-        @if (!is_null($res->program_name_en))
+        <!-- @if (!is_null($res->program_name_en))
         {{ app()->getLocale() == 'en' ? $res->program_name_en : $res->program_name_th }}
-        @endif
+        @endif -->
+        @if (!is_null($res->program_name_en))
+    @if (app()->getLocale() == 'en')
+        {{ $res->program_name_en }}
+    @elseif (app()->getLocale() == 'th')
+        {{ $res->program_name_th }}
+    @elseif (app()->getLocale() == 'cn')
+        {{ $res->program_name_cn }}
+    @endif
+@endif
 
 
         <!-- {{$res->program_name_en}}  -->
