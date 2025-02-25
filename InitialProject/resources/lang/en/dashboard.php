@@ -184,7 +184,7 @@ return [
 //------------Add Roles----------------
 'Create_role' => 'Create role',
 'Name' => 'Name:',
-'Name' => 'Name',
+'name' => 'Name',
 'Detailed_information' => 'Detailed information',
 'Permission' =>'Permission:' ,
 'user-list' => 'User List',
