@@ -9,8 +9,8 @@
                 <div class="card-body">
                     <img src="{{asset('img/'.$rg->group_image)}}" alt="...">
                     <h2 class="card-text-1">{{ trans('researchgroup.labSuper') }}</h2>
-                    
-                    <h2 class="card-text-2">
+
+                    <!-- <h2 class="card-text-2">
                         @foreach ($rg->user as $r)
                         @if($r->hasRole('teacher'))
                         @if(app()->getLocale() == 'en' and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
@@ -26,6 +26,35 @@
                             {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
                             <br>
                             @endif
+                        @endif
+                        @endforeach
+                    </h2> -->
+
+                    <h2 class="card-text-2">
+                        @foreach ($rg->user as $r)
+                        @if($r->hasRole('teacher'))
+                        @php
+                        // ตรวจสอบว่าภาษาคือ en หรือ cn
+                        $locale = app()->getLocale();
+                        $isEnOrCn = ($locale == 'en' || $locale == 'cn');
+                        $fname = ($isEnOrCn) ? $r->fname_en : $r->{'fname_'.$locale};
+                        $lname = ($isEnOrCn) ? $r->lname_en : $r->{'lname_'.$locale};
+                        $position = ($isEnOrCn) ? $r->position_en : $r->{'position_'.$locale};
+                        @endphp
+
+                        @if($isEnOrCn and $r->academic_ranks_en == 'Lecturer' and $r->doctoral_degree == 'Ph.D.')
+                        {{ $fname }} {{ $lname }}, Ph.D.
+                        <br>
+                        @elseif($isEnOrCn and $r->academic_ranks_en == 'Lecturer')
+                        {{ $fname }} {{ $lname }}
+                        <br>
+                        @elseif($isEnOrCn and $r->doctoral_degree == 'Ph.D.')
+                        {{ str_replace('Dr.', ' ', $position) }} {{ $fname }} {{ $lname }}, Ph.D.
+                        <br>
+                        @else
+                        {{ $position }} {{ $fname }} {{ $lname }}
+                        <br>
+                        @endif
                         @endif
                         @endforeach
                     </h2>

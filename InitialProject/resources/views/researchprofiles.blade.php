@@ -70,20 +70,15 @@
                         <h6 class="card-text1">{{ trans('researcherProfile.email') }}: {{$res->email}}</h6>
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
 
-                        @foreach( $res->education as $edu)
+                        @foreach($res->education as $edu)
                         <h6 class="card-text2 col-sm-10">
                             @if (app()->getLocale() == 'th')
-                            {{($edu->year)}}
-                            {{$edu->qua_name}} {{$edu->uname}}
-
+                            {{ !empty($edu->year) ? $edu->year : '---' }}
+                            {{ $edu->qua_name ?? '---' }} {{ $edu->uname ?? '---' }}
                             @else
-                            {{($edu->year)-543}}
-                            {{$edu->qua_name_en}} {{$edu->uname_en}}
-
+                            {{ !empty($edu->year) && is_numeric($edu->year) ? (int)$edu->year - 543 : '---' }}
+                            {{ $edu->qua_name_en ?? '---' }} {{ $edu->uname_en ?? '---' }}
                             @endif
-
-
-
                         </h6>
                         @endforeach
                         <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
@@ -247,12 +242,23 @@
                         </td>
                         <td>
                             <!-- {{$paper->paper_type}} -->
+                            @if (!is_null( $paper->paper_type))
+                            @if (app()->getLocale() == 'en')
+                            {{$paper->paper_type}} 
+                            @elseif (app()->getLocale() == 'th')
+                            {{$paper->paper_type_th}} 
+                            @elseif (app()->getLocale() == 'cn')
+                            {{$paper->	paper_type_cn}} 
+                            @endif
+                            @endif
+<!-- 
+
                             @if (app()->getLocale() == 'th')
                             {{$paper->paper_type_th}}
                             @else
                             {{$paper->paper_type}}
 
-                            @endif
+                            @endif -->
 
                         </td>
 
@@ -341,11 +347,14 @@
                         </td>
                         <td>
                             <!-- {{$paper->paper_type}} -->
-                            @if (app()->getLocale() == 'th')
-                            {{$paper->paper_type_th}}
-                            @else
-                            {{$paper->paper_type}}
-
+                            @if (!is_null( $paper->paper_type))
+                            @if (app()->getLocale() == 'en')
+                            {{$paper->paper_type}} 
+                            @elseif (app()->getLocale() == 'th')
+                            {{$paper->paper_type_th}} 
+                            @elseif (app()->getLocale() == 'cn')
+                            {{$paper->	paper_type_cn}} 
+                            @endif
                             @endif
 
                         </td>
@@ -421,11 +430,14 @@
                         </td>
                         <td>
                             <!-- {{$paper->paper_type}} -->
-                            @if (app()->getLocale() == 'th')
-                            {{$paper->paper_type_th}}
-                            @else
-                            {{$paper->paper_type}}
-
+                            @if (!is_null( $paper->paper_type))
+                            @if (app()->getLocale() == 'en')
+                            {{$paper->paper_type}} 
+                            @elseif (app()->getLocale() == 'th')
+                            {{$paper->paper_type_th}} 
+                            @elseif (app()->getLocale() == 'cn')
+                            {{$paper->	paper_type_cn}} 
+                            @endif
                             @endif
 
                         </td>
@@ -499,11 +511,14 @@
                         </td>
                         <td>
                             <!-- {{$paper->paper_type}} -->
-                            @if (app()->getLocale() == 'th')
-                            {{$paper->paper_type_th}}
-                            @else
-                            {{$paper->paper_type}}
-
+                            @if (!is_null( $paper->paper_type))
+                            @if (app()->getLocale() == 'en')
+                            {{$paper->paper_type}} 
+                            @elseif (app()->getLocale() == 'th')
+                            {{$paper->paper_type_th}} 
+                            @elseif (app()->getLocale() == 'cn')
+                            {{$paper->	paper_type_cn}} 
+                            @endif
                             @endif
 
                         </td>
@@ -613,7 +628,31 @@
                             </span>
                             @endforeach
                         </td>
-                        <td>{{$paper->ac_type}}</td>
+                        <td>
+                        <!-- {{$paper->ac_type}} -->
+                       
+                            @if (app()->getLocale() == 'en')
+                            {{$paper->ac_type_en}}
+                            @elseif (app()->getLocale() == 'th')
+                            {{$paper->ac_type}}
+                            @elseif (app()->getLocale() == 'cn')
+                            {{$paper->ac_type_cn}}
+                            @endif
+                           
+
+
+                        </td>
+                        @if (!is_null( $paper->paper_type))
+                            @if (app()->getLocale() == 'en')
+                            {{$paper->ac_type_en}}
+                            @elseif (app()->getLocale() == 'th')
+                            {{$paper->ac_type}}
+                            @elseif (app()->getLocale() == 'cn')
+                            {{$paper->ac_type_cn}}
+                            @endif
+                            @endif
+
+
                         <td>{{$paper->ac_refnumber }}</td>
                         <td>{{$paper->ac_year}}</td>
 
@@ -872,7 +911,7 @@
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
 
-       
+
 
 
         //document.getElementById("scopus").appendChild('data-to="100"');
