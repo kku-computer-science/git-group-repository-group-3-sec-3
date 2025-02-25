@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
+
 </head>
 
 <body>
@@ -75,7 +76,16 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
                             <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-                                    {{$department->program_name_en}}</a>
+                                    <!-- {{$department->program_name_en}} -->
+                                    @if (app()->getLocale() == 'th')
+                                {{ $department->program_name_th }}
+                                @elseif (app()->getLocale() == 'cn')
+                                {{$department->program_name_cn }}
+                                @else
+                                {{$department->program_name_en }}
+                                @endif
+                                
+                                </a>
                             </li>
                             @endforeach
                         </ul>
@@ -110,13 +120,12 @@
                         </span>
                     </li> -->
 
-
                     <li class="nav-item">
                         <span class="nav-link">
                             <strong>{{ Config::get('languages')[App::getLocale()]['display'] }}</strong> |
                             @foreach (Config::get('languages') as $lang => $language)
                             @if ($lang != App::getLocale())
-                            <a class="text-decoration-none" href="{{ route('langswitch', $lang) }}">{{ $language['display'] }}</a>
+                            <a class="text-decoration-none" href="{{ route('langswitch', $lang) }}">{{ $language['display'] }}</a> |
                             @endif
                             @endforeach
                         </span>

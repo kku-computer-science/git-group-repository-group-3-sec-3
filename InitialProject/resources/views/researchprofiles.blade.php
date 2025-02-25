@@ -48,44 +48,49 @@
             <div class="col-md-6">
                 <div class="card-body">
                     <h6 class="card-text"><b>{{$res->position_th}} {{$res->fname_th}} {{$res->lname_th}}</b></h6>
-                    @if($res->doctoral_degree == 'Ph.D.')
-                    <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}, {{$res->doctoral_degree}} </b>
-                        @else
-                        <h6 class="card-text"><b>{{$res->fname_en}} {{$res->lname_en}}</b>@endif</h6>
 
-                        <h6 class="card-text1"><b>
-
-                                <!-- {{$res->academic_ranks_en}} -->
-
-                                @if (app()->getLocale() == 'th')
-                                {{$res->academic_ranks_th}}
-                                @else
-                                {{$res->academic_ranks_en}}
-
-                                @endif
-                            </b></h6>
-                        <!-- <h6 class="card-text1">Department of {{$res->program->program_name_en}}</h6> -->
-                        <!-- <h6 class="card-text1">College of Computing</h6>
-                    <h6 class="card-text1">Khon Kaen University</h6> -->
-                        <h6 class="card-text1">{{ trans('researcherProfile.email') }}: {{$res->email}}</h6>
-                        <h6 class="card-title">{{ trans('message.education') }}</h6>
-
-                        @foreach($res->education as $edu)
-                        <h6 class="card-text2 col-sm-10">
-                            @if (app()->getLocale() == 'th')
-                            {{ !empty($edu->year) ? $edu->year : '---' }}
-                            {{ $edu->qua_name ?? '---' }} {{ $edu->uname ?? '---' }}
-                            @else
-                            {{ !empty($edu->year) && is_numeric($edu->year) ? (int)$edu->year - 543 : '---' }}
-                            {{ $edu->qua_name_en ?? '---' }} {{ $edu->uname_en ?? '---' }}
+                    <h6 class="card-text">
+                        <b>
+                            {{ str_replace('Dr.', '', $res->position_en) }} {{$res->fname_en}} {{$res->lname_en}}
+                            @if($res->doctoral_degree == 'Ph.D.')
+                            , {{$res->doctoral_degree}}
                             @endif
-                        </h6>
-                        @endforeach
-                        <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                        </b>
+                    </h6>
+
+
+
+
+                    <h6 class="card-text1"><b>
+
+
+                            @if (app()->getLocale() == 'th')
+                            {{$res->academic_ranks_th}}
+                            @else
+                            {{$res->academic_ranks_en}}
+
+                            @endif
+                        </b></h6>
+
+                    <h6 class="card-text1">{{ trans('researcherProfile.email') }}: {{$res->email}}</h6>
+                    <h6 class="card-title">{{ trans('message.education') }}</h6>
+
+                    @foreach($res->education as $edu)
+                    <h6 class="card-text2 col-sm-10">
+                        @if (app()->getLocale() == 'th')
+                        {{ !empty($edu->year) ? $edu->year : '---' }}
+                        {{ $edu->qua_name ?? '---' }} {{ $edu->uname ?? '---' }}
+                        @else
+                        {{ !empty($edu->year) && is_numeric($edu->year) ? (int)$edu->year - 543 : '---' }}
+                        {{ $edu->qua_name_en ?? '---' }} {{ $edu->uname_en ?? '---' }}
+                        @endif
+                    </h6>
+                    @endforeach
+                    <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             {{ trans('message.expertise') }}
                         </button> -->
-                        <!-- <h6 class="card-title">Metrics overview</h6>
+                    <!-- <h6 class="card-title">Metrics overview</h6>
                     <h6 class="card-text2" id="citation">Citation count</h6>
                     <h6 class="card-text2" id="doc_count">Document count</h6>
                     <h6 class="card-text2" id="cite_count">Cited By count</h6>
@@ -244,14 +249,14 @@
                             <!-- {{$paper->paper_type}} -->
                             @if (!is_null( $paper->paper_type))
                             @if (app()->getLocale() == 'en')
-                            {{$paper->paper_type}} 
+                            {{$paper->paper_type}}
                             @elseif (app()->getLocale() == 'th')
-                            {{$paper->paper_type_th}} 
+                            {{$paper->paper_type_th}}
                             @elseif (app()->getLocale() == 'cn')
-                            {{$paper->	paper_type_cn}} 
+                            {{$paper-> paper_type_cn}}
                             @endif
                             @endif
-<!-- 
+                            <!-- 
 
                             @if (app()->getLocale() == 'th')
                             {{$paper->paper_type_th}}
@@ -349,11 +354,11 @@
                             <!-- {{$paper->paper_type}} -->
                             @if (!is_null( $paper->paper_type))
                             @if (app()->getLocale() == 'en')
-                            {{$paper->paper_type}} 
+                            {{$paper->paper_type}}
                             @elseif (app()->getLocale() == 'th')
-                            {{$paper->paper_type_th}} 
+                            {{$paper->paper_type_th}}
                             @elseif (app()->getLocale() == 'cn')
-                            {{$paper->	paper_type_cn}} 
+                            {{$paper-> paper_type_cn}}
                             @endif
                             @endif
 
@@ -432,11 +437,11 @@
                             <!-- {{$paper->paper_type}} -->
                             @if (!is_null( $paper->paper_type))
                             @if (app()->getLocale() == 'en')
-                            {{$paper->paper_type}} 
+                            {{$paper->paper_type}}
                             @elseif (app()->getLocale() == 'th')
-                            {{$paper->paper_type_th}} 
+                            {{$paper->paper_type_th}}
                             @elseif (app()->getLocale() == 'cn')
-                            {{$paper->	paper_type_cn}} 
+                            {{$paper-> paper_type_cn}}
                             @endif
                             @endif
 
@@ -513,11 +518,11 @@
                             <!-- {{$paper->paper_type}} -->
                             @if (!is_null( $paper->paper_type))
                             @if (app()->getLocale() == 'en')
-                            {{$paper->paper_type}} 
+                            {{$paper->paper_type}}
                             @elseif (app()->getLocale() == 'th')
-                            {{$paper->paper_type_th}} 
+                            {{$paper->paper_type_th}}
                             @elseif (app()->getLocale() == 'cn')
-                            {{$paper->	paper_type_cn}} 
+                            {{$paper-> paper_type_cn}}
                             @endif
                             @endif
 
@@ -601,8 +606,9 @@
                         <th scope="col">{{ trans('researcherProfile.name') }}</th>
                         <th scope="col">{{ trans('researcherProfile.author') }}</th>
                         <th scope="col">{{ trans('researcherProfile.type') }}</th>
-                        <th scope="col">{{ trans('researcherProfile.date') }}</th>
                         <th scope="col">{{ trans('researcherProfile.numdata') }}</th>
+                        <th scope="col">{{ trans('researcherProfile.date') }}</th>
+
 
                     </tr>
                 </thead>
@@ -622,15 +628,20 @@
                             @foreach ($paper->user as $author)
                             <span>
                                 <a href="{{ route('detail',Crypt::encrypt($author->id))}}">
-                                    <teacher>{{$author -> fname_en}} {{$author -> lname_en}}</teacher>
+                                    <teacher>@if (app()->getLocale() == 'th')
+                                        {{$author -> fname_th}} {{$author -> lname_th}}
+                                        @else
+                                        {{$author -> fname_en}} {{$author -> lname_en}}
+                                        @endif
+                                    </teacher>
                                 </a>
 
                             </span>
                             @endforeach
                         </td>
                         <td>
-                        <!-- {{$paper->ac_type}} -->
-                       
+                            <!-- {{$paper->ac_type}} -->
+
                             @if (app()->getLocale() == 'en')
                             {{$paper->ac_type_en}}
                             @elseif (app()->getLocale() == 'th')
@@ -638,23 +649,36 @@
                             @elseif (app()->getLocale() == 'cn')
                             {{$paper->ac_type_cn}}
                             @endif
-                           
+
 
 
                         </td>
                         @if (!is_null( $paper->paper_type))
-                            @if (app()->getLocale() == 'en')
-                            {{$paper->ac_type_en}}
-                            @elseif (app()->getLocale() == 'th')
-                            {{$paper->ac_type}}
-                            @elseif (app()->getLocale() == 'cn')
-                            {{$paper->ac_type_cn}}
-                            @endif
-                            @endif
-
-
+                        @if (app()->getLocale() == 'en')
+                        {{$paper->ac_type_en}}
+                        @elseif (app()->getLocale() == 'th')
+                        {{$paper->ac_type}}
+                        @elseif (app()->getLocale() == 'cn')
+                        {{$paper->ac_type_cn}}
+                        @endif
+                        @endif
                         <td>{{$paper->ac_refnumber }}</td>
-                        <td>{{$paper->ac_year}}</td>
+
+
+                      
+                        <td>
+                            <!-- {{ $paper->ac_year }} -->
+                            @if (app()->getLocale() == 'th')
+                            {{\Carbon\Carbon::parse($paper->ac_year)->thaidate('j F Y') }}
+
+                            @elseif (app()->getLocale() == 'cn')
+                            {{ \Carbon\Carbon::parse($paper->ac_year)->locale('cn')->translatedFormat('Y年n月j日') }}
+
+                            @else
+                            {{ \Carbon\Carbon::parse($paper->ac_year)->locale('en')->translatedFormat('j F Y') }}
+
+                            @endif
+                        </td>
 
                     </tr>
                     @endforeach

@@ -272,8 +272,11 @@
             responsive: true,
             language: {
                 search: "{{ trans('researchers.serach') }}",
+                
             }
         });
+
+
     });
 </script>
 @stop
