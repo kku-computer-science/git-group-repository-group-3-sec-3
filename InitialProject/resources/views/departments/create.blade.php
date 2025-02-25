@@ -21,23 +21,23 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Create department
+            <div class="card-header">{{ __('dashboard.departments-create') }}
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('departments.index') }}">departments</a>
+                    <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ __('dashboard.Department') }}</a>
                 </span>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => 'departments.store', 'method'=>'department')) !!}
                     <div class="form-group">
-                        <strong>department_name_TH	:</strong>
+                        <strong>{{ __('dashboard.department_name_TH') }}:</strong>
                         {!! Form::text('department_name_th', null, array('placeholder' => 'Department Name TH','class' => 'form-control')) !!}
                     </div>
                     <div class="form-group">
-                        <strong>department_name_EN	:</strong>
+                        <strong>{{ __('dashboard.department_name_EN') }}:</strong>
                         {!! Form::text('department_name_en', null, array('placeholder' => 'Department Name EN','class' => 'form-control')) !!}
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">{{ __('dashboard.Submit') }}</button>
                 {!! Form::close() !!}
             </div>
         </div>

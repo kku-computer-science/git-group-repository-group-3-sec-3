@@ -30,16 +30,16 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">หลักสูตร</h4>
-            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> ADD </a>
+            <h4 class="card-title" style="text-align: center;">{{ __('dashboard.curriculum') }}</h4>
+            <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="javascript:void(0)" id="new-program" data-toggle="modal"><i class="mdi mdi-plus btn-icon-prepend"></i> {{ __('dashboard.Add') }} </a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>id</th>
-                        <th>Name (ไทย)</th>
+                        <th>{{ __('dashboard.id') }}</th>
+                        <th>{{ __('dashboard.name_thai') }}</th>
                         <!-- <th>Name (Eng)</th> -->
-                        <th>Degree</th>
-                        <th>Action</th>
+                        <th>{{ __('dashboard.degree') }}</th>
+                        <th>{{ __('dashboard.Action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,11 +57,11 @@
                                      -->
                                 <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-program" data-toggle="modal" data-id="{{ $program->id }}">Edit </a> -->
                                 <li class="list-inline-item">
-                                    <a class="btn btn-outline-success btn-sm" id="edit-program" type="button" data-toggle="modal" data-id="{{ $program->id }}" data-placement="top" title="Edit" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
+                                    <a class="btn btn-outline-success btn-sm" id="edit-program" type="button" data-toggle="modal" data-id="{{ $program->id }}" data-placement="top" title="{{ __('dashboard.edit') }}" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
                                 </li>
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <li class="list-inline-item">
-                                    <button class="btn btn-outline-danger btn-sm " id="delete-program" type="submit" data-id="{{ $program->id }}" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                    <button class="btn btn-outline-danger btn-sm " id="delete-program" type="submit" data-id="{{ $program->id }}" data-toggle="tooltip" data-placement="top" title="{{ __('dashboard.delete') }}"><i class="mdi mdi-delete"></i></button>
                                 </li>
                             </form>
                             <!-- <a id="delete-program" data-id="{{ $program->id }}" class="btn btn-danger delete-user">Delete</a> -->
@@ -90,7 +90,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>ระดับการศึกษา:</strong>
+                                <strong>{{ __('dashboard.degree') }}:</strong>
                                 <div class="col-sm-8">
                                     <select id="degree" class="custom-select my-select" name="degree">
                                         @foreach($degree as $d)
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <strong>สาขาวิชา:</strong>
+                                <strong>{{ __('dashboard.curriculum') }}:</strong>
                                 <div class="col-sm-8">
                                     <select id="department" class="custom-select my-select" name="department">
                                         @foreach($department as $d)
@@ -110,12 +110,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <strong>Name TH:</strong>
+                                <strong>{{ __('dashboard.name_th') }}:</strong>
                                 <input type="text" name="program_name_th" id="program_name_th" class="form-control" placeholder="program name th" onchange="validate()">
                             </div>
                             <div class="form-group">
-                                <strong>Name EH:</strong>
-                                <input type="text" name="program_name_en" id="program_name_en" class="form-control" placeholder="program_name_en" onchange="validate()">
+                                <strong>{{ __('dashboard.name_en') }}:</strong>
+                                <input type="text" name="program_name_en" id="program_name_en" class="form-control" placeholder="program name en" onchange="validate()">
                             </div>
                             <!-- <div class="form-group">
                                 <strong>ระดับการศึกษา:</strong>
@@ -125,8 +125,8 @@
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Submit</button>
-                            <a href="{{ route('programs.index') }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>{{ __('dashboard.Submit') }}</button>
+                            <a href="{{ route('programs.index') }}" class="btn btn-danger">{{ __('dashboard.cancel') }}</a>
                             <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
                         </div>
                     </div>
@@ -153,7 +153,7 @@
         $('#new-program').click(function() {
             $('#btn-save').val("create-program");
             $('#program').trigger("reset");
-            $('#programCrudModal').html("Add New program");
+            $('#programCrudModal').html("{{ __('dashboard.add_new_program') }}");
             $('#crud-modal').modal('show');
         });
 

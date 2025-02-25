@@ -8,16 +8,16 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Permission
+            <div class="card-header">{{ trans('dashboard.Permissions') }}
                 @can('role-create')
                     <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('permissions.index') }}">Back</a>
+                        <a class="btn btn-primary" href="{{ route('permissions.index') }}">{{ trans('dashboard.back') }}</a>
                     </span>
                 @endcan
             </div>
             <div class="card-body">
                 <div class="lead">
-                    <strong>Name:</strong>
+                    <strong>{{ trans('dashboard.Name') }}</strong>
                     {{ $permission->name }}
                 </div>
             </div>

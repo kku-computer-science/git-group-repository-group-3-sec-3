@@ -99,9 +99,9 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Users</h4>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>New User</a>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>Import New User</a>
+            <h4 class="card-title">{{ trans('dashboard.Users') }}</h4>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>{{ trans('dashboard.New User') }}</a>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>{{ trans('dashboard.Import New User') }}</a>
             <!-- <div class="search-box">
                 <div class="input-group">
                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
@@ -114,11 +114,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th width="280px">Action</th>
+                            <th>{{ trans('dashboard.name') }}</th>
+                            <th>{{ trans('dashboard.Department') }}</th>
+                            <th>{{ trans('dashboard.email') }}</th>
+                            <th>{{ trans('dashboard.Roles') }}</th>
+                            <th width="280px">{{ trans('dashboard.Action') }}</th>
                         </tr>
                     </thead>
 
@@ -139,11 +139,11 @@
                             <td>
                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
                                 <li class="list-inline-item">
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
+                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.user-view') }}" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
                                 </li>
                                     @can('user-edit')
                                     <li class="list-inline-item">
-                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.user-edit') }}" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     @endcan
                                     @can('user-delete')
@@ -156,7 +156,7 @@
                                     @method('DELETE')
 
                                     <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.delete') }}"><i class="mdi mdi-delete"></i></button>
                                     </li>
                                     @endcan
                                 </form>
