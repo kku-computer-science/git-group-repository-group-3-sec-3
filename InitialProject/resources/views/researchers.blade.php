@@ -4,13 +4,16 @@
     <p class="title">{{ trans('researchers.res') }}</p>
     @foreach($request as $res)
     <span>
-        <ion-icon name="caret-forward-outline" size="small"> </ion-icon>
-        @if (!is_null($res->program_name_en))
-        {{ app()->getLocale() == 'en' ? $res->program_name_en : $res->program_name_th }}
-        @endif
-
-
-        <!-- {{$res->program_name_en}}  -->
+        <ion-icon name="caret-forward-outline" size="small"></ion-icon>
+        @php
+            $locale = app()->getLocale();
+            $program_name = match ($locale) {
+                'th' => $res->program_name_th,
+                'cn' => $res->program_name_cn ?? $res->program_name_en,
+                default => $res->program_name_en,
+            };
+        @endphp
+        {{ $program_name }}
     </span>
     <div class="d-flex">
         <div class="ml-auto">
@@ -66,7 +69,15 @@
                                 <p class="card-text-1">{{ trans('message.expertise') }}</p>
                                 <div class="card-expertise">
                                     @foreach($r->expertise->sortBy('expert_name') as $exper)
-                                    <p class="card-text"> {{$exper->expert_name}}</p>
+                                    @php
+                                    $locale = app()->getLocale();
+                                    $expertise_name = match ($locale) {
+                                    'th' => $exper->expert_name_th, //add
+                                    'cn' => $exper->expert_name_cn,
+                                    default => $exper->expert_name,
+                                    };
+                                    @endphp
+                                    <p class="card-text"> {{ $expertise_name }}</p>
                                     @endforeach
                                 </div>
                         </div>
