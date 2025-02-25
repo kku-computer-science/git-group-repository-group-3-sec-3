@@ -4,10 +4,10 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+            <strong>{{ trans('dashboard.oops') }}</strong>{{ trans('dashboard.something_went_wrong') }}<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>{{ trans('dashboard.validation_required') }}</li>
                 @endforeach
             </ul>
         </div>
@@ -66,8 +66,8 @@
                 <p class="col-sm-3"><b>{{ trans('dashboard.status') }}</b></p>
                 <div class="col-sm-8">
                     <select id='status' class="form-control" style='width: 200px;' name="status">
-                        <option value="1" {{ "1" == $user->status ? 'selected' : '' }}>กำลังศึกษา</option>
-                        <option value="2" {{ "2" == $user->status ? 'selected' : '' }}>จบการศึกษา</option>
+                        <option value="1" {{ "1" == $user->status ? 'selected' : '' }}>{{ trans('dashboard.graduated') }}</option>
+                        <option value="2" {{ "2" == $user->status ? 'selected' : '' }}>{{ trans('dashboard.studying') }}</option>
                     </select>
                 </div>
             </div>

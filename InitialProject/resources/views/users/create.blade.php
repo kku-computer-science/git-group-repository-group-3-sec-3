@@ -5,10 +5,10 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+            <strong>{{ trans('dashboard.oops') }}</strong>{{ trans('dashboard.something_went_wrong') }}<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>{{ trans('dashboard.validation_required') }}</li>
                 @endforeach
             </ul>
         </div>
@@ -22,24 +22,24 @@
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <p><b>{{ trans('dashboard.first_name_th') }}</b></p>
-                            {!! Form::text('fname_th', null, array('placeholder' => 'ชื่อภาษาไทย','class' =>
+                            {!! Form::text('fname_th', null, array('placeholder' => __('dashboard.first_name_th'),'class' =>
                             'form-control')) !!}
                         </div>
                         <div class="col-sm-6">
                             <p><b>{{ trans('dashboard.last_name_th') }}</b></p>
-                            {!! Form::text('lname_th', null, array('placeholder' => 'นามสกุลภาษาไทย','class' =>
+                            {!! Form::text('lname_th', null, array('placeholder' => __('dashboard.last_name_th'),'class' =>
                             'form-control')) !!}
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <p><b>{{ trans('dashboard.first_name_en') }}</b></p>
-                            {!! Form::text('fname_en', null, array('placeholder' => 'ชื่อภาษาอังกฤษ','class' =>
+                            {!! Form::text('fname_en', null, array('placeholder' => __('dashboard.first_name_en'),'class' =>
                             'form-control')) !!}
                         </div>
                         <div class="col-sm-6">
                             <p><b>{{ trans('dashboard.last_name_en') }}</b></p>
-                            {!! Form::text('lname_en', null, array('placeholder' => 'นามสกุลภาษาอังกฤษ','class' =>
+                            {!! Form::text('lname_en', null, array('placeholder' => __('dashboard.last_name_en'),'class' =>
                             'form-control')) !!}
                         </div>
                     </div>
@@ -47,17 +47,17 @@
 
                         <div class="col-sm-8">
                             <p><b>{{ trans('dashboard.email') }}</b></p>
-                            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control'))!!}
+                            {!! Form::text('email', null, array('placeholder' => __('dashboard.email'),'class' => 'form-control'))!!}
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <p><b>{{ trans('dashboard.password') }}</b></p>
-                            {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control'))!!}
+                            {!! Form::password('password', array('placeholder' => __('dashboard.password'),'class' => 'form-control'))!!}
                         </div>
                         <div class="col-sm-6">
                             <p><b>{{ trans('dashboard.confirm_password') }}</p></b>
-                            {!! Form::password('password_confirmation', array('placeholder' => 'Confirm Password','class' =>'form-control')) !!}
+                            {!! Form::password('password_confirmation', array('placeholder' => __('dashboard.confirm_password'),'class' =>'form-control')) !!}
                         </div>
                     </div>
                     <div class="form-group col-sm-8">

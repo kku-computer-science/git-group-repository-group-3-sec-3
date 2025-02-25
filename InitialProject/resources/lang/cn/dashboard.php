@@ -259,6 +259,12 @@ return [
 'oops' => '哎呀!',
 'something_went_wrong' => '出了点问题，请检查以下错误。',
 'validation.required' => '此字段是必填的。',
+'are_you_sure' => '你确定吗？',
+'not_recover_file' => '您将无法恢复此虚拟文件！',
+'warning' => '警告',
+'delete_success' => '删除成功',
+'edit_program' => '编辑程序',
+'program_deleted' => '课程条目已成功删除',
 // ------------------------------------
 
 // ------------department---------------
@@ -287,6 +293,8 @@ return [
 'user_details' => '用户详细信息',
 'academic_ranks' => '学术职称',
 'education_history' => '教育背景',
+'graduated' => '已毕业',
+'studying' => '在读',
 
 
 ];

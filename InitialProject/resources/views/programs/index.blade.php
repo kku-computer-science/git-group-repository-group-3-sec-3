@@ -111,11 +111,11 @@
                             </div>
                             <div class="form-group">
                                 <strong>{{ __('dashboard.name_th') }}:</strong>
-                                <input type="text" name="program_name_th" id="program_name_th" class="form-control" placeholder="program name th" onchange="validate()">
+                                <input type="text" name="program_name_th" id="program_name_th" class="form-control" placeholder="{{ __('dashboard.name_th') }}" onchange="validate()">
                             </div>
                             <div class="form-group">
                                 <strong>{{ __('dashboard.name_en') }}:</strong>
-                                <input type="text" name="program_name_en" id="program_name_en" class="form-control" placeholder="program name en" onchange="validate()">
+                                <input type="text" name="program_name_en" id="program_name_en" class="form-control" placeholder="{{ __('dashboard.name_en') }}" onchange="validate()">
                             </div>
                             <!-- <div class="form-group">
                                 <strong>ระดับการศึกษา:</strong>
@@ -161,7 +161,7 @@
         $('body').on('click', '#edit-program', function() {
             var program_id = $(this).data('id');
             $.get('programs/' + program_id + '/edit', function(data) {
-                $('#programCrudModal').html("Edit program");
+                $('#programCrudModal').html("{{ __('dashboard.edit_program') }}");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled', false);
                 $('#crud-modal').modal('show');
@@ -182,14 +182,14 @@
             e.preventDefault();
             //confirm("Are You sure want to delete !");
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "warning",
+                title: "{{ __('dashboard.are_you_sure') }}",
+                text: "{{ __('dashboard.not_recover_file') }}",
+                type: "{{ __('dashboard.warning') }}",
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ __('dashboard.edit_program') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
@@ -201,7 +201,7 @@
                                 "_token": token,
                             },
                             success: function(data) {
-                                $('#msg').html('program entry deleted successfully');
+                                $('#msg').html('{{ __('dashboard.program_deleted') }}');
                                 $("#program_id_" + program_id).remove();
                             },
                             error: function(data) {

@@ -30,11 +30,11 @@
                 {!! Form::open(array('route' => 'departments.store', 'method'=>'department')) !!}
                     <div class="form-group">
                         <strong>{{ __('dashboard.department_name_TH') }}:</strong>
-                        {!! Form::text('department_name_th', null, array('placeholder' => 'Department Name TH','class' => 'form-control')) !!}
+                        {!! Form::text('department_name_th', null, array('placeholder' => __('dashboard.department_name_TH'),'class' => 'form-control')) !!}
                     </div>
                     <div class="form-group">
                         <strong>{{ __('dashboard.department_name_EN') }}:</strong>
-                        {!! Form::text('department_name_en', null, array('placeholder' => 'Department Name EN','class' => 'form-control')) !!}
+                        {!! Form::text('department_name_en', null, array('placeholder' => __('dashboard.department_name_EN'),'class' => 'form-control')) !!}
                     </div>
                     
                     <button type="submit" class="btn btn-primary">{{ __('dashboard.Submit') }}</button>

@@ -167,14 +167,14 @@
             e.preventDefault();
             //confirm("Are You sure want to delete !");
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "warning",
+                title: "{{ __('dashboard.are_you_sure') }}",
+                text: "{{ __('dashboard.not_recover_file') }}",
+                type: "{{ __('dashboard.warning') }}",
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ __('dashboard.edit_program') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

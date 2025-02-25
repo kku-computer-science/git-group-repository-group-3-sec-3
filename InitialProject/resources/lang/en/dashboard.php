@@ -275,6 +275,12 @@ return [
 'oops' => 'Opps!',
 'something_went_wrong' => 'Something went wrong, please check below errors.',
 'validation.required' => 'This field is required.',
+'are_you_sure' => 'Are you sure?',
+'not_recover_file' => 'You will not be able to recover this imaginary file!',
+'warning' => 'Warning',
+'delete_success' => 'Delete Successfully',
+'edit_program' => 'Edit Program',
+'program_deleted' => 'Program entry deleted successfully',
 // -------------------------------------
 
 // ------------department---------------
@@ -304,4 +310,6 @@ return [
 'user_details' => 'User Details',
 'academic_ranks' => 'Academic Ranks',
 'education_history' => 'Education History',
+'graduated' => 'Graduated',
+'studying' => 'Studying',
 ];

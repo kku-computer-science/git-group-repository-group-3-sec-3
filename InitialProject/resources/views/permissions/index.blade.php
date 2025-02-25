@@ -88,15 +88,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
-                icon: "warning",
+                title: "{{ __('dashboard.are_you_sure') }}",
+                text: "{{ __('dashboard.not_recover_file') }}",
+                type: "{{ __('dashboard.warning') }}",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ __('dashboard.edit_program') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();
