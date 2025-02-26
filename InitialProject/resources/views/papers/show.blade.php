@@ -37,39 +37,107 @@
                 <p class="card-text col-sm-9">{{ $paper->publication }}</p>
             </div>
             
+            <!-- แสดงผู้จัดทำ (Internal Author) -->
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ trans('dashboard.Author') }}</b></p>
                 <p class="card-text col-sm-9">
+                    @php
+                        $locale = app()->getLocale();
+                    @endphp
+
+                    {{-- สำหรับ First Author --}}
                     @foreach($paper->author as $teacher)
                         @if($teacher->pivot->author_type == 1)
-                            <b>{{ trans('dashboard.First Author') }}:</b> {{ $teacher->author_fname }} {{ $teacher->author_lname }} <br>
+                            <b>{{ trans('dashboard.First Author') }}:</b>
+                            @if($locale == 'th')
+                                {{ $teacher->author_fname }} {{ $teacher->author_lname }}
+                            @else
+                                @if(!empty($teacher->fname_en) || !empty($teacher->lname_en))
+                                    {{ $teacher->fname_en }} {{ $teacher->lname_en }}
+                                @else
+                                    {{ $teacher->author_fname }} {{ $teacher->author_lname }}
+                                @endif
+                            @endif
+                            <br>
                         @endif
                     @endforeach
                     @foreach($paper->teacher as $teacher)
                         @if($teacher->pivot->author_type == 1)
-                            <b>{{ trans('dashboard.First Author') }}:</b> {{ $teacher->fname_en }} {{ $teacher->lname_en }} <br>
+                            <b>{{ trans('dashboard.First Author') }}:</b>
+                            @if($locale == 'th')
+                                {{ $teacher->fname_th }} {{ $teacher->lname_th }}
+                            @else
+                                @if(!empty($teacher->fname_en) || !empty($teacher->lname_en))
+                                    {{ $teacher->fname_en }} {{ $teacher->lname_en }}
+                                @else
+                                    {{ $teacher->fname_th }} {{ $teacher->lname_th }}
+                                @endif
+                            @endif
+                            <br>
                         @endif 
                     @endforeach
 
+                    {{-- สำหรับ Co-Author --}}
                     @foreach($paper->author as $teacher)
                         @if($teacher->pivot->author_type == 2)
-                            <b>{{ trans('dashboard.Co-Author') }}:</b> {{ $teacher->author_fname }} {{ $teacher->author_lname }} <br>
+                            <b>{{ trans('dashboard.Co-Author') }}:</b>
+                            @if($locale == 'th')
+                                {{ $teacher->author_fname }} {{ $teacher->author_lname }}
+                            @else
+                                @if(!empty($teacher->fname_en) || !empty($teacher->lname_en))
+                                    {{ $teacher->fname_en }} {{ $teacher->lname_en }}
+                                @else
+                                    {{ $teacher->author_fname }} {{ $teacher->author_lname }}
+                                @endif
+                            @endif
+                            <br>
                         @endif
                     @endforeach
                     @foreach($paper->teacher as $teacher)
                         @if($teacher->pivot->author_type == 2)
-                            <b>{{ trans('dashboard.Co-Author') }}:</b> {{ $teacher->fname_en }} {{ $teacher->lname_en }} <br>
+                            <b>{{ trans('dashboard.Co-Author') }}:</b>
+                            @if($locale == 'th')
+                                {{ $teacher->fname_th }} {{ $teacher->lname_th }}
+                            @else
+                                @if(!empty($teacher->fname_en) || !empty($teacher->lname_en))
+                                    {{ $teacher->fname_en }} {{ $teacher->lname_en }}
+                                @else
+                                    {{ $teacher->fname_th }} {{ $teacher->lname_th }}
+                                @endif
+                            @endif
+                            <br>
                         @endif 
                     @endforeach
 
+                    {{-- สำหรับ Corresponding Author --}}
                     @foreach($paper->author as $teacher)
                         @if($teacher->pivot->author_type == 3)
-                            <b>{{ trans('dashboard.Corresponding Author') }}:</b> {{ $teacher->author_fname }} {{ $teacher->author_lname }} <br>
+                            <b>{{ trans('dashboard.Corresponding Author') }}:</b>
+                            @if($locale == 'th')
+                                {{ $teacher->author_fname }} {{ $teacher->author_lname }}
+                            @else
+                                @if(!empty($teacher->fname_en) || !empty($teacher->lname_en))
+                                    {{ $teacher->fname_en }} {{ $teacher->lname_en }}
+                                @else
+                                    {{ $teacher->author_fname }} {{ $teacher->author_lname }}
+                                @endif
+                            @endif
+                            <br>
                         @endif
                     @endforeach
                     @foreach($paper->teacher as $teacher)
                         @if($teacher->pivot->author_type == 3)
-                            <b>{{ trans('dashboard.Corresponding Author') }}:</b> {{ $teacher->fname_en }} {{ $teacher->lname_en }} <br>
+                            <b>{{ trans('dashboard.Corresponding Author') }}:</b>
+                            @if($locale == 'th')
+                                {{ $teacher->fname_th }} {{ $teacher->lname_th }}
+                            @else
+                                @if(!empty($teacher->fname_en) || !empty($teacher->lname_en))
+                                    {{ $teacher->fname_en }} {{ $teacher->lname_en }}
+                                @else
+                                    {{ $teacher->fname_th }} {{ $teacher->lname_th }}
+                                @endif
+                            @endif
+                            <br>
                         @endif 
                     @endforeach
                 </p>
@@ -80,9 +148,19 @@
                 <p class="card-text col-sm-9">{{ $paper->paper_sourcetitle }}</p>
             </div>
             
+            <!-- ปีที่ตีพิมพ์: ถ้าเป็นภาษาไทยให้ +543 -->
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ trans('dashboard.Year of Publication') }}</b></p>
-                <p class="card-text col-sm-9">{{ $paper->paper_yearpub }}</p>
+                <p class="card-text col-sm-9">
+                    @php
+                        $year = $paper->paper_yearpub;
+                    @endphp
+                    @if($locale == 'th')
+                        {{ $year + 543 }}
+                    @else
+                        {{ $year }}
+                    @endif
+                </p>
             </div>
             
             <div class="row mt-2">
@@ -113,6 +191,5 @@
             <a class="btn btn-primary mt-5" href="{{ route('papers.index') }}">{{ trans('dashboard.Back') }}</a>
         </div>
     </div>
-    
 </div>
 @endsection
