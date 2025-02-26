@@ -1,10 +1,9 @@
 @extends('dashboards.users.layouts.user-dash-layout')
-
 @section('content')
 <div class="container">
     @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ trans('dashboard.Whoops!') }}</strong> {{ trans('dashboard.There were some problems with your input.') }}<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -14,60 +13,56 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">สร้างกลุ่มวิจัย</h4>
-            <p class="card-description">กรอกข้อมูลแก้ไขรายละเอียดกลุ่มวิจัย</p>
+            <h4 class="card-title">{{ trans('dashboard.Create Research Group') }}</h4>
+            <p class="card-description">{{ trans('dashboard.Fill in the research group details') }}</p>
             <form action="{{ route('researchGroups.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>ชื่อกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3 "><b>{{ trans('dashboard.Research Group Name (Thai)') }}</b></p>
                     <div class="col-sm-8">
                         <input name="group_name_th" value="{{ old('group_name_th') }}" class="form-control"
-                            placeholder="ชื่อกลุ่มวิจัย (ภาษาไทย)">
+                            placeholder="{{ trans('dashboard.Research Group Name (Thai)') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 "><b>ชื่อกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3 "><b>{{ trans('dashboard.Research Group Name (English)') }}</b></p>
                     <div class="col-sm-8">
                         <input name="group_name_en" value="{{ old('group_name_en') }}" class="form-control"
-                            placeholder="ชื่อกลุ่มวิจัย (English)">
+                            placeholder="{{ trans('dashboard.Research Group Name (English)') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>คำอธิบายกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Research Group Description (Thai)') }}</b></p>
                     <div class="col-sm-8">
-                        <textarea name="group_desc_th" value="{{ old('group_desc_th') }}" class="form-control"
-                            style="height:90px"></textarea>
+                        <textarea name="group_desc_th" class="form-control" style="height:90px">{{ old('group_desc_th') }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>คำอธิบายกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Research Group Description (English)') }}</b></p>
                     <div class="col-sm-8">
-                        <textarea name="group_desc_en" value="{{ old('group_desc_en') }}" class="form-control"
-                            style="height:90px"></textarea>
+                        <textarea name="group_desc_en" class="form-control" style="height:90px">{{ old('group_desc_en') }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (ภาษาไทย)</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Research Group Details (Thai)') }}</b></p>
                     <div class="col-sm-8">
-                        <textarea name="group_detail_en" value="{{ old('group_detail_th') }}" class="form-control"
-                            style="height:90px"></textarea>
+                        <textarea name="group_detail_th" class="form-control" style="height:90px">{{ old('group_detail_th') }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>รายละเอียดกลุ่มวิจัย (English)</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Research Group Details (English)') }}</b></p>
                     <div class="col-sm-8">
-                        <textarea name="group_detail_en" value="{{ old('group_detail_en') }}" class="form-control"
-                            style="height:90px"></textarea>
+                        <textarea name="group_detail_en" class="form-control" style="height:90px">{{ old('group_detail_en') }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>image</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Image') }}</b></p>
                     <div class="col-sm-8">
                         <input type="file" name="group_image" class="form-control" value="{{ old('group_image') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3"><b>หัวหน้ากลุ่มวิจัย</b></p>
+                    <p class="col-sm-3"><b>{{ trans('dashboard.Research Group Leader') }}</b></p>
                     <div class="col-sm-8">
                         <select id='head0' name="head">
                             @foreach($users as $user)
@@ -79,7 +74,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <p class="col-sm-3 pt-4"><b>สมาชิกกลุ่มวิจัย</b></p>
+                    <p class="col-sm-3 pt-4"><b>{{ trans('dashboard.Research Group Members') }}</b></p>
                     <div class="col-sm-8">
                         <table class="table" id="dynamicAddRemove">
                             <tr>
@@ -89,14 +84,15 @@
                         </table>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary upload mt-5">Submit</button>
-                <a class="btn btn-light mt-5" href="{{ route('researchGroups.index')}}"> Back</a>
+                <button type="submit" class="btn btn-primary upload mt-5">{{ trans('dashboard.Submit') }}</button>
+                <a class="btn btn-light mt-5" href="{{ route('researchGroups.index') }}"> {{ trans('dashboard.Back') }}</a>
                 </form>
         </div>
     </div>
 </div>
 
 @stop
+
 @section('javascript')
 <!-- <script type="text/javascript">
 $("body").on("click",".upload",function(e){

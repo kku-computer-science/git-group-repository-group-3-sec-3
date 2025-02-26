@@ -2380,28 +2380,26 @@ CREATE TABLE `files` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funds`
+-- Table structure for table funds
 --
 
-CREATE TABLE `funds` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `fund_name` text NOT NULL,
-  `fund_details` text DEFAULT NULL,
-  `fund_type` varchar(10) NOT NULL,
-  `fund_type_en` varchar(20) NOT NULL,
-  `fund_type_cn` varchar(100) NOT NULL,
-  `fund_level` varchar(10) DEFAULT NULL,
-  `fund_agency` varchar(150) DEFAULT NULL,
-  `support_resource` varchar(150) DEFAULT NULL,
-  `support_resource_en` varchar(150) DEFAULT NULL,
-  `support_resource_cn` varchar(150) DEFAULT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE funds (
+  id bigint(20) UNSIGNED NOT NULL,
+  fund_name text NOT NULL,
+  fund_details text DEFAULT NULL,
+  fund_type varchar(10) NOT NULL,
+  fund_type_en varchar(20) NOT NULL,
+  fund_level varchar(10) DEFAULT NULL,
+  fund_agency varchar(150) DEFAULT NULL,
+  support_resource varchar(150) DEFAULT NULL,
+  support_resource_en varchar(150) DEFAULT NULL,
+  user_id bigint(20) UNSIGNED DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `funds`
+-- Dumping data for table funds
 --
 
 INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_type_en`, `fund_type_cn`, `fund_level`, `fund_agency`, `support_resource`, `support_resource_en`, `support_resource_cn`, `user_id`, `created_at`, `updated_at`) VALUES

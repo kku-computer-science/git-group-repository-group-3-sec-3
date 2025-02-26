@@ -21,7 +21,7 @@
                     {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <p><b>ชื่อ (ภาษาไทย)</b></p>
+                            <p><b>{{ trans('dashboard.Name') }}</b></p>
                             {!! Form::text('fname_th', null, array('placeholder' => 'ชื่อภาษาไทย','class' =>
                             'form-control')) !!}
                         </div>
