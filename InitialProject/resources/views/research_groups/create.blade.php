@@ -64,15 +64,19 @@
                 <div class="form-group row">
                     <p class="col-sm-3"><b>{{ trans('dashboard.Research Group Leader') }}</b></p>
                     <div class="col-sm-8">
-                        <select id='head0' name="head">
+                        @php
+                            $locale = app()->getLocale();
+                        @endphp
+                        <select id="head0" name="head" class="custom-select my-select" style="width: 100%;">
                             @foreach($users as $user)
-                            <option value="{{ $user->id }}">
-                                {{ $user->fname_th }} {{ $user->lname_th }}
-                            </option>
+                                <option value="{{ $user->id }}">
+                                    {{ $locale == 'th' ? $user->fname_th . ' ' . $user->lname_th : $user->fname_en . ' ' . $user->lname_en }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
                 </div>
+                
                 <div class="form-group row">
                     <p class="col-sm-3 pt-4"><b>{{ trans('dashboard.Research Group Members') }}</b></p>
                     <div class="col-sm-8">
@@ -132,7 +136,7 @@ $(document).ready(function() {
 
         ++i;
         $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-            '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
+            '][userid]"  style="width: 200px;"><option value="">{{ trans('dashboard.Select User') }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="fas fa-minus"></i></button></td></tr>'
             );
         $("#selUser" + i).select2()
     });

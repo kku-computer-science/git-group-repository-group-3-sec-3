@@ -72,9 +72,18 @@
                     <div class="form-group row mt-2">
                         <label for="exampleInputresponsible_department" class="col-sm-2 ">{{ trans('dashboard.Responsible agency') }}</label>
                         <div class="col-sm-9">
-                            <select id='dep' style='width: 200px;' class="custom-select my-select" name="responsible_department">
-                                <option value='' disabled selected>{{ trans('dashboard.Select a major') }}</option>@foreach($deps as $dep)<option value="{{ $dep->department_name_th }}">{{ $dep->department_name_th }}</option>@endforeach
+                            <select id="dep" style="width: 200px;" class="custom-select my-select" name="responsible_department">
+                                <option value="" disabled selected>{{ trans('dashboard.Select a major') }}</option>
+                                @php
+                                    $locale = app()->getLocale();
+                                @endphp
+                                @foreach($deps as $dep)
+                                    <option value="{{ $locale == 'th' ? $dep->department_name_th : $dep->department_name_en }}">
+                                        {{ $locale == 'th' ? $dep->department_name_th : $dep->department_name_en }}
+                                    </option>
+                                @endforeach
                             </select>
+                            
                         </div>
                     </div>
                     <div class="form-group row mt-2">
