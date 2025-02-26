@@ -4,7 +4,7 @@ return [
 'references' => 'Reference',
 'close' => 'Close',
 'summary' => 'SUMMARY',
-'graphtext' => 'Report the total number of articles ( 5 years : cumulative)',
+'graphtext' => 'Report the total number of articles (5 years : cumulative)',
 'year' => 'year',
 'number' => 'Number',
 'before' => 'Before ',

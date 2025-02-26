@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.2 on win32)" generated="2025-02-24T19:27:38.627600" rpa="false" schemaversion="5">
+<suite id="s1" name="Git-Group-Repository-Group-3-Sec-3" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3">
+<suite id="s1-s1" name="InitialProject" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject">
+<suite id="s1-s1-s1" name="Tests" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests">
+<suite id="s1-s1-s1-s1" name="Unit" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests\Unit">
+<suite id="s1-s1-s1-s1-s1" name="Home" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests\Unit\home.robot">
+<test id="s1-s1-s1-s1-s1-t1" name="Switch Language And Verify Summary In HTML" line="34">
+<kw name="Open Browser To Report Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-24T19:27:38.899909" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8000/'.</msg>
+<msg time="2025-02-24T19:27:44.513815" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-24T19:27:44.514245" level="FAIL">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=133.0.6943.127)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7FEA66EE5+28773]
+	(No symbol) [0x00007FF7FE9D25D0]
+	(No symbol) [0x00007FF7FE868FAA]
+	(No symbol) [0x00007FF7FE865946]
+	(No symbol) [0x00007FF7FE856709]
+	(No symbol) [0x00007FF7FE858478]
+	(No symbol) [0x00007FF7FE856A16]
+	(No symbol) [0x00007FF7FE856496]
+	(No symbol) [0x00007FF7FE85615A]
+	(No symbol) [0x00007FF7FE853CEE]
+	(No symbol) [0x00007FF7FE8545CC]
+	(No symbol) [0x00007FF7FE86CDFA]
+	(No symbol) [0x00007FF7FE9105AE]
+	(No symbol) [0x00007FF7FE8E724A]
+	(No symbol) [0x00007FF7FE90F6F3]
+	(No symbol) [0x00007FF7FE8E7023]
+	(No symbol) [0x00007FF7FE8AFF5E]
+	(No symbol) [0x00007FF7FE8B11E3]
+	GetHandleVerifier [0x00007FF7FEDB422D+3490733]
+	GetHandleVerifier [0x00007FF7FEDCBA13+3586963]
+	GetHandleVerifier [0x00007FF7FEDC144D+3544525]
+	GetHandleVerifier [0x00007FF7FEB2C9AA+838442]
+	(No symbol) [0x00007FF7FE9DD01F]
+	(No symbol) [0x00007FF7FE9D95E4]
+	(No symbol) [0x00007FF7FE9D9786]
+	(No symbol) [0x00007FF7FE9C8CB9]
+	BaseThreadInitThunk [0x00007FFABC99259D+29]
+	RtlUserThreadStart [0x00007FFABDB2AF38+40]
+</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-02-24T19:27:38.899542" elapsed="5.619074">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=133.0.6943.127)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7FEA66EE5+28773]
+	(No symbol) [0x00007FF7FE9D25D0]
+	(No symbol) [0x00007FF7FE868FAA]
+	(No symbol) [0x00007FF7FE865946]
+	(No symbol) [0x00007FF7FE856709]
+	(No symbol) [0x00007FF7FE858478]
+	(No symbol) [0x00007FF7FE856A16]
+	(No symbol) [0x00007FF7FE856496]
+	(No symbol) [0x00007FF7FE85615A]
+	(No symbol) [0x00007FF7FE853CEE]
+	(No symbol) [0x00007FF7FE8545CC]
+	(No symbol) [0x00007FF7FE86CDFA]
+	(No symbol) [0x00007FF7FE9105AE]
+	(No symbol) [0x00007FF7FE8E724A]
+	(No symbol) [0x00007FF7FE90F6F3]
+	(No symbol) [0x00007FF7FE8E7023]
+	(No symbol) [0x00007FF7FE8AFF5E]
+	(No symbol) [0x00007FF7FE8B11E3]
+	GetHandleVerifier [0x00007FF7FEDB422D+3490733]
+	GetHandleVerifier [0x00007FF7FEDCBA13+3586963]
+	GetHandleVerifier [0x00007FF7FEDC144D+3544525]
+	GetHandleVerifier [0x00007FF7FEB2C9AA+838442]
+	(No symbol) [0x00007FF7FE9DD01F]
+	(No symbol) [0x00007FF7FE9D95E4]
+	(No symbol) [0x00007FF7FE9D9786]
+	(No symbol) [0x00007FF7FE9C8CB9]
+	BaseThreadInitThunk [0x00007FFABC99259D+29]
+	RtlUserThreadStart [0x00007FFABDB2AF38+40]
+</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-02-24T19:27:44.518886" elapsed="0.000204"/>
+</kw>
+<status status="FAIL" start="2025-02-24T19:27:38.898782" elapsed="5.620473">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=133.0.6943.127)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7FEA66EE5+28773]
+	(No symbol) [0x00007FF7FE9D25D0]
+	(No symbol) [0x00007FF7FE868FAA]
+	(No symbol) [0x00007FF7FE865946]
+	(No symbol) [0x00007FF7FE856709]
+	(No symbol) [0x00007FF7FE858478]
+	(No symbol) [0x00007FF7FE856A16]
+	(No symbol) [0x00007FF7FE856496]
+	(No symbol) [0x00007FF7FE85615A]
+	(No symbol) [0x00007FF7FE853CEE]
+	(No symbol) [0x00007FF7FE8545CC]
+	(No symbol) [0x00007FF7FE86CDFA]
+	(No symbol) [0x00007FF7FE9105AE]
+	(No symbol) [0x00007FF7FE8E724A]
+	(No symbol) [0x00007FF7FE90F6F3]
+	(No symbol) [0x00007FF7FE8E7023]
+	(No symbol) [0x00007FF7FE8AFF5E]
+	(No symbol) [0x00007FF7FE8B11E3]
+	GetHandleVerifier [0x00007FF7FEDB422D+3490733]
+	GetHandleVerifier [0x00007FF7FEDCBA13+3586963]
+	GetHandleVerifier [0x00007FF7FEDC144D+3544525]
+	GetHandleVerifier [0x00007FF7FEB2C9AA+838442]
+	(No symbol) [0x00007FF7FE9DD01F]
+	(No symbol) [0x00007FF7FE9D95E4]
+	(No symbol) [0x00007FF7FE9D9786]
+	(No symbol) [0x00007FF7FE9C8CB9]
+	BaseThreadInitThunk [0x00007FFABC99259D+29]
+	RtlUserThreadStart [0x00007FFABDB2AF38+40]
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-24T19:27:44.519501" elapsed="0.000178"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${is_thai_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${LANG_TO_THAI}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-02-24T19:27:44.519875" elapsed="0.000170"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_thai_visible}</arg>
+<arg>Wait And Click</arg>
+<arg>${LANG_TO_THAI}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-02-24T19:27:44.520229" elapsed="0.000162"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-24T19:27:44.520570" elapsed="0.000155"/>
+</kw>
+<kw name="Verify Page Contains Texts">
+<arg>@{EXPECTED_THAI_TEXTS}</arg>
+<arg>and</arg>
+<arg>@{EXPECTED_Year_th}</arg>
+<status status="NOT RUN" start="2025-02-24T19:27:44.520968" elapsed="0.000158"/>
+</kw>
+<kw name="Wait And Click">
+<arg>${LANG_TO_ENGLISH}</arg>
+<status status="NOT RUN" start="2025-02-24T19:27:44.521300" elapsed="0.000148"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-02-24T19:27:44.521590" elapsed="0.000152"/>
+</kw>
+<kw name="Verify Page Contains Texts">
+<arg>@{EXPECTED_ENGLISH_TEXTS}</arg>
+<arg>and</arg>
+<arg>@{EXPECTED_Year_en}</arg>
+<status status="NOT RUN" start="2025-02-24T19:27:44.521946" elapsed="0.000187"/>
+</kw>
+<status status="FAIL" start="2025-02-24T19:27:38.897953" elapsed="5.624591">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=133.0.6943.127)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7FEA66EE5+28773]
+	(No symbol) [0x00007FF7FE9D25D0]
+	(No symbol) [0x00007FF7FE868FAA]
+	(No symbol) [0x00007FF7FE865946]
+	(No symbol) [0x00007FF7FE856709]
+	(No symbol) [0x00007FF7FE858478]
+	(No symbol) [0x00007FF7FE856A16]
+	(No symbol) [0x00007FF7FE856496]
+	(No symbol) [0x00007FF7FE85615A]
+	(No symbol) [0x00007FF7FE853CEE]
+	(No symbol) [0x00007FF7FE8545CC]
+	(No symbol) [0x00007FF7FE86CDFA]
+	(No symbol) [0x00007FF7FE9105AE]
+	(No symbol) [0x00007FF7FE8E724A]
+	(No symbol) [0x00007FF7FE90F6F3]
+	(No symbol) [0x00007FF7FE8E7023]
+	(No symbol) [0x00007FF7FE8AFF5E]
+	(No symbol) [0x00007FF7FE8B11E3]
+	GetHandleVerifier [0x00007FF7FEDB422D+3490733]
+	GetHandleVerifier [0x00007FF7FEDCBA13+3586963]
+	GetHandleVerifier [0x00007FF7FEDC144D+3544525]
+	GetHandleVerifier [0x00007FF7FEB2C9AA+838442]
+	(No symbol) [0x00007FF7FE9DD01F]
+	(No symbol) [0x00007FF7FE9D95E4]
+	(No symbol) [0x00007FF7FE9D9786]
+	(No symbol) [0x00007FF7FE9C8CB9]
+	BaseThreadInitThunk [0x00007FFABC99259D+29]
+	RtlUserThreadStart [0x00007FFABDB2AF38+40]
+</status>
+</test>
+<doc>Test suite for verifying language switching functionality on the report page</doc>
+<status status="FAIL" start="2025-02-24T19:27:38.688583" elapsed="5.836816"/>
+</suite>
+<status status="FAIL" start="2025-02-24T19:27:38.685705" elapsed="5.840969"/>
+</suite>
+<status status="FAIL" start="2025-02-24T19:27:38.684048" elapsed="5.843608"/>
+</suite>
+<status status="FAIL" start="2025-02-24T19:27:38.681993" elapsed="5.846703"/>
+</suite>
+<status status="FAIL" start="2025-02-24T19:27:38.663372" elapsed="5.866482"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Git-Group-Repository-Group-3-Sec-3">Git-Group-Repository-Group-3-Sec-3</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="InitialProject">Git-Group-Repository-Group-3-Sec-3.InitialProject</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Tests">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="Unit">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests.Unit</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1-s1" name="Home">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests.Unit.Home</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

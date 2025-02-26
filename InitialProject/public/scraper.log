@@ -145,34 +145,16 @@
 2025-02-12 23:19:01,375 INFO: Get LATEST chromedriver version for google-chrome
 2025-02-12 23:19:01,541 INFO: Get LATEST chromedriver version for google-chrome
 2025-02-12 23:19:01,674 INFO: Driver [C:\Users\aekka\.wdm\drivers\chromedriver\win64\133.0.6943.53\chromedriver-win32/chromedriver.exe] found in cache
-2025-02-24 21:54:45,298 INFO: Searching for author (English): Sartra Wongthanavasu
-2025-02-24 21:54:45,299 INFO: Searching for author (Thai): ศาสตรา วงศ์ธนวสุ
-2025-02-24 21:54:45,299 INFO: ====== WebDriver manager ======
-2025-02-24 21:54:45,494 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-24 21:54:45,594 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-24 21:54:45,658 INFO: There is no [mac64] chromedriver "133.0.6943.126" for browser google-chrome "133.0.6943" in cache
-2025-02-24 21:54:45,670 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-24 21:54:46,251 INFO: WebDriver version 133.0.6943.126 selected
-2025-02-24 21:54:46,253 INFO: Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/mac-arm64/chromedriver-mac-arm64.zip
-2025-02-24 21:54:46,254 INFO: About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/mac-arm64/chromedriver-mac-arm64.zip
-2025-02-24 21:54:46,464 INFO: Driver downloading response is 200
-2025-02-24 21:54:47,529 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-24 21:54:47,715 INFO: Driver has been saved in cache [/Users/jet/.wdm/drivers/chromedriver/mac64/133.0.6943.126]
-2025-02-24 21:55:13,586 INFO: Searching for author (English): Sartra Wongthanavasu
-2025-02-24 21:55:13,587 INFO: Searching for author (Thai): ศาสตรา วงศ์ธนวสุ
-2025-02-24 21:55:13,587 INFO: ====== WebDriver manager ======
-2025-02-24 21:55:13,754 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-24 21:55:13,826 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-24 21:55:13,887 INFO: Driver [/Users/jet/.wdm/drivers/chromedriver/mac64/133.0.6943.126/chromedriver-mac-arm64/chromedriver] found in cache
-2025-02-26 00:44:23,264 INFO: Searching for author (English): Sartra Wongthanavasu
-2025-02-26 00:44:23,264 INFO: Searching for author (Thai): ศาสตรา วงศ์ธนวสุ
-2025-02-26 00:44:23,264 INFO: ====== WebDriver manager ======
-2025-02-26 00:44:23,450 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-26 00:44:23,565 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-26 00:44:23,633 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-26 00:44:23,836 INFO: WebDriver version 133.0.6943.126 selected
-2025-02-26 00:44:23,838 INFO: Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/mac-arm64/chromedriver-mac-arm64.zip
-2025-02-26 00:44:23,838 INFO: About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/mac-arm64/chromedriver-mac-arm64.zip
-2025-02-26 00:44:23,994 INFO: Driver downloading response is 200
-2025-02-26 00:44:24,786 INFO: Get LATEST chromedriver version for google-chrome
-2025-02-26 00:44:24,960 INFO: Driver has been saved in cache [/Users/jet/.wdm/drivers/chromedriver/mac64/133.0.6943.126]
+2025-02-24 19:54:45,179 INFO: Searching for author (English): Sartra Wongthanavasu
+2025-02-24 19:54:45,180 INFO: Searching for author (Thai): \u0e28\u0e32\u0e2a\u0e15\u0e23\u0e32 \u0e27\u0e07\u0e28\u0e4c\u0e18\u0e19\u0e27\u0e2a\u0e38
+2025-02-24 19:54:45,180 INFO: ====== WebDriver manager ======
+2025-02-24 19:54:45,896 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-24 19:54:45,999 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-24 19:54:46,050 INFO: There is no [win64] chromedriver "133.0.6943.126" for browser google-chrome "133.0.6943" in cache
+2025-02-24 19:54:46,050 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-24 19:54:46,443 INFO: WebDriver version 133.0.6943.126 selected
+2025-02-24 19:54:46,445 INFO: Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/win32/chromedriver-win32.zip
+2025-02-24 19:54:46,445 INFO: About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/win32/chromedriver-win32.zip
+2025-02-24 19:54:46,654 INFO: Driver downloading response is 200
+2025-02-24 19:54:48,041 INFO: Get LATEST chromedriver version for google-chrome
+2025-02-24 19:54:48,345 INFO: Driver has been saved in cache [C:\Users\aekka\.wdm\drivers\chromedriver\win64\133.0.6943.126]
