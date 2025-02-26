@@ -163,6 +163,8 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/ajax-get-subcat', [UserController::class, 'getCategory']);
     Route::get('tests', [TestController::class, 'index']); //call department
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
+    
+    Route::get('/experts/get-names', [App\Http\Controllers\ExpertController::class, 'getNames'])->name('experts.getNames');
 
 });
 

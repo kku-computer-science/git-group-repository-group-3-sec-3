@@ -51,7 +51,15 @@
                     <tr id="expert_id_{{ $expert->id }}">
                         <td>{{ $i+1 }}</td>
                         @if(Auth::user()->hasRole('admin'))
-                        <td>{{ $expert->user->fname_en }} {{ $expert->user->lname_en }}</td>
+                        <td class="teacher-name" data-user-id="{{ $expert->user->id }}">
+                            @if(app()->getLocale() == 'th')
+                                {{ $expert->user->fname_th }} {{ $expert->user->lname_th }}
+                            @elseif(app()->getLocale() == 'cn')
+                                {{ $expert->user->fname_en }} {{ $expert->user->lname_en }}
+                            @else
+                                {{ $expert->user->fname_en }} {{ $expert->user->lname_en }}
+                            @endif
+                        </td>
                         @endif
                         <td>{{ $expert->expert_name }}</td>
 
@@ -179,8 +187,33 @@
             language: languageSettings,
             responsive: true
         });
+        
+        // Listen for language change events
+        // This assumes there's a language switcher elsewhere in your app
+        $(document).on('languageChanged', function(e, newLocale) {
+            updateTeacherNames(newLocale);
+        });
+        
+        // Function to update teacher names based on locale
+        function updateTeacherNames(locale) {
+            $.ajax({
+                url: "{{ route('experts.getNames') }}",
+                method: "GET",
+                data: { locale: locale },
+                success: function(response) {
+                    // Update each teacher name in the table
+                    $.each(response.teachers, function(userId, teacherName) {
+                        $('.teacher-name[data-user-id="' + userId + '"]').text(teacherName);
+                    });
+                },
+                error: function(error) {
+                    console.error("Error updating teacher names:", error);
+                }
+            });
+        }
     });
 </script>
+
 <script>
     $(document).ready(function() {
         $.ajaxSetup({
@@ -249,7 +282,7 @@
 
                 }
 
-                });
+            });
         });
     });
 </script>
