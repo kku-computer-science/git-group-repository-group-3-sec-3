@@ -66,20 +66,31 @@
                     <li class="nav-item {{ request()->is('/') ? 'active' : ''}} ">
                         <a class="nav-link" href="/">{{ trans('message.Home') }}</a>
                     </li>
-                    <li
-                        class="nav-item dropdown {{ Request::routeIs('researchers') ? 'active' : '' }} {{ request()->is('detail*') ? 'active' : ''}} ">
+                    <li class="nav-item dropdown {{ Request::routeIs('researchers') ? 'active' : '' }} {{ request()->is('detail*') ? 'active' : ''}}">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             {{ trans('message.Researchers') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($dn as $department)
-                            <li><a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id])}}">
-                                    {{$department->program_name_en}}</a>
-                            </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('researchers',['id'=>$department->id]) }}">
+                                        @php
+                                            $program_name = match (app()->getLocale()) {
+                                                'th' => $department->program_name_th,
+                                                'cn' => $department->program_name_cn,
+                                                default => $department->program_name_en,
+                                            };
+                                        @endphp
+                                        {{ $program_name }}
+                                    </a>
+                                </li>
                             @endforeach
+
+
                         </ul>
                     </li>
+
                     <li class="nav-item {{ request()->is('researchproject') ? 'active' : ''}} ">
                         <a class="nav-link" href="/researchproject">{{ trans('message.ResearchProj') }}</a>
                     </li>

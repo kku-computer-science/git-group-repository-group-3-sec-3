@@ -70,22 +70,21 @@
                         <h6 class="card-text1">{{ trans('researcherProfile.email') }}: {{$res->email}}</h6>
                         <h6 class="card-title">{{ trans('message.education') }}</h6>
 
-                        @foreach( $res->education as $edu)
-                        <h6 class="card-text2 col-sm-10">
-                            @if (app()->getLocale() == 'th')
-                            {{($edu->year)}}
-                            {{$edu->qua_name}} {{$edu->uname}}
-
-                            @else
-                            {{($edu->year)-543}}
-                            {{$edu->qua_name_en}} {{$edu->uname_en}}
-
-                            @endif
-
-
-
-                        </h6>
+                        @foreach($res->education as $edu)
+                            <h6 class="card-text2 col-sm-10">
+                                @if (app()->getLocale() == 'th')
+                                    {{ $edu->year }}
+                                    {{ $edu->qua_name }} {{ $edu->uname }}
+                                @elseif (app()->getLocale() == 'cn')
+                                    {{ $edu->year }}
+                                    {{ $edu->qua_name_en }} {{ $edu->uname_cn }} <!-- เพิ่มส่วนนี้เพื่อแสดงชื่อมหาวิทยาลัยเป็นภาษาจีน -->
+                                @else
+                                    {{ $edu->year - 543 }}
+                                    {{ $edu->qua_name_en }} {{ $edu->uname_en }}
+                                @endif
+                            </h6>
                         @endforeach
+
                         <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             {{ trans('message.expertise') }}
@@ -872,7 +871,7 @@
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
 
-       
+
 
 
         //document.getElementById("scopus").appendChild('data-to="100"');

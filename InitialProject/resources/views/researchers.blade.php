@@ -72,7 +72,7 @@
                                     @php
                                     $locale = app()->getLocale();
                                     $expertise_name = match ($locale) {
-                                    'th' => $exper->expert_name_th, //add
+                                    'th' => $exper->expert_name_th,
                                     'cn' => $exper->expert_name_cn,
                                     default => $exper->expert_name,
                                     };
