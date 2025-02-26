@@ -48,7 +48,15 @@
                         <td>{{ $i+1 }}</td>
                         <td>{{ $program->program_name_th }}</td>
                         <!-- <td>{{ $program->program_name_en }}</td> -->
-                        <td>{{ $program->degree->degree_name_en}}</td>
+                        <td>
+                            @if(app()->getLocale() == 'en')
+                                {{ $program->degree->degree_name_en }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $program->degree->degree_name_th }}
+                            @elseif(app()->getLocale() == 'cn')
+                                {{ $program->degree->degree_name_cn }}
+                            @endif
+                        </td>
                         <td>
                             <form action="{{ route('programs.destroy',$program->id) }}" method="POST">
                                 <!-- <a class="btn btn-info" id="show-program" data-toggle="modal" data-id="{{ $program->id }}">Show</a> -->

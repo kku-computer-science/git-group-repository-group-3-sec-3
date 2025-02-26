@@ -127,7 +127,15 @@
                         <tr>
                             <td>{{ $key++ }}</td>
                             <td>{{ $user->fname_en }} {{ $user->lname_en }} </td>
-                            <td>{{ Str::limit($user->program->program_name_en,20) }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'th')
+                                    {{ Str::limit($user->program->program_name_th, 20) }}
+                                @elseif(app()->getLocale() == 'cn')
+                                    {{ Str::limit($user->program->program_name_cn, 20) }}
+                                @else
+                                    {{ Str::limit($user->program->program_name_en, 20) }}
+                                @endif
+                            </td>
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(!empty($user->getRoleNames()))
