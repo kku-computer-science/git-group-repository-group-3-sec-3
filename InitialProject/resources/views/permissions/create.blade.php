@@ -13,18 +13,18 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Create permission
+            <div class="card-header">{{ __('dashboard.permission-create') }}
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('permissions.index') }}">Permissions</a>
+                    <a class="btn btn-primary" href="{{ route('permissions.index') }}">{{ __('dashboard.Permissions') }}</a>
                 </span>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => 'permissions.store','method'=>'POST')) !!}
                     <div class="form-group">
-                        <strong>Name:</strong>
-                        {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                        <strong>{{ __('dashboard.Name') }}</strong>
+                        {!! Form::text('name', null, array('placeholder' => '','class' => 'form-control')) !!}
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">{{ __('dashboard.Submit') }}</button>
                 {!! Form::close() !!}
             </div>
         </div>

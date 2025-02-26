@@ -16,10 +16,10 @@
         </div>
         @endif
         <div class="card">
-            <div class="card-header">Departments
+            <div class="card-header">{{ __('dashboard.Department') }}
                 @can('departments-create')
 
-                <a class="btn btn-primary" href="{{ route('departments.create') }}">New department</a>
+                <a class="btn btn-primary" href="{{ route('departments.create') }}">{{ __('dashboard.New Department') }}</a>
 
                 @endcan
             </div>
@@ -28,8 +28,8 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
+                            <th>{{ __('dashboard.Name') }}</th>
+                            <th width="280px">{{ __('dashboard.Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,11 +41,11 @@
                                 <form action="{{ route('departments.destroy',$department->id) }}" method="POST">
                                     
 
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('departments.show',$department->id) }}"><i class="mdi mdi-eye"></i></a>
+                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('dashboard. view') }}" href="{{ route('departments.show',$department->id) }}"><i class="mdi mdi-eye"></i></a>
 
                                     @can('departments-edit')
 
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('departments.edit',$department->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('dashboard.edit') }}" href="{{ route('departments.edit',$department->id) }}"><i class="mdi mdi-pencil"></i></a>
 
                                     @endcan
 
@@ -58,7 +58,7 @@
                                     @method('DELETE')
 
                                     <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="__('dashboard.delete')"><i class="mdi mdi-delete"></i></button>
                                     </li>
 
 

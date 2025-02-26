@@ -99,9 +99,9 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">Users</h4>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>New User</a>
-            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>Import New User</a>
+            <h4 class="card-title">{{ trans('dashboard.Users') }}</h4>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('users.create')}}"><i class="ti-plus btn-icon-prepend icon-sm"></i>{{ trans('dashboard.New User') }}</a>
+            <a class="btn btn-primary btn-icon-text btn-sm" href="{{ route('importfiles')}}"><i class="ti-download btn-icon-prepend icon-sm"></i>{{ trans('dashboard.Import New User') }}</a>
             <!-- <div class="search-box">
                 <div class="input-group">
                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
@@ -114,11 +114,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th width="280px">Action</th>
+                            <th>{{ trans('dashboard.name') }}</th>
+                            <th>{{ trans('dashboard.Department') }}</th>
+                            <th>{{ trans('dashboard.email') }}</th>
+                            <th>{{ trans('dashboard.Roles') }}</th>
+                            <th width="280px">{{ trans('dashboard.Action') }}</th>
                         </tr>
                     </thead>
 
@@ -139,11 +139,11 @@
                             <td>
                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
                                 <li class="list-inline-item">
-                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
+                                    <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.user-view') }}" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-eye"></i></a>
                                 </li>
                                     @can('user-edit')
                                     <li class="list-inline-item">
-                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
+                                    <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.user-edit') }}" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-pencil"></i></a>
                                     </li>
                                     @endcan
                                     @can('user-delete')
@@ -156,7 +156,7 @@
                                     @method('DELETE')
 
                                     <li class="list-inline-item">
-                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-delete"></i></button>
+                                        <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.delete') }}"><i class="mdi mdi-delete"></i></button>
                                     </li>
                                     @endcan
                                 </form>
@@ -176,8 +176,66 @@
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script>
     $(document).ready(function() {
+        // Get current locale from Laravel
+        let locale = "{{ app()->getLocale() }}";
+        
+        // Language settings object
+        let languageSettings = {};
+        
+        // Set language settings based on locale
+        if (locale === 'en') {
+            languageSettings = {
+                lengthMenu: "Show _MENU_ entries",
+                zeroRecords: "No matching records found",
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                infoEmpty: "Showing 0 to 0 of 0 entries",
+                infoFiltered: "(filtered from _MAX_ total entries)",
+                search: "Search:",
+                paginate: {
+                    first: "First",
+                    last: "Last",
+                    next: "Next",
+                    previous: "Previous"
+                }
+            };
+        } else if (locale === 'cn') {
+            languageSettings = {
+                lengthMenu: "显示 _MENU_ 条记录",
+                zeroRecords: "没有找到匹配的记录",
+                info: "显示第 _START_ 至 _END_ 条记录，共 _TOTAL_ 条",
+                infoEmpty: "显示第 0 至 0 条记录，共 0 条",
+                infoFiltered: "(由 _MAX_ 条记录过滤)",
+                search: "搜索:",
+                paginate: {
+                    first: "首页",
+                    last: "末页",
+                    next: "下页",
+                    previous: "上页"
+                }
+            };
+        } else {
+            // Default to Thai for 'th' locale
+            languageSettings = {
+                lengthMenu: "แสดง _MENU_ รายการ",
+                zeroRecords: "ไม่พบข้อมูล",
+                info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
+                infoEmpty: "แสดง 0 ถึง 0 จาก 0 รายการ",
+                infoFiltered: "(กรองข้อมูล _MAX_ ทุกรายการ)",
+                search: "ค้นหา:",
+                paginate: {
+                    first: "หน้าแรก",
+                    last: "หน้าสุดท้าย",
+                    next: "ถัดไป",
+                    previous: "ก่อนหน้า"
+                }
+            };
+        }
+        
+        // Initialize DataTable with language settings
         var table = $('#example1').DataTable({
-            fixedHeader: true
+            fixedHeader: true,
+            language: languageSettings,
+            responsive: true
         });
     });
 </script>
@@ -187,15 +245,15 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure?`,
-                text: "If you delete this, it will be gone forever.",
-                icon: "warning",
+                title: "{{ __('dashboard.are_you_sure') }}",
+                text: "{{ __('dashboard.not_recover_file') }}",
+                type: "{{ __('dashboard.warning') }}",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Delete Successfully", {
+                    swal("{{ __('dashboard.edit_program') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

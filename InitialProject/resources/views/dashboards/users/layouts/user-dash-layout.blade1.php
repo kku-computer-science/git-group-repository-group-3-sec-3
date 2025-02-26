@@ -223,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('exportfile')}}" >
                             <i class="menu-icon mdi mdi-file-export"></i>
-                            <span class="menu-title">{{ trans('dashboard.Export') }}</span>
+                            <span class="menu-title">Export</span>
                         </a>
                     </li>
                     @endcan
