@@ -77,7 +77,7 @@
                                     {{ $edu->qua_name }} {{ $edu->uname }}
                                 @elseif (app()->getLocale() == 'cn')
                                     {{ $edu->year }}
-                                    {{ $edu->qua_name_cn }} {{ $edu->uname_cn }} <!-- เพิ่มส่วนนี้เพื่อแสดงชื่อมหาวิทยาลัยเป็นภาษาจีน -->
+                                    {{ $edu->qua_name_cn }} {{ $edu->uname_cn }}
                                 @else
                                     {{ $edu->year - 543 }}
                                     {{ $edu->qua_name_en }} {{ $edu->uname_en }}
