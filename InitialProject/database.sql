@@ -2378,61 +2378,58 @@ CREATE TABLE `files` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funds`
+-- Table structure for table funds
 --
 
-CREATE TABLE `funds` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `fund_name` text NOT NULL,
-  `fund_details` text DEFAULT NULL,
-  `fund_type` varchar(10) NOT NULL,
-  `fund_type_en` varchar(20) NOT NULL,
-  `fund_type_cn` varchar(100) NOT NULL,
-  `fund_level` varchar(10) DEFAULT NULL,
-  `fund_agency` varchar(150) DEFAULT NULL,
-  `support_resource` varchar(150) DEFAULT NULL,
-  `support_resource_en` varchar(150) DEFAULT NULL,
-  `support_resource_cn` varchar(150) DEFAULT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE funds (
+  id bigint(20) UNSIGNED NOT NULL,
+  fund_name text NOT NULL,
+  fund_details text DEFAULT NULL,
+  fund_type varchar(10) NOT NULL,
+  fund_type_en varchar(20) NOT NULL,
+  fund_level varchar(10) DEFAULT NULL,
+  fund_agency varchar(150) DEFAULT NULL,
+  support_resource varchar(150) DEFAULT NULL,
+  support_resource_en varchar(150) DEFAULT NULL,
+  user_id bigint(20) UNSIGNED DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `funds`
+-- Dumping data for table funds
 --
 
-INSERT INTO `funds` (`id`, `fund_name`, `fund_details`, `fund_type`, `fund_type_en`, `fund_type_cn`, `fund_level`, `fund_agency`, `support_resource`, `support_resource_en`, `support_resource_cn`, `user_id`, `created_at`, `updated_at`) VALUES
-(2, 'Statistical Thai – Isarn Dialect Machine Translation System using Parallel Corpus', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 16, '2022-05-04 12:28:09', '2022-05-04 12:28:09'),
-(4, 'นวัตกรรมดัชนีสุขภาพของประชากรไทยโดยวิทยาการข้อมูลเพื่อประโยชน์ในการปรับเปลี่ยนพฤติกรรม', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 34, '2022-05-04 13:23:28', '2022-05-04 13:23:28'),
-(5, 'Morphological analysis for edible mushrooms using artificial neural networks ANN Model', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:20:53', '2022-05-08 06:20:53'),
-(6, 'Ontology-based Learning data integration using ontology mapping and a rules based reasoning approach', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:22:26', '2022-05-08 06:22:26'),
-(7, 'การศึกษาแนวทางในการวิเคราะห์ประสิทธิภาพของระบบการวางแผนทรัพยากรองค์กร', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:24:13', '2022-05-08 06:24:13'),
-(8, 'การออกแบบและพัฒนาระบบการเรียนรู้การเขียนโปรแกรมแบบคู่ด้วยอาลิซ', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:26:20', '2022-05-08 06:26:20'),
-(9, 'การพัฒนาต้นแบบเพื่อการวิเคราะห์ประสิทธิภาพของระบบการวางแผนทรัพยากรองค์กร', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:31:05', '2022-05-08 06:31:05'),
-(10, 'วิธีการปรับโดเมนโดยใช้เซลลูลาร์ออโตมาตาสำหรับวิทัศน์คอมพิวเตอร์', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:32:00', '2022-05-08 06:32:00'),
-(11, 'การเพิ่มความทนทานให้ตัวแบบเอ็กซ์ทรีมออนไลน์ตามลำดับ', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:33:16', '2022-05-08 06:33:16'),
-(12, 'ระบบวัดดัชนีประสิทธิผลใน การจัดการเรียนรู้แบบผสมผสาน', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:34:31', '2022-05-08 06:34:31'),
-(13, 'โครงการการพัฒนาระบบฐานข้อมูลภูมิสารสนเทศยางนาใน จังหวัดขอนแก่น', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', '孔敬大学', 1, '2022-05-08 06:36:04', '2022-05-08 06:36:04'),
-(14, 'โครงการ', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, 'สำนักงานคณะกรรมการนโยบายวิทยาศาสตร์ เทคโนโลยีและนวัตกรรมแห่งชาติ', 'National Science Technology and Innovation Policy Office (NXPO)', NULL, 1, '2022-05-15 05:02:53', '2022-05-15 05:02:53'),
-(15, 'การจัดอบรมหลักสูตรประกาศนียบัตร (Non-Degree) โครงการพัฒนาทักษะกำลังคนของประเทศ (Reskill/Upskill/Newskill) เพื่อการมีงานทำและเตรียมความพร้อมรองรับการทำงานในอนาคตหลังวิกฤตการระบาดของไวรัสโคโรนา 2019 (COVID-19)', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, 'สำนักงานปลัดกระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม', 'Office of the Permanent Secretary (OPS) , MHESI Thailand', NULL, 1, '2022-05-15 05:37:19', '2022-05-15 05:37:19'),
-(16, 'ทุน สกว. ฝ่ายอุตสาหกรรม', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, '-', NULL, NULL, 1, '2022-05-15 06:10:05', '2022-05-15 06:10:05'),
-(17, 'ทุนอุดหนุนการวิจัย มข. ประเภทบูรณาการวิจัยและนวัตกรรม', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, 'สำนักงานคณะกรรมการวิจัยแห่งชาติ', 'National Research Council of Thailand (NRCT)', '国家研究委员会办公室', 1, '2022-05-15 06:16:38', '2022-05-15 06:16:38'),
-(18, 'ทุนวิจัย CEMB  (โครงการย่อยที่ 1)', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, '-', NULL, NULL, 1, '2022-05-15 06:21:33', '2022-05-15 06:21:33'),
-(19, 'ERASMUS+ : Curriculum Development in Data Science and Artificial Intelligence/DS&AI', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, '-', NULL, NULL, 1, '2022-05-15 06:25:30', '2022-05-15 06:25:30'),
-(20, '“เครือข่ายวิจัยเทคโนโลยีทันสมัยของเครือข่ายอันชาญฉลาดที่แพร่หลาย” (Pervasive inteLligent and Network Emerging Technology (PLANET))', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, '-', NULL, NULL, 1, '2022-05-15 06:29:50', '2022-05-15 06:29:50'),
-(21, 'โครงการจัดการพลังงานที่มีประสิทธิภาพ ในเครือข่ายเซ็นเซอร์ไร้สายแบบเติมได้', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, '-', NULL, NULL, 1, '2022-05-15 06:31:07', '2022-05-15 06:31:07'),
-(22, 'ERASMUS+ : Innovation on Remote Sensing Education and Learning', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, 'OU, BOKU, JU, ITC, AIT, YNNU, FNU', 'OU, BOKU, JU, ITC, AIT, YNNU, FNU', NULL, 1, '2022-05-15 06:33:43', '2022-05-15 06:33:43'),
-(23, 'การพัฒนาระบบเซนเซอร์อัตโนมัติสำหรับสภาวะแวดล้อมภายในโรงเรือนและปรับปรุงการชั่งน้ำหนักอัตโนมัติสำหรับฟาร์มไก่อัจฉริยะ', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, 'กระทรวงวิทยาศาสตร์และเทคโนโลยี', 'Ministry of Science and Technology', '科学技术部', 1, '2022-05-15 06:36:46', '2022-05-15 06:36:46'),
-(24, 'การพัฒนาระบบเซนเซอร์อัตโนมัติสำหรับสภาวะแวดล้อมภายในโรงเรือนและปรับปรุงการชั่งน้ำหนักอัตโนมัติสำหรับฟาร์มไก่อัจฉริยะ', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, 'กระทรวงวิทยาศาสตร์และเทคโนโลยี', 'Ministry of Science and Technology', '科学技术部', 1, '2022-05-15 06:37:30', '2022-05-15 06:37:30'),
-(25, 'โครงการระบบภูมิสารสนเทศโรคพยาธิใบไม้ตับและมะเร็งท่อน้ำดีภาคตะวันออกเฉียงเหนือ ประเทศไทย', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, 'ศูนย์ภูมิสารสนเทศเพื่อการพัฒนาภาคตะวันออกเฉียงเหนือ', 'Geo-Informatics Centre for Development of Northeast Thailand ', NULL, 1, '2022-05-15 06:38:53', '2022-05-15 06:38:53'),
-(26, 'ทุน สกว.', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, '-', NULL, NULL, 1, '2022-05-15 06:41:04', '2022-05-15 06:41:04'),
-(27, 'ทุน ทปอ.', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, '-', NULL, NULL, 1, '2022-05-15 06:42:47', '2022-05-15 06:42:47'),
-(28, 'ทุนเมธีวิจัย สกว.', NULL, 'ทุนภายนอก', 'External funding', '外部资本', NULL, NULL, '-', NULL, NULL, 1, '2022-05-15 06:44:29', '2022-05-15 06:44:29'),
-(29, 'ทุนสนับสนุนการวิจัยปีงบประมาณ 2564', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', NULL, NULL, 'คณะวิทยาศาสตร์ มข.', 'Faculty od Science,KKU', NULL, 22, '2022-05-16 07:21:18', '2022-05-16 07:21:18'),
-(30, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 'College of Computing,KKU', NULL, 6, '2022-05-18 05:02:56', '2022-05-18 05:02:56'),
-(31, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'Internal funding', '内部资本', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 'College of Computing,KKU', NULL, 6, '2022-05-18 05:03:05', '2022-05-18 05:03:05');
-
+INSERT INTO funds (id, fund_name, fund_details, fund_type, fund_type_en, fund_level, fund_agency, support_resource, support_resource_en, user_id, created_at, updated_at) VALUES
+(2, 'Statistical Thai – Isarn Dialect Machine Translation System using Parallel Corpus', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 16, '2022-05-04 12:28:09', '2022-05-04 12:28:09'),
+(4, 'นวัตกรรมดัชนีสุขภาพของประชากรไทยโดยวิทยาการข้อมูลเพื่อประโยชน์ในการปรับเปลี่ยนพฤติกรรม', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 34, '2022-05-04 13:23:28', '2022-05-04 13:23:28'),
+(5, 'Morphological analysis for edible mushrooms using artificial neural networks ANN Model', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:20:53', '2022-05-08 06:20:53'),
+(6, 'Ontology-based Learning data integration using ontology mapping and a rules based reasoning approach', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:22:26', '2022-05-08 06:22:26'),
+(7, 'การศึกษาแนวทางในการวิเคราะห์ประสิทธิภาพของระบบการวางแผนทรัพยากรองค์กร', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:24:13', '2022-05-08 06:24:13'),
+(8, 'การออกแบบและพัฒนาระบบการเรียนรู้การเขียนโปรแกรมแบบคู่ด้วยอาลิซ', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:26:20', '2022-05-08 06:26:20'),
+(9, 'การพัฒนาต้นแบบเพื่อการวิเคราะห์ประสิทธิภาพของระบบการวางแผนทรัพยากรองค์กร', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:31:05', '2022-05-08 06:31:05'),
+(10, 'วิธีการปรับโดเมนโดยใช้เซลลูลาร์ออโตมาตาสำหรับวิทัศน์คอมพิวเตอร์', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:32:00', '2022-05-08 06:32:00'),
+(11, 'การเพิ่มความทนทานให้ตัวแบบเอ็กซ์ทรีมออนไลน์ตามลำดับ', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:33:16', '2022-05-08 06:33:16'),
+(12, 'ระบบวัดดัชนีประสิทธิผลใน การจัดการเรียนรู้แบบผสมผสาน', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:34:31', '2022-05-08 06:34:31'),
+(13, 'โครงการการพัฒนาระบบฐานข้อมูลภูมิสารสนเทศยางนาใน จังหวัดขอนแก่น', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'มหาวิทยาลัยขอนแก่น', 'Khon Kaen University', 1, '2022-05-08 06:36:04', '2022-05-08 06:36:04'),
+(14, 'โครงการ', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'สำนักงานคณะกรรมการนโยบายวิทยาศาสตร์ เทคโนโลยีและนวัตกรรมแห่งชาติ', 'National Science Technology and Innovation Policy Office (NXPO)', 1, '2022-05-15 05:02:53', '2022-05-15 05:02:53'),
+(15, 'การจัดอบรมหลักสูตรประกาศนียบัตร (Non-Degree) โครงการพัฒนาทักษะกำลังคนของประเทศ (Reskill/Upskill/Newskill) เพื่อการมีงานทำและเตรียมความพร้อมรองรับการทำงานในอนาคตหลังวิกฤตการระบาดของไวรัสโคโรนา 2019 (COVID-19)', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'สำนักงานปลัดกระทรวงอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม', 'Office of the Permanent Secretary (OPS) , MHESI Thailand', 1, '2022-05-15 05:37:19', '2022-05-15 05:37:19'),
+(16, 'ทุน สกว. ฝ่ายอุตสาหกรรม', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:10:05', '2022-05-15 06:10:05'),
+(17, 'ทุนอุดหนุนการวิจัย มข. ประเภทบูรณาการวิจัยและนวัตกรรม', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'สำนักงานคณะกรรมการวิจัยแห่งชาติ', 'National Research Council of Thailand (NRCT)', 1, '2022-05-15 06:16:38', '2022-05-15 06:16:38'),
+(18, 'ทุนวิจัย CEMB  (โครงการย่อยที่ 1)', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:21:33', '2022-05-15 06:21:33'),
+(19, 'ERASMUS+ : Curriculum Development in Data Science and Artificial Intelligence/DS&AI', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:25:30', '2022-05-15 06:25:30'),
+(20, '“เครือข่ายวิจัยเทคโนโลยีทันสมัยของเครือข่ายอันชาญฉลาดที่แพร่หลาย” (Pervasive inteLligent and Network Emerging Technology (PLANET))', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:29:50', '2022-05-15 06:29:50'),
+(21, 'โครงการจัดการพลังงานที่มีประสิทธิภาพ ในเครือข่ายเซ็นเซอร์ไร้สายแบบเติมได้', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:31:07', '2022-05-15 06:31:07'),
+(22, 'ERASMUS+ : Innovation on Remote Sensing Education and Learning', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'OU, BOKU, JU, ITC, AIT, YNNU, FNU', 'OU, BOKU, JU, ITC, AIT, YNNU, FNU', 1, '2022-05-15 06:33:43', '2022-05-15 06:33:43'),
+(23, 'การพัฒนาระบบเซนเซอร์อัตโนมัติสำหรับสภาวะแวดล้อมภายในโรงเรือนและปรับปรุงการชั่งน้ำหนักอัตโนมัติสำหรับฟาร์มไก่อัจฉริยะ', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'กระทรวงวิทยาศาสตร์และเทคโนโลยี', 'Ministry of Science and Technology', 1, '2022-05-15 06:36:46', '2022-05-15 06:36:46'),
+(24, 'การพัฒนาระบบเซนเซอร์อัตโนมัติสำหรับสภาวะแวดล้อมภายในโรงเรือนและปรับปรุงการชั่งน้ำหนักอัตโนมัติสำหรับฟาร์มไก่อัจฉริยะ', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'กระทรวงวิทยาศาสตร์และเทคโนโลยี', 'Ministry of Science and Technology', 1, '2022-05-15 06:37:30', '2022-05-15 06:37:30'),
+(25, 'โครงการระบบภูมิสารสนเทศโรคพยาธิใบไม้ตับและมะเร็งท่อน้ำดีภาคตะวันออกเฉียงเหนือ ประเทศไทย', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, 'ศูนย์ภูมิสารสนเทศเพื่อการพัฒนาภาคตะวันออกเฉียงเหนือ', 'Geo-Informatics Centre for Development of Northeast Thailand ', 1, '2022-05-15 06:38:53', '2022-05-15 06:38:53'),
+(26, 'ทุน สกว.', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:41:04', '2022-05-15 06:41:04'),
+(27, 'ทุน ทปอ.', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:42:47', '2022-05-15 06:42:47'),
+(28, 'ทุนเมธีวิจัย สกว.', NULL, 'ทุนภายนอก', 'External funding', NULL, NULL, '-', NULL, 1, '2022-05-15 06:44:29', '2022-05-15 06:44:29'),
+(29, 'ทุนสนับสนุนการวิจัยปีงบประมาณ 2564', NULL, 'ทุนภายใน', 'Internal funding', NULL, NULL, 'คณะวิทยาศาสตร์ มข.', 'Faculty od Science,KKU', 22, '2022-05-16 07:21:18', '2022-05-16 07:21:18'),
+(30, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'Internal funding', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 'College of Computing,KKU', 6, '2022-05-18 05:02:56', '2022-05-18 05:02:56'),
+(31, 'ทุนส่งเสริมนักวิจัยระดับสูง', NULL, 'ทุนภายใน', 'Internal funding', 'สูง', NULL, 'วิทยาลัยการคอมพิวเตอร์', 'College of Computing,KKU', 6, '2022-05-18 05:03:05', '2022-05-18 05:03:05');
 -- --------------------------------------------------------
 
 --

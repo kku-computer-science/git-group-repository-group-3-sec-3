@@ -28,27 +28,27 @@
                     </div>
                     <h4 class="text-center p-2">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</h4>
                     <input type="file" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
-                    <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b>Change picture</b></a>
+                    <a href="javascript:void(0)" class="btn btn-primary btn-block btn-sm" id="change_picture_btn"><b>{{ trans('dashboard.Change Picture') }}</b></a>
                 </div>
 
             </div>
             <div class="nav flex-column nav-pills-1" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link " id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
                     <i class="mdi mdi-account-card-details"></i>
-                    <span class="menu-title"> Account </span>
+                    <span class="menu-title"> {{ trans('dashboard.Account') }} </span>
                 </a>
                 <a class="nav-link " id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
                     <i class="mdi mdi-key-variant"></i>
-                    <span class="menu-title"> Password </span>
+                    <span class="menu-title"> {{ trans('dashboard.Password') }} </span>
                 </a>
                 @if(Auth::user()->hasRole('teacher'))
                 <a class="nav-link {{old('tab') == 'expertise' ? ' active' : null}}" id="expertise-tab" data-toggle="pill" href="#expertise" role="tab" aria-controls="expertise" aria-selected="false">
                     <i class="mdi mdi-account-star"></i>
-                    <span class="menu-title"> Expertise </span>
+                    <span class="menu-title"> {{ trans('dashboard.Expertise') }} </span>
                 </a>
                 <a class="nav-link" id="education-tab" data-toggle="pill" href="#education" role="tab" aria-controls="education" aria-selected="false">
                     <i class="mdi mdi-school"></i>
-                    <span class="menu-title"> Education </span>
+                    <span class="menu-title"> {{ trans('dashboard.Education') }} </span>
                 </a>
                 @endif
             </div>
@@ -63,43 +63,43 @@
                             <div class="form-group col-sm-4">
                                 <label>Name title</label>
                                 <select class="custom-select my-select " name="title_name_en">
-                                    <option value="Mr." {{ Auth::user()->title_name_en == 'Mr.' ? 'selected' : '' }}>Mr.</option>
-                                    <option value="Miss" {{ Auth::user()->title_name_en == 'Miss' ? 'selected' : '' }}>Miss</option>
-                                    <option value="Mrs." {{ Auth::user()->title_name_en == 'Mrs.' ? 'selected' : '' }}>Mrs.</option>
+                                    <option value="Mr." {{ Auth::user()->title_name_en == 'Mr.' ? 'selected' : '' }}>{{ trans('dashboard.Mr.') }}</option>
+                                    <option value="Miss" {{ Auth::user()->title_name_en == 'Miss' ? 'selected' : '' }}>{{ trans('dashboard.Mrs.') }}</option>
+                                    <option value="Mrs." {{ Auth::user()->title_name_en == 'Mrs.' ? 'selected' : '' }}>{{ trans('dashboard.Ms.') }}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>First name (English)</label>
+                                <label>{{ trans('dashboard.First name (English)') }}</label>
                                 <input type="text" class="form-control" id="inputfNameEN" placeholder="Name" value="{{ Auth::user()->fname_en }}" name="fname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Last name (English)</label>
+                                <label>{{ trans('dashboard.Last name (English)') }}</label>
                                 <input type="text" class="form-control" id="inputlNameEN" placeholder="Name" value="{{ Auth::user()->lname_en }}" name="lname_en">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ชื่อ (ภาษาไทย)</label>
+                                <label>{{ trans('dashboard.First name (Thai)') }}</label>
                                 <input type="text" class="form-control" id="inputfNameTH" placeholder="Name" value="{{ Auth::user()->fname_th }}" name="fname_th">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>นามสกุล (ภาษาไทย)</label>
+                                <label>{{ trans('dashboard.Last name (Thai)') }}</label>
                                 <input type="text" class="form-control" id="inputlNameTH" placeholder="Name" value="{{ Auth::user()->lname_th }}" name="lname_th">
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Email</label>
+                                <label>{{ trans('dashboard.Email') }}</label>
                                 <input type="text" class="form-control" id="inputEmail" placeholder="Email" value="{{ Auth::user()->email }}" name="email">
                                 <span class="text-danger error-text email_error"></span>
                             </div>
@@ -109,7 +109,7 @@
                         @if(Auth::user()->hasRole('teacher'))
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Academic Ranks</label>
+                                <label>{{ trans('dashboard.Academic Ranks (English)') }}</label>
                                 <select id="category" class="custom-select my-select" name="academic_ranks_en">
                                     <option value="Professor" {{ Auth::user()->academic_ranks_en == 'Professor' ? 'selected' : '' }}>Professor</option>
                                     <option value="Associate Professor" {{ Auth::user()->academic_ranks_en == 'Associate Professor' ? 'selected' : '' }}>Associate Professor</option>
@@ -120,27 +120,27 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>ตำแหน่งทางวิชาการ</label>
+                                <label>{{ trans('dashboard.Academic Ranks (Thai)') }}</label>
                                 <select name="academic_ranks_th" id="subcategory" class="custom-select my-select">
-                                    <optgroup id="Professor" label="Professor">
+                                   
                                         <option value="ศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ศาสตราจารย์' ? 'selected' : '' }}>ศาสตราจารย์</option>
-                                    </optgroup>
-                                    <optgroup id="Associate Professor" label="Associate Professor">
+                                   
+                                   
                                         <option value="รองศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'รองศาสตราจารย์' ? 'selected' : '' }}>รองศาสตราจารย์</option>
-                                    </optgroup>
-                                    <optgroup id="Assistant Professor" label="Assistant Professor">
+                                   
+                                    
                                         <option value="ผู้ช่วยศาสตราจารย์" {{ Auth::user()->academic_ranks_th == 'ผู้ช่วยศาสตราจารย์' ? 'selected' : '' }}>ผู้ช่วยศาสตราจารย์</option>
-                                    </optgroup>
-                                    <optgroup id="Lecturer" label="Lecturer">
+                                    
+                                   
                                         <option value="อาจารย์" {{ Auth::user()->academic_ranks_th == 'อาจารย์' ? 'selected' : '' }}>อาจารย์</option>
-                                    </optgroup>
+                                    
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label><input name="pos" type="checkbox" value="check2" />สำหรับอ.ผู้ที่ไม่มีคุณวุฒิปริญญาเอก โปรดระบุ</label>
+                                    <label><input name="pos" type="checkbox" value="check2" />{{ trans('dashboard.For those without a doctorate, please specify.') }}</label>
                                 </div>
 
                             </div>
@@ -156,12 +156,12 @@
 
             <div class="tab-pane fade " id="password" role="tabpanel" aria-labelledby="password-tab">
                 <form class="form-horizontal" action="{{ route('adminChangePassword') }}" method="POST" id="changePasswordAdminForm">
-                    <h3 class="mb-4">Password Settings</h3>
+                    <h3 class="mb-4">{{ trans('dashboard.Password Settings') }}</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Old password</label>
-                                <input type="password" class="form-control" id="inputpassword" placeholder="Enter current password" name="oldpassword">
+                                <label>{{ trans('dashboard.Old Password') }}</label>
+                                <input type="password" class="form-control" id="inputpassword" placeholder="{{ trans('dashboard.Old Password') }}" name="oldpassword">
                                 <span class="text-danger error-text oldpassword_error"></span>
                             </div>
                         </div>
@@ -169,21 +169,21 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>New password</label>
-                                <input type="password" class="form-control" id="newpassword" placeholder="Enter new password" name="newpassword">
+                                <label>{{ trans('dashboard.New Password') }}</label>
+                                <input type="password" class="form-control" id="newpassword" placeholder="{{ trans('dashboard.New Password') }}" name="newpassword">
                                 <span class="text-danger error-text newpassword_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Confirm new password</label>
-                                <input type="password" class="form-control" id="cnewpassword" placeholder="ReEnter new password" name="cnewpassword">
+                                <label>{{ trans('dashboard.Confirm Password') }}</label>
+                                <input type="password" class="form-control" id="cnewpassword" placeholder="{{ trans('dashboard.Confirm Password') }}" name="cnewpassword">
                                 <span class="text-danger error-text cnewpassword_error"></span>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-primary">Update!!</button>
+                        <button class="btn btn-primary">{{ trans('dashboard.Update') }}</button>
                         <!-- <button class="btn btn-light">Cancel</button> -->
                     </div>
 
@@ -191,110 +191,110 @@
             </div>
             <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
                 <form class="form-horizontal" method="POST" action="{{ route('updateEdInfo') }}" id="EdInfoForm">
-                    <h3 class="mb-4">ประวัติการศึกษา</h3>
+                    <h3 class="mb-4">{{ trans('dashboard.Education History') }}</h3>
                     <div class="row">
-                        <label>ปริญญาตรี</label>
+                        <label>{{ trans('dashboard.Bachelor degree') }}</label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label>{{ trans('dashboard.Name of university') }}</label>
                                 @if (empty(Auth::user()->education[0]->uname))
-                                <input type="text" class="form-control" id="inputlBUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="b_uname">
+                                <input type="text" class="form-control" id="inputlBUName" placeholder="{{ trans('dashboard.Name of university') }}" value="" name="b_uname">
                                 @else
-                                <input type="text" class="form-control" id="inputlBUName" placeholder="ชื่อมหาวิทยาลัย" value="{{Auth::user()->education[0]->uname }}" name="b_uname">
+                                <input type="text" class="form-control" id="inputlBUName" placeholder="{{ trans('dashboard.Name of university') }}" value="{{Auth::user()->education[0]->uname }}" name="b_uname">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label>{{ trans('dashboard.Degree Name') }}</label>
                                 @if (empty(Auth::user()->education[0]->qua_name))
-                                <input type="text" class="form-control" id="inputlBQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="b_qua_name">
+                                <input type="text" class="form-control" id="inputlBQuName" placeholder="{{ trans('dashboard.Degree Name') }}" value="" name="b_qua_name">
                                 @else
-                                <input type="text" class="form-control" id="inputlBQuName" placeholder="ชื่อวุฒิปริญญา" value="{{Auth::user()->education[0]->qua_name }}" name="b_qua_name">
+                                <input type="text" class="form-control" id="inputlBQuName" placeholder="{{ trans('dashboard.Degree Name') }}" value="{{Auth::user()->education[0]->qua_name }}" name="b_qua_name">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label>{{ trans('dashboard.Year of graduation') }}</label>
                                 @if (empty(Auth::user()->education[0]->year))
-                                <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="b_year">
+                                <input type="text" class="form-control" id="inputlYear" placeholder="{{ trans('dashboard.Year of graduation') }}" value="" name="b_year">
                                 @else
-                                <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="{{Auth::user()->education[0]->year }}" name="b_year">
+                                <input type="text" class="form-control" id="inputlYear" placeholder="{{ trans('dashboard.Year of graduation') }}" value="{{Auth::user()->education[0]->year }}" name="b_year">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <label>ปริญญาโท</label>
+                        <label>{{ trans('dashboard.Master degree') }}</label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label>{{ trans('dashboard.Name of university') }}</label>
                                 @if (empty(Auth::user()->education[1]->uname))
-                                <input type="text" class="form-control" id="inputlMUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="m_uname">
+                                <input type="text" class="form-control" id="inputlMUName" placeholder="{{ trans('dashboard.Name of university') }}" value="" name="m_uname">
                                 @else
-                                <input type="text" class="form-control" id="inputlMUName" placeholder="ชื่อมหาวิทยาลัย" value="{{Auth::user()->education[1]->uname }}" name="m_uname">
+                                <input type="text" class="form-control" id="inputlMUName" placeholder="{{ trans('dashboard.Name of university') }}" value="{{Auth::user()->education[1]->uname }}" name="m_uname">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label>{{ trans('dashboard.Degree Name') }}</label>
                                 @if (empty(Auth::user()->education[1]->qua_name))
-                                <input type="text" class="form-control" id="inputlMQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="m_qua_name">
+                                <input type="text" class="form-control" id="inputlMQuName" placeholder="{{ trans('dashboard.Degree Name') }}" value="" name="m_qua_name">
                                 @else
-                                <input type="text" class="form-control" id="inputlMQuName" placeholder="ชื่อวุฒิปริญญา" value="{{Auth::user()->education[1]->qua_name }}" name="m_qua_name">
+                                <input type="text" class="form-control" id="inputlMQuName" placeholder="{{ trans('dashboard.Degree Name') }}" value="{{Auth::user()->education[1]->qua_name }}" name="m_qua_name">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label>{{ trans('dashboard.Year of graduation') }}</label>
                                 @if (empty(Auth::user()->education[1]->year))
-                                <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="m_year">
+                                <input type="text" class="form-control" id="inputlYear" placeholder="{{ trans('dashboard.Year of graduation') }}" value="" name="m_year">
                                 @else
-                                <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="{{Auth::user()->education[1]->year }}" name="m_year">
+                                <input type="text" class="form-control" id="inputlYear" placeholder="{{ trans('dashboard.Year of graduation') }}" value="{{Auth::user()->education[1]->year }}" name="m_year">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <label>ปริญญาเอก</label>
+                        <label>{{ trans('dashboard.PhD') }}</label>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อมหาวิทยาลัย</label>
+                                <label>{{ trans('dashboard.Name of university') }}</label>
                                 @if (empty(Auth::user()->education[2]->uname))
-                                <input type="text" class="form-control" id="inputlDUName" placeholder="ชื่อมหาวิทยาลัย" value="" name="d_uname">
+                                <input type="text" class="form-control" id="inputlDUName" placeholder="{{ trans('dashboard.Name of university') }}" value="" name="d_uname">
                                 @else
-                                <input type="text" class="form-control" id="inputlDUName" placeholder="ชื่อมหาวิทยาลัย" value="{{Auth::user()->education[2]->uname}}" name="d_uname">
+                                <input type="text" class="form-control" id="inputlDUName" placeholder="{{ trans('dashboard.Name of university') }}" value="{{Auth::user()->education[2]->uname}}" name="d_uname">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ชื่อวุฒิปริญญา</label>
+                                <label>{{ trans('dashboard.Degree Name') }}</label>
                                 @if (empty(Auth::user()->education[2]->qua_name))
-                                <input type="text" class="form-control" id="inputlDQuName" placeholder="ชื่อวุฒิปริญญา" value="" name="d_qua_name">
+                                <input type="text" class="form-control" id="inputlDQuName" placeholder="{{ trans('dashboard.Degree Name') }}" value="" name="d_qua_name">
                                 @else
-                                <input type="text" class="form-control" id="inputlDQuName" placeholder="ชื่อวุฒิปริญญา" value="{{Auth::user()->education[2]->qua_name }}" name="d_qua_name">
+                                <input type="text" class="form-control" id="inputlDQuName" placeholder="{{ trans('dashboard.Degree Name') }}" value="{{Auth::user()->education[2]->qua_name }}" name="d_qua_name">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>ปี พ.ศ. ที่จบ</label>
+                                <label>{{ trans('dashboard.Year of graduation') }}</label>
                                 @if (empty(Auth::user()->education[2]->year))
-                                <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="" name="d_year">
+                                <input type="text" class="form-control" id="inputlYear" placeholder="{{ trans('dashboard.Year of graduation') }}" value="" name="d_year">
                                 @else
-                                <input type="text" class="form-control" id="inputlYear" placeholder="ปี พ.ศ. ที่จบ" value="{{Auth::user()->education[2]->year }}" name="d_year">
+                                <input type="text" class="form-control" id="inputlYear" placeholder="{{ trans('dashboard.Year of graduation') }}" value="{{Auth::user()->education[2]->year }}" name="d_year">
                                 @endif
                                 <span class="text-danger error-text name_error"></span>
                             </div>
@@ -302,7 +302,7 @@
                     </div>
 
                     <div>
-                        <button class="btn btn-primary">Update</button>
+                        <button class="btn btn-primary">{{ trans('dashboard.Update') }}</button>
                         <!-- <button class="btn btn-light">Cancel</button> -->
                     </div>
 
@@ -310,13 +310,13 @@
 
             </div>
             <div class="tab-pane fade show{{old('tab') == 'expertise' ? ' active' : null}}" id="expertise" role="tabpanel" aria-labelledby="expertise-tab">
-                <h3 class="mb-4">ความเชี่ยวชาญ</h3>
+                <h3 class="mb-4">{{ trans('dashboard.Expertise') }}</h3>
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-right">
                             <!-- <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">Add Expertise</a> -->
                             <button type="button" class="btn btn-primary btn-menu1 btn-icon-text btn-sm mb-3" data-toggle="modal" data-target="#crud-modal">
-                                <i class="mdi mdi-plus btn-icon-prepend"></i>Add Expertise
+                                <i class="mdi mdi-plus btn-icon-prepend"></i>{{ trans('dashboard.Add Expertise') }}
                             </button>
                         </div>
                     </div>
@@ -331,7 +331,7 @@
 
                 <table class="table table-striped table-hover">
                     <tr>
-                        <th colspan="2">Expertise</th>
+                        <th colspan="2">{{ trans('dashboard.Expertise') }}</th>
 
                     </tr>
                     @foreach (Auth::user()->expertise as $expert)
