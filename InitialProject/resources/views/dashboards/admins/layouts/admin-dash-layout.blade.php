@@ -140,6 +140,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
                 <li class="nav-item">
+                    
+
                     <a class="nav-link {{ (request()->is('dashboard*')) ? 'active' : '' }}"
                         href="{{ route('dashboard')}}">
                         <i class="mdi mdi-grid-large menu-icon"></i>
