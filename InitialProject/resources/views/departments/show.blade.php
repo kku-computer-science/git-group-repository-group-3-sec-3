@@ -16,20 +16,20 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">department
+            <div class="card-header">{{ __('dashboard.Department') }}
                 @can('role-create')
                     <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('departments.index') }}">Back</a>
+                        <a class="btn btn-primary" href="{{ route('departments.index') }}">{{ __('dashboard.back') }}</a>
                     </span>
                 @endcan
             </div>
             <div class="card-body">
                 <div class="lead">
-                    <strong>Deapartment Name TH:</strong>
+                    <strong>{{ __('dashboard.department_name_TH') }}:</strong>
                     {{ $department->department_name_th }}
                 </div>
                 <div class="lead">
-                    <strong>Deapartment Name EN:</strong>
+                    <strong>{{ __('dashboard.department_name_EN') }}:</strong>
                     {{ $department->department_name_en }}
                 </div>
             </div>

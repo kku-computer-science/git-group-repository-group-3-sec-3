@@ -5,10 +5,10 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+            <strong>{{ trans('dashboard.oops') }}</strong>{{ trans('dashboard.something_went_wrong') }}<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>{{ trans('dashboard.validation_required') }}</li>
                 @endforeach
             </ul>
         </div>
@@ -16,52 +16,52 @@
         <div class="col-md-8 grid-margin stretch-card">
             <div class="card" style="padding: 16px;">
                 <div class="card-body">
-                    <h4 class="card-title mb-5">เพิ่มผู้ใช้งาน</h4>
-                    <p class="card-description">กรอกข้อมูลแก้ไขรายละเอียดผู้ใช้งาน</p>
+                    <h4 class="card-title mb-5">{{ trans('dashboard.add_user') }}</h4>
+                    <p class="card-description">{{ trans('dashboard.edit_user_info') }}</p>
                     {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <p><b>{{ trans('dashboard.Name') }}</b></p>
-                            {!! Form::text('fname_th', null, array('placeholder' => 'ชื่อภาษาไทย','class' =>
+                            <p><b>{{ trans('dashboard.first_name_th') }}</b></p>
+                            {!! Form::text('fname_th', null, array('placeholder' => __('dashboard.first_name_th'),'class' =>
                             'form-control')) !!}
                         </div>
                         <div class="col-sm-6">
-                            <p><b>นามสกุล (ภาษาไทย)</b></p>
-                            {!! Form::text('lname_th', null, array('placeholder' => 'นามสกุลภาษาไทย','class' =>
+                            <p><b>{{ trans('dashboard.last_name_th') }}</b></p>
+                            {!! Form::text('lname_th', null, array('placeholder' => __('dashboard.last_name_th'),'class' =>
                             'form-control')) !!}
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <p><b>ชื่อ (English)</b></p>
-                            {!! Form::text('fname_en', null, array('placeholder' => 'ชื่อภาษาอังกฤษ','class' =>
+                            <p><b>{{ trans('dashboard.first_name_en') }}</b></p>
+                            {!! Form::text('fname_en', null, array('placeholder' => __('dashboard.first_name_en'),'class' =>
                             'form-control')) !!}
                         </div>
                         <div class="col-sm-6">
-                            <p><b>นามสกุล (English)</b></p>
-                            {!! Form::text('lname_en', null, array('placeholder' => 'นามสกุลภาษาอังกฤษ','class' =>
+                            <p><b>{{ trans('dashboard.last_name_en') }}</b></p>
+                            {!! Form::text('lname_en', null, array('placeholder' => __('dashboard.last_name_en'),'class' =>
                             'form-control')) !!}
                         </div>
                     </div>
                     <div class="form-group row">
 
                         <div class="col-sm-8">
-                            <p><b>Email</b></p>
-                            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control'))!!}
+                            <p><b>{{ trans('dashboard.email') }}</b></p>
+                            {!! Form::text('email', null, array('placeholder' => __('dashboard.email'),'class' => 'form-control'))!!}
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <p><b>Password:</b></p>
-                            {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control'))!!}
+                            <p><b>{{ trans('dashboard.password') }}</b></p>
+                            {!! Form::password('password', array('placeholder' => __('dashboard.password'),'class' => 'form-control'))!!}
                         </div>
                         <div class="col-sm-6">
-                            <p><b>Confirm Password:</p></b>
-                            {!! Form::password('password_confirmation', array('placeholder' => 'Confirm Password','class' =>'form-control')) !!}
+                            <p><b>{{ trans('dashboard.confirm_password') }}</p></b>
+                            {!! Form::password('password_confirmation', array('placeholder' => __('dashboard.confirm_password'),'class' =>'form-control')) !!}
                         </div>
                     </div>
                     <div class="form-group col-sm-8">
-                    <p><b>Role:</b></p>
+                    <p><b>{{ trans('dashboard.Role') }}</b></p>
                         <div class="col-sm-8">
                             
                             {!! Form::select('roles[]', $roles,[],  array('class' => 'selectpicker','multiple')) !!}
@@ -70,26 +70,26 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">
-                                <h6 for="category">Department <span class="text-danger">*</span></h6>
+                                <h6 for="category">{{ trans('dashboard.Department') }} <span class="text-danger">*</span></h6>
                                 <select class="form-control" name="cat" id="cat" style="width: 100%;" required>
-                                    <option>Select Category</option>
+                                    <option>{{ trans('dashboard.select_category') }}</option>
                                     @foreach ($departments as $cat)
                                     <option value="{{$cat->id}}">{{ $cat->department_name_en }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <h6 for="subcat">Program <span class="text-danger">*</span></h6>
+                                <h6 for="subcat">{{ trans('dashboard.Program') }} <span class="text-danger">*</span></h6>
                                 <select class="form-control select2" name="sub_cat" id="subcat" required>
-                                    <option value="">Select Subcategory</option>
+                                    <option value="">{{ trans('dashboard.select_subcategory') }}</option>
                                 </select>
                             </div>
 
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <a class="btn btn-secondary" href="{{ route('users.index') }}">Cencel</a>
+                    <button type="submit" class="btn btn-primary">{{ trans('dashboard.Submit') }}</button>
+                    <a class="btn btn-secondary" href="{{ route('users.index') }}">{{ trans('dashboard.cancel') }}</a>
                     {!! Form::close() !!}
                 </div>
             </div>

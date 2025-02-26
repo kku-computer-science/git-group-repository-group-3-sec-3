@@ -1,14 +1,15 @@
 @extends('dashboards.users.layouts.user-dash-layout')
+
 <!-- Datatables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 
-
-@section('title','Dashboard')
-
 @section('title', trans('dashboard.Dashboard'))
+
+@section('content')
 <div class="container">
+    @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>  
@@ -108,7 +109,6 @@
             <br>
         </div>
     </div>
-    
 </div>
 
 <!-- jQuery และ DataTables Scripts -->
@@ -178,6 +178,7 @@
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
+        
         event.preventDefault();
         swal({
             title: "{{ __('dashboard.Are you sure?') }}",
@@ -197,84 +198,4 @@
         });
     });
 </script>
-
-
-<!-- Script สำหรับเรียก API ทั้ง 4 ตัวแบบเรียงลำดับ พร้อมแสดงสถานะของแต่ละขั้นตอน -->
-<script>
-    $(document).ready(function() {
-        $("#call-all-btn").click(function(e) {
-            e.preventDefault();
-            // Disable ปุ่มชั่วคราว เพื่อป้องกันการคลิกซ้ำ
-            $("#call-all-btn").prop("disabled", true);
-            
-            // กำหนด URL ของ API ตามลำดับที่ต้องการเรียก
-            var routes = [
-                "{{ route('calltci', Crypt::encrypt(Auth::user()->id)) }}",
-                "{{ route('callscholar', Crypt::encrypt(Auth::user()->id)) }}",
-                "{{ route('callscopus', Crypt::encrypt(Auth::user()->id)) }}",
-                "{{ route('callwos', Crypt::encrypt(Auth::user()->id)) }}"
-            ];
-            
-            // กำหนดชื่อและสถานะเริ่มต้นสำหรับแต่ละ API
-            var steps = [
-                { name: "TCI", status: "รอ" },
-                { name: "Scopus", status: "รอ" },
-                { name: "Scholar", status: "รอ" },
-                { name: "WOS", status: "รอ" }
-            ];
-            
-            // ฟังก์ชันอัปเดตสถานะใน div
-            function updateStatus() {
-                var html = "";
-                for(var i = 0; i < steps.length; i++){
-                    html += steps[i].name + " : " + steps[i].status + "<br>";
-                }
-                $("#api-status").html(html);
-            }
-            
-            // เริ่มต้นด้วยการกำหนดให้ขั้นตอนแรกกำลังทำ
-            steps[0].status = "กำลังทำ";
-            updateStatus();
-            
-            // ฟังก์ชันสำหรับเรียก API ทีละตัวแบบเรียงลำดับ
-            function callNext(index) {
-                if (index >= routes.length) {
-                    alert("All calls completed.");
-                    $("#call-all-btn").prop("disabled", false);
-                    return;
-                }
-                $.ajax({
-                    url: routes[index],
-                    type: 'GET', // เปลี่ยนเป็น POST หาก API ของคุณรองรับ POST
-                    success: function(response) {
-                        console.log("Call completed: " + routes[index]);
-                        // อัปเดตสถานะของ API ปัจจุบันให้เสร็จสิ้น
-                        steps[index].status = "เสร็จสิ้น";
-                        // ถ้ามีขั้นตอนต่อไปให้เปลี่ยนสถานะเป็นกำลังทำ
-                        if(index + 1 < steps.length) {
-                            steps[index + 1].status = "กำลังทำ";
-                        }
-                        updateStatus();
-                        callNext(index + 1);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error calling: " + routes[index] + " - " + error);
-                        // อัปเดตสถานะของ API ปัจจุบันเป็น error
-                        steps[index].status = "เกิดข้อผิดพลาด";
-                        // ถ้ามีขั้นตอนต่อไปให้เปลี่ยนสถานะเป็นกำลังทำ
-                        if(index + 1 < steps.length) {
-                            steps[index + 1].status = "กำลังทำ";
-                        }
-                        updateStatus();
-                        callNext(index + 1);
-                    }
-                });
-            }
-            
-            // เริ่มเรียก API ตั้งแต่ตัวแรก
-            callNext(0);
-        });
-    });
-</script>
-
 @stop
