@@ -265,15 +265,103 @@
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
-<script>
+<!-- <script>
     $(document).ready(function() {
 
+    let locale = "{{ app()->getLocale() }}";
         var table1 = $('#example1').DataTable({
             responsive: true,
             language: {
                 search: "{{ trans('researchers.serach') }}",
+                
             }
+        });
+
+    });
+</script> -->
+
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
+<script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
+<script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
+
+<script>
+    $(document).ready(function() {
+        // ดึง locale จาก Blade
+        let locale = "{{ app()->getLocale() }}";
+
+        // สร้าง object languageSettings สำหรับ DataTables
+        let languageSettings = {};
+
+        if (locale === 'en') {
+            languageSettings = {
+                // lengthMenu: "Show MENU entries",
+                zeroRecords: "No matching records found",
+                // info: "Showing START to END of TOTAL entries",
+                infoEmpty: "No records available",
+                infoFiltered: "(filtered from MAX total records)",
+                search: "Search:",
+                paginate: {
+                    first: "First",
+                    last: "Last",
+                    next: "Next",
+                    previous: "Previous"
+                }
+            };
+        } else if (locale === 'cn') {
+            languageSettings = {
+                lengthMenu: "显示 _MENU_ 条目",
+                zeroRecords: "未找到匹配的记录",
+                info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                infoEmpty: "没有可用记录",
+                infoFiltered: "(从 _MAX_ 条记录中过滤)",
+                search: "搜索:",
+                paginate: {
+                    first: "首页",
+                    last: "末页",
+                    next: "下页",
+                    previous: "上页"
+                }
+            };
+        } else {
+            // สมมติว่าถ้าเป็น 'th' หรือภาษาอื่น ใช้ภาษาไทย
+            languageSettings = {
+                lengthMenu: "แสดง _MENU_ รายการ",
+    zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
+    info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
+    infoEmpty: "ไม่มีข้อมูล",
+    infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
+    search: "ค้นหา:",
+    paginate: {
+        first: "หน้าแรก",
+        last: "หน้าสุดท้าย",
+        next: "ถัดไป",
+        previous: "ก่อนหน้า"
+    }
+            };
+        }
+
+        var table1 = $('#example1').DataTable({
+            responsive: true,
+            language: languageSettings
         });
     });
 </script>
+
+<style>
+    .dataTables_length select {
+        width: 80px !important;  /* ปรับขนาดกว้างขึ้น */
+        min-width: 70px;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
+
+
+
+
+
 @stop
