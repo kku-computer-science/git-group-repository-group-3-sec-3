@@ -176,6 +176,7 @@ class HomeController extends Controller
         $paper_tci_numall = $num['paper_tci'];
         $paper_scopus_numall = $num['paper_scopus'];
         $paper_wos_numall = $num['paper_wos'];
+        $paper_scholar_numall = $num['paper_scholar'];
         //return $paper_scopus_numall;
         
 
@@ -189,7 +190,9 @@ class HomeController extends Controller
             ->with('paper_tci', json_encode($paper_tci, JSON_NUMERIC_CHECK))
             ->with('paper_scopus', json_encode($paper_scopus, JSON_NUMERIC_CHECK))
             ->with('paper_wos', json_encode($paper_wos, JSON_NUMERIC_CHECK))
+            ->with('paper_scholar', json_encode($paper_scholar, JSON_NUMERIC_CHECK))
             ->with('paper_tci_numall', json_encode($paper_tci_numall, JSON_NUMERIC_CHECK))
+            ->with('paper_scholar_numall', json_encode($paper_scholar_numall, JSON_NUMERIC_CHECK))
             ->with('paper_scopus_numall', json_encode($paper_scopus_numall, JSON_NUMERIC_CHECK))
             ->with('paper_wos_numall', json_encode($paper_wos_numall, JSON_NUMERIC_CHECK));
 
@@ -206,23 +209,23 @@ class HomeController extends Controller
             return $query->where('source_data_id', '=', 1);
         })->whereIn('paper_type', ['Conference Proceeding', 'Journal'])->count();
 
-
-        //return $paper_scopus;
-
-
         $paper_tci = Paper::whereHas('source', function ($query) {
             return $query->where('source_data_id', '=', 3);
         })->whereIn('paper_type', ['Conference Proceeding', 'Journal'])->count();
-
-        //return $paper_tci;
-
 
         $paper_wos = Paper::whereHas('source', function ($query) {
             return $query->where('source_data_id', '=', 2);
         })->whereIn('paper_type', ['Conference Proceeding', 'Journal'])->count();
 
-        return compact('paper_scopus','paper_tci','paper_wos');
+        // ADD THIS
+        $paper_scholar = Paper::whereHas('source', function ($query) {
+            return $query->where('source_data_id', '=', 5);
+        })->whereIn('paper_type', ['Conference Proceeding', 'Journal'])->count();
+
+        // Make sure to include 'paper_scholar' in the return
+        return compact('paper_scopus','paper_tci','paper_wos','paper_scholar');
     }
+
     public function bibtex($id)
     {
         $paper = Paper::with(['author' => function ($query) {
