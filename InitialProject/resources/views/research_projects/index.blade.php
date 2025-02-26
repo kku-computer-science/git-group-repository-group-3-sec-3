@@ -1,9 +1,11 @@
 @extends('dashboards.users.layouts.user-dash-layout')
+
+<!-- Datatables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 
-@section('title','Project')
+@section('title', trans('dashboard.Research Project'))
 
 @section('content')
 <div class="container">
@@ -14,14 +16,14 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">{{ trans('dashboard.Reseach Project') }}</h4>
+            <h4 class="card-title">{{ trans('dashboard.Research Project') }}</h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchProjects.create') }}">
                 <i class="mdi mdi-plus btn-icon-prepend"></i> {{ trans('dashboard.Add') }}
             </a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>{{ trans('dashboard.Reseach Project') }}</th>
+                        <th>{{ trans('dashboard.Research Project') }}</th>
                         <th>{{ trans('dashboard.Year') }}</th>
                         <th>{{ trans('dashboard.Project Name') }}</th>
                         <th>{{ trans('dashboard.Head') }}</th>
@@ -31,62 +33,57 @@
                 </thead>
                 <tbody>
                     @php
-                        // ตรวจสอบ locale
                         $locale = app()->getLocale();
                     @endphp
                     @foreach ($researchProjects as $i => $researchProject)
                         <tr>
                             <td>{{ $i + 1 }}</td>
                             <td>{{ $researchProject->project_year }}</td>
-                            <td>{{ Str::limit($researchProject->project_name,70) }}</td>
-                            
-                            <!-- หัวหน้า (role = 1) -->
+                            <td>{{ Str::limit($researchProject->project_name, 70) }}</td>
+                            <!-- Column หัวหน้า (role = 1) -->
                             <td>
                                 @foreach($researchProject->user as $user)
                                     @if ($user->pivot->role == 1)
                                         @if($locale == 'th')
-                                            {{ $user->fname_th }} {{ $user->lname_th }}
+                                            {{ $user->fname_th }}
                                         @else
-                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                            {{ $user->fname_en }}
                                         @endif
                                     @endif
                                 @endforeach
                             </td>
-
-                            <!-- สมาชิก (role = 2) -->
+                            <!-- Column สมาชิก (role = 2) -->
                             <td>
                                 @foreach($researchProject->user as $user)
                                     @if ($user->pivot->role == 2)
                                         @if($locale == 'th')
-                                            {{ $user->fname_th }} {{ $user->lname_th }}
+                                            {{ $user->fname_th }}
                                         @else
-                                            {{ $user->fname_en }} {{ $user->lname_en }}
+                                            {{ $user->fname_en }}
                                         @endif
+                                        @if(!$loop->last),@endif
                                     @endif
                                 @endforeach
                             </td>
-
                             <td>
-                                <form action="{{ route('researchProjects.destroy',$researchProject->id) }}" method="POST">
+                                <form action="{{ route('researchProjects.destroy', $researchProject->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="view"
-                                           href="{{ route('researchProjects.show',$researchProject->id) }}">
-                                           <i class="mdi mdi-eye"></i>
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.View') }}" href="{{ route('researchProjects.show', $researchProject->id) }}">
+                                            <i class="mdi mdi-eye"></i>
                                         </a>
                                     </li>
-                                    @if(Auth::user()->can('update',$researchProject))
+                                    @if(Auth::user()->can('update', $researchProject))
                                         <li class="list-inline-item">
-                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit"
-                                               href="{{ route('researchProjects.edit',$researchProject->id) }}">
-                                               <i class="mdi mdi-pencil"></i>
+                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.Edit') }}" href="{{ route('researchProjects.edit', $researchProject->id) }}">
+                                                <i class="mdi mdi-pencil"></i>
                                             </a>
                                         </li>
                                     @endif
-                                    @if(Auth::user()->can('delete',$researchProject))
+                                    @if(Auth::user()->can('delete', $researchProject))
                                         <li class="list-inline-item">
-                                            <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.Delete') }}">
                                                 <i class="mdi mdi-delete"></i>
                                             </button>
                                         </li>
@@ -102,19 +99,15 @@
     </div>
 </div>
 
-<!-- Scripts -->
+<!-- External Scripts -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script>
     $(document).ready(function() {
-        // ดึง locale จาก Blade
         let locale = "{{ app()->getLocale() }}";
-
-        // สร้าง object languageSettings สำหรับ DataTables
         let languageSettings = {};
-
         if (locale === 'en') {
             languageSettings = {
                 lengthMenu: "Show _MENU_ entries",
@@ -146,7 +139,6 @@
                 }
             };
         } else {
-            // สมมติว่าถ้าเป็น 'th' หรือภาษาอื่น ใช้ภาษาไทย
             languageSettings = {
                 lengthMenu: "แสดง _MENU_ รายการ",
                 zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
@@ -162,35 +154,32 @@
                 }
             };
         }
-
-        var table1 = $('#example1').DataTable({
+        $('#example1').DataTable({
             responsive: true,
             language: languageSettings
         });
     });
 </script>
-
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
         event.preventDefault();
         swal({
-            title: "Are you sure?",
-            text: "If you delete this, it will be gone forever.",
+            title: "{{ trans('dashboard.Are you sure?') }}",
+            text: "{{ trans('dashboard.If you delete this, it will be gone forever.') }}",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
         .then((willDelete) => {
             if (willDelete) {
-                swal("Delete Successfully", {
+                swal("{{ trans('dashboard.Delete Successfully') }}", {
                     icon: "success",
                 }).then(function() {
-                    location.reload();
                     form.submit();
                 });
             }
         });
     });
 </script>
-@stop
+@endsection

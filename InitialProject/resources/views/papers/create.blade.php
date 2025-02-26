@@ -253,10 +253,10 @@
                                 <table class="table table-bordered" id="dynamic_field">
                                     <tr>
                                         <td>
-                                            <input type="text" name="fname[]" placeholder="First name" class="form-control name_list" />
+                                            <input type="text" name="fname[]" placeholder="{{ trans('dashboard.First Name') }}" class="form-control name_list" />
                                         </td>
                                         <td>
-                                            <input type="text" name="lname[]" placeholder="Last name" class="form-control name_list" />
+                                            <input type="text" name="lname[]" placeholder="{{ trans('dashboard.Last Name') }}" class="form-control name_list" />
                                         </td>
                                         <td>
                                             <select id='pos2' class="custom-select my-select" style='width: 200px;' name="pos2[]">
@@ -294,7 +294,7 @@
 
             ++i;
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr">X</i></button></td></tr>'
+                '][userid]"  style="width: 200px;"><option value="">{{ trans('dashboard.Select User') }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans('dashboard.First Author') }}</option><option value="2">{{ trans('dashboard.Co-Author') }}</option><option value="3">{{ trans('dashboard.Corresponding Author') }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr">X</i></button></td></tr>'
             );
             $("#selUser" + i).select2()
         });
@@ -313,7 +313,7 @@
         $('#add').click(function() {
             i++;
             $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><select id="pos2" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="{{ trans('dashboard.First Name') }}" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="{{ trans('dashboard.Last Name') }}" class="form-control name_list" /></td><td><select id="pos2" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">{{ trans('dashboard.First Author') }}</option><option value="2">{{ trans('dashboard.Co-Author') }}</option><option value="3">{{ trans('dashboard.Corresponding Author') }}</option></select></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
         });
 

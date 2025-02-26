@@ -178,7 +178,7 @@
 
             ++i;
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                '][userid]"  style="width: 200px;"><option value="">{{ trans('dashboard.Select User') }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
             );
             $("#selUser" + i).select2()
         });
@@ -210,7 +210,7 @@
         $('#add').click(function() {
             i++;
             $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><p>ตำแหน่งหรือคำนำหน้า :</p><input type="text" name="title_name[]" placeholder="ตำแหน่งหรือคำนำหน้า" style="width: 200px;" class="form-control name_list" /><br><p>ชื่อ :</p><input type="text" name="fname[]" placeholder="ชื่อ" style="width: 300px;" class="form-control name_list" /><br><p>นามสกุล :</p><input type="text" name="lname[]" placeholder="นามสกุล" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><p>{{ trans('dashboard.Position or title') }} :</p><input type="text" name="title_name[]" placeholder="{{ trans('dashboard.Position or title') }}" style="width: 200px;" class="form-control name_list" /><br><p>{{ trans('dashboard.Name') }} :</p><input type="text" name="fname[]" placeholder="{{ trans('dashboard.Name') }}" style="width: 300px;" class="form-control name_list" /><br><p>{{ trans('dashboard.Last Name') }} :</p><input type="text" name="lname[]" placeholder="{{ trans('dashboard.Last Name') }}" style="width: 300px;" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove"><i class="mdi mdi-minus"></i></button></td></tr>');
         });
 

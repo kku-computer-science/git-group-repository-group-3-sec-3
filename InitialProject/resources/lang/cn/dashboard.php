@@ -487,4 +487,188 @@ return [
     'Whoops!' => '糟糕！',
     'There were some problems with your input.' => '您的输入存在一些问题',
 
+
+     // Dashboard / Menu
+     'Dashboard'             => '仪表板',
+     'Fund'                  => '基金',
+     'Patents & Copyrights'  => '专利和版权',
+     'Book'                  => '书籍',
+     'Reseach Project'       => '研究项目',
+ 
+     // Common Table Headings
+     'No.'                   => '序号',
+     'Fund Name'             => '基金名称',
+     'Fund type'             => '基金类型',
+     'Fund level'            => '基金级别',
+     'Title'                 => '标题',
+     'Type'                  => '类型',
+     'Registration Date'     => '注册日期',
+     'Registration Number'   => '注册号',
+     'Source'                => '来源',
+     'Page'                  => '页数',
+     'Action'                => '操作',
+ 
+     // Buttons & Links
+     'Add'                   => '添加',
+     'View'                  => '查看',
+     'Edit'                  => '编辑',
+     'Delete'                => '删除',
+ 
+     // Alerts & Confirmations
+     'Are you sure?'         => '确定吗？',
+     'If you delete this, it will be gone forever.' => '删除后将无法恢复，确定删除吗？',
+     'Delete Successfully'   => '删除成功',
+ 
+     // DataTables Strings
+     'Show'                  => '显示',
+     'entries'               => '条目',
+     'Search'                => '搜索:',
+     'No matching records found' => '未找到匹配的记录',
+     'No records available'  => '没有可用记录',
+     'Showing _START_ to _END_ of _TOTAL_ entries' => '显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项',
+     'filtered from _MAX_ total records' => '(从 _MAX_ 条记录中过滤)',
+     'First'                 => '首页',
+     'Last'                  => '末页',
+     'Next'                  => '下页',
+     'Previous'              => '上页',
+ 
+     // Additional Strings for Fund Details or Others
+     'Internal Capital'      => '内部资金',
+     'External Capital'      => '外部资金',
+     'High'                  => '高',
+     'Medium'                => '中',
+     'Low'                   => '低',
+     'Not specified'         => '未指定',
+ 
+     // Welcome
+     'Welcome'               => '欢迎',
+     'Hello'                 => '你好',
+
+
+     'Dashboard'             => '仪表板',
+     'Fund'                  => '基金',
+     'Patents & Copyrights'  => '专利和版权',
+     'Book'                  => '书籍',
+     'Research Project'      => '研究项目',
+     'Research Group'        => '研究小组',
+ 
+     // Table Headings
+     'No.'                   => '序号',
+     'Fund Name'             => '基金名称',
+     'Fund type'             => '基金类型',
+     'Fund level'            => '基金级别',
+     'Title'                 => '标题',
+     'Type'                  => '类型',
+     'Year'                  => '年份',
+     'Project Name'          => '项目名称',
+     'Head'                  => '负责人',
+     'Member'                => '成员',
+     'Registration Date'     => '注册日期',
+     'Registration Number'   => '注册号',
+     'Source'                => '来源',
+     'Page'                  => '页数',
+     'Action'                => '操作',
+ 
+     // Buttons & Links
+     'Add'                   => '添加',
+     'View'                  => '查看',
+     'Edit'                  => '编辑',
+     'Delete'                => '删除',
+ 
+     // Alerts & Confirmations
+     'Are you sure?'         => '确定吗？',
+     'If you delete this, it will be gone forever.' => '删除后将无法恢复，确定删除吗？',
+     'Delete Successfully'   => '删除成功',
+ 
+     // DataTables Strings
+     'Show'                  => '显示',
+     'entries'               => '条目',
+     'Search'                => '搜索:',
+     'No matching records found' => '未找到匹配的记录',
+     'No records available'  => '没有可用记录',
+     'Showing _START_ to _END_ of _TOTAL_ entries' => '显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项',
+     'filtered from _MAX_ total records' => '(从 _MAX_ 条记录中过滤)',
+     'First'                 => '首页',
+     'Last'                  => '末页',
+     'Next'                  => '下页',
+     'Previous'              => '上页',
+ 
+     // Additional Strings
+     'Internal Capital'      => '内部资金',
+     'External Capital'      => '外部资金',
+     'High'                  => '高',
+     'Medium'                => '中',
+     'Low'                   => '低',
+     'Not specified'         => '未指定',
+ 
+     // Welcome and Greetings
+     'Welcome'               => '欢迎',
+     'Hello'                 => '你好',
+
+
+     'Dashboard'             => '仪表板',
+     'Fund'                  => '基金',
+     'Patents & Copyrights'  => '专利和版权',
+     'Book'                  => '书籍',
+     'Research Project'      => '研究项目',
+     'Research Group'        => '研究小组',
+ 
+     // Table Headings
+     'No.'                   => '序号',
+     'Fund Name'             => '基金名称',
+     'Fund type'             => '基金类型',
+     'Fund level'            => '基金级别',
+     'Title'                 => '标题',
+     'Type'                  => '类型',
+     'Year'                  => '年份',
+     'Project Name'          => '项目名称',
+     'Head'                  => '负责人',
+     'Member'                => '成员',
+     'Registration Date'     => '注册日期',
+     'Registration Number'   => '注册号',
+     'Source'                => '来源',
+     'Page'                  => '页数',
+     'Action'                => '操作',
+ 
+     // Buttons & Links
+     'Add'                   => '添加',
+     'View'                  => '查看',
+     'Edit'                  => '编辑',
+     'Delete'                => '删除',
+ 
+     // Alerts & Confirmations
+     'Are you sure?'         => '确定吗？',
+     'If you delete this, it will be gone forever.' => '删除后将无法恢复，确定删除吗？',
+     'Delete Successfully'   => '删除成功',
+ 
+     // DataTables Strings
+     'Show'                  => '显示',
+     'entries'               => '条目',
+     'Search'                => '搜索:',
+     'No matching records found' => '未找到匹配的记录',
+     'No records available'  => '没有可用记录',
+     'Showing _START_ to _END_ of _TOTAL_ entries' => '显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项',
+     'filtered from _MAX_ total records' => '(从 _MAX_ 条记录中过滤)',
+     'First'                 => '首页',
+     'Last'                  => '末页',
+     'Next'                  => '下页',
+     'Previous'              => '上页',
+ 
+     // Additional Strings
+     'Internal Capital'      => '内部资金',
+     'External Capital'      => '外部资金',
+     'High'                  => '高',
+     'Medium'                => '中',
+     'Low'                   => '低',
+     'Not specified'         => '未指定',
+ 
+     // Welcome and Greetings
+     'Welcome'               => '欢迎',
+     'Hello'                 => '你好',
+     // Research Group Section
+     'Research Group'        => '研究小组',
+     'Group Name'            => '小组名称',
+
+
+     
 ];

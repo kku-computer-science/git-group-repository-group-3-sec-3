@@ -1,5 +1,6 @@
 @extends('dashboards.users.layouts.user-dash-layout')
 
+<!-- Datatables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
@@ -32,51 +33,45 @@
                         @foreach ($funds as $i => $fund)
                             @php
                                 $locale = app()->getLocale();
-                                // เริ่มต้นให้ fund_type และ fund_level จากฐานข้อมูล (ภาษาไทย)
+                                // ค่าเริ่มต้นจากฐานข้อมูล (ภาษาไทย)
                                 $fundType = $fund->fund_type;
                                 $fundLevel = $fund->fund_level;
-
+                                
                                 // ถ้าเป็นภาษาอังกฤษ
-                                if($locale == 'en') {
-                                    // แปลง fund_type
-                                    if($fund->fund_type == 'ทุนภายใน') {
+                                if($locale == 'en'){
+                                    if($fund->fund_type == 'ทุนภายใน'){
                                         $fundType = 'Internal Capital';
-                                    } elseif($fund->fund_type == 'ทุนภายนอก') {
+                                    } elseif($fund->fund_type == 'ทุนภายนอก'){
                                         $fundType = 'External Capital';
                                     }
-
-                                    // แปลง fund_level
-                                    if($fund->fund_level == 'สูง') {
+                                    if($fund->fund_level == 'สูง'){
                                         $fundLevel = 'High';
-                                    } elseif($fund->fund_level == 'กลาง' || $fund->fund_level == 'ปานกลาง') {
+                                    } elseif($fund->fund_level == 'กลาง' || $fund->fund_level == 'ปานกลาง'){
                                         $fundLevel = 'Medium';
-                                    } elseif($fund->fund_level == 'ล่าง' || $fund->fund_level == 'ต่ำ') {
+                                    } elseif($fund->fund_level == 'ล่าง' || $fund->fund_level == 'ต่ำ'){
                                         $fundLevel = 'Low';
-                                    } elseif($fund->fund_level == 'ไม่ได้ระบุ' || $fund->fund_level === null) {
+                                    } elseif($fund->fund_level == 'ไม่ได้ระบุ' || $fund->fund_level === null){
                                         $fundLevel = 'Not specified';
                                     }
                                 }
                                 // ถ้าเป็นภาษาจีน
-                                elseif($locale == 'cn') {
-                                    // แปลง fund_type
-                                    if($fund->fund_type == 'ทุนภายใน') {
+                                elseif($locale == 'cn'){
+                                    if($fund->fund_type == 'ทุนภายใน'){
                                         $fundType = '内部资金';
-                                    } elseif($fund->fund_type == 'ทุนภายนอก') {
+                                    } elseif($fund->fund_type == 'ทุนภายนอก'){
                                         $fundType = '外部资金';
                                     }
-
-                                    // แปลง fund_level
-                                    if($fund->fund_level == 'สูง') {
+                                    if($fund->fund_level == 'สูง'){
                                         $fundLevel = '高';
-                                    } elseif($fund->fund_level == 'กลาง' || $fund->fund_level == 'ปานกลาง') {
+                                    } elseif($fund->fund_level == 'กลาง' || $fund->fund_level == 'ปานกลาง'){
                                         $fundLevel = '中';
-                                    } elseif($fund->fund_level == 'ล่าง' || $fund->fund_level == 'ต่ำ') {
+                                    } elseif($fund->fund_level == 'ล่าง' || $fund->fund_level == 'ต่ำ'){
                                         $fundLevel = '低';
-                                    } elseif($fund->fund_level == 'ไม่ได้ระบุ' || $fund->fund_level === null) {
+                                    } elseif($fund->fund_level == 'ไม่ได้ระบุ' || $fund->fund_level === null){
                                         $fundLevel = '未指定';
                                     }
                                 }
-                                // ถ้าเป็นภาษาไทย (th) ให้ใช้ค่าจากฐานข้อมูลเดิม
+                                // ถ้าเป็นภาษาไทย ให้ใช้ค่าจากฐานข้อมูลเดิม
                             @endphp
                             <tr>
                                 <td>{{ $i + 1 }}</td>
@@ -122,15 +117,10 @@
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
-
 <script>
     $(document).ready(function() {
-        // ดึง locale จาก Blade
         let locale = "{{ app()->getLocale() }}";
-
-        // สร้าง object languageSettings สำหรับ DataTables
         let languageSettings = {};
-
         if (locale === 'en') {
             languageSettings = {
                 lengthMenu: "Show _MENU_ entries",
@@ -162,7 +152,6 @@
                 }
             };
         } else {
-            // สมมติว่าถ้าเป็น 'th' หรือภาษาอื่น ใช้ภาษาไทย
             languageSettings = {
                 lengthMenu: "แสดง _MENU_ รายการ",
                 zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
@@ -178,28 +167,26 @@
                 }
             };
         }
-
-        var table = $('#example1').DataTable({
+        $('#example1').DataTable({
             fixedHeader: true,
             language: languageSettings
         });
     });
 </script>
-
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
         event.preventDefault();
         swal({
-            title: "Are you sure?",
-            text: "If you delete this, it will be gone forever.",
+            title: `{{ trans('dashboard.Are you sure?') }}`,
+            text: "{{ trans('dashboard.If you delete this, it will be gone forever.') }}",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
         .then((willDelete) => {
             if (willDelete) {
-                swal("Delete Successfully", {
+                swal("{{ trans('dashboard.Delete Successfully') }}", {
                     icon: "success",
                 }).then(function() {
                     location.reload();

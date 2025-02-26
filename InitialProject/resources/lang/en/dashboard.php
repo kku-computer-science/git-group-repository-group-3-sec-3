@@ -489,5 +489,179 @@
         'Whoops!' => 'Whoops!',
         'There were some problems with your input.' => 'There were some problems with your input',
 
+        'Dashboard'             => 'Dashboard',
+        'Fund'                  => 'Fund',
+        'Patents & Copyrights'  => 'Patents & Copyrights',
+        'Book'                  => 'Book',
+        'Reseach Project'       => 'Research Project',
+    
+        // Common Table Headings
+        'No.'                   => 'No.',
+        'Fund Name'             => 'Fund Name',
+        'Fund type'             => 'Fund Type',
+        'Fund level'            => 'Fund Level',
+        'Title'                 => 'Title',
+        'Type'                  => 'Type',
+        'Registration Date'     => 'Registration Date',
+        'Registration Number'   => 'Registration Number',
+        'Source'                => 'Source',
+        'Page'                  => 'Page',
+        'Action'                => 'Action',
+    
+        // Buttons & Links
+        'Add'                   => 'Add',
+        'View'                  => 'View',
+        'Edit'                  => 'Edit',
+        'Delete'                => 'Delete',
+    
+        // Alerts & Confirmations
+        'Are you sure?'         => 'Are you sure?',
+        'If you delete this, it will be gone forever.' => 'If you delete this, it will be gone forever.',
+        'Delete Successfully'   => 'Delete Successfully',
+    
+        // DataTables Strings
+        'Show'                  => 'Show',
+        'entries'               => 'entries',
+        'Search'                => 'Search:',
+        'No matching records found' => 'No matching records found',
+        'No records available'  => 'No records available',
+        'Showing _START_ to _END_ of _TOTAL_ entries' => 'Showing _START_ to _END_ of _TOTAL_ entries',
+        'filtered from _MAX_ total records' => '(filtered from _MAX_ total records)',
+        'First'                 => 'First',
+        'Last'                  => 'Last',
+        'Next'                  => 'Next',
+        'Previous'              => 'Previous',
+    
+        // Additional Strings for Fund Details or Others
+        'Internal Capital'      => 'Internal Capital',
+        'External Capital'      => 'External Capital',
+        'High'                  => 'High',
+        'Medium'                => 'Medium',
+        'Low'                   => 'Low',
+        'Not specified'         => 'Not specified',
+    
+        // Welcome
+        'Welcome'               => 'Welcome',
+        'Hello'                 => 'Hello',
 
+
+        'Dashboard'             => 'Dashboard',
+        'Fund'                  => 'Fund',
+        'Patents & Copyrights'  => 'Patents & Copyrights',
+        'Book'                  => 'Book',
+        'Research Project'      => 'Research Project',
+        'Research Group'        => 'Research Group',
+    
+        // Table Headings
+        'No.'                   => 'No.',
+        'Fund Name'             => 'Fund Name',
+        'Fund type'             => 'Fund Type',
+        'Fund level'            => 'Fund Level',
+        'Title'                 => 'Title',
+        'Type'                  => 'Type',
+        'Year'                  => 'Year',
+        'Project Name'          => 'Project Name',
+        'Head'                  => 'Head',
+        'Member'                => 'Member',
+        'Registration Date'     => 'Registration Date',
+        'Registration Number'   => 'Registration Number',
+        'Source'                => 'Source',
+        'Page'                  => 'Page',
+        'Action'                => 'Action',
+    
+        // Buttons & Links
+        'Add'                   => 'Add',
+        'View'                  => 'View',
+        'Edit'                  => 'Edit',
+        'Delete'                => 'Delete',
+    
+        // Alerts & Confirmations
+        'Are you sure?'         => 'Are you sure?',
+        'If you delete this, it will be gone forever.' => 'If you delete this, it will be gone forever.',
+        'Delete Successfully'   => 'Delete Successfully',
+    
+        // DataTables Strings
+        'Show'                  => 'Show',
+        'entries'               => 'entries',
+        'Search'                => 'Search:',
+        'No matching records found' => 'No matching records found',
+        'No records available'  => 'No records available',
+        'Showing _START_ to _END_ of _TOTAL_ entries' => 'Showing _START_ to _END_ of _TOTAL_ entries',
+        'filtered from _MAX_ total records' => '(filtered from _MAX_ total records)',
+        'First'                 => 'First',
+        'Last'                  => 'Last',
+        'Next'                  => 'Next',
+        'Previous'              => 'Previous',
+    
+        // Additional Strings
+        'Internal Capital'      => 'Internal Capital',
+        'External Capital'      => 'External Capital',
+        'High'                  => 'High',
+        'Medium'                => 'Medium',
+        'Low'                   => 'Low',
+        'Not specified'         => 'Not specified',
+
+        
+        'Dashboard'             => 'Dashboard',
+        'Fund'                  => 'Fund',
+        'Patents & Copyrights'  => 'Patents & Copyrights',
+        'Book'                  => 'Book',
+        'Research Project'      => 'Research Project',
+        'Research Group'        => 'Research Group',
+    
+        // Table Headings
+        'No.'                   => 'No.',
+        'Fund Name'             => 'Fund Name',
+        'Fund type'             => 'Fund Type',
+        'Fund level'            => 'Fund Level',
+        'Title'                 => 'Title',
+        'Type'                  => 'Type',
+        'Year'                  => 'Year',
+        'Project Name'          => 'Project Name',
+        'Head'                  => 'Head',
+        'Member'                => 'Member',
+        'Registration Date'     => 'Registration Date',
+        'Registration Number'   => 'Registration Number',
+        'Source'                => 'Source',
+        'Page'                  => 'Page',
+        'Action'                => 'Action',
+    
+        // Buttons & Links
+        'Add'                   => 'Add',
+        'View'                  => 'View',
+        'Edit'                  => 'Edit',
+        'Delete'                => 'Delete',
+    
+        // Alerts & Confirmations
+        'Are you sure?'         => 'Are you sure?',
+        'If you delete this, it will be gone forever.' => 'If you delete this, it will be gone forever.',
+        'Delete Successfully'   => 'Delete Successfully',
+    
+        // DataTables Strings
+        'Show'                  => 'Show',
+        'entries'               => 'entries',
+        'Search'                => 'Search:',
+        'No matching records found' => 'No matching records found',
+        'No records available'  => 'No records available',
+        'Showing _START_ to _END_ of _TOTAL_ entries' => 'Showing _START_ to _END_ of _TOTAL_ entries',
+        'filtered from _MAX_ total records' => '(filtered from _MAX_ total records)',
+        'First'                 => 'First',
+        'Last'                  => 'Last',
+        'Next'                  => 'Next',
+        'Previous'              => 'Previous',
+    
+        // Additional Strings
+        'Internal Capital'      => 'Internal Capital',
+        'External Capital'      => 'External Capital',
+        'High'                  => 'High',
+        'Medium'                => 'Medium',
+        'Low'                   => 'Low',
+        'Not specified'         => 'Not specified',
+    
+        // Welcome and Greetings
+        'Welcome'               => 'Welcome',
+        'Hello'                 => 'Hello',
+        // Research Group Section
+        'Research Group'        => 'Research Group',
+        'Group Name'            => 'Group Name',
     ];

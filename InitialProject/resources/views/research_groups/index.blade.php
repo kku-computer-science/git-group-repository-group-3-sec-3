@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 
-@section('title','Project')
+@section('title', trans('dashboard.Research Group'))
 
 @section('content')
 <div class="container">
@@ -16,19 +16,19 @@
     @endif
     <div class="card" style="padding: 16px;">
         <div class="card-body">
-            <h4 class="card-title">{{ __('dashboard.Reseach Project') }}</h4>
+            <h4 class="card-title">{{ trans('dashboard.Research Group') }}</h4>
             <a class="btn btn-primary btn-menu btn-icon-text btn-sm mb-3" href="{{ route('researchGroups.create') }}">
-                <i class="mdi mdi-plus btn-icon-prepend"></i> {{ __('dashboard.Add') }}
+                <i class="mdi mdi-plus btn-icon-prepend"></i> {{ trans('dashboard.Add') }}
             </a>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>{{ __('dashboard.Reseach Project') }}</th>
-                        <th>{{ __('dashboard.Year') }}</th>
-                        <th>{{ __('dashboard.Project Name') }}</th>
-                        <th>{{ __('dashboard.Head') }}</th>
-                        <th>{{ __('dashboard.Member') }}</th>
-                        <th width="280px">{{ __('dashboard.Action') }}</th>
+                        <th>{{ trans('dashboard.Research Group') }}</th>
+                        <th>{{ trans('dashboard.Year') }}</th>
+                        <th>{{ trans('dashboard.Group Name') }}</th>
+                        <th>{{ trans('dashboard.Head') }}</th>
+                        <th>{{ trans('dashboard.Member') }}</th>
+                        <th width="280px">{{ trans('dashboard.Action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{ $i + 1 }}</td>
                             <td>{{ $researchGroup->group_year ?? '' }}</td>
-                            <td>{{ Str::limit($researchGroup->group_name_th,50) }}</td>
+                            <td>{{ Str::limit($researchGroup->group_name_th, 50) }}</td>
                             
                             <!-- Column หัวหน้า (role = 1) แสดงเฉพาะ fname -->
                             <td>
@@ -63,30 +63,30 @@
                                         @else
                                             {{ $user->fname_en }}
                                         @endif
-                                        @if (!$loop->last),@endif
+                                        @if(!$loop->last),@endif
                                     @endif
                                 @endforeach
                             </td>
                             
                             <td>
                                 <form action="{{ route('researchGroups.destroy', $researchGroup->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
                                     <li class="list-inline-item">
-                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('dashboard.View') }}" href="{{ route('researchGroups.show', $researchGroup->id) }}">
+                                        <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.View') }}" href="{{ route('researchGroups.show', $researchGroup->id) }}">
                                             <i class="mdi mdi-eye"></i>
                                         </a>
                                     </li>
                                     @if(Auth::user()->can('update', $researchGroup))
                                         <li class="list-inline-item">
-                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ __('dashboard.Edit') }}" href="{{ route('researchGroups.edit', $researchGroup->id) }}">
+                                            <a class="btn btn-outline-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.Edit') }}" href="{{ route('researchGroups.edit', $researchGroup->id) }}">
                                                 <i class="mdi mdi-pencil"></i>
                                             </a>
                                         </li>
                                     @endif
                                     @if(Auth::user()->can('delete', $researchGroup))
-                                        @csrf
-                                        @method('DELETE')
                                         <li class="list-inline-item">
-                                            <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="{{ __('dashboard.Delete') }}">
+                                            <button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" title="{{ trans('dashboard.Delete') }}">
                                                 <i class="mdi mdi-delete"></i>
                                             </button>
                                         </li>
@@ -97,6 +97,7 @@
                     @endforeach
                 </tbody>
             </table>
+            <br>
         </div>
     </div>
 </div>
@@ -156,7 +157,6 @@
                 }
             };
         }
-
         $('#example1').DataTable({
             responsive: true,
             language: languageSettings
@@ -168,15 +168,15 @@
         var form = $(this).closest("form");
         event.preventDefault();
         swal({
-            title: "{{ __('dashboard.Are you sure?') }}",
-            text: "{{ __('dashboard.If you delete this, it will be gone forever.') }}",
+            title: "{{ trans('dashboard.Are you sure?') }}",
+            text: "{{ trans('dashboard.If you delete this, it will be gone forever.') }}",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
         .then((willDelete) => {
             if (willDelete) {
-                swal("{{ __('dashboard.Delete Successfully') }}", {
+                swal("{{ trans('dashboard.Delete Successfully') }}", {
                     icon: "success",
                 }).then(function() {
                     form.submit();

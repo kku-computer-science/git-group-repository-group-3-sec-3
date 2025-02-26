@@ -485,5 +485,186 @@ return [
     'Enter your Last Name' => 'กรอกนามสกุลของคุณ',
     'Whoops!' => 'Whoops!',
     'There were some problems with your input.' => 'มีข้อผิดพลาดในข้อมูลที่คุณกรอก',
+
+
+    'Dashboard'             => 'แดชบอร์ด',
+    'Fund'                  => 'กองทุน',
+    'Patents & Copyrights'  => 'สิทธิบัตรและลิขสิทธิ์',
+    'Book'                  => 'หนังสือ',
+    'Reseach Project'       => 'โครงการวิจัย',
+
+    // Common Table Headings
+    'No.'                   => 'ลำดับที่',
+    'Fund Name'             => 'ชื่อกองทุน',
+    'Fund type'             => 'ประเภทกองทุน',
+    'Fund level'            => 'ระดับกองทุน',
+    'Title'                 => 'ชื่อเรื่อง',
+    'Type'                  => 'ประเภท',
+    'Registration Date'     => 'วันที่จดทะเบียน',
+    'Registration Number'   => 'หมายเลขจดทะเบียน',
+    'Source'                => 'แหล่งเผยแพร่',
+    'Page'                  => 'หน้า',
+    'Action'                => 'การกระทำ',
+
+    // Buttons & Links
+    'Add'                   => 'เพิ่ม',
+    'View'                  => 'ดู',
+    'Edit'                  => 'แก้ไข',
+    'Delete'                => 'ลบ',
+
+    // Alerts & Confirmations
+    'Are you sure?'         => 'คุณแน่ใจหรือไม่?',
+    'If you delete this, it will be gone forever.' => 'หากคุณลบข้อมูลนี้ มันจะหายไปตลอดกาล',
+    'Delete Successfully'   => 'ลบข้อมูลสำเร็จ',
+
+    // DataTables Strings
+    'Show'                  => 'แสดง',
+    'entries'               => 'รายการ',
+    'Search'                => 'ค้นหา:',
+    'No matching records found' => 'ไม่พบข้อมูลที่ตรงกัน',
+    'No records available'  => 'ไม่มีข้อมูล',
+    'Showing _START_ to _END_ of _TOTAL_ entries' => 'แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ',
+    'filtered from _MAX_ total records' => '(กรองจากทั้งหมด _MAX_ รายการ)',
+    'First'                 => 'หน้าแรก',
+    'Last'                  => 'หน้าสุดท้าย',
+    'Next'                  => 'ถัดไป',
+    'Previous'              => 'ก่อนหน้า',
+
+    // Additional Strings for Fund Details or Others
+    'Internal Capital'      => 'ทุนภายใน',
+    'External Capital'      => 'ทุนภายนอก',
+    'High'                  => 'สูง',
+    'Medium'                => 'ปานกลาง',
+    'Low'                   => 'ต่ำ',
+    'Not specified'         => 'ไม่ได้ระบุ',
+
+    // Welcome
+    'Welcome'               => 'ยินดีต้อนรับ',
+    'Hello'                 => 'สวัสดี',
+
+
+    'Dashboard'             => 'แดชบอร์ด',
+    'Fund'                  => 'กองทุน',
+    'Patents & Copyrights'  => 'สิทธิบัตรและลิขสิทธิ์',
+    'Book'                  => 'หนังสือ',
+    'Research Project'      => 'โครงการวิจัย',
+    'Research Group'        => 'กลุ่มวิจัย',
+
+    // Table Headings
+    'No.'                   => 'ลำดับที่',
+    'Fund Name'             => 'ชื่อกองทุน',
+    'Fund type'             => 'ประเภทกองทุน',
+    'Fund level'            => 'ระดับกองทุน',
+    'Title'                 => 'ชื่อเรื่อง',
+    'Type'                  => 'ประเภท',
+    'Year'                  => 'ปี',
+    'Project Name'          => 'ชื่อโครงการ',
+    'Head'                  => 'หัวหน้า',
+    'Member'                => 'สมาชิก',
+    'Registration Date'     => 'วันที่จดทะเบียน',
+    'Registration Number'   => 'หมายเลขจดทะเบียน',
+    'Source'                => 'แหล่งเผยแพร่',
+    'Page'                  => 'หน้า',
+    'Action'                => 'การกระทำ',
+
+    // Buttons & Links
+    'Add'                   => 'เพิ่ม',
+    'View'                  => 'ดู',
+    'Edit'                  => 'แก้ไข',
+    'Delete'                => 'ลบ',
+
+    // Alerts & Confirmations
+    'Are you sure?'         => 'คุณแน่ใจหรือไม่?',
+    'If you delete this, it will be gone forever.' => 'หากคุณลบข้อมูลนี้ มันจะหายไปตลอดกาล',
+    'Delete Successfully'   => 'ลบข้อมูลสำเร็จ',
+
+    // DataTables Strings
+    'Show'                  => 'แสดง',
+    'entries'               => 'รายการ',
+    'Search'                => 'ค้นหา:',
+    'No matching records found' => 'ไม่พบข้อมูลที่ตรงกัน',
+    'No records available'  => 'ไม่มีข้อมูล',
+    'Showing _START_ to _END_ of _TOTAL_ entries' => 'แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ',
+    'filtered from _MAX_ total records' => '(กรองจากทั้งหมด _MAX_ รายการ)',
+    'First'                 => 'หน้าแรก',
+    'Last'                  => 'หน้าสุดท้าย',
+    'Next'                  => 'ถัดไป',
+    'Previous'              => 'ก่อนหน้า',
+
+    // Additional Strings
+    'Internal Capital'      => 'ทุนภายใน',
+    'External Capital'      => 'ทุนภายนอก',
+    'High'                  => 'สูง',
+    'Medium'                => 'ปานกลาง',
+    'Low'                   => 'ต่ำ',
+    'Not specified'         => 'ไม่ได้ระบุ',
+
+    // Welcome and Greetings
+    'Welcome'               => 'ยินดีต้อนรับ',
+
+
+    'Dashboard'             => 'แดชบอร์ด',
+    'Fund'                  => 'กองทุน',
+    'Patents & Copyrights'  => 'สิทธิบัตรและลิขสิทธิ์',
+    'Book'                  => 'หนังสือ',
+    'Research Project'      => 'โครงการวิจัย',
+    'Research Group'        => 'กลุ่มวิจัย',
+
+    // Table Headings
+    'No.'                   => 'ลำดับที่',
+    'Fund Name'             => 'ชื่อกองทุน',
+    'Fund type'             => 'ประเภทกองทุน',
+    'Fund level'            => 'ระดับกองทุน',
+    'Title'                 => 'ชื่อเรื่อง',
+    'Type'                  => 'ประเภท',
+    'Year'                  => 'ปี',
+    'Project Name'          => 'ชื่อโครงการ',
+    'Head'                  => 'หัวหน้า',
+    'Member'                => 'สมาชิก',
+    'Registration Date'     => 'วันที่จดทะเบียน',
+    'Registration Number'   => 'หมายเลขจดทะเบียน',
+    'Source'                => 'แหล่งเผยแพร่',
+    'Page'                  => 'หน้า',
+    'Action'                => 'การกระทำ',
+
+    // Buttons & Links
+    'Add'                   => 'เพิ่ม',
+    'View'                  => 'ดู',
+    'Edit'                  => 'แก้ไข',
+    'Delete'                => 'ลบ',
+
+    // Alerts & Confirmations
+    'Are you sure?'         => 'คุณแน่ใจหรือไม่?',
+    'If you delete this, it will be gone forever.' => 'หากคุณลบข้อมูลนี้ มันจะหายไปตลอดกาล',
+    'Delete Successfully'   => 'ลบข้อมูลสำเร็จ',
+
+    // DataTables Strings
+    'Show'                  => 'แสดง',
+    'entries'               => 'รายการ',
+    'Search'                => 'ค้นหา:',
+    'No matching records found' => 'ไม่พบข้อมูลที่ตรงกัน',
+    'No records available'  => 'ไม่มีข้อมูล',
+    'Showing _START_ to _END_ of _TOTAL_ entries' => 'แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ',
+    'filtered from _MAX_ total records' => '(กรองจากทั้งหมด _MAX_ รายการ)',
+    'First'                 => 'หน้าแรก',
+    'Last'                  => 'หน้าสุดท้าย',
+    'Next'                  => 'ถัดไป',
+    'Previous'              => 'ก่อนหน้า',
+
+    // Additional Strings
+    'Internal Capital'      => 'ทุนภายใน',
+    'External Capital'      => 'ทุนภายนอก',
+    'High'                  => 'สูง',
+    'Medium'                => 'ปานกลาง',
+    'Low'                   => 'ต่ำ',
+    'Not specified'         => 'ไม่ได้ระบุ',
+
+    // Welcome and Greetings
+    'Welcome'               => 'ยินดีต้อนรับ',
+    'Hello'                 => 'สวัสดี',
+    // Research Group Section
+    'Research Group'        => 'กลุ่มวิจัย',
+    'Group Name'            => 'ชื่อกลุ่ม',
+
 ];
 ?>
