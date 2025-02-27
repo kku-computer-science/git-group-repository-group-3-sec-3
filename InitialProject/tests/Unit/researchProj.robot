@@ -6,7 +6,7 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}            chrome
-${URL}                http://127.0.0.1:8000/researchproject
+${URL}                https://cssoften0368.cpkkuhost.com/researchproject
 ${WAIT_TIME}          3s
 
 # ✅ Expected Data (Dynamic จากฐานข้อมูล)
