@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap4.min.css">
 @section('content')
-
 <div class="container">
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
@@ -13,6 +12,9 @@
     <div class="card" style="padding: 16px;">
         <div class="card-body">
             <h4 class="card-title" style="text-align: center;">{{ __('dashboard.teacher_expertise') }}</h4>
+            <div class="pull-right">
+                <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">{{ __('dashboard.add_expertise') }}</a>
+            </div>
             <table id="example1" class="table table-striped">
                 <thead>
                     <tr>
@@ -21,7 +23,6 @@
                         <th>{{ __('dashboard.teacher_name') }}</th>
                         @endif
                         <th>{{ __('dashboard.name') }}</th>
-
                         <th>{{ __('dashboard.Action') }}</th>
                     </tr>
                 </thead>
@@ -40,26 +41,25 @@
                             @endif
                         </td>
                         @endif
-                        <td>{{ $expert->expert_name }}</td>
-
+                        <td class="expertise-name" data-expertise-id="{{ $expert->id }}">
+                            @if(app()->getLocale() == 'th')
+                                {{ $expert->expert_name_th ?: $expert->expert_name }}
+                            @elseif(app()->getLocale() == 'cn')
+                                {{ $expert->expert_name_cn ?: $expert->expert_name }}
+                            @else
+                                {{ $expert->expert_name }}
+                            @endif
+                        </td>
                         <td>
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
-                                <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->
                                 <li class="list-inline-item">
-                                    <!-- <a class="btn btn-success btn-sm rounded-0" href="javascript:void(0)" id="edit-expertise" type="button" data-toggle="modal" data-placement="top" data-id="{{ $expert->id }}" title="Edit"><i class="fa fa-edit"></i></a> -->
                                     <a class="btn btn-outline-success btn-sm" id="edit-expertise" type="button" data-toggle="modal" data-id="{{ $expert->id }}" data-placement="top" title="{{ __('dashboard.edit') }}" href="javascript:void(0)"><i class="mdi mdi-pencil"></i></a>
-
                                 </li>
-
-                                <!-- <a href="javascript:void(0)" class="btn btn-success" id="edit-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Edit </a> -->
                                 @csrf
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <li class="list-inline-item">
                                     <button class="btn btn-outline-danger btn-sm show_confirm" id="delete-expertise" type="submit" data-id="{{ $expert->id }}" data-toggle="tooltip" data-placement="top" title="{{ __('dashboard.delete') }}"><i class="mdi mdi-delete"></i></button>
-
                                 </li>
-                                <!-- <a id="delete-expertise" data-id="{{ $expert->id }}" class="btn btn-danger delete-user">Delete</a> -->
-
                             </form>
                         </td>
                     </tr>
@@ -69,6 +69,7 @@
         </div>
     </div>
 </div>
+
 <!-- Add and Edit expertise modal -->
 <div class="modal fade" id="crud-modal" aria-hidden="true">
     <div class="modal-dialog">
@@ -83,13 +84,27 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>{{ __('dashboard.Name') }}</strong>
-                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expert_name" onchange="validate()">
+                                <strong>{{ __('dashboard.Name') }} (English)</strong>
+                                <input type="text" name="expert_name" id="expert_name" class="form-control" placeholder="Expertise name in English" onchange="validate()">
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>{{ __('dashboard.Name') }} (Thai)</strong>
+                                <input type="text" name="expert_name_th" id="expert_name_th" class="form-control" placeholder="Expertise name in Thai">
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>{{ __('dashboard.Name') }} (Chinese)</strong>
+                                <input type="text" name="expert_name_cn" id="expert_name_cn" class="form-control" placeholder="Expertise name in Chinese">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary " disabled>{{ __('dashboard.Submit') }}</button>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>{{ __('dashboard.Submit') }}</button>
                             <a href="{{ route('experts.index') }}" class="btn btn-danger">{{ __('dashboard.cancel') }}</a>
                         </div>
                     </div>
@@ -98,11 +113,14 @@
         </div>
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js" defer></script>
 <script src="https://cdn.datatables.net/fixedheader/3.2.3/js/dataTables.fixedHeader.min.js" defer></script>
 <script src="https://cdn.datatables.net/rowgroup/1.2.0/js/dataTables.rowGroup.min.js" defer></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
 <script>
     $(document).ready(function() {
         // Get current locale from Laravel
@@ -261,7 +279,7 @@
 
                 }
 
-            });
+                });
         });
     });
 </script>

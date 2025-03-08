@@ -140,4 +140,22 @@ class ExpertiseController extends Controller
         }
         //return response()->json($exp);
     }
+
+    public function getNames(Request $request)
+    {
+        $locale = $request->locale ?? app()->getLocale();
+        $teachers = User::role('teacher')->get()->mapWithKeys(function($user) use ($locale) {
+            if ($locale == 'th') {
+                $name = $user->fname_th . ' ' . $user->lname_th;
+            } elseif ($locale == 'cn') {
+                $name = $user->fname_cn . ' ' . $user->lname_cn; // หมายเหตุ: คุณกำลังใช้ fname_en แทน
+            } else {
+                $name = $user->fname_en . ' ' . $user->lname_en;
+            }
+            return [$user->id => $name];
+        });
+        
+        return response()->json(['teachers' => $teachers]);
+    }
+
 }
