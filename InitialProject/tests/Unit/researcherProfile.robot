@@ -5,7 +5,7 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
-${HOME_URL}    http://127.0.0.1:8000/
+${HOME_URL}   https://cssoften0368.cpkkuhost.com
 ${WAIT_TIME}  3s
 
 # ตัวแปรของเมนูและ dropdown
@@ -20,14 +20,13 @@ ${LANG_TO_CHINESE}    xpath=//a[contains(text(), '中文')]
 
 # Detail Page Link (สมมุติว่าลิงก์ไปหน้า Profile ด้วย /detail/xxx)
 # เปลี่ยน XPATH ให้ตรงกับลิงก์ที่แท้จริง เช่น ...
-${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and .//*[contains(text(), 'Punyaphol')]]    
+${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and .//*[contains(text(), 'ปัญญาพล')]]    
 
 # ตรวจสอบองค์ประกอบบนหน้า Profile
 *** Variables ***
 
 @{EXPECTED_PROFILE_TH}
 ...    ค้นหา
-...    คำค้นหาที่สนใจ
 ...    ลำดับ
 ...    ปี
 ...    ชื่องานวิจัย
@@ -71,9 +70,9 @@ ${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and .//*[contains(
 ...    email
 ...    Number
 ...    Name
-...    publication        <-- (ค่าจาก 'pub' ใน dictionary ภาษาอังกฤษอาจเป็นการกรอกผิด หรือยังไม่อัปเดต) -->
+...    Publications        
 ...    Export To Exel
-...    Name          <-- (ค่าจาก 'bookName' ที่เป็น '์Name' อาจต้องตรวจสอบอีกครั้ง) -->
+...    Name          
 ...    Place of Publication
 ...    Type
 ...    Registration Date
@@ -81,7 +80,6 @@ ${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and .//*[contains(
     
 @{EXPECTED_PROFILE_CN}      
 ...    搜索      
-...    研究兴趣    
 ...    编号    
 ...    年份    
 ...    论文名称    
@@ -98,7 +96,7 @@ ${RESEARCHER_DETAIL}    xpath=//a[contains(@href, '/detail/') and .//*[contains(
 ...    电子邮件    
 ...    数量    
 ...    名称    
-...    出版    
+...    出版物    
 ...    导出到Excel    
 ...    书名    
 ...    出版地点    
@@ -130,7 +128,7 @@ Navigate To Researcher Profile
 
     # 4) คลิกลิงก์เข้าไปที่หน้า Researcher Profile
     Click Element    ${RESEARCHER_DETAIL}
-    Wait Until Page Contains    Summary    10s    # สมมติว่าหน้า Profile มีคำว่า Summary
+    Wait Until Page Contains    สรุป    10s    # สมมติว่าหน้า Profile มีคำว่า Summary
 
 Verify Page Contains Multiple Texts
     [Arguments]    @{expected_texts}
@@ -146,13 +144,13 @@ Switch Language
     Sleep    2s  # รอหน้าอัปเดต
 
 *** Test Cases ***
-# --- 1) ตรวจสอบหน้า Profile ภาษาที่ตั้งต้นเป็นไทย ---
+ # --- 1) ตรวจสอบหน้า Profile ภาษาที่ตั้งต้นเป็นไทย ---
 Test Researcher Profile In Thai
-    Open Browser To Home Page
-    Navigate To Researcher Profile
-    # ตรวจสอบเนื้อหาหน้า (ไม่ต้องกดปุ่มไทย เพราะเป็น default)
-    Verify Page Contains Multiple Texts    @{EXPECTED_PROFILE_TH}
-    Close Browser
+     Open Browser To Home Page
+     Navigate To Researcher Profile
+     # ตรวจสอบเนื้อหาหน้า (ไม่ต้องกดปุ่มไทย เพราะเป็น default)
+     Verify Page Contains Multiple Texts    @{EXPECTED_PROFILE_TH}
+     Close Browser
 
 # --- 2) เปลี่ยนเป็นภาษาอังกฤษและตรวจสอบ ---
 Test Researcher Profile In English

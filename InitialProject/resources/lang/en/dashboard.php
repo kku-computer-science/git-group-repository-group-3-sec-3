@@ -977,4 +977,30 @@ return [
         // Research Group Section
         'Research Group'        => 'Research Group',
         'Group Name'            => 'Group Name',
+
+
+        'Research Group Name (Thai)' => 'Research Group Name (Thai)',
+        'Research Group Name (English)' => 'Research Group Name (English)',
+        'Research Group Description (Thai)' => 'Research Group Description (Thai)',
+        'Research Group Description (English)' => 'Research Group Description (English)',
+        'Research Group Details (Thai)' => 'Research Group Details (Thai)',
+        'Research Group Details (English)' => 'Research Group Details (English)',
+        'Image' => 'Image',
+        'Research Group Leader' => 'Research Group Leader',
+        'Research Group Members' => 'Research Group Members',
+        'Create Research Group' => 'Create Research Group',
+        'Fill in the research group details' => 'Fill in the research group details',
+        'Research Group Details' => 'Research Group Details',
+        'Research Group Information' => 'Research Group Information',
+        'Edit Research Group' => 'Edit Research Group',
+        'Fill in the edited research group details' => 'Fill in the edited research group details',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+
     ];
