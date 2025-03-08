@@ -154,7 +154,7 @@
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("{{ __('dashboard.edit_program') }}", {
+                    swal("{{ __('dashboard.delete_success') }}", {
                         icon: "success",
                     }).then(function() {
                         location.reload();

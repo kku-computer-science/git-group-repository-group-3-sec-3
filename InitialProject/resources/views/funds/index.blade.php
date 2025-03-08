@@ -33,45 +33,50 @@
                         @foreach ($funds as $i => $fund)
                             @php
                                 $locale = app()->getLocale();
-                                // ค่าเริ่มต้นจากฐานข้อมูล (ภาษาไทย)
+                                // ค่าเริ่มต้นจากฐานข้อมูล (สมมติเก็บเป็นภาษาไทย)
                                 $fundType = $fund->fund_type;
                                 $fundLevel = $fund->fund_level;
                                 
-                                // ถ้าเป็นภาษาอังกฤษ
-                                if($locale == 'en'){
-                                    if($fund->fund_type == 'ทุนภายใน'){
+                                // กรณีภาษาอังกฤษ
+                                if ($locale == 'en') {
+                                    if ($fund->fund_type == 'ทุนภายใน') {
                                         $fundType = 'Internal Capital';
-                                    } elseif($fund->fund_type == 'ทุนภายนอก'){
+                                    } elseif ($fund->fund_type == 'ทุนภายนอก') {
                                         $fundType = 'External Capital';
                                     }
-                                    if($fund->fund_level == 'สูง'){
+                                    if ($fund->fund_level == 'สูง') {
                                         $fundLevel = 'High';
-                                    } elseif($fund->fund_level == 'กลาง' || $fund->fund_level == 'ปานกลาง'){
+                                    } elseif ($fund->fund_level == 'กลาง' || $fund->fund_level == 'ปานกลาง') {
                                         $fundLevel = 'Medium';
-                                    } elseif($fund->fund_level == 'ล่าง' || $fund->fund_level == 'ต่ำ'){
+                                    } elseif ($fund->fund_level == 'ล่าง' || $fund->fund_level == 'ต่ำ') {
                                         $fundLevel = 'Low';
-                                    } elseif($fund->fund_level == 'ไม่ได้ระบุ' || $fund->fund_level === null){
+                                    } elseif ($fund->fund_level == 'ไม่ได้ระบุ' || $fund->fund_level === null) {
                                         $fundLevel = 'Not specified';
                                     }
                                 }
-                                // ถ้าเป็นภาษาจีน
-                                elseif($locale == 'cn'){
-                                    if($fund->fund_type == 'ทุนภายใน'){
+                                // กรณีภาษาจีน
+                                elseif ($locale == 'cn') {
+                                    if ($fund->fund_type == 'ทุนภายใน') {
                                         $fundType = '内部资金';
-                                    } elseif($fund->fund_type == 'ทุนภายนอก'){
+                                    } elseif ($fund->fund_type == 'ทุนภายนอก') {
                                         $fundType = '外部资金';
                                     }
-                                    if($fund->fund_level == 'สูง'){
+                                    if ($fund->fund_level == 'สูง') {
                                         $fundLevel = '高';
-                                    } elseif($fund->fund_level == 'กลาง' || $fund->fund_level == 'ปานกลาง'){
+                                    } elseif ($fund->fund_level == 'กลาง' || $fund->fund_level == 'ปานกลาง') {
                                         $fundLevel = '中';
-                                    } elseif($fund->fund_level == 'ล่าง' || $fund->fund_level == 'ต่ำ'){
+                                    } elseif ($fund->fund_level == 'ล่าง' || $fund->fund_level == 'ต่ำ') {
                                         $fundLevel = '低';
-                                    } elseif($fund->fund_level == 'ไม่ได้ระบุ' || $fund->fund_level === null){
+                                    } elseif ($fund->fund_level == 'ไม่ได้ระบุ' || $fund->fund_level === null) {
                                         $fundLevel = '未指定';
                                     }
                                 }
-                                // ถ้าเป็นภาษาไทย ให้ใช้ค่าจากฐานข้อมูลเดิม
+                                // กรณีภาษาไทย
+                                else {
+                                    if ($fund->fund_level === null) {
+                                        $fundLevel = 'ไม่ได้ระบุ';
+                                    }
+                                }
                             @endphp
                             <tr>
                                 <td>{{ $i + 1 }}</td>
@@ -107,7 +112,7 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div> <!-- end table-responsive -->
         </div>
     </div>
 </div>
@@ -142,7 +147,7 @@
                 zeroRecords: "未找到匹配的记录",
                 info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
                 infoEmpty: "没有可用记录",
-                infoFiltered: "(从 _MAX_ 条记录中过滤)",
+                infoFiltered: "(filtered from _MAX_ total records)",
                 search: "搜索:",
                 paginate: {
                     first: "首页",

@@ -28,7 +28,15 @@
 
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $role->name }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'th' && !empty($role->name_th))
+                                    {{ $role->name_th }}
+                                @elseif(app()->getLocale() == 'cn' && !empty($role->name_cn))
+                                    {{ $role->name_cn }}
+                                @else
+                                    {{ $role->name }}
+                                @endif
+                            </td>
                             <td>
                                 <form action="{{ route('roles.destroy',$role->id) }}" method="POST">
                                     <a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="{{ trans('dashboard.view') }}" href="{{ route('roles.show',$role->id) }}"><i class="mdi mdi-eye"></i></a>

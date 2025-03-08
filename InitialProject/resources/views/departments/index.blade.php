@@ -36,7 +36,15 @@
                         @foreach ($data as $key => $department)
                         <tr>
                             <td>{{ $department->id }}</td>
-                            <td>{{ $department->department_name_th }}</td>
+                            <td>
+                                @if(app()->getLocale() == 'th')
+                                    {{ $department->department_name_th ?? $department->department_name_en }}
+                                @elseif(app()->getLocale() == 'cn')
+                                    {{ $department->department_name_cn ?? $department->department_name_en }}
+                                @else
+                                    {{ $department->department_name_en }}
+                                @endif
+                            </td>
                             <td>
                                 <form action="{{ route('departments.destroy',$department->id) }}" method="POST">
                                     

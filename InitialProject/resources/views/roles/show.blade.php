@@ -13,7 +13,15 @@
                 <p class="card-description">{{ __('dashboard.Detailed_information') }}</p>
                 <div class="row">
                     <p class="card-text col-sm-3"><b>{{ __('dashboard.name') }}</b></p>
-                    <p class="card-text col-sm-9">{{ $role->name }}</p>
+                    <p class="card-text col-sm-9"><td>
+                        @if(app()->getLocale() == 'th' && !empty($role->name_th))
+                            {{ $role->name_th }}
+                        @elseif(app()->getLocale() == 'cn' && !empty($role->name_cn))
+                            {{ $role->name_cn }}
+                        @else
+                            {{ $role->name }}
+                        @endif
+                    </td></p>
                 </div>
                 <div class="row mt-3">
                     <p class="card-text col-sm-3"><b>{{ __('dashboard.Permissions') }}</b></p>

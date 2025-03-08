@@ -87,7 +87,7 @@
                             <b>{{ trans('dashboard.Keyword') }}</b>
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" name="keyword" class="form-control" placeholder="keyword">
+                            <input type="text" name="keyword" class="form-control" placeholder="{{ trans('dashboard.Keyword') }}">
                             <p class="text-danger">{{ trans('dashboard.Keyword Instruction') }}</p>
                         </div>
                     </div>
@@ -98,10 +98,10 @@
                         <div class="col-sm-9">
                             <select id='paper_type' class="custom-select my-select" style='width: 200px;' name="paper_type">
                                 <option value="" disabled selected>{{ trans('dashboard.Please Specify Type') }}</option>
-                                <option value="Journal">Journal</option>
-                                <option value="Conference Proceeding">Conference Proceeding</option>
-                                <option value="Book Series">Book Series</option>
-                                <option value="Book">Book</option>
+                                <option value="Journal">{{ trans('dashboard.Journal') }}</option>
+                                <option value="Conference Proceeding">{{ trans('dashboard.Conference Proceeding') }}</option>
+                                <option value="Book Series">{{ trans('dashboard.Book Series') }}</option>
+                                <option value="Book">{{ trans('dashboard.Book') }}</option>
                             </select>
                         </div>
                     </div>
@@ -112,12 +112,12 @@
                         <div class="col-sm-9">
                             <select id='paper_subtype' class="custom-select my-select" style='width: 200px;' name="paper_subtype">
                                 <option value="" disabled selected>{{ trans('dashboard.Please Specify Subtype') }}</option>
-                                <option value="Article">Article</option>
-                                <option value="Conference Paper">Conference Paper</option>
-                                <option value="Editorial">Editorial</option>
-                                <option value="Book Chapter">Book Chapter</option>
-                                <option value="Erratum">Erratum</option>
-                                <option value="Review">Review</option>
+                                <option value="Article">{{ trans('dashboard.Article') }}</option>
+                                <option value="Conference Paper">{{ trans('dashboard.Conference Paper') }}</option>
+                                <option value="Editorial">{{ trans('dashboard.Editorial') }}</option>
+                                <option value="Book Chapter">{{ trans('dashboard.Book Chapter') }}</option>
+                                <option value="Erratum">{{ trans('dashboard.Erratum') }}</option>
+                                <option value="Review">{{ trans('dashboard.Review') }}</option>
                             </select>
                         </div>
                     </div>
@@ -128,14 +128,14 @@
                         <div class="col-sm-9">
                             <select id='publication' class="custom-select my-select" style='width: 200px;' name="publication">
                                 <option value="" disabled selected>{{ trans('dashboard.Please Specify Type') }}</option>
-                                <option value="International Journal">International Journal</option>
-                                <option value="International Book">International Book</option>
-                                <option value="International Conference">International Conference</option>
-                                <option value="National Conference">National Conference</option>
-                                <option value="National Journal">National Journal</option>
-                                <option value="National Book">National Book</option>
-                                <option value="National Magazine">National Magazine</option>
-                                <option value="Book Chapter">Book Chapter</option>
+                                <option value="International Journal">{{ trans('dashboard.International Journal') }}</option>
+                                <option value="International Book">{{ trans('dashboard.International Book') }}</option>
+                                <option value="International Conference">{{ trans('dashboard.International Conference') }}</option>
+                                <option value="National Conference">{{ trans('dashboard.National Conference') }}</option>
+                                <option value="National Journal">{{ trans('dashboard.National Journal') }}</option>
+                                <option value="National Book">{{ trans('dashboard.National Book') }}</option>
+                                <option value="National Magazine">{{ trans('dashboard.National Magazine') }}</option>
+                                <option value="Book Chapter">{{ trans('dashboard.Book Chapter') }}</option>
                             </select>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                             <b>{{ trans('dashboard.Volume') }}</b>
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_volume" class="form-control" placeholder="Volume">
+                            <input type="text" name="paper_volume" class="form-control" placeholder="{{ trans('dashboard.Volume') }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -169,7 +169,7 @@
                             <b>{{ trans('dashboard.Issue Number') }}</b>
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" name="paper_issue" class="form-control" placeholder="Issue">
+                            <input type="text" name="paper_issue" class="form-control" placeholder="{{ trans('dashboard.Issue Number') }}   ">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -190,10 +190,10 @@
                     </div>
                     <div class="form-group row">
                         <label for="exampleInputpaper_doi" class="col-sm-3 col-form-label">
-                            <b>Doi</b>
+                            <b>DOI</b>
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" name="paper_doi" class="form-control" placeholder="doi">
+                            <input type="text" name="paper_doi" class="form-control" placeholder="DOI">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -201,7 +201,7 @@
                             <b>{{ trans('dashboard.Funding') }}</b>
                         </label>
                         <div class="col-sm-9">
-                            <input type="int" name="paper_funder" class="form-control" placeholder="Funder">
+                            <input type="int" name="paper_funder" class="form-control" placeholder="{{ trans('dashboard.Funding') }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -224,7 +224,9 @@
                                             <select id='selUser0' style='width: 200px;' name="moreFields[0][userid]">
                                                 <option value=''>{{ trans('dashboard.Select User') }}</option>
                                                 @foreach($users as $user)
-                                                <option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>
+                                                <option value="{{ $user->id }}">
+                                                    {{ app()->getLocale() == 'th' ? $user->fname_th . ' ' . $user->lname_th : $user->fname_en . ' ' . $user->lname_en }}
+                                                </option>
                                                 @endforeach
                                             </select>
                                         </td>
@@ -368,41 +370,3 @@
 @endsection
 <!-- <form action="{{ route('papers.store') }}" method="POST">
         @csrf
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="paper_name" class="form-control" placeholder="paper_name">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Year:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_year" placeholder="paper_year"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_type:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_type" placeholder="paper_type"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_level:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_level" placeholder="paper_level"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>paper_details:</strong>
-                    <textarea class="form-control" style="height:150px" name="paper_details" placeholder="paper_details"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-
-    </form>
-</div> -->
