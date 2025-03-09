@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.8 on win32)" generated="2025-03-10T04:15:50.904914" rpa="false" schemaversion="5">
+<suite id="s1" name="UAT 011 department" source="d:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests\Unit\UAT_011_department.robot">
+<test id="s1-t1" name=" Test Admin View Department detail In English" line="195">
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:15:51.249633" level="INFO">Opening browser 'chrome' to base url 'https://cssoften0368.cpkkuhost.com/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-10T04:15:51.249633" elapsed="3.605648"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-10T04:15:54.855281" elapsed="0.032906"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_HEADER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-10T04:15:54.888187" elapsed="0.025413"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:15:51.248609" elapsed="3.664991"/>
+</kw>
+<kw name="Login As Admin">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:15:54.916118" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@id='username']'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T04:15:54.915611" elapsed="0.075702"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:15:54.993264" level="INFO">Typing text '12345678' into text field 'xpath=//input[@id='password']'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T04:15:54.992245" elapsed="0.071042"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:15:55.064638" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Account Login') or contains(text(), 'เข้าสู่ระบบบัญชี') or contains(text(), '账户登录')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T04:15:55.064638" elapsed="6.250846"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DASHBOARD_HEADER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-10T04:16:01.315484" elapsed="0.018989"/>
+</kw>
+<arg>admin@gmail.com</arg>
+<arg>12345678</arg>
+<status status="PASS" start="2025-03-10T04:15:54.914611" elapsed="6.420370"/>
+</kw>
+<kw name="Change Language">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:01.336304" level="INFO">Clicking element 'xpath=//a[contains(text(), 'English')]'.</msg>
+<arg>${language_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T04:16:01.334981" elapsed="0.852619"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T04:16:05.188838" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T04:16:02.187600" elapsed="3.001238"/>
+</kw>
+<arg>${LANG_TO_ENGLISH}</arg>
+<status status="PASS" start="2025-03-10T04:16:01.334981" elapsed="3.854375"/>
+</kw>
+<kw name="Scroll Page Down">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:05.190869" level="INFO">Executing JavaScript:
+return document.body.scrollHeight
+Without any arguments.</msg>
+<msg time="2025-03-10T04:16:05.194918" level="INFO">${total_height} = 937</msg>
+<var>${total_height}</var>
+<arg>return document.body.scrollHeight</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-10T04:16:05.190364" elapsed="0.004554"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-10T04:16:05.196062" level="INFO">${scroll_position} = 0</msg>
+<var>${scroll_position}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-10T04:16:05.196062" elapsed="0.000000"/>
+</kw>
+<while condition="${scroll_position} &lt; ${total_height}">
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-10T04:16:05.196570" level="INFO">${scroll_position} = 300</msg>
+<var>${scroll_position}</var>
+<arg>${scroll_position} + 300</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-10T04:16:05.196570" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:05.197581" level="INFO">Executing JavaScript:
+window.scrollTo(0, 300)
+Without any arguments.</msg>
+<arg>window.scrollTo(0, ${scroll_position})</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-10T04:16:05.196570" elapsed="0.006132"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T04:16:05.704238" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T04:16:05.203768" elapsed="0.500995"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:16:05.196570" elapsed="0.508193"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-10T04:16:05.705960" level="INFO">${scroll_position} = 600</msg>
+<var>${scroll_position}</var>
+<arg>${scroll_position} + 300</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-10T04:16:05.704763" elapsed="0.001197"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:05.705960" level="INFO">Executing JavaScript:
+window.scrollTo(0, 600)
+Without any arguments.</msg>
+<arg>window.scrollTo(0, ${scroll_position})</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-10T04:16:05.705960" elapsed="0.006278"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T04:16:06.212649" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T04:16:05.712238" elapsed="0.500411"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:16:05.704763" elapsed="0.507886"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-10T04:16:06.213678" level="INFO">${scroll_position} = 900</msg>
+<var>${scroll_position}</var>
+<arg>${scroll_position} + 300</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-10T04:16:06.213678" elapsed="0.000997"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:06.214675" level="INFO">Executing JavaScript:
+window.scrollTo(0, 900)
+Without any arguments.</msg>
+<arg>window.scrollTo(0, ${scroll_position})</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-10T04:16:06.214675" elapsed="0.006598"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T04:16:06.722660" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T04:16:06.221273" elapsed="0.501531"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:16:06.212649" elapsed="0.510155"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-10T04:16:06.723810" level="INFO">${scroll_position} = 1200</msg>
+<var>${scroll_position}</var>
+<arg>${scroll_position} + 300</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-10T04:16:06.723810" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:06.723810" level="INFO">Executing JavaScript:
+window.scrollTo(0, 1200)
+Without any arguments.</msg>
+<arg>window.scrollTo(0, ${scroll_position})</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-10T04:16:06.723810" elapsed="0.006550"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T04:16:07.231221" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T04:16:06.730360" elapsed="0.500861"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:16:06.722804" elapsed="0.508417"/>
+</iter>
+<status status="PASS" start="2025-03-10T04:16:05.196570" elapsed="2.035503"/>
+</while>
+<status status="PASS" start="2025-03-10T04:16:05.189356" elapsed="2.042717"/>
+</kw>
+<kw name="Go To Department">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DEPARTMENT_MENU}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-10T04:16:07.232578" elapsed="0.022094"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:07.255670" level="INFO">Clicking element 'xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Department') or contains(text(),'แผนก') or contains(text(),'权限'))]]'.</msg>
+<arg>${DEPARTMENT_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T04:16:07.254672" elapsed="1.131587"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:16:07.232578" elapsed="1.154934"/>
+</kw>
+<kw name="Go To VIEW Department">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${VIEW_DEPARTMENT_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-10T04:16:08.388521" elapsed="0.293971"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VIEW_DEPARTMENT_BUTTON}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-10T04:16:08.683512" elapsed="0.021015"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-10T04:16:08.706184" level="INFO">xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-primary') and .//i[contains(@class, 'mdi-eye')]]</msg>
+<arg>${VIEW_DEPARTMENT_BUTTON}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-10T04:16:08.705675" elapsed="0.000509"/>
+</kw>
+<kw name="Log Source" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:08.712706" level="INFO">&lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}&lt;/style&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="csrf-token" content="wrNJWUWXdfB1jOGd8PDdf823RXr9IYMSZ4YZzB8M"&gt;
+    &lt;title&gt;Dashboard&lt;/title&gt;
+    &lt;base href="https://cssoften0368.cpkkuhost.com"&gt;
+    &lt;link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon"&gt;
+    &lt;!-- Font Awesome Icons --&gt;
+    &lt;link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/plugins/ijaboCropTool/ijaboCropTool.min.css"&gt;
+    &lt;!-- Theme style --&gt;
+    &lt;!-- Google Font: Source Sans Pro --&gt;
+    &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;amp;display=fallback"&gt;
+
+    &lt;!-- plugins:css --&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/feather/feather.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/mdi/css/materialdesignicons.min.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/ti-icons/css/themify-icons.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/typicons/typicons.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/simple-line-icons/css/simple-line-icons.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/css/vendor.bundle.base.css"&gt;
+    &lt;!-- endinject --&gt;
+    &lt;!-- Plugin css for this page --&gt;
+    &lt;!-- &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/datatables.net-bs4/dataTables.bootstrap4.css"&gt; --&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/js/select.dataTables.min.css"&gt;
+    &lt;!-- End plugin css for this page --&gt;
+    &lt;!-- inject:css --&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/css/styleadmin.css"&gt;
+
+    &lt;!-- endinject --&gt;
+    &lt;!-- &lt;link rel="shortcut icon" href="images/favicon.png" /&gt; --&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"&gt;
+    &lt;!-- &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"&gt; &lt;/script&gt; --&gt;
+
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"&gt;
+        &lt;!-- &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt; --&gt;
+        &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="height: auto;"&gt;
+    &lt;div class=" container-scroller sidebar-dark"&gt;
+        &lt;!-- navbar ข้างบน 
+    --&gt;
+        &lt;nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row"&gt;
+            &lt;div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start"&gt;
+                &lt;div class="me-3"&gt;
+                    &lt;button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize"&gt;
+                        &lt;span class="icon-menu"&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!--   --&gt;
+            &lt;!-- Left navbar links --&gt;
+            &lt;div class="navbar-menu-wrapper d-flex align-items-top"&gt;
+                &lt;ul class="navbar-nav"&gt;
+                    &lt;li class="nav-item font-weight-semibold d-none d-lg-block ms-0"&gt;
+                        &lt;h1 class="welcome-text"&gt;Research Information Management System &lt;span class="text-black fw-bold"&gt;&lt;/span&gt;&lt;/h1&gt;
+                        &lt;h3 class="welcome-sub-text"&gt; &lt;/h3&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;ul class="navbar-nav ms-auto"&gt;
+                    &lt;li class="nav-item d-none d-lg-block"&gt;
+                        &lt;div id="datepicker-popup" class="input-group date datepicker navbar-date-picker"&gt;
+                            &lt;span class="input-group-addon input-group-prepend border-right"&gt;
+                                &lt;span class="icon-calendar input-group-text calendar-icon"&gt;&lt;/span&gt;
+                            &lt;/span&gt;
+                            &lt;input type="text" class="form-control"&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="nav-item"&gt;
+                        &lt;form class="search-form" action="#"&gt;
+                            &lt;i class="icon-search"&gt;&lt;/i&gt;
+                            &lt;input type="search" class="form-control" placeholder="Search Here" title="Search here"&gt;
+                        &lt;/form&gt;
+                    &lt;/li&gt;
+                    &lt;!-- &lt;li class="nav-item dropdown"&gt;
+                        &lt;a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false"&gt;
+                            &lt;i class="icon-bell"&gt;&lt;/i&gt;
+                            &lt;span class="count"&gt;&lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt; --&gt;
+                    &lt;!-- &lt;li class="nav-item dropdown d-none d-lg-block user-dropdown"&gt;
+                        &lt;a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+                            &lt;img class="img-xs rounded-circle" src="https://cssoften0368.cpkkuhost.com/images/imag_user/no-image.jpg"
+                                alt="User profile picture"&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt; --&gt;
+                    &lt;!-- &lt;div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown"&gt;
+                            &lt;div class="dropdown-header text-center"&gt;
+                                &lt;img class="img-md rounded-circle" src="https://cssoften0368.cpkkuhost.com/images/imag_user/no-image.jpg"
+                                    alt="Profile image"&gt;
+                                &lt;p class="mb-1 mt-3 font-weight-semibold"&gt;&lt;/p&gt;
+                                &lt;p class="fw-light text-muted mb-0"&gt;&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"&gt;&lt;/i&gt; My
+                                Profile &lt;span class="badge badge-pill badge-danger"&gt;1&lt;/span&gt;&lt;/a&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"&gt;&lt;/i&gt;
+                                Messages&lt;/a&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"&gt;&lt;/i&gt;
+                                Activity&lt;/a&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"&gt;&lt;/i&gt;
+                                FAQ&lt;/a&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"&gt;&lt;/i&gt;Sign Out&lt;/a&gt; --&gt;
+                    &lt;li class="nav-item d-none d-sm-inline-block"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/logout" onclick="event.preventDefault(); 
+                        document.getElementById ('logout-form').submit();"&gt; Logout &lt;i class="mdi mdi-logout"&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;form id="logout-form" action="https://cssoften0368.cpkkuhost.com/logout" method="POST" class="d-none"&gt;
+                            &lt;input type="hidden" name="_token" value="wrNJWUWXdfB1jOGd8PDdf823RXr9IYMSZ4YZzB8M"&gt;                        &lt;/form&gt;
+                    &lt;/li&gt;
+            &lt;/ul&gt;&lt;/div&gt;
+            
+            &lt;button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas"&gt;
+                &lt;span class="mdi mdi-menu"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+
+        &lt;/nav&gt;
+        &lt;!-- navbar ข้างบน --&gt;
+        &lt;div class="container-fluid page-body-wrapper"&gt;
+            &lt;!-- Main Sidebar Container --&gt;
+            &lt;!-- &lt;div class="theme-setting-wrapper"&gt;
+                &lt;div id="settings-trigger"&gt;&lt;i class="mdi mdi-home"&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;/div&gt; --&gt;
+            &lt;nav class="sidebar sidebar-offcanvas" id="sidebar"&gt;
+                &lt;ul class="nav"&gt;
+                    &lt;li class="nav-item"&gt;
+                            
+                        
+                            &lt;span class="nav-link"&gt;
+                                &lt;strong&gt;English&lt;/strong&gt; |
+                                                                                                                                                                &lt;a class="text-decoration-none" href="https://cssoften0368.cpkkuhost.com/lang/th"&gt;ภาษาไทย&lt;/a&gt; |
+                                                                                                                                &lt;a class="text-decoration-none" href="https://cssoften0368.cpkkuhost.com/lang/cn"&gt;中文&lt;/a&gt; |
+                                                                                            &lt;/span&gt;
+                        
+                            
+                        &lt;br&gt;
+                        &lt;a class="nav-link " href="https://cssoften0368.cpkkuhost.com/dashboard"&gt;
+                            &lt;i class="menu-icon mdi mdi-grid-large"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Dashboard&lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="nav-item nav-category"&gt;Profile&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link " href="https://cssoften0368.cpkkuhost.com/profile"&gt;
+                            &lt;i class="menu-icon mdi mdi-account-circle-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;User Profile&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;!-- &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link "
+                            href="https://cssoften0368.cpkkuhost.com/settings"&gt;
+                            &lt;i class="menu-icon mdi mdi mdi-settings-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Settings&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt; --&gt;
+                    &lt;li class="nav-item nav-category"&gt;Option&lt;/li&gt;
+                                        &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/funds"&gt;
+                            &lt;i class="menu-icon mdi mdi-file-document-box-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Manage Fund&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/researchProjects"&gt;
+                            &lt;i class="menu-icon mdi mdi-book-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Research Project&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/researchGroups"&gt;
+                            &lt;i class="menu-icon mdi mdi-view-dashboard-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Reseach Group&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" data-bs-toggle="collapse" href="#ManagePublications" aria-expanded="false" aria-controls="ManagePublications"&gt;
+                            &lt;i class="menu-icon mdi mdi-book-open-page-variant"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Manage Publications&lt;/span&gt;
+                            &lt;i class="menu-arrow"&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                        &lt;div class="collapse" id="ManagePublications"&gt;
+                            &lt;ul class="nav flex-column sub-menu"&gt;
+                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/papers"&gt;Published research&lt;/a&gt;&lt;/li&gt;
+                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="/books"&gt;Book&lt;/a&gt;&lt;/li&gt;
+                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="/patents"&gt;Other academic works&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                                                                                &lt;li class="nav-item nav-category"&gt;Admin&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/users"&gt;
+                            &lt;i class="menu-icon mdi mdi-account-multiple-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Users&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/roles"&gt;
+                            &lt;i class="menu-icon mdi mdi-chart-gantt"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Roles&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/permissions"&gt;
+                            &lt;i class="menu-icon mdi mdi-checkbox-marked-circle-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Permissions&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item active"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/departments"&gt;
+                            &lt;i class="menu-icon mdi mdi-animation-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Department&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    
+                                        &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/programs"&gt;
+                            &lt;i class="menu-icon mdi mdi-format-list-bulleted"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Manage Programs&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/experts"&gt;
+                            &lt;i class="menu-icon mdi mdi-buffer"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Expertise&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                    &lt;/ul&gt;
+            &lt;/nav&gt;
+
+            &lt;!-- Content Wrapper. Contains page content --&gt;
+            &lt;div class="main-panel"&gt;
+                &lt;div class="content-wrapper" style="min-height: 678px;"&gt;
+                    &lt;div class="container"&gt;
+    &lt;div class="justify-content-center"&gt;
+                &lt;div class="card"&gt;
+            &lt;div class="card-header"&gt;Department
+                
+                &lt;a class="btn btn-primary" href="https://cssoften0368.cpkkuhost.com/departments/create"&gt;New Department&lt;/a&gt;
+
+                            &lt;/div&gt;
+            &lt;div class="card-body"&gt;
+                &lt;table class="table table-hover"&gt;
+                    &lt;thead class="thead-dark"&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;#&lt;/th&gt;
+                            &lt;th&gt;Name&lt;/th&gt;
+                            &lt;th width="280px"&gt;Action&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                                                &lt;tr&gt;
+                            &lt;td&gt;1&lt;/td&gt;
+                            &lt;td&gt;
+                                                                    Department of Computer Science
+                                                            &lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;form action="https://cssoften0368.cpkkuhost.com/departments/1" method="POST"&gt;
+                                    
+
+                                    &lt;a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="dashboard. view" href="https://cssoften0368.cpkkuhost.com/departments/1"&gt;&lt;i class="mdi mdi-eye"&gt;&lt;/i&gt;&lt;/a&gt;
+
+                                    
+                                    &lt;a class="btn btn-outline-primary btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="https://cssoften0368.cpkkuhost.com/departments/1/edit"&gt;&lt;i class="mdi mdi-pencil"&gt;&lt;/i&gt;&lt;/a&gt;
+
+                                    
+
+                                                                        &lt;!-- &lt;form method="POST" action="https://cssoften0368.cpkkuhost.com/departments/1" accept-charset="UTF-8" style="display:inline"&gt;&lt;input name="_method" type="hidden" value="DELETE"&gt;&lt;input name="_token" type="hidden" value="wrNJWUWXdfB1jOGd8PDdf823RXr9IYMSZ4YZzB8M"&gt;
+                                    &lt;button type="button" class="btn btn-danger btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Delete"&gt;&lt;i class="fa fa-trash"&gt;&lt;/i&gt;&lt;/button&gt;
+                                    &lt;/form&gt; --&gt;
+                                    &lt;input type="hidden" name="_token" value="wrNJWUWXdfB1jOGd8PDdf823RXr9IYMSZ4YZzB8M"&gt;                                    &lt;input type="hidden" name="_method" value="DELETE"&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;button class="btn btn-outline-danger btn-sm show_confirm" type="submit" data-toggle="tooltip" data-placement="top" title="__('dashboard.delete')"&gt;&lt;i class="mdi mdi-delete"&gt;&lt;/i&gt;&lt;/button&gt;
+                                    &lt;/li&gt;
+
+
+                                                                    &lt;/form&gt;
+                            &lt;/td&gt;
+
+                        &lt;/tr&gt;
+                                            &lt;/tbody&gt;
+                &lt;/table&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    $('.show_confirm').click(function(event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        swal({
+                title: `Are you sure?`,
+                text: "If you delete this, it will be gone forever.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) =&gt; {
+                if (willDelete) {
+                    swal("Delete Successfully", {
+                        icon: "success",
+                    }).then(function() {
+                        location.reload();
+                        form.submit();
+                    });
+                }
+            });
+    });
+&lt;/script&gt;
+                &lt;/div&gt;
+                &lt;footer class="footer"&gt;
+                    &lt;div class="d-sm-flex justify-content-center justify-content-sm-between"&gt;
+                    &lt;/div&gt;
+                &lt;/footer&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- plugins:js --&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/vendors/js/vendor.bundle.base.js"&gt;&lt;/script&gt;
+    &lt;!-- endinject --&gt;
+    &lt;!-- Plugin js for this page --&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/vendors/chart.js/Chart.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/vendors/progressbar.js/progressbar.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- End plugin js for this page --&gt;
+    &lt;!-- inject:js --&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/off-canvas.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/hoverable-collapse.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/template.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/settings.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/todolist.js"&gt;&lt;/script&gt;
+    &lt;!-- endinject --&gt;
+    &lt;!-- Custom js for this page--&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/dashboard.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/Chart.roundedBarCharts.js"&gt;&lt;/script&gt;
+    &lt;!-- End custom js for this page--&gt;
+
+    &lt;!-- Bootstrap 4 --&gt;
+    &lt;script src="plugins/bootstrap/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/plugins/ijaboCropTool/ijaboCropTool.min.js"&gt;&lt;/script&gt;
+    &lt;!-- AdminLTE App --&gt;
+    &lt;script src="dist/js/adminlte.min.js"&gt;&lt;/script&gt;
+
+    &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Select2 JS --&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"&gt;&lt;/script&gt;
+
+    
+
+
+
+
+&lt;/body&gt;&lt;/html&gt;</msg>
+<doc>Logs and returns the HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-03-10T04:16:08.706184" elapsed="0.008836"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:08.716029" level="INFO">Clicking element 'xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-primary') and .//i[contains(@class, 'mdi-eye')]]'.</msg>
+<arg>${VIEW_DEPARTMENT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T04:16:08.716029" elapsed="0.499055"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T04:16:11.216251" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T04:16:09.215084" elapsed="2.001681"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:16:08.387512" elapsed="2.829253"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-10T04:16:13.218084" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-10T04:16:11.216765" elapsed="2.001319"/>
+</kw>
+<kw name="Verify Page Contains Multiple Texts">
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:13.225234" level="INFO">${html_source} = &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mar...</msg>
+<var>${html_source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-03-10T04:16:13.219091" elapsed="0.006143"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-10T04:16:13.226253" level="INFO">HTML Source: &lt;html lang="en" style="height: auto;"&gt;&lt;head&gt;&lt;style type="text/css"&gt;.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}&lt;/style&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="csrf-token" content="wrNJWUWXdfB1jOGd8PDdf823RXr9IYMSZ4YZzB8M"&gt;
+    &lt;title&gt;Dashboard&lt;/title&gt;
+    &lt;base href="https://cssoften0368.cpkkuhost.com"&gt;
+    &lt;link href="img/Newlogo.png" rel="shortcut icon" type="image/x-icon"&gt;
+    &lt;!-- Font Awesome Icons --&gt;
+    &lt;link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/plugins/ijaboCropTool/ijaboCropTool.min.css"&gt;
+    &lt;!-- Theme style --&gt;
+    &lt;!-- Google Font: Source Sans Pro --&gt;
+    &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;amp;display=fallback"&gt;
+
+    &lt;!-- plugins:css --&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/feather/feather.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/mdi/css/materialdesignicons.min.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/ti-icons/css/themify-icons.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/typicons/typicons.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/simple-line-icons/css/simple-line-icons.css"&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/css/vendor.bundle.base.css"&gt;
+    &lt;!-- endinject --&gt;
+    &lt;!-- Plugin css for this page --&gt;
+    &lt;!-- &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/vendors/datatables.net-bs4/dataTables.bootstrap4.css"&gt; --&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/js/select.dataTables.min.css"&gt;
+    &lt;!-- End plugin css for this page --&gt;
+    &lt;!-- inject:css --&gt;
+    &lt;link rel="stylesheet" href="https://cssoften0368.cpkkuhost.com/css/styleadmin.css"&gt;
+
+    &lt;!-- endinject --&gt;
+    &lt;!-- &lt;link rel="shortcut icon" href="images/favicon.png" /&gt; --&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"&gt;
+    &lt;!-- &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"&gt; &lt;/script&gt; --&gt;
+
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"&gt;
+        &lt;!-- &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt; --&gt;
+        &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="height: auto;"&gt;
+    &lt;div class=" container-scroller sidebar-dark"&gt;
+        &lt;!-- navbar ข้างบน 
+    --&gt;
+        &lt;nav class=" navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row"&gt;
+            &lt;div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start"&gt;
+                &lt;div class="me-3"&gt;
+                    &lt;button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize"&gt;
+                        &lt;span class="icon-menu"&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!--   --&gt;
+            &lt;!-- Left navbar links --&gt;
+            &lt;div class="navbar-menu-wrapper d-flex align-items-top"&gt;
+                &lt;ul class="navbar-nav"&gt;
+                    &lt;li class="nav-item font-weight-semibold d-none d-lg-block ms-0"&gt;
+                        &lt;h1 class="welcome-text"&gt;Research Information Management System &lt;span class="text-black fw-bold"&gt;&lt;/span&gt;&lt;/h1&gt;
+                        &lt;h3 class="welcome-sub-text"&gt; &lt;/h3&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;ul class="navbar-nav ms-auto"&gt;
+                    &lt;li class="nav-item d-none d-lg-block"&gt;
+                        &lt;div id="datepicker-popup" class="input-group date datepicker navbar-date-picker"&gt;
+                            &lt;span class="input-group-addon input-group-prepend border-right"&gt;
+                                &lt;span class="icon-calendar input-group-text calendar-icon"&gt;&lt;/span&gt;
+                            &lt;/span&gt;
+                            &lt;input type="text" class="form-control"&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="nav-item"&gt;
+                        &lt;form class="search-form" action="#"&gt;
+                            &lt;i class="icon-search"&gt;&lt;/i&gt;
+                            &lt;input type="search" class="form-control" placeholder="Search Here" title="Search here"&gt;
+                        &lt;/form&gt;
+                    &lt;/li&gt;
+                    &lt;!-- &lt;li class="nav-item dropdown"&gt;
+                        &lt;a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false"&gt;
+                            &lt;i class="icon-bell"&gt;&lt;/i&gt;
+                            &lt;span class="count"&gt;&lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt; --&gt;
+                    &lt;!-- &lt;li class="nav-item dropdown d-none d-lg-block user-dropdown"&gt;
+                        &lt;a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+                            &lt;img class="img-xs rounded-circle" src="https://cssoften0368.cpkkuhost.com/images/imag_user/no-image.jpg"
+                                alt="User profile picture"&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt; --&gt;
+                    &lt;!-- &lt;div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown"&gt;
+                            &lt;div class="dropdown-header text-center"&gt;
+                                &lt;img class="img-md rounded-circle" src="https://cssoften0368.cpkkuhost.com/images/imag_user/no-image.jpg"
+                                    alt="Profile image"&gt;
+                                &lt;p class="mb-1 mt-3 font-weight-semibold"&gt;&lt;/p&gt;
+                                &lt;p class="fw-light text-muted mb-0"&gt;&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"&gt;&lt;/i&gt; My
+                                Profile &lt;span class="badge badge-pill badge-danger"&gt;1&lt;/span&gt;&lt;/a&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"&gt;&lt;/i&gt;
+                                Messages&lt;/a&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"&gt;&lt;/i&gt;
+                                Activity&lt;/a&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"&gt;&lt;/i&gt;
+                                FAQ&lt;/a&gt;
+                            &lt;a class="dropdown-item"&gt;&lt;i
+                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"&gt;&lt;/i&gt;Sign Out&lt;/a&gt; --&gt;
+                    &lt;li class="nav-item d-none d-sm-inline-block"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/logout" onclick="event.preventDefault(); 
+                        document.getElementById ('logout-form').submit();"&gt; Logout &lt;i class="mdi mdi-logout"&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;form id="logout-form" action="https://cssoften0368.cpkkuhost.com/logout" method="POST" class="d-none"&gt;
+                            &lt;input type="hidden" name="_token" value="wrNJWUWXdfB1jOGd8PDdf823RXr9IYMSZ4YZzB8M"&gt;                        &lt;/form&gt;
+                    &lt;/li&gt;
+            &lt;/ul&gt;&lt;/div&gt;
+            
+            &lt;button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas"&gt;
+                &lt;span class="mdi mdi-menu"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+
+        &lt;/nav&gt;
+        &lt;!-- navbar ข้างบน --&gt;
+        &lt;div class="container-fluid page-body-wrapper"&gt;
+            &lt;!-- Main Sidebar Container --&gt;
+            &lt;!-- &lt;div class="theme-setting-wrapper"&gt;
+                &lt;div id="settings-trigger"&gt;&lt;i class="mdi mdi-home"&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;/div&gt; --&gt;
+            &lt;nav class="sidebar sidebar-offcanvas" id="sidebar"&gt;
+                &lt;ul class="nav"&gt;
+                    &lt;li class="nav-item"&gt;
+                            
+                        
+                            &lt;span class="nav-link"&gt;
+                                &lt;strong&gt;English&lt;/strong&gt; |
+                                                                                                                                                                &lt;a class="text-decoration-none" href="https://cssoften0368.cpkkuhost.com/lang/th"&gt;ภาษาไทย&lt;/a&gt; |
+                                                                                                                                &lt;a class="text-decoration-none" href="https://cssoften0368.cpkkuhost.com/lang/cn"&gt;中文&lt;/a&gt; |
+                                                                                            &lt;/span&gt;
+                        
+                            
+                        &lt;br&gt;
+                        &lt;a class="nav-link " href="https://cssoften0368.cpkkuhost.com/dashboard"&gt;
+                            &lt;i class="menu-icon mdi mdi-grid-large"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Dashboard&lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="nav-item nav-category"&gt;Profile&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link " href="https://cssoften0368.cpkkuhost.com/profile"&gt;
+                            &lt;i class="menu-icon mdi mdi-account-circle-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;User Profile&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;!-- &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link "
+                            href="https://cssoften0368.cpkkuhost.com/settings"&gt;
+                            &lt;i class="menu-icon mdi mdi mdi-settings-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Settings&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt; --&gt;
+                    &lt;li class="nav-item nav-category"&gt;Option&lt;/li&gt;
+                                        &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/funds"&gt;
+                            &lt;i class="menu-icon mdi mdi-file-document-box-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Manage Fund&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/researchProjects"&gt;
+                            &lt;i class="menu-icon mdi mdi-book-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Research Project&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/researchGroups"&gt;
+                            &lt;i class="menu-icon mdi mdi-view-dashboard-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Reseach Group&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" data-bs-toggle="collapse" href="#ManagePublications" aria-expanded="false" aria-controls="ManagePublications"&gt;
+                            &lt;i class="menu-icon mdi mdi-book-open-page-variant"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Manage Publications&lt;/span&gt;
+                            &lt;i class="menu-arrow"&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                        &lt;div class="collapse" id="ManagePublications"&gt;
+                            &lt;ul class="nav flex-column sub-menu"&gt;
+                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/papers"&gt;Published research&lt;/a&gt;&lt;/li&gt;
+                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="/books"&gt;Book&lt;/a&gt;&lt;/li&gt;
+                                &lt;li class="nav-item"&gt; &lt;a class="nav-link" href="/patents"&gt;Other academic works&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                                                                                &lt;li class="nav-item nav-category"&gt;Admin&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/users"&gt;
+                            &lt;i class="menu-icon mdi mdi-account-multiple-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Users&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/roles"&gt;
+                            &lt;i class="menu-icon mdi mdi-chart-gantt"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Roles&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/permissions"&gt;
+                            &lt;i class="menu-icon mdi mdi-checkbox-marked-circle-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Permissions&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/departments"&gt;
+                            &lt;i class="menu-icon mdi mdi-animation-outline"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Department&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    
+                                        &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/programs"&gt;
+                            &lt;i class="menu-icon mdi mdi-format-list-bulleted"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Manage Programs&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                                            &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="https://cssoften0368.cpkkuhost.com/experts"&gt;
+                            &lt;i class="menu-icon mdi mdi-buffer"&gt;&lt;/i&gt;
+                            &lt;span class="menu-title"&gt;Expertise&lt;/span&gt;
+
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                                    &lt;/ul&gt;
+            &lt;/nav&gt;
+
+            &lt;!-- Content Wrapper. Contains page content --&gt;
+            &lt;div class="main-panel"&gt;
+                &lt;div class="content-wrapper" style="min-height: 678px;"&gt;
+                    &lt;div class="container"&gt;
+    &lt;div class="justify-content-center"&gt;
+                &lt;div class="card"&gt;
+            &lt;div class="card-header"&gt;Department
+                                    &lt;span class="float-right"&gt;
+                        &lt;a class="btn btn-primary" href="https://cssoften0368.cpkkuhost.com/departments"&gt;Back&lt;/a&gt;
+                    &lt;/span&gt;
+                            &lt;/div&gt;
+            &lt;div class="card-body"&gt;
+                &lt;div class="lead"&gt;
+                    &lt;strong&gt;Department Name (Thai):&lt;/strong&gt;
+                    สาขาวิชาวิทยาการคอมพิวเตอร์
+                &lt;/div&gt;
+                &lt;div class="lead"&gt;
+                    &lt;strong&gt;Department Name (English):&lt;/strong&gt;
+                    Department of Computer Science
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;footer class="footer"&gt;
+                    &lt;div class="d-sm-flex justify-content-center justify-content-sm-between"&gt;
+                    &lt;/div&gt;
+                &lt;/footer&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- plugins:js --&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/vendors/js/vendor.bundle.base.js"&gt;&lt;/script&gt;
+    &lt;!-- endinject --&gt;
+    &lt;!-- Plugin js for this page --&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/vendors/chart.js/Chart.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/vendors/progressbar.js/progressbar.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- End plugin js for this page --&gt;
+    &lt;!-- inject:js --&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/off-canvas.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/hoverable-collapse.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/template.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/settings.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/todolist.js"&gt;&lt;/script&gt;
+    &lt;!-- endinject --&gt;
+    &lt;!-- Custom js for this page--&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/dashboard.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/js/Chart.roundedBarCharts.js"&gt;&lt;/script&gt;
+    &lt;!-- End custom js for this page--&gt;
+
+    &lt;!-- Bootstrap 4 --&gt;
+    &lt;script src="plugins/bootstrap/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cssoften0368.cpkkuhost.com/plugins/ijaboCropTool/ijaboCropTool.min.js"&gt;&lt;/script&gt;
+    &lt;!-- AdminLTE App --&gt;
+    &lt;script src="dist/js/adminlte.min.js"&gt;&lt;/script&gt;
+
+    &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Select2 JS --&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"&gt;&lt;/script&gt;
+
+    
+
+
+
+
+&lt;/body&gt;&lt;/html&gt;</msg>
+<arg>HTML Source: ${html_source}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-10T04:16:13.225234" elapsed="0.002028"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>${text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-10T04:16:13.227262" elapsed="0.000000"/>
+</kw>
+<var name="${text}">Department Name (Thai):</var>
+<status status="PASS" start="2025-03-10T04:16:13.227262" elapsed="0.001507"/>
+</iter>
+<iter>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>${text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-10T04:16:13.228769" elapsed="0.000000"/>
+</kw>
+<var name="${text}">สาขาวิชาวิทยาการคอมพิวเตอร์</var>
+<status status="PASS" start="2025-03-10T04:16:13.228769" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>${text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-10T04:16:13.228769" elapsed="0.000000"/>
+</kw>
+<var name="${text}">Department Name (English):</var>
+<status status="PASS" start="2025-03-10T04:16:13.228769" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>${text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-10T04:16:13.230060" elapsed="0.000000"/>
+</kw>
+<var name="${text}">Department of Computer Science</var>
+<status status="PASS" start="2025-03-10T04:16:13.230060" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${html_source}</arg>
+<arg>${text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-10T04:16:13.230568" elapsed="0.000000"/>
+</kw>
+<var name="${text}">Back</var>
+<status status="PASS" start="2025-03-10T04:16:13.230568" elapsed="0.000000"/>
+</iter>
+<var>${text}</var>
+<value>@{expected_texts}</value>
+<status status="PASS" start="2025-03-10T04:16:13.227262" elapsed="0.003306"/>
+</for>
+<arg>@{EXPECTED_Detail_EN}</arg>
+<status status="PASS" start="2025-03-10T04:16:13.219091" elapsed="0.011997"/>
+</kw>
+<kw name="Logout">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T04:16:13.231594" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Logout') or contains(text(), 'ออกจากระบบ') or contains(text(), '注销')]'.</msg>
+<arg>${LOGOUT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T04:16:13.231594" elapsed="0.772592"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_HEADER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-10T04:16:14.005193" elapsed="0.023688"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:16:13.231088" elapsed="0.797793"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-10T04:16:14.030405" elapsed="2.162537"/>
+</kw>
+<status status="PASS" start="2025-03-10T04:15:51.247541" elapsed="24.946816"/>
+</test>
+<status status="PASS" start="2025-03-10T04:15:50.910550" elapsed="25.285151"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="UAT 011 department" id="s1" pass="1" fail="0" skip="0">UAT 011 department</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
