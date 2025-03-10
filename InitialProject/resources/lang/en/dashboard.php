@@ -556,6 +556,8 @@ return [
         'Expertise Name' => 'Expertise Name',
         //------------------------------------
 
+        'First name (English)' => 'Name(English)',
+
         //------------Publications Create Page----------------
         'Add Published Work' => 'Add Published Work',
         'Fill in Research Details' => 'Fill in Research Details',
