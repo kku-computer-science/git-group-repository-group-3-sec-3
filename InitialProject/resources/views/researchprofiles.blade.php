@@ -223,7 +223,12 @@
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <!-- <a>{{$author -> author_fname}} {{$author -> author_lname}}</a> -->
+                                @if (app()->getLocale() == 'th')
+                                {{$author ->  author_fname_th}} {{$author -> author_lname_th}}
+                                @else
+                                {{$author -> author_fname}} {{$author -> author_lname}}
+                                @endif
                             </span>
                             @endforeach
                             @foreach ($paper->teacher as $author)
@@ -255,14 +260,6 @@
                             @elseif (app()->getLocale() == 'cn')
                             {{$paper-> paper_type_cn}}
                             @endif
-                            @endif
-                            <!-- 
-
-                            @if (app()->getLocale() == 'th')
-                            {{$paper->paper_type_th}}
-                            @else
-                            {{$paper->paper_type}}
-
                             @endif
 
                         </td>
@@ -326,13 +323,15 @@
                         <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
                         <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
                         <td>
-                            @foreach ($paper->author as $author)
+                        @foreach ($paper->author as $author)
                             <span>
-
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-
+                                <!-- <a>{{$author -> author_fname}} {{$author -> author_lname}}</a> -->
+                                @if (app()->getLocale() == 'th')
+                                {{$author ->  author_fname_th}} {{$author -> author_lname_th}}
+                                @else
+                                {{$author -> author_fname}} {{$author -> author_lname}}
+                                @endif
                             </span>
-                            <br>
                             @endforeach
                             @foreach ($paper->teacher as $author)
                             <span>
@@ -412,9 +411,14 @@
                         <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
                         <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
                         <td>
-                            @foreach ($paper->author as $author)
+                        @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <!-- <a>{{$author -> author_fname}} {{$author -> author_lname}}</a> -->
+                                @if (app()->getLocale() == 'th')
+                                {{$author ->  author_fname_th}} {{$author -> author_lname_th}}
+                                @else
+                                {{$author -> author_fname}} {{$author -> author_lname}}
+                                @endif
                             </span>
                             @endforeach
                             @foreach ($paper->teacher as $author)
@@ -494,9 +498,14 @@
                         <!-- <td style="width:90%;">{{$paper->paper_name}}</td> -->
                         <td style="width:90%;">{!! html_entity_decode(preg_replace('<inf>', 'sub', $paper->paper_name)) !!}</td>
                         <td>
-                            @foreach ($paper->author as $author)
+                        @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <!-- <a>{{$author -> author_fname}} {{$author -> author_lname}}</a> -->
+                                @if (app()->getLocale() == 'th')
+                                {{$author ->  author_fname_th}} {{$author -> author_lname_th}}
+                                @else
+                                {{$author -> author_fname}} {{$author -> author_lname}}
+                                @endif
                             </span>
                             @endforeach
                             @foreach ($paper->teacher as $author)
@@ -570,10 +579,14 @@
                         </td>
                         <td>{{$paper->ac_name}}</td>
                         <td>
-                            @foreach ($paper->author as $author)
+                        @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
-
+                                <!-- <a>{{$author -> author_fname}} {{$author -> author_lname}}</a> -->
+                                @if (app()->getLocale() == 'th')
+                                {{$author ->  author_fname_th}} {{$author -> author_lname_th}}
+                                @else
+                                {{$author -> author_fname}} {{$author -> author_lname}}
+                                @endif
                             </span>
                             @endforeach
                             @foreach ($paper->user as $author)
@@ -621,7 +634,13 @@
                         <td>
                             @foreach ($paper->author as $author)
                             <span>
-                                <a>{{$author -> author_fname}} {{$author -> author_lname}}</a>
+                                <!-- <a>{{$author -> author_fname}} {{$author -> author_lname}}</a> -->
+
+                                @if (app()->getLocale() == 'th')
+                                {{$author -> author_fname_th}} {{$author -> author_lname_th}}
+                                @else
+                                {{$author -> author_fname}} {{$author -> author_lname}}
+                                @endif
 
                             </span>
                             @endforeach
@@ -665,11 +684,11 @@
                         <td>{{$paper->ac_refnumber }}</td>
 
 
-                      
+
                         <td>
                             <!-- {{ $paper->ac_year }} -->
                             @if (app()->getLocale() == 'th')
-                            {{\Carbon\Carbon::parse($paper->ac_year)->thaidate('j F Y') }}
+                            {{ \Carbon\Carbon::parse($paper->ac_year)->locale('th')->translatedFormat('j F Y') }}
 
                             @elseif (app()->getLocale() == 'cn')
                             {{ \Carbon\Carbon::parse($paper->ac_year)->locale('cn')->translatedFormat('Y年n月j日') }}
@@ -699,65 +718,65 @@
 <script>
     $(document).ready(function() {
         $(document).ready(function() {
-        // ดึง locale จาก Blade
-        let locale = "{{ app()->getLocale() }}";
+            // ดึง locale จาก Blade
+            let locale = "{{ app()->getLocale() }}";
 
-        // สร้าง object languageSettings สำหรับ DataTables
-        let languageSettings = {};
+            // สร้าง object languageSettings สำหรับ DataTables
+            let languageSettings = {};
 
-        if (locale === 'en') {
-            languageSettings = {
-                // lengthMenu: "Show MENU entries",
-                zeroRecords: "No matching records found",
-                // info: "Showing START to END of TOTAL entries",
-                infoEmpty: "No records available",
-                infoFiltered: "(filtered from MAX total records)",
-                search: "Search:",
-                paginate: {
-                    first: "First",
-                    last: "Last",
-                    next: "Next",
-                    previous: "Previous"
-                }
-            };
-        } else if (locale === 'cn') {
-            languageSettings = {
-                lengthMenu: "显示 _MENU_ 条目",
-                zeroRecords: "未找到匹配的记录",
-                info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                infoEmpty: "没有可用记录",
-                infoFiltered: "(从 _MAX_ 条记录中过滤)",
-                search: "搜索:",
-                paginate: {
-                    first: "首页",
-                    last: "末页",
-                    next: "下页",
-                    previous: "上页"
-                }
-            };
-        } else {
-            // สมมติว่าถ้าเป็น 'th' หรือภาษาอื่น ใช้ภาษาไทย
-            languageSettings = {
-                lengthMenu: "แสดง _MENU_ รายการ",
-    zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
-    info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
-    infoEmpty: "ไม่มีข้อมูล",
-    infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
-    search: "ค้นหา:",
-    paginate: {
-        first: "หน้าแรก",
-        last: "หน้าสุดท้าย",
-        next: "ถัดไป",
-        previous: "ก่อนหน้า"
-    }
-            };
-        }
+            if (locale === 'en') {
+                languageSettings = {
+                    // lengthMenu: "Show MENU entries",
+                    zeroRecords: "No matching records found",
+                    // info: "Showing START to END of TOTAL entries",
+                    infoEmpty: "No records available",
+                    infoFiltered: "(filtered from MAX total records)",
+                    search: "Search:",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: "Next",
+                        previous: "Previous"
+                    }
+                };
+            } else if (locale === 'cn') {
+                languageSettings = {
+                    lengthMenu: "显示 _MENU_ 条目",
+                    zeroRecords: "未找到匹配的记录",
+                    info: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                    infoEmpty: "没有可用记录",
+                    infoFiltered: "(从 _MAX_ 条记录中过滤)",
+                    search: "搜索:",
+                    paginate: {
+                        first: "首页",
+                        last: "末页",
+                        next: "下页",
+                        previous: "上页"
+                    }
+                };
+            } else {
+                // สมมติว่าถ้าเป็น 'th' หรือภาษาอื่น ใช้ภาษาไทย
+                languageSettings = {
+                    lengthMenu: "แสดง _MENU_ รายการ",
+                    zeroRecords: "ไม่พบข้อมูลที่ตรงกัน",
+                    info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
+                    infoEmpty: "ไม่มีข้อมูล",
+                    infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
+                    search: "ค้นหา:",
+                    paginate: {
+                        first: "หน้าแรก",
+                        last: "หน้าสุดท้าย",
+                        next: "ถัดไป",
+                        previous: "ก่อนหน้า"
+                    }
+                };
+            }
 
-        var table1 = $('#example1').DataTable({
-            responsive: true,
-            language: languageSettings
+            var table1 = $('#example1').DataTable({
+                responsive: true,
+                language: languageSettings
+            });
         });
-    });
 
 
 
@@ -1002,7 +1021,7 @@
                 <h2 class="timer count-title count-number" data-to="${sumtci}" data-speed="1500"></h2>
                 <p class="count-text ">TCI</p>`
 
-       
+
 
 
         //document.getElementById("scopus").appendChild('data-to="100"');
