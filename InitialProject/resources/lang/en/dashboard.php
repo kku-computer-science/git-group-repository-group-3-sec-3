@@ -292,7 +292,7 @@ return [
 // ------------programs---------------
 'curriculum' => 'Curriculum',
 'id' => 'ID',
-'name_thai' => 'Name (Thai)',
+'name_thai' => 'Name',
 'degree' => 'Degree',
 'field_of_study' => 'Field of Study',
 'name_th' => 'Name (Thai)',

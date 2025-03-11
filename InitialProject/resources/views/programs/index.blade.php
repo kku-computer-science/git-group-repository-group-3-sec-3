@@ -46,8 +46,17 @@
                     @foreach ($programs as $i => $program)
                     <tr id="program_id_{{ $program->id }}">
                         <td>{{ $i+1 }}</td>
-                        <td>{{ $program->program_name_th }}</td>
+                        <!-- <td>{{ $program->program_name_th }}</td> -->
                         <!-- <td>{{ $program->program_name_en }}</td> -->
+                        <td>
+                            @if(app()->getLocale() == 'en')
+                                {{ $program->program_name_en }}
+                            @elseif(app()->getLocale() == 'th')
+                                {{ $program->program_name_th }}
+                            @elseif(app()->getLocale() == 'cn')
+                                {{ $program->program_name_cn }}
+                            @endif  
+                        </td>
                         <td>
                             @if(app()->getLocale() == 'en')
                                 {{ $program->degree->degree_name_en }}

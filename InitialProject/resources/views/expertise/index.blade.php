@@ -13,7 +13,7 @@
         <div class="card-body">
             <h4 class="card-title" style="text-align: center;">{{ __('dashboard.teacher_expertise') }}</h4>
             <div class="pull-right">
-                <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">{{ __('dashboard.add_expertise') }}</a>
+                <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-expertise" data-toggle="modal">{{ __('dashboard.Add Expertise') }}</a>
             </div>
             <table id="example1" class="table table-striped">
                 <thead>

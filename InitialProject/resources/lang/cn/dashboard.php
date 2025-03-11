@@ -275,7 +275,7 @@ return [
 // ------------programs---------------
 'curriculum' => '课程',
 'id' => '编号',
-'name_thai' => '名称（泰语）',
+'name_thai' => '名称',
 'degree' => '学位',
 'field_of_study' => '专业',
 'name_th' => '名称（泰语）',

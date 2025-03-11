@@ -172,20 +172,26 @@
                             <div id="paper2" class="col-sm-11">
                                 <p class="hidden">
                                     <b>{{$p['paper_name']}}</b> (
-                                    <link>{{$p['author']}}</link>), {{$p['paper_sourcetitle']}}, {{$p['paper_volume']}},
+                                    @if(app()->getLocale() == 'th')
+                                        <link>
+                                            @if(isset($p['author_fname_th']) && $p['author_fname_th'])
+                                                {{ mb_substr($p['author_fname_th'], 0, 1, 'UTF-8') }}. 
+                                            @else
+                                                {{ $p['author'] ?? '' }}
+                                            @endif
+                                            {{ isset($p['author_lname_th']) && $p['author_lname_th'] ? $p['author_lname_th'] : '' }}
+                                        </link>
+                                    @else
+                                        <link>{{ $p['author'] ?? '' }}</link>
+                                    @endif
+                                    ), {{$p['paper_sourcetitle']}}, {{$p['paper_volume']}},
 
                                     @if (app()->getLocale() == 'th')
-                                    {{$p['paper_yearpub']+543}}
-                        @else
-                        {{$p['paper_yearpub']}}
-                        @endif
-                                    <!-- {{$p['paper_yearpub']}}. -->
-
-
+                                        {{$p['paper_yearpub']+543}}
+                                    @else
+                                        {{$p['paper_yearpub']}}
+                                    @endif
                                     <a href="{{$p['paper_url']}} " target="_blank">[url]</a> <a href="https://doi.org/{{$p['paper_doi']}}" target="_blank">[doi]</a>
-                                    <!-- <a href="{{ route('bibtex',['id'=>$p['id']])}}">
-                                        [อ้างอิง]
-                                    </a> -->
                                     <button style="padding: 0;" class="btn btn-link open_modal" value="{{$p['id']}}">[{{ trans('home.ref') }}]</button>
                                 </p>
                             </div>
