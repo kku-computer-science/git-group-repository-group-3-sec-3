@@ -689,7 +689,24 @@ return [
     'Edit Research Group' => '编辑研究小组',
     'Fill in the edited research group details' => '填写编辑后的研究小组详情',
 
+    'teacher_expertise'         => '教师专长',
+    'id'                        => '编号',
+    'teacher_name'              => '教师姓名',
+    'name'                      => '名称',
+    'action'                    => '操作',
+    'add_new_expertise'         => '添加新专长',
+    'edit_expertise'            => '编辑专长',
+    'submit'                    => '提交',
+    'cancel'                    => '取消',
+    'edit'                      => '编辑',
+    'delete'                    => '删除',
+    'are_you_sure'              => '您确定吗？',
+    'not_recover_file'          => '删除后将无法恢复该文件！',
+    'delete_successfully'       => '删除成功',
+    'entry_deleted_successfully'=> '条目删除成功',
+    'expert_name_placeholder'   => '输入专长名称',
 
 
 
+    
 ];

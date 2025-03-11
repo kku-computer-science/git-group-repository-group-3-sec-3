@@ -7,7 +7,7 @@ return [
         'flag-icon' => 'us'
     ],
     'th' => [
-        'display' => 'ไทย',
+        'display' => 'ภาษาไทย',
         'flag-icon' => 'th'
     ],
     'cn' => [
