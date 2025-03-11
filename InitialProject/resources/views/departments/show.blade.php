@@ -32,6 +32,10 @@
                     <strong>{{ __('dashboard.department_name_EN') }}:</strong>
                     {{ $department->department_name_en }}
                 </div>
+                <div class="lead">
+                    <strong>{{ __('dashboard.department_name_CN') }}:</strong>
+                    {{ $department->department_name_cn }}
+                </div>
             </div>
         </div>
     </div>

@@ -336,7 +336,15 @@
                     </tr>
                     @foreach (Auth::user()->expertise as $expert)
                     <tr id="expert_id_{{ $expert->id }}">
-                        <td>{{ $expert->expert_name }}</td>
+                         <td>
+                            @if (app()->getLocale() == 'th')
+                                {{ $expert->expert_name_th }}
+                            @elseif (app()->getLocale() == 'cn')
+                                {{ $expert->expert_name_cn }}
+                            @else
+                                {{ $expert->expert_name }}
+                            @endif
+                        </td>
                         <td width="180px">
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
                                 <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->
