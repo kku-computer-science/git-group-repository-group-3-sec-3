@@ -706,5 +706,11 @@ return [
     'entry_deleted_successfully' => 'Entry deleted successfully',
     'expert_name_placeholder' => 'Enter Expert Name',
 
+    'title' => 'Are you sure?',
+    'text' => 'You will not be able to recover this record!',
+    'cancel' => 'Cancel',
+    'ok' => 'OK',
+    'DeleteSuccessfully' => 'Deleted Successfully!',
+
 
 ];

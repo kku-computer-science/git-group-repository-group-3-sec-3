@@ -99,4 +99,36 @@
             });
     });
 </script>
+
+
+<script type="text/javascript">
+    $('.show_confirm').click(function(event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        swal({
+                title: "{{ trans('dashboard.title') }}",
+                text: "{{ trans('dashboard.text') }}",
+                icon: "warning",
+                buttons: {
+                    cancel: "{{ trans('dashboard.cancel') }}",
+                    confirm: "{{ trans('dashboard.ok') }}"
+                },
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("{{ trans('dashboard.DeleteSuccessfully') }}", {
+                        icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('dashboard.ok') }}"
+                        },
+                    }).then(function() {
+                        location.reload();
+                        form.submit();
+                    });
+                }
+            });
+    });
+</script>
 @endsection

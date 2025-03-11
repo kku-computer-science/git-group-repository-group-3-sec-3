@@ -707,6 +707,13 @@ return [
     'expert_name_placeholder'   => '输入专长名称',
 
 
+    'title' => '你确定吗？',
+    'text' => '此操作将无法恢复此记录！',
+    'cancel' => '取消',
+    'ok' => '确认',
+    'DeleteSuccessfully' => '删除成功！',
+
+
 
     
 ];
