@@ -12,7 +12,13 @@
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('dashboard.Year') }}</b></p>
-                <p class="card-text col-sm-9">{{ date('Y', strtotime($paper->ac_year)) + 543 }}</p>
+                <p class="card-text col-sm-9">
+                    @if (app()->getLocale() == 'th')
+                        {{ \Carbon\Carbon::parse($paper->ac_year)->translatedFormat('Y') }}
+                    @else
+                        {{ \Carbon\Carbon::parse($paper->ac_year)->year - 543 }}
+                    @endif
+                </p>
             </div>
             <div class="row">
                 <p class="card-text col-sm-3"><b>{{ trans('dashboard.Source') }}</b></p>

@@ -39,10 +39,8 @@
                             // ดึงปีแบบ ค.ศ. จากฐานข้อมูล
                             $yearData = date('Y', strtotime($paper->ac_year));
 
-                            // ถ้าเป็นภาษาไทย => บวก 543
-                            // ถ้าเป็นภาษาอื่น => แสดงตามฐานข้อมูล
-                            if($locale == 'th') {
-                                $yearDisplay = $yearData + 543;
+                            if (in_array($locale, ['cn', 'en'])) {
+                                $yearDisplay = $yearData - 543;
                             } else {
                                 $yearDisplay = $yearData;
                             }
