@@ -411,37 +411,43 @@
 
 <script>
     $(function() {
-        /* UPDATE ADMIN
-               PERSONAL INFO */
+        /* UPDATE ADMIN PERSONAL INFO */
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        showSwal = function(type) {
+
+        function showSwal(type) {
             swal({
-                    title: "Are you sure update info",
-                    text: "Are you sure to proceed?",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#82ce34",
-                    confirmButtonText: "Update My Info!",
-                    cancelButtonText: "I am not sure!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
+                title: "{{ trans('dashboard.update_info_confirmation') }}",
+                text: "{{ trans('dashboard.update_info_confirmation') }}",
+                icon: "warning",
+                buttons: {
+                    cancel: "{{ trans('dashboard.cancel_update') }}",
+                    confirm: "{{ trans('dashboard.Update Info') }}"
                 },
-                function(isConfirm) {
-                    if (isConfirm) {
-                        swal("Update Info", "Your account is updated!", "success");
-                    } else {
-                        swal("Cancle", "Account is not updated", "error");
-                    }
-                });
+                dangerMode: true,
+            }).then((isConfirm) => {
+                if (isConfirm) {
+                    swal("{{ trans('dashboard.update_success') }}", {
+                        icon: "success",
+                        buttons: {
+                            confirm: "{{ trans('dashboard.ok') }}"
+                        },
+                    });
+                } else {
+                    swal("{{ trans('dashboard.update_error') }}", {
+                        icon: "error",
+                        buttons: {
+                            confirm: "{{ trans('dashboard.ok') }}"
+                        },
+                    });
+                }
+            });
         }
 
-
         $('#AdminInfoForm').on('submit', function(e) {
-
             e.preventDefault();
             $.ajax({
                 url: $(this).attr('action'),
@@ -450,60 +456,30 @@
                 processData: false,
                 dataType: 'json',
                 contentType: false,
-
                 beforeSend: function() {
                     $(document).find('span.error-text').text('');
                 },
                 success: function(data) {
                     if (data.status == 0) {
                         $.each(data.error, function(prefix, val) {
-                            $('span.' + prefix +
-                                '_error').text(val[0]);
+                            $('span.' + prefix + '_error').text(val[0]);
                         });
                     } else {
                         $('.admin_name').each(function() {
-                            $(this).html($('#AdminInfoForm').find($(
-                                'input[name="name"]')).val());
+                            $(this).html($('#AdminInfoForm').find($('input[name="name"]')).val());
                         });
-                        console.log(data.msg);
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{ trans('dashboard.Update Info') }}", {
+                            icon: "success",
+                            buttons: {
+                                confirm: "{{ trans('dashboard.ok') }}"
+                            },
+                        });
                     }
                 }
             });
         });
-        // $('#AdminInfoForm').on('submit', function(e) {
 
-        //     e.preventDefault();
-        //     $.ajax({
-        //         url: $(this).attr('action'),
-        //         method: $(this).attr('method'),
-        //         data: new FormData(this),
-        //         processData: false,
-        //         dataType: 'json',
-        //         contentType: false,
-
-        //         beforeSend: function() {
-        //             $(document).find('span.error-text').text('');
-        //         },
-        //         success: function(data) {
-        //             if (data.status == 0) {
-        //                 $.each(data.error, function(prefix, val) {
-        //                     $('span.' + prefix +
-        //                         '_error').text(val[0]);
-        //                 });
-        //             } else {
-        //                 $('.admin_name').each(function() {
-        //                     $(this).html($('#AdminInfoForm').find($(
-        //                         'input[name="name"]')).val());
-        //                 });
-
-        //                 swal("Update Info", "Your account is updated!", "success");
-        //             }
-        //         }
-        //     });
-        // });
         $('#EdInfoForm').on('submit', function(e) {
-
             e.preventDefault();
             $.ajax({
                 url: $(this).attr('action'),
@@ -512,23 +488,24 @@
                 processData: false,
                 dataType: 'json',
                 contentType: false,
-
                 beforeSend: function() {
                     $(document).find('span.error-text').text('');
                 },
                 success: function(data) {
                     if (data.status == 0) {
                         $.each(data.error, function(prefix, val) {
-                            $('span.' + prefix +
-                                '_error').text(val[0]);
+                            $('span.' + prefix + '_error').text(val[0]);
                         });
                     } else {
                         $('.admin_name').each(function() {
-                            $(this).html($('#EdInfoForm').find($(
-                                'input[name="name"]')).val());
+                            $(this).html($('#EdInfoForm').find($('input[name="name"]')).val());
                         });
-                        console.log(data.msg)
-                        swal("Update Info", "Your account is updated!", "success");
+                        swal("{{ trans('dashboard.Update Info') }}", {
+                            icon: "success",
+                            buttons: {
+                                confirm: "{{ trans('dashboard.ok') }}"
+                            },
+                        });
                     }
                 }
             });
@@ -537,6 +514,7 @@
         $(document).on('click', '#change_picture_btn', function() {
             $('#admin_image').click();
         });
+
         $('#admin_image').ijaboCropTool({
             preview: '.admin_picture',
             setRatio: 2 / 3,
@@ -546,14 +524,18 @@
             processUrl: '{{ route("adminPictureUpdate") }}',
             withCSRF: ['_token', '{{ csrf_token() }}'],
             onSuccess: function(message, element, status) {
-                //swal("Congrats!", message , "success");
-                //alert(message);
-                swal("Update Profile Picture", "Your account is updated!", "success");
+                swal("{{ trans('dashboard.update_profile_picture') }}", {
+                    icon: "success",
+                    buttons: {
+                        confirm: "{{ trans('dashboard.ok') }}"
+                    },
+                });
             },
             onError: function(message, element, status) {
                 alert(message);
             }
         });
+
         $('#changePasswordAdminForm').on('submit', function(e) {
             e.preventDefault();
             $.ajax({
@@ -569,13 +551,16 @@
                 success: function(data) {
                     if (data.status == 0) {
                         $.each(data.error, function(prefix, val) {
-                            $('span.' + prefix +
-                                '_error').text(val[0]);
+                            $('span.' + prefix + '_error').text(val[0]);
                         });
                     } else {
                         $('#changePasswordAdminForm')[0].reset();
-                        //alert(data.msg);
-                        swal("Update Password", "Your account is Password updated!", "success");
+                        swal("{{ trans('dashboard.update_password') }}", {
+                            icon: "success",
+                            buttons: {
+                                confirm: "{{ trans('dashboard.ok') }}"
+                            },
+                        });
                     }
                 }
             });

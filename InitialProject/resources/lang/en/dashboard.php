@@ -712,5 +712,7 @@ return [
     'ok' => 'OK',
     'DeleteSuccessfully' => 'Deleted Successfully!',
 
+    'Update Info'             => 'Update Info',
+
 
 ];

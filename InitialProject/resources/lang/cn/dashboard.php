@@ -712,7 +712,8 @@ return [
     'cancel' => '取消',
     'ok' => '确认',
     'DeleteSuccessfully' => '删除成功！',
-
+    
+    'Update Info'             => '更新信息',
 
 
     
