@@ -62,10 +62,14 @@
                     </div>
                     <div class="form-group col-sm-8">
                     <p><b>{{ trans('dashboard.Role') }}</b></p>
-                        <div class="col-sm-8">
+                    <div class="col-sm-8">
                             @php
+                            // สร้างอาเรย์ใหม่สำหรับ roles ที่แปลภาษา
                             $localizedRoles = [];
                             foreach ($roles as $k => $v) {
+                            // สมมติ $roles = ['admin' => 'admin', 'headproject' => 'headproject', ...]
+                            // $k = 'admin', $v = 'admin'
+                            // ให้ key = 'admin' เหมือนเดิม, แต่ value = trans('users.role_admin') (ถ้า $v == 'admin')
                             $localizedRoles[$k] = trans('users.role_'.$v);
                             }
                             @endphp

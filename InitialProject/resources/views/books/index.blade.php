@@ -46,8 +46,29 @@
                             }
                         @endphp
                         <tr>
+
+
+                       
+
+
+
                             <td>{{ $i + 1 }}</td>
-                            <td>{{ Str::limit($paper->ac_name, 50) }}</td>
+                            <td>
+                            <!-- {{$paper->ac_name}} -->
+                            @if (app()->getLocale() == 'th')
+                            <!-- ตรวจสอบว่า author_fname_th และ author_lname_th มีข้อมูลหรือไม่ -->
+                            @if (!empty($paper->ac_name_th))
+                            {{$paper->ac_name_th}}
+                            @else
+                            {{$paper->ac_name}}
+                            @endif
+                            @else
+                            {{$paper->ac_name}}
+                            @endif
+
+
+
+                        </td>
                             <td>{{ $yearDisplay }}</td>
                             <td>{{ Str::limit($paper->ac_sourcetitle, 50) }}</td>
                             <td>{{ $paper->ac_page }}</td>

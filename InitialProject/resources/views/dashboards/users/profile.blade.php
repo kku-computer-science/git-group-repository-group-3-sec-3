@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group col-sm-4">
-                                <label>Name title</label>
+                                <label>{{trans('dashboard.Name title')}}</label>
                                 <select class="custom-select my-select " name="title_name_en">
                                     <option value="Mr." {{ Auth::user()->title_name_en == 'Mr.' ? 'selected' : '' }}>{{ trans('dashboard.Mr.') }}</option>
                                     <option value="Miss" {{ Auth::user()->title_name_en == 'Miss' ? 'selected' : '' }}>{{ trans('dashboard.Mrs.') }}</option>
