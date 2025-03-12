@@ -199,8 +199,9 @@ Verify Page Contains Multiple Texts
 Test Admin Users In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Group
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_USER_PAGE_EN}
 
     Change Language    ${LANG_TO_THAI}
@@ -210,9 +211,9 @@ Test Admin Users In English
 Test Admin Add Users In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Group
     Go To Add Research Group
+    Change Language    ${LANG_TO_ENGLISH}
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_USERS_PAGE_EN}
     Scroll Page Down
     Scroll Up

@@ -33,6 +33,15 @@ ${DELETE_REARCH_PROJECT_BUTTON}    xpath=//div[contains(@class,'card-body')]//bu
 ${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
 
 
+@{EXPECTED_RPJ_PAGE_TH}    
+...    โครงการวิจัย   
+...    เพิ่ม    
+...    ปี       
+...    ชื่อโครงการ    
+...    หัวหน้า    	พุธษดี   
+...    สมาชิก    
+...    การกระทำ
+
 
 @{EXPECTED_RPJ_PAGE_EN}    
 ...    Research Project    
@@ -40,7 +49,7 @@ ${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
 ...    Add    
 ...    Year        
 ...    Project Name	    
-...    Head    
+...    Head    Pusadee    
 ...    Member    
 ...    Action    
 @{EXPECTED_RPJ_PAGE_CN}    
@@ -103,6 +112,21 @@ ${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
 ...    Project Members    
 ...    Back
 
+@{EXPECTED_Detail_TH}    
+...    รายละเอียดโครงการวิจัย
+...    ข้อมูลโครงการวิจัย 
+...    ชื่อโครงการ     
+...    วันที่เริ่มโครงการ   
+...    วันที่สิ้นสุดโครงการ  
+...    แหล่งทุนวิจัย 
+...    จำนวนเงิน    
+...    รายละเอียดโครงการ   
+...    สถานะโครงการ    ปิดโครงการ    
+...    หัวหน้าโครงการ    
+...    ผศ.ดร. พุธษดี ศิริแสงตระกูล    
+...    สมาชิกโครงการ    
+...    ย้อนกลับ
+
 @{EXPECTED_EDIT_EN}    
 ...    Edit Research Project
 ...    Fill in the edited project details  
@@ -134,7 +158,7 @@ Open Browser To Login Page
     Maximize Browser Window
     Wait Until Element Is Visible    ${LOGIN_PAGE_HEADER}    timeout=10s
 
-Login As Admin
+Login As Teacher
     [Arguments]    ${username}    ${password}
     Input Text    ${USERNAME_FIELD}    ${username}
     Input Text    ${PASSWORD_FIELD}    ${password}
@@ -213,25 +237,25 @@ Verify Page Contains Multiple Texts
     END
 
 *** Test Cases ***
-Test Admin Research Project In English
+Test Teacher Research Project 
     Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    Login As Teacher     pusadee@kku.ac.th    123456789
     Go To Research Project
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_RPJ_PAGE_EN}
-    Scroll Page Down
-    Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
-    
+    Verify Page Contains Multiple Texts    @{EXPECTED_RPJ_PAGE_TH}
     Logout
 
-Test Admin Add Research Project In English
+Test Teacher Add Research Project In English
     Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    Login As Teacher     pusadee@kku.ac.th    123456789
     Go To Research Project
     Go To Add Research Project
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_RESEARCH_PROJECT_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -240,23 +264,25 @@ Test Admin Add Research Project In English
     
     Logout
 
-Test Admin View Research Project detail In English
+Test Teacher View Research Project detail In English
     Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    Login As Teacher     pusadee@kku.ac.th    123456789
     Go To Research Project
     Go To VIEW Research Project
+    Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
+    Change Language    ${LANG_TO_THAI}
     
     Logout
 
-Test Admin Edit And Delete Research Project detail In English
+Test Teacher Edit And Delete Research Project detail In English
     Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    Login As Teacher     pusadee@kku.ac.th    123456789
     Go To Research Project
     Go To EDIT Research Project
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_EN}
     
     Scroll Page Down

@@ -208,9 +208,10 @@ Verify Page Contains Multiple Texts
 Test Teacher ACAWORKS In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To ManagePub
     Go To WORKS
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_WORKS_PAGE_EN}
     Scroll Page Down
     Sleep    2s
@@ -223,10 +224,11 @@ Test Teacher ACAWORKS In English
 Test Teacher Add ACAWORKS In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To ManagePub
     Go To WORKS
     Go To Add WORKS
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_WORKS_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -238,10 +240,11 @@ Test Teacher Add ACAWORKS In English
 Test Teacher View ACAWORKS Detail In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To ManagePub
     Go To WORKS
     Go To VIEW WORKS
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_VIEW_WORKS_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -255,10 +258,11 @@ Test Teacher View ACAWORKS Detail In English
 Test Teacher Edit ACAWORKS Detail In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To ManagePub
     Go To WORKS
     Go To EDIT WORKS
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_WORKS_PAGE_EN}
     Scroll Page Down
     Scroll Up

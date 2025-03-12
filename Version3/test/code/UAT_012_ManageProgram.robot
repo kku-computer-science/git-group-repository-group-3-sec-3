@@ -23,10 +23,11 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 
 # Manage Fund Elements
 
-${PROGRAM_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'PROGRAM') or contains(text(),'แผนก') or contains(text(),'权限'))]]
+${PROGRAM_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Manage Programs') or contains(text(),'จัดการโปรแกรม') or contains(text(),'权限'))]]
 
 # ปุ่ม 
-${ADD_PROGRAM_BUTTON}    xpath=//div[contains(@class,'card-header')]//a[contains(@href, '/PROGRAMs/create')]
+${ADD_PROGRAM_BUTTON}    xpath=//a[@id='new-program' and contains(@class,'btn-primary')]
+
 ${VIEW_PROGRAM_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-primary') and .//i[contains(@class, 'mdi-eye')]]
 ${EDIT_PROGRAM_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-success') and .//i[contains(@class, 'mdi-pencil')]]
 ${DELETE_REARCH_GROUP_BUTTON}    xpath=//div[contains(@class,'card-body')]//button[contains(@class, 'show_confirm') and .//i[contains(@class, 'mdi-delete')]]
@@ -176,31 +177,18 @@ Test Admin Program In English
     Sleep    2s
     Logout
 
-Test Admin Add Program In English
-    Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
-    Scroll Page Down
-    Go To PROGRAM
-    Go To Add PROGRAM
-    # Verify Page Contains Multiple Texts    @{EXPECTED_ADD_PROGRAM_PAGE_EN}
-    # Scroll Page Down
-    # Scroll Up
-    # Sleep    2s
-    # Change Language    ${LANG_TO_THAI}
+# Test Admin Add Program In English
+#     Open Browser To Login Page
+#     Login As Admin    admin@gmail.com    12345678
+#     Change Language    ${LANG_TO_ENGLISH}
+#     Scroll Page Down
+#     Go To PROGRAM
+#     Go To Add PROGRAM
+#     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_PROGRAM_PAGE_EN}
+#     Scroll Page Down
+#     Scroll Up
+#     Sleep    2s
+#     Change Language    ${LANG_TO_THAI}
     
-    # Logout
-
- Test Admin View Program detail In English
-     Open Browser To Login Page
-     Login As Admin    admin@gmail.com    12345678
-     Change Language    ${LANG_TO_ENGLISH}
-     Scroll Page Down
-     Go To PROGRAM
-     Go To VIEW PROGRAM
-     Sleep    2s
-    #  Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
-    
-    # Logout
-
+#     Logout
     

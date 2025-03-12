@@ -33,7 +33,7 @@ ${RESEARCH_PROJECT_MENU}    xpath=//nav//a[contains(@class, 'nav-link') and cont
 ...    2020     
 ...    2020    年    8    月    1    日    至    2020    年    8    月    19    日   
 ...    外部资本   
-...    Office    of    the    Permanent    Secretary    (OPS)   MHESI Thailand   
+...    高等教育、科研与创新部常务秘书办公室   
 ...    计算机科学系
    
 

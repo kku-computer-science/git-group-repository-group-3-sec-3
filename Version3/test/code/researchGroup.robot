@@ -23,84 +23,101 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 
 # Manage Fund Elements
 
-${Manage_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Manage Publications') or contains(text(),'จัดการผลงานตีพิมพ์') or contains(text(),'管理出版物'))]]
-${WORKS_MENU}    xpath=//div[@id='ManagePublications']//a[contains(@class,'nav-link') and contains(text(),'Other academic works')]
-
+${Research_PROJECT_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Reseach Group') or contains(text(),'กลุ่มวิจัย') or contains(text(),'研究小组'))]]
 
 # ปุ่ม 
-${ADD_WORKS_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@href, '/patents/create')]
-${VIEW_WORKS_BUTTON}    xpath=//td//a[contains(@title, 'View') or .//i[contains(@class, 'mdi-eye')]]
+${ADD_REARCH_GROUP_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@href, '/researchGroups/create')]
+${VIEW_REARCH_GROUP_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-primary') and .//i[contains(@class, 'mdi-eye')]]
 ${EDIT_REARCH_GROUP_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-success') and .//i[contains(@class, 'mdi-pencil')]]
 ${DELETE_REARCH_GROUP_BUTTON}    xpath=//div[contains(@class,'card-body')]//button[contains(@class, 'show_confirm') and .//i[contains(@class, 'mdi-delete')]]
 ${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
 
 
 
-@{EXPECTED_WORKS_PAGE_EN}       
-...    No.    
-...    Title    
-...    Type    
-...    Registration Date    
-...    ADD    
-...    Registration Number    
-...    2017        	    
-...    Author    Chaiyapon Keeratikasikorn    Punyaphol Horata       
-...    Action   
-
-@{EXPECTED_WORKS_PAGE_TH}    
-...    สิทธิบัตรและลิขสิทธิ์    
-...    ลำดับที่    
-...    ชื่อเรื่อง   
-...    ประเภท    
-...    วันที่จดทะเบียน    
-...    เพิ่ม    
-...    หมายเลขจดทะเบียน   
-...    2560        	    
-...    ผู้จัดทำ    ชัยพล กีรติกสิกร    ปัญญาพล หอระตะ       
-...    การกระทำ    
-
+@{EXPECTED_RPG_PAGE_EN}    
+...    Research Group    
+...    Add    
+...    Year        
+...    Group Name	    
+...    Head    
+...    Member    
+...    Action    
 @{EXPECTED_RPG_PAGE_CN}    
-...    已发表研究
-...    序号    
-...    标题	    
-...    类型    
+...    研究小组
 ...    年份    
-...    期刊    
-...    2022    
+...    小组名称	    
+...    负责人    
+...    成员    
 ...    操作    
 
 
-@{EXPECTED_ADD_WORKS_PAGE_EN}    
-...    Add Other Academic Works
-...    Enter details for other academic works (Patents, Utility Models, Copyright)  
-...    Title (Patent, Utility Model, Copyright)      
-...    Type  
-...    Date of Registration
-...    Registration Number 
-...    Internal Faculty 
-...    External Faculty                  
+@{EXPECTED_ADD_RESEARCH_GROUP_PAGE_EN}    
+...    Create Research Group
+...    Fill in the research group details  
+...    Research Group Name (Thai)      
+...    Research Group Name (English)   
+...    Research Group Description (Thai)   
+...    Research Group Description (English)  
+...    Research Group Details (Thai) 
+...    Research Group Details (English)   
+...    Image  
+...    Research Group Leader   
+...    Research Group Members              
 ...    Submit    
-...    Cancel      
-   
-@{EXPECTED_ADD_Paper_PAGE_CN}    
-...    添加其他学术作品
-...    填写其他学术作品详情（专利、实用新型、版权）  
-...    标题（专利、实用新型、版权）      
-...    类型   
-...    注册日期
-...    注册号  
-...    内部教师 
-...    外部教师   
-...    提交    
-...    取消     
+...    Back         
+@{EXPECTED_ADDRPJ_PAGE_CN}    
+...    创建研究小组
+...    填写研究小组详情   
+...    研究小组名称（泰语）      
+...    研究小组名称（英语）   
+...    研究小组描述（泰语）  
+...    研究小组描述（英语）   
+...    研究小组详情（泰语）  
+...    研究小组详情（英语）   
+...    图片 
+...    研究小组负责人  
+...    研究小组成员   
+...    提交   
+...    返回     
 
 @{EXPECTED_Detail_EN}    
-...    Journal Details
-...    Journal Information    Paper Title    Type    Registration Date    Registration Number    Internal Faculty    Co-Author  
-...    Chaiyapon Keeratikasikorn            
+...    Research Group Details
+...    Research Group Information   
+...    Research Group Name (Thai)      
+...    Research Group Name (English)   
+...    Research Group Description (Thai)   
+...    Research Group Description (English)  
+...    Research Group Details (Thai)     
+...    Research Group Details (English)   
+...    Research Group Members   
+...    Asst. Prof. Dr. Pipat Reungsang    
+...    Assoc. Prof. Dr. Chaiyapon Keeratikasikorn
+...    ,    
+...    Asst. Prof. Dr. Nagon Watanakij   
 ...    Back
 
- 
+@{EXPECTED_EDIT_EN}    
+...    Research Group Name (Thai)    
+...    Edit Research Group    
+...    Fill in the edited research group details      
+...    Research Group Name (English)   
+...    Research Group Description (Thai)   
+...    Research Group Description (English)  
+...    Research Group Details (Thai)  
+...    Research Group Details (English)   
+...    Image  
+...    Research Group Leader   
+...    Research Group Members   
+...    Chaiyapon Keeratikasikorn    
+...    Nagon Watanakij               
+...    Submit    
+...    Back
+
+@{EXPECTED_DELETE_EN}    
+...    Are you sure?
+...    If you delete this, it will be gone forever.   
+...    Cancel      
+...    OK   
 
 *** Keywords ***
 Open Browser To Login Page
@@ -133,32 +150,28 @@ Change Language
     Click Element    ${language_button}
     Sleep    3s
 
-Go To ManagePub
-    Wait Until Element Is Visible    ${Manage_MENU}    timeout=10s
-    Click Element    ${Manage_MENU}
-
-Go To Pub
-    Wait Until Element Is Visible    ${WORKS_MENU}    timeout=10s
-    Click Element    ${WORKS_MENU}
+Go To Research Group
+    Wait Until Element Is Visible    ${Research_PROJECT_MENU}    timeout=10s
+    Click Element    ${Research_PROJECT_MENU}
 
 Back button
     Wait Until Element Is Visible    ${BACK_BUTTON}    timeout=10s
     Click Element    ${BACK_BUTTON}
 
-Go To Add Paper
-    Scroll Element Into View    ${ADD_WORKS_BUTTON}
-    Wait Until Element Is Visible    ${ADD_WORKS_BUTTON}    timeout=15s
-    Log    ${ADD_WORKS_BUTTON}
+Go To Add Research Group
+    Scroll Element Into View    ${ADD_REARCH_GROUP_BUTTON}
+    Wait Until Element Is Visible    ${ADD_REARCH_GROUP_BUTTON}    timeout=15s
+    Log    ${ADD_REARCH_GROUP_BUTTON}
     Log Source
-    Click Element    ${ADD_WORKS_BUTTON}
+    Click Element    ${ADD_REARCH_GROUP_BUTTON}
     Sleep    2s
 
-Go To VIEW Paper
-    Scroll Element Into View    ${VIEW_WORKS_BUTTON}
-    Wait Until Element Is Visible    ${VIEW_WORKS_BUTTON}    timeout=30s
-    Log    ${VIEW_WORKS_BUTTON}
+Go To VIEW Research Group
+    Scroll Element Into View    ${VIEW_REARCH_GROUP_BUTTON}
+    Wait Until Element Is Visible    ${VIEW_REARCH_GROUP_BUTTON}    timeout=15s
+    Log    ${VIEW_REARCH_GROUP_BUTTON}
     Log Source
-    Click Element    ${VIEW_WORKS_BUTTON}
+    Click Element    ${VIEW_REARCH_GROUP_BUTTON}
     Sleep    2s
 
 Go To EDIT Research Group
@@ -176,7 +189,7 @@ Delete button
 
 Click Add Fund And Verify
     Sleep    3s
-    Page Should Contain Element    ${ADD_WORKS_BUTTON}
+    Page Should Contain Element    ${ADD_REARCH_GROUP_BUTTON}
 
 Logout
     Click Element    ${LOGOUT_BUTTON}
@@ -194,23 +207,22 @@ Verify Page Contains Multiple Texts
 Test Admin Research Group In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
+    Go To Research Group
     Change Language    ${LANG_TO_ENGLISH}
-    Go To ManagePub
-    Go To Pub
-    Verify Page Contains Multiple Texts    @{EXPECTED_WORKS_PAGE_EN}
+    Sleep   2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_RPG_PAGE_EN}
     Change Language    ${LANG_TO_THAI}
-    Verify Page Contains Multiple Texts    @{EXPECTED_WORKS_PAGE_TH}
-    Sleep    1s
+    Sleep    2s
     Logout
 
 Test Admin Add Research Group In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
+    Go To Research Group
+    Go To Add Research Group
     Change Language    ${LANG_TO_ENGLISH}
-    Go To ManagePub
-    Go To Pub
-    Go To Add Paper
-    Verify Page Contains Multiple Texts    @{EXPECTED_ADD_WORKS_PAGE_EN}
+    Sleep   2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_ADD_RESEARCH_GROUP_PAGE_EN}
     Scroll Page Down
     Scroll Up
     Sleep    2s
@@ -222,15 +234,30 @@ Test Admin View Research Group detail In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
     Change Language    ${LANG_TO_ENGLISH}
-    Go To ManagePub
-    Go To Pub
-    Go To VIEW Paper
-    Scroll Page Down
-    Scroll Up
+    Go To Research Group
+    Go To VIEW Research Group
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
-    Change Language    ${LANG_TO_THAI}
-    Scroll Page Down
     
     Logout
 
+Test Admin Edit And Delete Research Group In English
+    Open Browser To Login Page
+    Login As Admin    admin@gmail.com    12345678
+    Change Language    ${LANG_TO_ENGLISH}
+    Go To Research Group
+    Go To EDIT Research Group
+    Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_EN}
+    
+    Scroll Page Down
+    Back button
+
+
+    Wait Until Page Contains    Research Project    timeout=10s
+    Sleep    2s
+
+    Delete button
+
+    Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
+    Sleep   2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_DELETE_EN}

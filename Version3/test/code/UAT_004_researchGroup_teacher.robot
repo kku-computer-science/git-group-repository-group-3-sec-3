@@ -215,8 +215,10 @@ Verify Page Contains Multiple Texts
 Test Teacher Research Group In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Go To Research Group
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_RPG_PAGE_EN}
 
     Change Language    ${LANG_TO_THAI}
@@ -226,9 +228,10 @@ Test Teacher Research Group In English
 Test Teacher Add Research Group In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Group
     Go To Add Research Group
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_RESEARCH_GROUP_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -240,11 +243,11 @@ Test Teacher Add Research Group In English
 Test Teacher View Research Group detail In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Group
     Go To VIEW Research Group
     Scroll Page Down
     Scroll Up
+    Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
     Change Language    ${LANG_TO_THAI}
@@ -255,9 +258,11 @@ Test Teacher View Research Group detail In English
 Test Teacher Edit And Delete Research Group In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Go To Research Group
     Go To EDIT Research Group
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_EN}
     
     Scroll Page Down

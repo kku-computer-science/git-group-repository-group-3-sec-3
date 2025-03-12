@@ -134,7 +134,7 @@ Open Browser To Login Page
     Maximize Browser Window
     Wait Until Element Is Visible    ${LOGIN_PAGE_HEADER}    timeout=10s
 
-Login As Admin
+Login As Teacher
     [Arguments]    ${username}    ${password}
     Input Text    ${USERNAME_FIELD}    ${username}
     Input Text    ${PASSWORD_FIELD}    ${password}
@@ -213,11 +213,14 @@ Verify Page Contains Multiple Texts
     END
 
 *** Test Cases ***
-Test Admin Research Project In English
+Test Teacher Research Project In English
     Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    Login As Teacher    chitsutha@kku.ac.th    123456789
     Go To Research Project
+    Scroll Page Down
+    Scroll Up
+    Sleep   2s
+    Change Language    ${LANG_TO_ENGLISH}
     Verify Page Contains Multiple Texts    @{EXPECTED_RPJ_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -226,12 +229,13 @@ Test Admin Research Project In English
     
     Logout
 
-Test Admin Add Research Project In English
+Test Teacher Add Research Project In English
     Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    Login As Teacher    chitsutha@kku.ac.th    123456789
     Go To Research Project
     Go To Add Research Project
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_RESEARCH_PROJECT_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -240,23 +244,24 @@ Test Admin Add Research Project In English
     
     Logout
 
-Test Admin View Research Project detail In English
+Test Teacher View Research Project detail In English
     Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    Login As Teacher    chitsutha@kku.ac.th    123456789
     Go To Research Project
     Go To VIEW Research Project
+    Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
     
     Logout
 
-Test Admin Edit And Delete Research Project detail In English
+Test Teacher Edit And Delete Research Project detail In English
     Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    Login As Teacher    chitsutha@kku.ac.th    123456789
     Go To Research Project
     Go To EDIT Research Project
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_EN}
     
     Scroll Page Down
