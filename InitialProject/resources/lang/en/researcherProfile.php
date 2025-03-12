@@ -26,6 +26,11 @@ return [
 'type'=>'Type',
 'date'=>'Registration Date',
 'numdata'=>'Registration Number',
+'first_author' => 'First Author',
+'co_author' => 'Co-Author',
+'corresponding_author' => 'Corresponding Author',
+'select_user' => 'Select User',
+'enter' => 'Enter your Name',
 
 ];
 

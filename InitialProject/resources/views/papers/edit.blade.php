@@ -217,7 +217,7 @@
 //console.log(obj.pivot.author_type)
 
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos' + i + '" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">First Author</option><option value="2" >Co-Author</option><option value="3" >Corresponding Author</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                '][userid]"  style="width: 200px;">@foreach($users as $user)<option value="{{ $user->id }}" >{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos' + i + '" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans('researcherProfile.first_author') }}</option><option value="2" >{{ trans('researcherProfile.co_author') }}</option><option value="3" >{{ trans('researcherProfile.corresponding_author') }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
             );
             document.getElementById("selUser" + i).value = obj.id;
             document.getElementById("pos" + i).value = obj.pivot.author_type;
@@ -232,7 +232,7 @@
 
             ++i;
             $("#dynamicAddRemove").append('<tr><td><select id="selUser' + i + '" name="moreFields[' + i +
-                '][userid]"  style="width: 200px;"><option value="">Select User</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
+                '][userid]"  style="width: 200px;"><option value="">{{ trans('researcherProfile.select_user') }}</option>@foreach($users as $user)<option value="{{ $user->id }}">{{ $user->fname_th }} {{ $user->lname_th }}</option>@endforeach</select></td><td><select id="pos" class="custom-select my-select" style="width: 200px;" name="pos[]"><option value="1">{{ trans('researcherProfile.first_author') }}</option><option value="2">{{ trans('researcherProfile.co_author') }}</option><option value="3">{{ trans('researcherProfile.corresponding_author') }}</option></select></td><td><button type="button" class="btn btn-danger btn-sm remove-tr"><i class="mdi mdi-minus"></i></button></td></tr>'
             );
             $("#selUser" + i).select2()
         });
@@ -257,7 +257,7 @@
             var obj2 = patent[i];
             console.log(obj2.pivot.author_type)
             $("#dynamic_field").append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" value="' + obj2.author_fname + '" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" value="' + obj2.author_lname + '" placeholder="Enter your Name" class="form-control name_list" /></td><td><select id="poss' + i + '" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><input type="text" name="fname[]" value="' + obj2.author_fname + '" placeholder="{{ trans('researcherProfile.enter') }}" class="form-control name_list" /></td><td><input type="text" name="lname[]" value="' + obj2.author_lname + '" placeholder="{{ trans('researcherProfile.enter') }}" class="form-control name_list" /></td><td><select id="poss' + i + '" class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">{{ trans('researcherProfile.first_author') }}</option><option value="2">{{ trans('researcherProfile.co_author') }}</option><option value="3">{{ trans('researcherProfile.corresponding_author') }}</option></select></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
             //document.getElementById("selUser" + i).value = obj.id;
             //console.log(obj.author_fname)
@@ -275,7 +275,7 @@
         $('#add').click(function() {
             i++;
             $('#dynamic_field').append('<tr id="row' + i +
-                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><select id="poss' + i + '"class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">First Author</option><option value="2">Co-Author</option><option value="3">Corresponding Author</option></select></td><td><button type="button" name="remove" id="' +
+                '" class="dynamic-added"><td><input type="text" name="fname[]" placeholder="{{ trans('researcherProfile.enter') }}" class="form-control name_list" /></td><td><input type="text" name="lname[]" placeholder="{{ trans('researcherProfile.enter') }}" class="form-control name_list" /></td><td><select id="poss' + i + '"class="custom-select my-select" style="width: 200px;" name="pos2[]"><option value="1">{{ trans('researcherProfile.first_author') }}</option><option value="2">{{ trans('researcherProfile.co_author') }}</option><option value="3">{{ trans('researcherProfile.corresponding_author') }}</option></select></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');
         });
 
