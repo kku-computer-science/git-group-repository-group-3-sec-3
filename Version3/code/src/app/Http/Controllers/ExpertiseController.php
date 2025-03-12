@@ -49,48 +49,41 @@ class ExpertiseController extends Controller
     {
         $r = $request->validate([
             'expert_name' => 'required',
-
         ]);
+
         $exp = Expertise::find($request->exp_id);
-        //return $exp;
         $exp_id = $request->exp_id;
-        //dd($custId);
+
         if (auth()->user()->hasRole('admin')) {
             $exp->update($request->all());
         } else {
             $user = User::find(Auth::user()->id);
-            $user->expertise()->updateOrCreate(['id' => $exp_id], ['expert_name' => $request->expert_name]);
+            $user->expertise()->updateOrCreate(
+                ['id' => $exp_id],
+                ['expert_name' => $request->expert_name]
+            );
         }
 
         if (empty($request->exp_id))
-            $msg = 'Expertise entry created successfully.';
+            $msg = trans('dashboard.expertise_created_successfully');
         else
-            $msg = 'Expertise data is updated successfully';
+            $msg = trans('dashboard.expertise_updated_successfully');
 
         if (auth()->user()->hasRole('admin')) {
             return redirect()->route('experts.index')->with('success', $msg);
         } else {
-            //return response()->json(['status'=>1,'msg'=>'Your expertise info has been update successfuly.']);
-            //return redirect()->back() ->with('alert', 'Updated!');
             return back()->withInput(['tab' => 'expertise']);
-            //return response()->json(['status'=>1,'msg'=>'Your expertise info has been update successfuly.']);
         }
-
-        //return redirect()->route('experts.index')->with('success',$msg);
     }
-
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Expertise  $expertise
      * @return \Illuminate\Http\Response
      */
     public function show(Expertise $expertise)
     {
-        //return view('expertise.show',compact('expertise'));
-        //$where = array('id' => $id);
-        //$exp = Expertise::where($where)->first();
         return response()->json($expertise);
     }
 
@@ -127,28 +120,24 @@ class ExpertiseController extends Controller
      */
     public function destroy($id)
     {
-        //dd($id);
         $exp = Expertise::where('id', $id)->delete();
-        $msg = 'Expertise entry created successfully.';
+        $msg = trans('dashboard.expertise_deleted_successfully');
+
         if (auth()->user()->hasRole('admin')) {
             return redirect()->route('experts.index')->with('success', $msg);
         } else {
-            //return response()->json(['status'=>1,'msg'=>'Your expertise info has been update successfuly.']);
-            //return redirect()->back() ->with('alert', 'Updated!');
             return back()->withInput(['tab' => 'expertise']);
-            //return response()->json(['status'=>1,'msg'=>'Your expertise info has been update successfuly.']);
         }
-        //return response()->json($exp);
     }
 
     public function getNames(Request $request)
     {
         $locale = $request->locale ?? app()->getLocale();
-        $teachers = User::role('teacher')->get()->mapWithKeys(function($user) use ($locale) {
+        $teachers = User::role('teacher')->get()->mapWithKeys(function ($user) use ($locale) {
             if ($locale == 'th') {
                 $name = $user->fname_th . ' ' . $user->lname_th;
             } elseif ($locale == 'cn') {
-                $name = $user->fname_cn . ' ' . $user->lname_cn; // หมายเหตุ: คุณกำลังใช้ fname_en แทน
+                $name = $user->fname_cn . ' ' . $user->lname_cn;
             } else {
                 $name = $user->fname_en . ' ' . $user->lname_en;
             }
@@ -157,5 +146,4 @@ class ExpertiseController extends Controller
         
         return response()->json(['teachers' => $teachers]);
     }
-
 }

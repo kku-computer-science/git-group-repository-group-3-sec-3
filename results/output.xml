@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.11.8 on win32)" generated="2025-03-12T23:30:04.137436" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.11.8 on win32)" generated="2025-03-12T14:50:29.328576" rpa="false" schemaversion="5">
 <suite id="s1" name="Git-Group-Repository-Group-3-Sec-3" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3">
 <suite id="s1-s1" name="InitialProject" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject">
 <suite id="s1-s1-s1" name="Tests" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests">
 <suite id="s1-s1-s1-s1" name="Unit" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests\Unit">
-<suite id="s1-s1-s1-s1-s1" name="UAT 020 researchProj visitor" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests\Unit\UAT_020_researchProj_visitor.robot">
-<test id="s1-s1-s1-s1-s1-t1" name="Test Research Project from Thai to Chinese" line="161">
-<kw name="Open Browser To Report Page">
+<suite id="s1-s1-s1-s1-s1" name="Reports" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests\Unit\reports.robot">
+<test id="s1-s1-s1-s1-s1-t1" name="Thai To English" line="58">
+<kw name="Open Browser To Home Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:04.567229" level="INFO">Opening browser 'chrome' to base url 'https://cssoften0368.cpkkuhost.com'.</msg>
+<msg time="2025-03-12T14:50:29.641684" level="INFO">Opening browser 'chrome' to base url 'https://cssoften0368.cpkkuhost.com'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T23:30:04.567229" elapsed="7.818882"/>
+<status status="PASS" start="2025-03-12T14:50:29.641684" elapsed="6.230310"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T23:30:12.386111" elapsed="0.037719"/>
+<status status="PASS" start="2025-03-12T14:50:35.871994" elapsed="0.029083"/>
 </kw>
-<status status="PASS" start="2025-03-12T23:30:04.565068" elapsed="7.858762"/>
+<status status="PASS" start="2025-03-12T14:50:29.640698" elapsed="6.260379"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
 <msg time="2025-03-12T23:30:15.426377" level="INFO">Slept 3 seconds.</msg>
@@ -31,50 +31,86 @@
 <arg>${RESEARCH_PROJECT_MENU}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T23:30:15.427394" elapsed="0.025701"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${RESEARCH_PROJECT_MENU}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-03-12T23:30:15.453095" elapsed="0.271270"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:16.725547" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:15.725372" elapsed="1.000175"/>
+<status status="PASS" start="2025-03-12T14:50:35.902076" elapsed="0.025335"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:16.726551" level="INFO">Clicking element 'xpath=//nav//a[contains(@class, 'nav-link') and contains(text(), 'โครงการวิจัย')]'.</msg>
-<arg>${RESEARCH_PROJECT_MENU}</arg>
+<msg time="2025-03-12T14:50:35.928550" level="INFO">Clicking element 'xpath=//nav//a[contains(@class, 'nav-link') and contains(text(), 'รายงาน')]'.</msg>
+<arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T23:30:16.725547" elapsed="0.947653"/>
+<status status="PASS" start="2025-03-12T14:50:35.927411" elapsed="0.619453"/>
+</kw>
+<arg>${REPORT_MENU}</arg>
+<status status="PASS" start="2025-03-12T14:50:35.901077" elapsed="0.646787"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:19.673431" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
+<msg time="2025-03-12T14:50:39.548989" level="INFO">Slept 3 seconds.</msg>
+<arg>${WAIT_TIME}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:17.673200" elapsed="2.000231"/>
-</kw>
-<status status="PASS" start="2025-03-12T23:30:15.427394" elapsed="4.246037"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:20.674528" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:19.674440" elapsed="1.000088"/>
+<status status="PASS" start="2025-03-12T14:50:36.547864" elapsed="3.001125"/>
 </kw>
 <kw name="Verify Page Contains Multiple Texts">
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:20.685516" level="INFO">${html_source} = &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;&lt;style data-styles=""&gt;ion-icon{visibility:hidden}.hydrated{visibility:inherit}&lt;/style&gt;
-    &lt;meta name="viewport" content="width=device...</msg>
+<msg time="2025-03-12T14:50:39.553994" level="INFO">${html_source} = &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+.count {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+
+
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+  ...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.675710" elapsed="0.009806"/>
+<status status="PASS" start="2025-03-12T14:50:39.549994" elapsed="0.005000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T23:30:20.687515" level="INFO">HTML Source: &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;
+<msg time="2025-03-12T14:50:39.554994" level="INFO">HTML Source: &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+.count {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+
+
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+
+}
+
+.fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #4ad1e5;
+}
+
+.card-title {
+    color:#19568A;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+}
+&lt;/style&gt;
+
+
+
+
     &lt;meta charset="UTF-8"&gt;&lt;style data-styles=""&gt;ion-icon{visibility:hidden}.hydrated{visibility:inherit}&lt;/style&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
@@ -1449,7 +1485,7 @@
 &lt;/body&gt;&lt;/html&gt;</msg>
 <arg>HTML Source: ${html_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.685516" elapsed="0.003009"/>
+<status status="PASS" start="2025-03-12T14:50:39.554994" elapsed="0.001000"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1457,77 +1493,59 @@
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.690039" elapsed="0.000509"/>
+<status status="PASS" start="2025-03-12T14:50:39.556995" elapsed="0.001058"/>
 </kw>
-<var name="${text}">โครงการบริการวิชาการ/ โครงการวิจัย</var>
-<status status="PASS" start="2025-03-12T23:30:20.689531" elapsed="0.001017"/>
+<var name="${text}">สถิติจำนวนบทความทั้งหมด 5 ปี</var>
+<status status="PASS" start="2025-03-12T14:50:39.556995" elapsed="0.001058"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.691492" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T14:50:39.558053" elapsed="0.001012"/>
 </kw>
-<var name="${text}">ผู้รับผิดชอบโครงการ</var>
-<status status="PASS" start="2025-03-12T23:30:20.690548" elapsed="0.001955"/>
+<var name="${text}">สถิติจำนวนบทความที่ได้รับการอ้างอิง</var>
+<status status="PASS" start="2025-03-12T14:50:39.558053" elapsed="0.001012"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.692503" elapsed="0.000509"/>
+<status status="PASS" start="2025-03-12T14:50:39.559065" elapsed="0.000000"/>
 </kw>
-<var name="${text}">รายละเอียด</var>
-<status status="PASS" start="2025-03-12T23:30:20.692503" elapsed="0.000509"/>
+<var name="${text}">แหล่งที่มา</var>
+<status status="PASS" start="2025-03-12T14:50:39.559065" elapsed="0.000000"/>
 </iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.693521" elapsed="0.000000"/>
+<var>${text}</var>
+<value>@{expected_texts}</value>
+<status status="PASS" start="2025-03-12T14:50:39.556995" elapsed="0.003070"/>
+</for>
+<arg>@{EXPECTED_THAI_TEXTS}</arg>
+<status status="PASS" start="2025-03-12T14:50:39.549994" elapsed="0.010071"/>
 </kw>
-<var name="${text}">ลำดับ</var>
-<status status="PASS" start="2025-03-12T23:30:20.693012" elapsed="0.000509"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.693521" elapsed="0.001010"/>
+<kw name="Wait And Click">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T14:50:39.560065" elapsed="0.014603"/>
 </kw>
-<var name="${text}">ปี</var>
-<status status="PASS" start="2025-03-12T23:30:20.693521" elapsed="0.001010"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.695039" elapsed="0.000506"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:50:39.575672" level="INFO">Clicking element 'xpath=//a[contains(text(), 'English')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:50:39.575672" elapsed="1.258559"/>
 </kw>
-<var name="${text}">ชื่อโครงการ</var>
-<status status="PASS" start="2025-03-12T23:30:20.694531" elapsed="0.001014"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.695545" elapsed="0.000000"/>
+<arg>${LANG_TO_ENGLISH}</arg>
+<status status="PASS" start="2025-03-12T14:50:39.560065" elapsed="1.274166"/>
 </kw>
-<var name="${text}">สถานะ</var>
-<status status="PASS" start="2025-03-12T23:30:20.695545" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.696552" elapsed="0.001314"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T14:50:43.835891" level="INFO">Slept 3 seconds.</msg>
+<arg>${WAIT_TIME}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T14:50:40.834231" elapsed="3.001660"/>
 </kw>
 <var name="${text}">ระยะเวลาโครงการ</var>
 <status status="PASS" start="2025-03-12T23:30:20.696552" elapsed="0.001314"/>
@@ -1611,15 +1629,67 @@
 </kw>
 <kw name="Verify Page Contains Multiple Texts">
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:20.715169" level="INFO">${html_source} = &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;&lt;style data-styles=""&gt;ion-icon{visibility:hidden}.hydrated{visibility:inherit}&lt;/style&gt;
-    &lt;meta name="viewport" content="width=device...</msg>
+<msg time="2025-03-12T14:50:43.841528" level="INFO">${html_source} = &lt;html lang="en" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+.count {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+
+
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+  ...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.707379" elapsed="0.009295"/>
+<status status="PASS" start="2025-03-12T14:50:43.836896" elapsed="0.004632"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T23:30:20.717928" level="INFO">HTML Source: &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;
+<msg time="2025-03-12T14:50:43.843028" level="INFO">HTML Source: &lt;html lang="en" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+.count {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+
+
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+
+}
+
+.fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #4ad1e5;
+}
+
+.card-title {
+    color:#19568A;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+}
+&lt;/style&gt;
+
+
+
+
     &lt;meta charset="UTF-8"&gt;&lt;style data-styles=""&gt;ion-icon{visibility:hidden}.hydrated{visibility:inherit}&lt;/style&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
@@ -2994,7 +3064,7 @@
 &lt;/body&gt;&lt;/html&gt;</msg>
 <arg>HTML Source: ${html_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.716674" elapsed="0.003754"/>
+<status status="PASS" start="2025-03-12T14:50:43.841528" elapsed="0.002004"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -3002,137 +3072,94 @@
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.721901" elapsed="0.001010"/>
+<status status="PASS" start="2025-03-12T14:50:43.844977" elapsed="0.000000"/>
 </kw>
-<var name="${text}">อ. ธนพล ตั้งชูพงศ์</var>
-<status status="PASS" start="2025-03-12T23:30:20.720428" elapsed="0.002483"/>
+<var name="${text}">Total number of articles statistics for 5 years</var>
+<status status="PASS" start="2025-03-12T14:50:43.844977" elapsed="0.001056"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.722911" elapsed="0.001219"/>
+<status status="PASS" start="2025-03-12T14:50:43.846033" elapsed="0.000000"/>
 </kw>
-<var name="${text}">อ.ดร. วรัญญา วรรณศรี</var>
-<status status="PASS" start="2025-03-12T23:30:20.722911" elapsed="0.001219"/>
+<var name="${text}">Statistics on the number of articles cited</var>
+<status status="PASS" start="2025-03-12T14:50:43.846033" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.725143" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T14:50:43.847032" elapsed="0.000000"/>
 </kw>
-<var name="${text}">2563</var>
-<status status="PASS" start="2025-03-12T23:30:20.724130" elapsed="0.001013"/>
+<var name="${text}">Source</var>
+<status status="PASS" start="2025-03-12T14:50:43.847032" elapsed="0.000000"/>
 </iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.725143" elapsed="0.001249"/>
+<var>${text}</var>
+<value>@{expected_texts}</value>
+<status status="PASS" start="2025-03-12T14:50:43.843532" elapsed="0.003500"/>
+</for>
+<arg>@{EXPECTED_ENGLISH_TEXTS}</arg>
+<status status="PASS" start="2025-03-12T14:50:43.836896" elapsed="0.010136"/>
 </kw>
-<var name="${text}">1</var>
-<status status="PASS" start="2025-03-12T23:30:20.725143" elapsed="0.001249"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.726392" elapsed="0.001065"/>
+<kw name="Scroll Page Down Slightly">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:50:43.849118" level="INFO">Executing JavaScript:
+window.scrollBy(0, 1000)
+Without any arguments.</msg>
+<arg>window.scrollBy(0, 1000)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-12T14:50:43.848036" elapsed="0.004904"/>
 </kw>
-<var name="${text}">สิงหาคม</var>
-<status status="PASS" start="2025-03-12T23:30:20.726392" elapsed="0.001065"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.727457" elapsed="0.001398"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T14:50:44.354090" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T14:50:43.853970" elapsed="0.500120"/>
 </kw>
-<var name="${text}">2563</var>
-<status status="PASS" start="2025-03-12T23:30:20.727457" elapsed="0.001398"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.728855" elapsed="0.001018"/>
+<status status="PASS" start="2025-03-12T14:50:43.848036" elapsed="0.506560"/>
 </kw>
-<var name="${text}">ถึง</var>
-<status status="PASS" start="2025-03-12T23:30:20.728855" elapsed="0.001018"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.729873" elapsed="0.000000"/>
+<kw name="Scroll Up">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:50:44.355601" level="INFO">Executing JavaScript:
+window.scrollTo(0, 0)
+Without any arguments.</msg>
+<arg>window.scrollTo(0, 0)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-03-12T14:50:44.355601" elapsed="0.004631"/>
 </kw>
-<var name="${text}">19</var>
-<status status="PASS" start="2025-03-12T23:30:20.729873" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.731223" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T14:50:44.354596" elapsed="0.005636"/>
 </kw>
-<var name="${text}">สิงหาคม</var>
-<status status="PASS" start="2025-03-12T23:30:20.731223" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.732311" elapsed="0.000000"/>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-12T14:50:44.361232" elapsed="2.148753"/>
 </kw>
-<var name="${text}">2563</var>
-<status status="PASS" start="2025-03-12T23:30:20.732311" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.733318" elapsed="0.000000"/>
+<doc>Starting from default Thai, switch to English and verify.</doc>
+<status status="PASS" start="2025-03-12T14:50:29.639669" elapsed="16.870316"/>
+</test>
+<test id="s1-s1-s1-s1-s1-t2" name="Thai To Chinese" line="73">
+<kw name="Open Browser To Home Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:50:46.513456" level="INFO">Opening browser 'chrome' to base url 'https://cssoften0368.cpkkuhost.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-12T14:50:46.513456" elapsed="5.665657"/>
 </kw>
-<var name="${text}">ทุนภายนอก</var>
-<status status="PASS" start="2025-03-12T23:30:20.733318" elapsed="0.001001"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.734319" elapsed="0.000998"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-12T14:50:52.180110" elapsed="0.028192"/>
 </kw>
-<var name="${text}">สำนักงานปลัดกระทรวงอุดมศึกษา</var>
-<status status="PASS" start="2025-03-12T23:30:20.734319" elapsed="0.000998"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.735317" elapsed="0.000999"/>
+<status status="PASS" start="2025-03-12T14:50:46.512078" elapsed="5.696224"/>
 </kw>
-<var name="${text}">วิทยาศาสตร์</var>
-<status status="PASS" start="2025-03-12T23:30:20.735317" elapsed="0.000999"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:20.736316" elapsed="0.001001"/>
+<kw name="Wait And Click">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T14:50:52.209780" elapsed="0.019073"/>
 </kw>
 <var name="${text}">วิจัยและนวัตกรรม</var>
 <status status="PASS" start="2025-03-12T23:30:20.736316" elapsed="0.001001"/>
@@ -3162,31 +3189,86 @@
 </kw>
 <kw name="Switch Language">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:21.242616" level="INFO">Clicking element 'xpath=//a[contains(text(), '中文')]'.</msg>
-<arg>${lang_button}</arg>
+<msg time="2025-03-12T14:50:52.229892" level="INFO">Clicking element 'xpath=//nav//a[contains(@class, 'nav-link') and contains(text(), 'รายงาน')]'.</msg>
+<arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T23:30:21.241432" elapsed="1.282864"/>
+<status status="PASS" start="2025-03-12T14:50:52.228853" elapsed="0.651256"/>
+</kw>
+<arg>${REPORT_MENU}</arg>
+<status status="PASS" start="2025-03-12T14:50:52.209780" elapsed="0.670329"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:23.525889" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
+<msg time="2025-03-12T14:50:55.881675" level="INFO">Slept 3 seconds.</msg>
+<arg>${WAIT_TIME}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:22.524296" elapsed="1.001593"/>
+<status status="PASS" start="2025-03-12T14:50:52.880109" elapsed="3.001566"/>
 </kw>
 <arg>${LANG_TO_CHINESE}</arg>
 <status status="PASS" start="2025-03-12T23:30:21.241432" elapsed="2.285507"/>
 </kw>
 <kw name="Verify Page Contains Multiple Texts">
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:23.538710" level="INFO">${html_source} = &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;&lt;style data-styles=""&gt;ion-icon{visibility:hidden}.hydrated{visibility:inherit}&lt;/style&gt;
-    &lt;meta name="viewport" content="width=device...</msg>
+<msg time="2025-03-12T14:50:55.886779" level="INFO">${html_source} = &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+.count {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+
+
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+  ...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.529615" elapsed="0.010105"/>
+<status status="PASS" start="2025-03-12T14:50:55.883185" elapsed="0.004098"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T23:30:23.541861" level="INFO">HTML Source: &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;
+<msg time="2025-03-12T14:50:55.887283" level="INFO">HTML Source: &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+.count {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+
+
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+
+}
+
+.fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #4ad1e5;
+}
+
+.card-title {
+    color:#19568A;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+}
+&lt;/style&gt;
+
+
+
+
     &lt;meta charset="UTF-8"&gt;&lt;style data-styles=""&gt;ion-icon{visibility:hidden}.hydrated{visibility:inherit}&lt;/style&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
@@ -4535,7 +4617,7 @@
 &lt;/body&gt;&lt;/html&gt;</msg>
 <arg>HTML Source: ${html_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.539720" elapsed="0.004570"/>
+<status status="PASS" start="2025-03-12T14:50:55.887283" elapsed="0.001005"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -4543,77 +4625,59 @@
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.544846" elapsed="0.001013"/>
+<status status="PASS" start="2025-03-12T14:50:55.889288" elapsed="0.000000"/>
 </kw>
-<var name="${text}">学术服务项目 / 研究项目</var>
-<status status="PASS" start="2025-03-12T23:30:23.544846" elapsed="0.001013"/>
+<var name="${text}">สถิติจำนวนบทความทั้งหมด 5 ปี</var>
+<status status="PASS" start="2025-03-12T14:50:55.889288" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.546858" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T14:50:55.890289" elapsed="0.000000"/>
 </kw>
-<var name="${text}">订单</var>
-<status status="PASS" start="2025-03-12T23:30:23.545859" elapsed="0.000999"/>
+<var name="${text}">สถิติจำนวนบทความที่ได้รับการอ้างอิง</var>
+<status status="PASS" start="2025-03-12T14:50:55.889288" elapsed="0.001001"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.547859" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T14:50:55.891288" elapsed="0.000000"/>
 </kw>
-<var name="${text}">年份</var>
-<status status="PASS" start="2025-03-12T23:30:23.546858" elapsed="0.001001"/>
+<var name="${text}">แหล่งที่มา</var>
+<status status="PASS" start="2025-03-12T14:50:55.890289" elapsed="0.000999"/>
 </iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.548859" elapsed="0.000000"/>
+<var>${text}</var>
+<value>@{expected_texts}</value>
+<status status="PASS" start="2025-03-12T14:50:55.888288" elapsed="0.003000"/>
+</for>
+<arg>@{EXPECTED_THAI_TEXTS}</arg>
+<status status="PASS" start="2025-03-12T14:50:55.882180" elapsed="0.009108"/>
 </kw>
-<var name="${text}">项目名称</var>
-<status status="PASS" start="2025-03-12T23:30:23.548859" elapsed="0.001000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.549859" elapsed="0.001001"/>
+<kw name="Wait And Click">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-12T14:50:55.892289" elapsed="0.014076"/>
 </kw>
-<var name="${text}">详情</var>
-<status status="PASS" start="2025-03-12T23:30:23.549859" elapsed="0.001001"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.550860" elapsed="0.000998"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-12T14:50:55.907723" level="INFO">Clicking element 'xpath=//a[contains(text(), '中文')]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-12T14:50:55.906365" elapsed="1.125753"/>
 </kw>
-<var name="${text}">项目负责人</var>
-<status status="PASS" start="2025-03-12T23:30:23.550860" elapsed="0.000998"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.552859" elapsed="0.000000"/>
+<arg>${LANG_TO_CHINESE}</arg>
+<status status="PASS" start="2025-03-12T14:50:55.891288" elapsed="1.140830"/>
 </kw>
-<var name="${text}">状态</var>
-<status status="PASS" start="2025-03-12T23:30:23.551858" elapsed="0.001001"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.552859" elapsed="0.001601"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T14:51:00.033467" level="INFO">Slept 3 seconds.</msg>
+<arg>${WAIT_TIME}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T14:50:57.033112" elapsed="3.000355"/>
 </kw>
 <var name="${text}">持续时间</var>
 <status status="PASS" start="2025-03-12T23:30:23.552859" elapsed="0.001601"/>
@@ -4687,15 +4751,67 @@
 </kw>
 <kw name="Verify Page Contains Multiple Texts">
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:23.570914" level="INFO">${html_source} = &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;&lt;style data-styles=""&gt;ion-icon{visibility:hidden}.hydrated{visibility:inherit}&lt;/style&gt;
-    &lt;meta name="viewport" content="width=device...</msg>
+<msg time="2025-03-12T14:51:00.038500" level="INFO">${html_source} = &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+.count {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+
+
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+  ...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.562431" elapsed="0.008483"/>
+<status status="PASS" start="2025-03-12T14:51:00.034829" elapsed="0.003671"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T23:30:23.573256" level="INFO">HTML Source: &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;
+<msg time="2025-03-12T14:51:00.039007" level="INFO">HTML Source: &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+.count {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+
+
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+
+}
+
+.fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #4ad1e5;
+}
+
+.card-title {
+    color:#19568A;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+}
+&lt;/style&gt;
+
+
+
+
     &lt;meta charset="UTF-8"&gt;&lt;style data-styles=""&gt;ion-icon{visibility:hidden}.hydrated{visibility:inherit}&lt;/style&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
@@ -4826,15 +4942,20 @@
     &lt;/nav&gt;
 
     &lt;!-- Content --&gt;
-    
-&lt;div class="container refund"&gt;
-    &lt;p&gt;学术服务项目 / 研究项目&lt;/p&gt;
-
-    &lt;div class="table-refund table-responsive"&gt;
-        &lt;div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"&gt;&lt;div class="row"&gt;&lt;div class="col-sm-12 col-md-6"&gt;&lt;div class="dataTables_length" id="example1_length"&gt;&lt;label&gt;显示 &lt;select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm"&gt;&lt;option value="10"&gt;10&lt;/option&gt;&lt;option value="25"&gt;25&lt;/option&gt;&lt;option value="50"&gt;50&lt;/option&gt;&lt;option value="100"&gt;100&lt;/option&gt;&lt;/select&gt; 条目&lt;/label&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="col-sm-12 col-md-6"&gt;&lt;div id="example1_filter" class="dataTables_filter"&gt;&lt;label&gt;搜索:&lt;input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"&gt;&lt;/label&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="row"&gt;&lt;div class="col-sm-12"&gt;&lt;table id="example1" class="table table-striped dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="example1_info"&gt;
-            &lt;thead&gt;
-                &lt;tr role="row"&gt;&lt;th style="font-weight: bold; width: 14px;" class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="订单: activate to sort column descending"&gt;订单&lt;/th&gt;&lt;th class="col-md-1 sorting" style="font-weight: bold; width: 67px;" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="年份: activate to sort column ascending"&gt;年份&lt;/th&gt;&lt;th class="col-md-4 sorting" style="font-weight: bold; width: 375px;" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="项目名称: activate to sort column ascending"&gt;项目名称&lt;/th&gt;&lt;th class="col-md-4 sorting" style="font-weight: bold; width: 375px;" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="详情: activate to sort column ascending"&gt;详情&lt;/th&gt;&lt;th class="col-md-2 sorting" style="font-weight: bold; width: 171px;" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="项目负责人: activate to sort column ascending"&gt;项目负责人&lt;/th&gt;&lt;th class="col-md-1 sorting" style="font-weight: bold; width: 68px;" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="状态: activate to sort column ascending"&gt;状态&lt;/th&gt;&lt;/tr&gt;
-            &lt;/thead&gt;
+    &lt;div class="container card-cart d-sm-flex  justify-content-center mt-5"&gt;
+    &lt;div class="card"&gt;
+        &lt;div class="card-body"&gt;
+            &lt;h5 class="card-title" style="padding: 16px;"&gt;5年文章总数统计&lt;/h5&gt;
+                &lt;div class="row"&gt;
+                    &lt;div class="col-md-6 p-5"&gt;
+                        &lt;div style="width:520px;height:250px"&gt;&lt;div class="chartjs-size-monitor"&gt;&lt;div class="chartjs-size-monitor-expand"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="chartjs-size-monitor-shrink"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+                            &lt;canvas id="barChart1" width="650" height="312" style="display: block; height: 250px; width: 520px;" class="chartjs-render-monitor"&gt;&lt;/canvas&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6 p-5"&gt;
+                        &lt;table class="table table-bordered" id="myTable"&gt;
+                            &lt;thead&gt;
+                                &lt;tr id="myRow" style="text-align: center;"&gt;
 
 
             &lt;tbody&gt;
@@ -5006,27 +5127,14 @@
 
                         &lt;/div&gt;
 
-
-                        &lt;!--                     &lt;td&gt;&lt;/td&gt;
-                     --&gt;
-
-                        &lt;!-- &lt;td&gt;                        พุธษดี ศิริแสงตระกูล&lt;br&gt;
-                                            &lt;/td&gt; --&gt;
-                        &lt;!-- &lt;td&gt;
-                                                ทุนภายใน
-                                            &lt;/td&gt; --&gt;
-                        &lt;!-- &lt;td&gt;                        มหาวิทยาลัยขอนแก่น
-                                            &lt;/td&gt; --&gt;
-                        &lt;!-- &lt;td&gt;80000&lt;/td&gt; --&gt;
-                        &lt;div style="padding-bottom: 10px;"&gt;
-                            &lt;span style="font-weight: bold;"&gt;研究类型&lt;/span&gt;
-
-
-                            &lt;span style="padding-left: 10px;"&gt;
-
-                                                                内部资本
-                                
-                            &lt;/span&gt;
+&lt;div class="container card-cart d-sm-flex  justify-content-center mt-5"&gt;
+    &lt;div class="card"&gt;
+        &lt;div class="card-body"&gt;
+            &lt;h5 class="card-title" style="padding: 16px;"&gt;引用文章数量统计&lt;/h5&gt;
+                &lt;div class="row"&gt;
+                    &lt;div class="col-md-6 p-5"&gt;
+                        &lt;div style="width:520px;height:250px"&gt;&lt;div class="chartjs-size-monitor"&gt;&lt;div class="chartjs-size-monitor-expand"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="chartjs-size-monitor-shrink"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="chartjs-size-monitor"&gt;&lt;div class="chartjs-size-monitor-expand"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="chartjs-size-monitor-shrink"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+                            &lt;canvas id="barChart2" width="650" height="312" style="display: block; height: 250px; width: 520px;" class="chartjs-render-monitor"&gt;&lt;/canvas&gt;
                         &lt;/div&gt;
                         &lt;div style="padding-bottom: 10px;"&gt;
                             &lt;span style="font-weight: bold;"&gt;资助机构&lt;/span&gt;
@@ -6044,7 +6152,7 @@
 &lt;/body&gt;&lt;/html&gt;</msg>
 <arg>HTML Source: ${html_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.572245" elapsed="0.003529"/>
+<status status="PASS" start="2025-03-12T14:51:00.039007" elapsed="0.001008"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -6052,450 +6160,83 @@
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.576774" elapsed="0.000999"/>
+<status status="PASS" start="2025-03-12T14:51:00.041449" elapsed="0.000000"/>
 </kw>
-<var name="${text}">Thanaphon Tangchoopong</var>
-<status status="PASS" start="2025-03-12T23:30:23.576774" elapsed="0.000999"/>
+<var name="${text}">5年文章总数统计</var>
+<status status="PASS" start="2025-03-12T14:51:00.040015" elapsed="0.001434"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.577773" elapsed="0.001345"/>
+<status status="PASS" start="2025-03-12T14:51:00.042451" elapsed="0.000000"/>
 </kw>
-<var name="${text}">Warunya Wunnasri, Ph.D.</var>
-<status status="PASS" start="2025-03-12T23:30:23.577773" elapsed="0.001345"/>
+<var name="${text}">引用文章数量统计</var>
+<status status="PASS" start="2025-03-12T14:51:00.042451" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.579118" elapsed="0.001270"/>
+<status status="PASS" start="2025-03-12T14:51:00.043450" elapsed="0.000000"/>
 </kw>
-<var name="${text}">2020</var>
-<status status="PASS" start="2025-03-12T23:30:23.579118" elapsed="0.001270"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.580388" elapsed="0.000000"/>
-</kw>
-<var name="${text}">2020</var>
-<status status="PASS" start="2025-03-12T23:30:23.580388" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.581741" elapsed="0.000000"/>
-</kw>
-<var name="${text}">年</var>
-<status status="PASS" start="2025-03-12T23:30:23.580388" elapsed="0.001353"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.582746" elapsed="0.000000"/>
-</kw>
-<var name="${text}">8</var>
-<status status="PASS" start="2025-03-12T23:30:23.581741" elapsed="0.001005"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.582746" elapsed="0.000000"/>
-</kw>
-<var name="${text}">月</var>
-<status status="PASS" start="2025-03-12T23:30:23.582746" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.584154" elapsed="0.000000"/>
-</kw>
-<var name="${text}">1</var>
-<status status="PASS" start="2025-03-12T23:30:23.584154" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.584154" elapsed="0.001086"/>
-</kw>
-<var name="${text}">日</var>
-<status status="PASS" start="2025-03-12T23:30:23.584154" elapsed="0.001086"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.585240" elapsed="0.000000"/>
-</kw>
-<var name="${text}">至</var>
-<status status="PASS" start="2025-03-12T23:30:23.585240" elapsed="0.001303"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.586543" elapsed="0.000000"/>
-</kw>
-<var name="${text}">2020</var>
-<status status="PASS" start="2025-03-12T23:30:23.586543" elapsed="0.001012"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.587555" elapsed="0.001005"/>
-</kw>
-<var name="${text}">年</var>
-<status status="PASS" start="2025-03-12T23:30:23.587555" elapsed="0.001005"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.588560" elapsed="0.000999"/>
-</kw>
-<var name="${text}">8</var>
-<status status="PASS" start="2025-03-12T23:30:23.588560" elapsed="0.000999"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.589559" elapsed="0.000999"/>
-</kw>
-<var name="${text}">月</var>
-<status status="PASS" start="2025-03-12T23:30:23.589559" elapsed="0.000999"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.590558" elapsed="0.000000"/>
-</kw>
-<var name="${text}">19</var>
-<status status="PASS" start="2025-03-12T23:30:23.590558" elapsed="0.000999"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.591557" elapsed="0.000000"/>
-</kw>
-<var name="${text}">日</var>
-<status status="PASS" start="2025-03-12T23:30:23.591557" elapsed="0.001000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.592557" elapsed="0.000000"/>
-</kw>
-<var name="${text}">外部资本</var>
-<status status="PASS" start="2025-03-12T23:30:23.592557" elapsed="0.000999"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.593556" elapsed="0.000000"/>
-</kw>
-<var name="${text}">高等教育、科研与创新部常务秘书办公室</var>
-<status status="PASS" start="2025-03-12T23:30:23.593556" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${html_source}</arg>
-<arg>${text}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.594699" elapsed="0.000000"/>
-</kw>
-<var name="${text}">计算机科学系</var>
-<status status="PASS" start="2025-03-12T23:30:23.594699" elapsed="0.001011"/>
+<var name="${text}">来源</var>
+<status status="PASS" start="2025-03-12T14:51:00.043450" elapsed="0.000000"/>
 </iter>
 <var>${text}</var>
 <value>@{expected_texts}</value>
-<status status="PASS" start="2025-03-12T23:30:23.575774" elapsed="0.019936"/>
+<status status="PASS" start="2025-03-12T14:51:00.040015" elapsed="0.003435"/>
 </for>
-<arg>@{EXPECTED_PROJECT_DETAIL_CN}</arg>
-<status status="PASS" start="2025-03-12T23:30:23.561429" elapsed="0.034281"/>
+<arg>@{EXPECTED_CHINESE_TEXTS}</arg>
+<status status="PASS" start="2025-03-12T14:51:00.033467" elapsed="0.010983"/>
 </kw>
 <kw name="Scroll Page Down">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:23.597222" level="INFO">Executing JavaScript:
-return document.body.scrollHeight
+<msg time="2025-03-12T14:51:00.045452" level="INFO">Executing JavaScript:
+window.scrollBy(0, 1000)
 Without any arguments.</msg>
-<msg time="2025-03-12T23:30:23.604684" level="INFO">${total_height} = 2361</msg>
-<var>${total_height}</var>
-<arg>return document.body.scrollHeight</arg>
+<arg>window.scrollBy(0, 1000)</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.597222" elapsed="0.007462"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-03-12T23:30:23.606197" level="INFO">${scroll_position} = 0</msg>
-<var>${scroll_position}</var>
-<arg>0</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.604684" elapsed="0.001595"/>
-</kw>
-<while condition="${scroll_position} &lt; ${total_height}">
-<iter>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T23:30:23.609209" level="INFO">${scroll_position} = 300</msg>
-<var>${scroll_position}</var>
-<arg>${scroll_position} + 300</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.608207" elapsed="0.001002"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:23.610208" level="INFO">Executing JavaScript:
-window.scrollTo(0, 300)
-Without any arguments.</msg>
-<arg>window.scrollTo(0, ${scroll_position})</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.609209" elapsed="0.006264"/>
+<status status="PASS" start="2025-03-12T14:51:00.044450" elapsed="0.004656"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:24.116736" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-03-12T14:51:00.549461" level="INFO">Slept 500 milliseconds.</msg>
 <arg>0.5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:23.615473" elapsed="0.501263"/>
+<status status="PASS" start="2025-03-12T14:51:00.049106" elapsed="0.500355"/>
 </kw>
-<status status="PASS" start="2025-03-12T23:30:23.607209" elapsed="0.509527"/>
-</iter>
-<iter>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T23:30:24.118743" level="INFO">${scroll_position} = 600</msg>
-<var>${scroll_position}</var>
-<arg>${scroll_position} + 300</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T23:30:24.117743" elapsed="0.001000"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:24.119982" level="INFO">Executing JavaScript:
-window.scrollTo(0, 600)
-Without any arguments.</msg>
-<arg>window.scrollTo(0, ${scroll_position})</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:24.118743" elapsed="0.005918"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:24.625859" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:24.125674" elapsed="0.500696"/>
-</kw>
-<status status="PASS" start="2025-03-12T23:30:24.117743" elapsed="0.508627"/>
-</iter>
-<iter>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T23:30:24.627960" level="INFO">${scroll_position} = 900</msg>
-<var>${scroll_position}</var>
-<arg>${scroll_position} + 300</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T23:30:24.626370" elapsed="0.001590"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:24.629064" level="INFO">Executing JavaScript:
-window.scrollTo(0, 900)
-Without any arguments.</msg>
-<arg>window.scrollTo(0, ${scroll_position})</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:24.627960" elapsed="0.005527"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:25.135278" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:24.634486" elapsed="0.501307"/>
-</kw>
-<status status="PASS" start="2025-03-12T23:30:24.626370" elapsed="0.509423"/>
-</iter>
-<iter>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T23:30:25.136798" level="INFO">${scroll_position} = 1200</msg>
-<var>${scroll_position}</var>
-<arg>${scroll_position} + 300</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T23:30:25.136798" elapsed="0.000000"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:25.138301" level="INFO">Executing JavaScript:
-window.scrollTo(0, 1200)
-Without any arguments.</msg>
-<arg>window.scrollTo(0, ${scroll_position})</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:25.137798" elapsed="0.005779"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:25.645098" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:25.144860" elapsed="0.500745"/>
-</kw>
-<status status="PASS" start="2025-03-12T23:30:25.135793" elapsed="0.509812"/>
-</iter>
-<iter>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T23:30:25.646609" level="INFO">${scroll_position} = 1500</msg>
-<var>${scroll_position}</var>
-<arg>${scroll_position} + 300</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T23:30:25.645605" elapsed="0.001004"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:25.647609" level="INFO">Executing JavaScript:
-window.scrollTo(0, 1500)
-Without any arguments.</msg>
-<arg>window.scrollTo(0, ${scroll_position})</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:25.646609" elapsed="0.005758"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:26.153526" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:25.653373" elapsed="0.500153"/>
-</kw>
-<status status="PASS" start="2025-03-12T23:30:25.645605" elapsed="0.507921"/>
-</iter>
-<iter>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T23:30:26.155020" level="INFO">${scroll_position} = 1800</msg>
-<var>${scroll_position}</var>
-<arg>${scroll_position} + 300</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T23:30:26.155020" elapsed="0.000000"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:26.156030" level="INFO">Executing JavaScript:
-window.scrollTo(0, 1800)
-Without any arguments.</msg>
-<arg>window.scrollTo(0, ${scroll_position})</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:26.156030" elapsed="0.004488"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:26.661740" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:26.161468" elapsed="0.500272"/>
-</kw>
-<status status="PASS" start="2025-03-12T23:30:26.153526" elapsed="0.508214"/>
-</iter>
-<iter>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T23:30:26.663012" level="INFO">${scroll_position} = 2100</msg>
-<var>${scroll_position}</var>
-<arg>${scroll_position} + 300</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T23:30:26.663012" elapsed="0.000000"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:26.664438" level="INFO">Executing JavaScript:
-window.scrollTo(0, 2100)
-Without any arguments.</msg>
-<arg>window.scrollTo(0, ${scroll_position})</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:26.663012" elapsed="0.006325"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:27.171006" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:26.669337" elapsed="0.501669"/>
-</kw>
-<status status="PASS" start="2025-03-12T23:30:26.661740" elapsed="0.510275"/>
-</iter>
-<iter>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-03-12T23:30:27.172015" level="INFO">${scroll_position} = 2400</msg>
-<var>${scroll_position}</var>
-<arg>${scroll_position} + 300</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-03-12T23:30:27.172015" elapsed="0.000000"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:27.173651" level="INFO">Executing JavaScript:
-window.scrollTo(0, 2400)
-Without any arguments.</msg>
-<arg>window.scrollTo(0, ${scroll_position})</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:27.173651" elapsed="0.004880"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:27.679753" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:27.178531" elapsed="0.501727"/>
-</kw>
-<status status="PASS" start="2025-03-12T23:30:27.172015" elapsed="0.508243"/>
-</iter>
-<status status="PASS" start="2025-03-12T23:30:23.607209" elapsed="4.073049"/>
-</while>
-<status status="PASS" start="2025-03-12T23:30:23.595710" elapsed="4.084548"/>
+<status status="PASS" start="2025-03-12T14:51:00.044450" elapsed="0.505011"/>
 </kw>
 <kw name="Scroll Up">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T23:30:27.682263" level="INFO">Executing JavaScript:
+<msg time="2025-03-12T14:51:00.550882" level="INFO">Executing JavaScript:
 window.scrollTo(0, 0)
 Without any arguments.</msg>
 <arg>window.scrollTo(0, 0)</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T23:30:27.681263" elapsed="0.005977"/>
+<status status="PASS" start="2025-03-12T14:51:00.550882" elapsed="0.003557"/>
 </kw>
-<status status="PASS" start="2025-03-12T23:30:27.681263" elapsed="0.005977"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T23:30:28.687759" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T23:30:27.687240" elapsed="1.000519"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T23:30:28.687759" elapsed="2.153883"/>
+<status status="PASS" start="2025-03-12T14:51:00.549461" elapsed="0.004978"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T23:30:30.841642" elapsed="0.001002"/>
+<status status="PASS" start="2025-03-12T14:51:00.555817" elapsed="2.134894"/>
 </kw>
-<status status="PASS" start="2025-03-12T23:30:04.563971" elapsed="26.278673"/>
+<doc>Starting from default Thai, switch to English and verify.</doc>
+<status status="PASS" start="2025-03-12T14:50:46.510991" elapsed="16.179720"/>
 </test>
-<doc>Test suite for verifying language switching and dynamic data on the research project page.</doc>
-<status status="PASS" start="2025-03-12T23:30:04.194606" elapsed="26.649038"/>
+<doc>Test suite for verifying language switching functionality on the report page</doc>
+<status status="PASS" start="2025-03-12T14:50:29.367552" elapsed="33.324169"/>
 </suite>
-<status status="PASS" start="2025-03-12T23:30:04.192424" elapsed="26.653219"/>
+<status status="PASS" start="2025-03-12T14:50:29.366348" elapsed="33.326730"/>
 </suite>
-<status status="PASS" start="2025-03-12T23:30:04.188786" elapsed="26.658856"/>
+<status status="PASS" start="2025-03-12T14:50:29.364350" elapsed="33.329822"/>
 </suite>
-<status status="PASS" start="2025-03-12T23:30:04.185721" elapsed="26.662428"/>
+<status status="PASS" start="2025-03-12T14:50:29.361903" elapsed="33.333274"/>
 </suite>
-<status status="PASS" start="2025-03-12T23:30:04.160298" elapsed="26.689862"/>
+<status status="PASS" start="2025-03-12T14:50:29.342562" elapsed="33.353865"/>
 </suite>
 <statistics>
 <total>
@@ -6504,11 +6245,11 @@ Without any arguments.</msg>
 <tag>
 </tag>
 <suite>
-<stat name="Git-Group-Repository-Group-3-Sec-3" id="s1" pass="1" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3</stat>
-<stat name="InitialProject" id="s1-s1" pass="1" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject</stat>
-<stat name="Tests" id="s1-s1-s1" pass="1" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests</stat>
-<stat name="Unit" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests.Unit</stat>
-<stat name="UAT 020 researchProj visitor" id="s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests.Unit.UAT 020 researchProj visitor</stat>
+<stat name="Git-Group-Repository-Group-3-Sec-3" id="s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3</stat>
+<stat name="InitialProject" id="s1-s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject</stat>
+<stat name="Tests" id="s1-s1-s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests</stat>
+<stat name="Unit" id="s1-s1-s1-s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests.Unit</stat>
+<stat name="Reports" id="s1-s1-s1-s1-s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests.Unit.Reports</stat>
 </suite>
 </statistics>
 <errors>

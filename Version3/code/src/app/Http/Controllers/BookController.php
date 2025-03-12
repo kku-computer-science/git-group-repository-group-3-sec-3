@@ -80,7 +80,8 @@ class BookController extends Controller
         $id = auth()->user()->id;
         $user = User::find($id);
         $user->academicworks()->attach($acw);
-        return redirect()->route('books.index')->with('success', 'book created successfully.');
+        return redirect()->route('books.index')->with('success', trans('message.success'));
+
     }
 
     /**
@@ -132,7 +133,7 @@ class BookController extends Controller
         $book->update($input);
     
         return redirect()->route('books.index')
-                        ->with('success','Book updated successfully');
+                        ->with('success',trans('message.uSuccess'));
     }
 
     /**
@@ -148,6 +149,6 @@ class BookController extends Controller
         $book->delete();
 
         return redirect()->route('books.index')
-            ->with('success', 'Product deleted successfully');
+            ->with('success', trans('message.dSuccess'));
     }
 }
