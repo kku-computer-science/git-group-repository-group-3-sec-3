@@ -176,13 +176,14 @@ Test Admin Roles In English
     Verify Page Contains Multiple Texts    @{EXPECTED_USER_PAGE_EN}
 
     Change Language    ${LANG_TO_THAI}
+    Sleep    1s
+    Change Language    ${LANG_TO_CHINESE}
     Sleep    2s
     Logout
 
 Test Admin Add Roles In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Role
     Go To Add Role
     Change Language    ${LANG_TO_ENGLISH}
@@ -192,6 +193,13 @@ Test Admin Add Roles In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
     
     Logout
 
@@ -203,6 +211,8 @@ Test Admin Add Roles In English
      Change Language    ${LANG_TO_ENGLISH}
      Sleep    2s
      Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
+     Change Language    ${LANG_TO_CHINESE}
+     Sleep    2s
     
     Logout
 

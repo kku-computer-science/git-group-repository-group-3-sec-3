@@ -172,9 +172,11 @@ Test Admin Program In English
     Scroll Page Down
     Go To PROGRAM
     Verify Page Contains Multiple Texts    @{EXPECTED_PROGRAM_PAGE_EN}
-
     Change Language    ${LANG_TO_THAI}
     Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+    
     Logout
 
 # Test Admin Add Program In English

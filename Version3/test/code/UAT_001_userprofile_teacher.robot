@@ -126,6 +126,19 @@ Test Teacher Account Tab
     Sleep    2s
     Scroll Up
     Sleep    2s
+    Click Element    ${ACCOUNT_TAB}
+    Sleep    2s
+    Click Element    ${ACCOUNT_TAB}  
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Click Element    ${ACCOUNT_TAB}
+    Sleep    2s
+    Click Element    ${ACCOUNT_TAB}  
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0,1000)
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
     Logout
 
 Test Teacher Password Tab
@@ -142,6 +155,11 @@ Test Teacher Password Tab
     Click Element    ${PASSWORD_TAB}   
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Password_EN} 
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Click Element    ${PASSWORD_TAB} 
+    Sleep    2s
+    Click Element    ${PASSWORD_TAB}   
     Sleep    2s
     Logout
 
@@ -168,6 +186,16 @@ Test Teacher Expertise Tab
     Scroll Up
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EXPECTED_EN}   
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Click Element    ${EXPERTISE_TAB} 
+    Sleep    2s
+    Click Element    ${EXPERTISE_TAB}   
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0,1000)    
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
     Logout
 
 
@@ -186,5 +214,10 @@ Test Teacher Education Tab
     Click Element    ${EDUCATION_TAB}    
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EDUCATION_EN}  
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Click Element    ${EDUCATION_TAB} 
+    Sleep    2s
+    Click Element    ${EDUCATION_TAB}    
     Sleep    2s
     Logout

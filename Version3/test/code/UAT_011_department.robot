@@ -174,15 +174,16 @@ Test Admin Department In English
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_DEPARTMENT_PAGE_EN}
-
     Change Language    ${LANG_TO_THAI}
     Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+
     Logout
 
 Test Admin Add Department In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    
     Scroll Page Down
     Go To Department
     Go To Add Department
@@ -193,7 +194,13 @@ Test Admin Add Department In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
-    
+    Sleep    1s
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    1s
+
     Logout
 
  Test Admin View Department detail In English

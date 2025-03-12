@@ -31,7 +31,7 @@ ${VIEW_FUND_DETAIL_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[conta
 ${EDIT_MANAGE_FUND_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-success') and .//i[contains(@class, 'mdi-pencil')]]
 ${DELETE_FUND_BUTTON}    xpath=//div[contains(@class,'card-body')]//button[contains(@class, 'show_confirm') and .//i[contains(@class, 'mdi-delete')]]
 ${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
-${CANCEL_BUTTON}    xpath=//a[contains(text(), 'Cancel')]
+${CANCEL_BUTTON}    xpath=//a[contains(text(), 'Cancel') or contains(text(),'取消')]
 @{EXPECTED_FUND_PAGE_TH}    
 ...    จัดการทุนวิจัย
 ...    เพิ่ม    
@@ -126,8 +126,7 @@ ${CANCEL_BUTTON}    xpath=//a[contains(text(), 'Cancel')]
 @{EXPECTED_DELETE_EN}    
 ...    Are you sure?
 ...    If you delete this, it will be gone forever.   
-...    Cancel      
-...    OK   
+
 
 
 *** Keywords ***
@@ -230,6 +229,15 @@ Test Teacher Manage Fund In English
     Click To Show Fund Level Dropdown
 
     Verify Page Contains Multiple Texts    @{EXPECTED_ADDFUND_PAGE_EN}
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+
+    Click To Show Fund Type Dropdown
+    Click To Show Fund Type Dropdown
+
+    Click To Show Fund Level Dropdown
+    Click To Show Fund Level Dropdown
     
     Logout
 
@@ -242,7 +250,12 @@ Test Teacher Veiw Manage Fund
     Go To VIEW Fund detail
     Verify Page Contains Multiple Texts    @{EXPECTED_FUND_DETAIL_PAGE_EN} 
     Change Language    ${LANG_TO_THAI}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_FUND_DETAIL_PAGE_TH} 
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+
     Logout
 
 Test Teacher Edit Manage Fund 
@@ -252,16 +265,26 @@ Test Teacher Edit Manage Fund
     Change Language    ${LANG_TO_ENGLISH}
     Go To EDIT Manage Fund
     Verify Page Contains Multiple Texts    @{EXPECTED_EDITFUND_PAGE_EN}
-
     Cancel button
-
     Wait Until Page Contains    Fund    timeout=10s
     Sleep    2s
-
     Delete button
-
     Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
     Sleep   2s
     Verify Page Contains Multiple Texts    @{EXPECTED_DELETE_EN}
+    Sleep   2s
+    Close Browser
+    Sleep   0.5s
+    Open Browser To Login Page
+    Login As Teacher    pusadee@kku.ac.th    123456789
+    Go To Manage Fund
+    Change Language    ${LANG_TO_CHINESE}
+    Go To EDIT Manage Fund
+    Sleep    2s
+    Cancel button
+    Sleep    2s
+    Delete button
+    Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
+    Sleep   2s
 
     

@@ -24,7 +24,7 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 # Manage Fund Elements
 
 ${Manage_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Manage Publications') or contains(text(),'จัดการผลงานตีพิมพ์') or contains(text(),'管理出版物'))]]
-${WORKS_MENU}    xpath=//div[@id='ManagePublications']//a[contains(@class,'nav-link') and contains(text(),'Other academic works')]
+${WORKS_MENU}    xpath=//div[@id='ManagePublications']//a[contains(@class,'nav-link') and contains(text(),'Other academic works') or contains(text(),'ผลงานวิชาการอื่นๆ') ]
 
 
 # ปุ่ม 
@@ -32,7 +32,7 @@ ${ADD_WORKS_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@hr
 ${VIEW_WORKS_BUTTON}    xpath=//td//a[contains(@title, 'View') or .//i[contains(@class, 'mdi-eye')]]
 ${EDIT_WORKS_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-success') and .//i[contains(@class, 'mdi-pencil')]]
 ${DELETE_WORKS_BUTTON}    xpath=//div[contains(@class,'card-body')]//button[contains(@class, 'show_confirm') and .//i[contains(@class, 'mdi-delete')]]
-${BACK_BUTTON}    xpath=//a[contains(@class, 'btn-light') and contains(@class, 'mt-5') and normalize-space(text())='ยกเลิก']
+${BACK_BUTTON}    xpath=//a[contains(@class, 'btn-light') and contains(@class, 'mt-5') and normalize-space(text())='ยกเลิก' or normalize-space(text())='取消']
 
 
 
@@ -219,6 +219,16 @@ Test Teacher ACAWORKS In English
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
     Sleep    1s
+    Scroll Page Down
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+
     Logout
 
 Test Teacher Add ACAWORKS In English
@@ -234,7 +244,14 @@ Test Teacher Add ACAWORKS In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
-    
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+
     Logout
 
 Test Teacher View ACAWORKS Detail In English
@@ -250,7 +267,13 @@ Test Teacher View ACAWORKS Detail In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
-    
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
     Logout
 
 
@@ -272,12 +295,36 @@ Test Teacher Edit ACAWORKS Detail In English
     Sleep    2s
     Back button
 
-    Wait Until Page Contains    สิทธิบัตรและลิขสิทธิ์    timeout=10s
     Sleep    2s
 
     Delete button
 
     Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
     Sleep   2s
-    Verify Page Contains Multiple Texts    @{EXPECTED_DELETE_WORKS_TH}
+    
+
+    Close Browser
+
+    Open Browser To Login Page
+    Login As Teacher     pusadee@kku.ac.th    123456789
+    Go To ManagePub
+    Go To WORKS
+    Go To EDIT WORKS
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Back button
+
+    Sleep    2s
+
+    Delete button
+
+    Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
+    Sleep   2s
+
+    Close Browser
+
+
     

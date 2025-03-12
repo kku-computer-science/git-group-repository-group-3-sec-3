@@ -24,7 +24,7 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 # Manage Fund Elements
 
 ${Manage_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Manage Publications') or contains(text(),'จัดการผลงานตีพิมพ์') or contains(text(),'管理出版物'))]]
-${Book_MENU}    xpath=//div[@id='ManagePublications']//a[contains(@class,'nav-link') and contains(text(),'Book')]
+${Book_MENU}    xpath=//div[@id='ManagePublications']//a[contains(@class,'nav-link') and contains(text(),'Book')  or contains(text(),'หนังสือ')]
 
 
 # ปุ่ม 
@@ -213,6 +213,12 @@ Test Teacher Book In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
+    Scroll Page Down
+    Scroll Up
+    Sleep    1s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
     Sleep    1s
     Logout
 
@@ -230,7 +236,15 @@ Test Teacher Add Book In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
-    
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
+    Sleep    1s
+
+
     Logout
 
 Test Teacher View Book Detail In English
@@ -247,6 +261,13 @@ Test Teacher View Book Detail In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
+    Sleep    1s
     
     Logout
 
@@ -264,5 +285,12 @@ Test Teacher Edit Book Detail In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
+    Sleep    1s
     
     Logout

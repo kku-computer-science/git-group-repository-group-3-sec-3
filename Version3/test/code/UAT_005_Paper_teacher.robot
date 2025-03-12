@@ -24,7 +24,7 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 # Manage Fund Elements
 
 ${Manage_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Manage Publications') or contains(text(),'จัดการผลงานตีพิมพ์') or contains(text(),'管理出版物'))]]
-${Paper_MENU}    xpath=//div[@id='ManagePublications']//a[contains(@class,'nav-link') and contains(text(),'Published research')]
+${Paper_MENU}    xpath=//div[@id='ManagePublications']//a[contains(@class,'nav-link') and contains(text(),'Published research')  or contains(text(),'งานวิจัยที่ตีพิมพ์')]
 
 
 # ปุ่ม 
@@ -261,9 +261,17 @@ Test Teacher PAPER In English
     Verify Page Contains Multiple Texts    @{EXPECTED_Paper_PAGE_EN}
     Scroll Page Down
     Scroll Up
+    Sleep    2s
     Change Language    ${LANG_TO_THAI}
     Verify Page Contains Multiple Texts    @{EXPECTED_Paper_PAGE_TH}
     Sleep    1s
+    Scroll Page Down
+    Scroll Up
+    Sleep    1s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    1s
+    Scroll Page Down
+    Scroll Up
     Logout
 
 Test Teacher Add PAPER In English
@@ -279,6 +287,13 @@ Test Teacher Add PAPER In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
     
     Logout
 
@@ -297,7 +312,13 @@ Test Teacher View PAPER detail In English
     Change Language    ${LANG_TO_THAI}   
     Scroll Page Down
     Verify Page Contains Multiple Texts     @{EXPECTED_Detail_TH} 
-    
+    Scroll Up
+    Sleep    1s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    1s
+    Scroll Page Down
+    Scroll Up
+
     Logout
 
 Test Teacher Edit Paper
@@ -317,6 +338,11 @@ Test Teacher Edit Paper
     Change Language    ${LANG_TO_THAI}
     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_TH}
     Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
     Sleep    2s
 
 

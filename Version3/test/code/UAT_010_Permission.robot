@@ -171,8 +171,9 @@ Test Admin Permissions In English
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_USER_PAGE_EN}
-
     Change Language    ${LANG_TO_THAI}
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
     Sleep    2s
     Logout
 
@@ -190,7 +191,12 @@ Test Admin Add Permissions In English
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
-    
+    Sleep    1s
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
     Logout
 
  Test Admin View Permissions detail In English
@@ -202,6 +208,9 @@ Test Admin Add Permissions In English
      Change Language    ${LANG_TO_ENGLISH}
      Sleep    2s
      Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
+     Sleep    1s
+     Change Language    ${LANG_TO_CHINESE}
+     Sleep    2s
     
     Logout
 

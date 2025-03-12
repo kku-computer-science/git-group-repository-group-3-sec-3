@@ -24,8 +24,10 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 # Manage Fund Elements
 
 ${Expertise_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Expertise') or contains(text(),'ความเชี่ยวชาญ') or contains(text(),'权限'))]]
-${SORT_BY_ID_TH}    xpath=//th[contains(@class, 'sorting') and contains(@aria-label, 'ไอดี')]
+${SORT_BY_ID_TH}    xpath=//th[contains(@class, 'sorting') and contains(@aria-label, 'ลำดับ')]
 ${SORT_BY_ID}    xpath=//th[contains(@class, 'sorting') and contains(@aria-label, 'ID')]
+${SORT_BY_ID_CN}    xpath=//th[contains(@class, 'sorting') and contains(@aria-label, '序号')]
+
 # ปุ่ม 
 ${ADD_Expertise_BUTTON}    xpath=//div[contains(@class,'card-header')]//a[contains(@href, '/Expertises/create')]
 ${VIEW_Expertise_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-primary') and .//i[contains(@class, 'mdi-eye')]]
@@ -39,7 +41,7 @@ ${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
 ...    Teacher Expertise    ID    Teacher Name    Name    Action    Show     entries    Search:    
 ...    	Sartra Wongthanavasu    	Big Data Analytics    Computer Vision    	Cellular Automata
 @{EXPECTED_Expertise_PAGE_TH}    
-...    ความเชี่ยวชาญของอาจารย์    ไอดี    ชื่ออาจารย์     ชื่อ    การกระทำ    แสดง     รายการ    ค้นหา:    
+...    ความเชี่ยวชาญของอาจารย์    ลำดับ    ชื่ออาจารย์     ชื่อ    การกระทำ    แสดง     รายการ    ค้นหา:    
 ...    	ศาสตรา วงศ์ธนวสุ    	การวิเคราะห์ข้อมูลขนาดใหญ่    	การมองเห็นของคอมพิวเตอร์    ออโตมาตาของเซลลูลาร์   
 @{EXPECTED_Expertise_PAGE_CN}    
 ...    教师专长    编号    教师姓名    名称    操作    	Sartra Wongthanavasu    大数据分析    	计算机视觉    细胞自动机
@@ -180,6 +182,12 @@ Test Admin Expertise In English
     Scroll Page Down Slightly
     Scroll Up
     Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Click Element    ${SORT_BY_ID_CN}
+    Scroll Page Down Slightly
+    Scroll Up
+    Sleep    2s
+
     Logout
 
 

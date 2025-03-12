@@ -235,6 +235,7 @@ Test Researcher Profile In English
     Verify Page Contains Multiple Texts    @{EXPECTED_PROFILE_TH}
     Scroll Page Down
     Scroll Up
+    
 
     Close Browser
 
@@ -264,18 +265,4 @@ Test Researcher Profile In Chinese
 
     Close Browser
 
-# --- 2) เปลี่ยนเป็นภาษาอังกฤษและตรวจสอบ ---
-# Test Researcher Profile In English
-#     Open Browser To Home Page
-#     Navigate To Researcher Profile
-#     Switch Language    ${LANG_TO_ENGLISH}
-#     Verify Page Contains Multiple Texts    @{EXPECTED_PROFILE_EN}
-#     Close Browser
 
-# --- 3) เปลี่ยนเป็นภาษาจีนและตรวจสอบ ---
-# Test Researcher Profile In Chinese
-#     Open Browser To Home Page
-#     Navigate To Researcher Profile
-#     Switch Language    ${LANG_TO_CHINESE}
-#     Verify Page Contains Multiple Texts    @{EXPECTED_PROFILE_CN}
-#     Close Browser

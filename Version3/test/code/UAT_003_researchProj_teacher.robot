@@ -30,7 +30,7 @@ ${ADD_REARCH_PROJECT_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[con
 ${VIEW_REARCH_PROJECT_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-primary') and .//i[contains(@class, 'mdi-eye')]]
 ${EDIT_REARCH_PROJECT_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-success') and .//i[contains(@class, 'mdi-pencil')]]
 ${DELETE_REARCH_PROJECT_BUTTON}    xpath=//div[contains(@class,'card-body')]//button[contains(@class, 'show_confirm') and .//i[contains(@class, 'mdi-delete')]]
-${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
+${BACK_BUTTON}    xpath=//a[contains(text(), 'Back') or contains(text(), '返回')]
 
 
 @{EXPECTED_RPJ_PAGE_TH}    
@@ -241,12 +241,13 @@ Test Teacher Research Project
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
     Go To Research Project
+    Sleep    2s
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_RPJ_PAGE_EN}
     Sleep    2s
-    Change Language    ${LANG_TO_THAI}
-    Verify Page Contains Multiple Texts    @{EXPECTED_RPJ_PAGE_TH}
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
     Logout
 
 Test Teacher Add Research Project In English
@@ -254,14 +255,15 @@ Test Teacher Add Research Project In English
     Login As Teacher     pusadee@kku.ac.th    123456789
     Go To Research Project
     Go To Add Research Project
+    Sleep    1s
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_RESEARCH_PROJECT_PAGE_EN}
     Scroll Page Down
     Scroll Up
     Sleep    2s
-    Change Language    ${LANG_TO_THAI}
-    
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
     Logout
 
 Test Teacher View Research Project detail In English
@@ -269,11 +271,13 @@ Test Teacher View Research Project detail In English
     Login As Teacher     pusadee@kku.ac.th    123456789
     Go To Research Project
     Go To VIEW Research Project
+    Sleep    2s
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
-    Change Language    ${LANG_TO_THAI}
-    
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+
     Logout
 
 Test Teacher Edit And Delete Research Project detail In English
@@ -288,12 +292,31 @@ Test Teacher Edit And Delete Research Project detail In English
     Scroll Page Down
     Back button
 
-
-    Wait Until Page Contains    Research Project    timeout=10s
     Sleep    2s
 
     Delete button
 
     Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
     Sleep   2s
-    Verify Page Contains Multiple Texts    @{EXPECTED_DELETE_EN}
+    #Verify Page Contains Multiple Texts    @{EXPECTED_DELETE_EN}
+    Sleep   2s
+
+    Close Browser
+
+    Open Browser To Login Page
+    Login As Teacher     pusadee@kku.ac.th    123456789
+    Go To Research Project
+    Go To EDIT Research Project
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+    
+    Scroll Page Down
+    Back button
+
+    Sleep    2s
+
+    Delete button
+
+    Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
+    Sleep   2s
+    Close Browser

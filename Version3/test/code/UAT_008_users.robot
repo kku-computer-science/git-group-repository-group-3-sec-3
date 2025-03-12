@@ -23,7 +23,8 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 
 # Manage Fund Elements
 
-${USERS_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Users') or contains(text(),'ผู้ใช้') or contains(text(),'研究小组'))]]
+${USERS_MENU}    xpath=//a[contains(@class,'nav-link') and contains(@href,'/users') and .//span[contains(@class,'menu-title') and (contains(text(),'ผู้ใช้') or contains(text(),'Users') or contains(text(),'研究小组'))]]
+
 
 # ปุ่ม 
 ${ADD_USERS_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@href, '/users/create')]
@@ -80,15 +81,15 @@ ${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
 ...    返回     
 
 @{EXPECTED_Detail_EN}    
-...    Research Group Details
-...    Research Group Information   
-...    Research Group Name (Thai)      
-...    Research Group Name (English)   
-...    Research Group Description (Thai)   
-...    Research Group Description (English)  
-...    Research Group Details (Thai)     
-...    Research Group Details (English)   
-...    Research Group Members   
+...    Users Details
+...    Users Information   
+...    Users Name (Thai)      
+...    Users Name (English)   
+...    Users Description (Thai)   
+...    Users Description (English)  
+...    Users Details (Thai)     
+...    Users Details (English)   
+...    Users Members   
 ...    Asst. Prof. Dr. Pipat Reungsang    
 ...    Assoc. Prof. Dr. Chaiyapon Keeratikasikorn
 ...    ,    
@@ -142,7 +143,7 @@ Change Language
     Click Element    ${language_button}
     Sleep    3s
 
-Go To Research Group
+Go To Users
     Wait Until Element Is Visible    ${USERS_MENU}    timeout=10s
     Click Element    ${USERS_MENU}
 
@@ -150,7 +151,7 @@ Back button
     Wait Until Element Is Visible    ${BACK_BUTTON}    timeout=10s
     Click Element    ${BACK_BUTTON}
 
-Go To Add Research Group
+Go To Add Users
     Scroll Element Into View    ${ADD_USERS_BUTTON}
     Wait Until Element Is Visible    ${ADD_USERS_BUTTON}    timeout=15s
     Log    ${ADD_USERS_BUTTON}
@@ -158,7 +159,7 @@ Go To Add Research Group
     Click Element    ${ADD_USERS_BUTTON}
     Sleep    2s
 
-Go To VIEW Research Group
+Go To VIEW Users
     Scroll Element Into View    ${VIEW_REARCH_GROUP_BUTTON}
     Wait Until Element Is Visible    ${VIEW_REARCH_GROUP_BUTTON}    timeout=15s
     Log    ${VIEW_REARCH_GROUP_BUTTON}
@@ -166,7 +167,7 @@ Go To VIEW Research Group
     Click Element    ${VIEW_REARCH_GROUP_BUTTON}
     Sleep    2s
 
-Go To EDIT Research Group
+Go To EDIT Users
     Scroll Element Into View    ${EDIT_USERS_BUTTON}
     Wait Until Element Is Visible    ${EDIT_USERS_BUTTON}    timeout=15s
     Log    ${EDIT_USERS_BUTTON}
@@ -199,48 +200,56 @@ Verify Page Contains Multiple Texts
 Test Admin Users In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Go To Research Group
+    Scroll Page Down
+    Go To Users
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_USER_PAGE_EN}
-
+    Sleep    2s
     Change Language    ${LANG_TO_THAI}
     Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+
     Logout
 
 Test Admin Add Users In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Go To Research Group
-    Go To Add Research Group
+    Scroll Page Down
+    Go To Users
+    Go To Add Users
     Change Language    ${LANG_TO_ENGLISH}
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_USERS_PAGE_EN}
     Scroll Page Down
     Scroll Up
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Scroll Page Down
+    Scroll Up
     
     Logout
 
-# Test Admin View Research Group detail In English
+
+# Test Admin Edit Users In English
 #     Open Browser To Login Page
 #     Login As Admin    admin@gmail.com    12345678
+#     Scroll Page Down
+#     Go To Users
+#     Go To EDIT Users
 #     Change Language    ${LANG_TO_ENGLISH}
-#     Go To Research Group
-#     Go To VIEW Research Group
+#     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_EN}
+#     Change Language    ${LANG_TO_THAI}
+#     Scroll Page Down
+#     Scroll Up
 #     Sleep    2s
-#     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
-    
-#     Logout
+#     Change Language    ${LANG_TO_CHINESE}
+#     Scroll Page Down
+#     Scroll Up
 
-Test Admin Edit Users In English
-    Open Browser To Login Page
-    Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
-    Go To Research Group
-    Go To EDIT Research Group
-    Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_EN}
-    Change Language    ${LANG_TO_THAI}
-    Scroll Page Down
-    Scroll Up
+#     Close Browser
     

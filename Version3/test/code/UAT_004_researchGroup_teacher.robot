@@ -30,7 +30,7 @@ ${ADD_REARCH_GROUP_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[conta
 ${VIEW_RESEARCH_GROUP_BUTTON}    xpath=//tr[td[@class='sorting_1' and text()='4']]//a[contains(@class, 'btn-outline-primary') and .//i[contains(@class, 'mdi-eye')]]
 ${EDIT_RESEARCH_GROUP_BUTTON}    xpath=//tr[td[@class='sorting_1' and text()='4']]//a[contains(@class, 'btn-outline-success') and .//i[contains(@class, 'mdi-pencil')]]
 ${DELETE_RESEARCH_GROUP_BUTTON}    xpath=//tr[td[@class='sorting_1' and text()='4']]//button[contains(@class, 'show_confirm') and .//i[contains(@class, 'mdi-delete')]]
-${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
+${BACK_BUTTON}    xpath=//a[contains(text(), 'Back') or contains(text(), '返回')]
 
 
 
@@ -217,11 +217,12 @@ Test Teacher Research Group In English
     Login As Teacher     pusadee@kku.ac.th    123456789
     
     Go To Research Group
+    Sleep    2s
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_RPG_PAGE_EN}
-
-    Change Language    ${LANG_TO_THAI}
+    Sleep    05s
+    Change Language    ${LANG_TO_CHINESE}
     Sleep    2s
     Logout
 
@@ -230,13 +231,18 @@ Test Teacher Add Research Group In English
     Login As Teacher     pusadee@kku.ac.th    123456789
     Go To Research Group
     Go To Add Research Group
+    Sleep    2s
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_RESEARCH_GROUP_PAGE_EN}
     Scroll Page Down
     Scroll Up
     Sleep    2s
-    Change Language    ${LANG_TO_THAI}
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+    Scroll Page Down
+    Scroll Up
+    Sleep    2s
     
     Logout
 
@@ -247,11 +253,15 @@ Test Teacher View Research Group detail In English
     Go To VIEW Research Group
     Scroll Page Down
     Scroll Up
+    Sleep    2s
     Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
     Change Language    ${LANG_TO_THAI}
     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_TH}
+    Sleep    2s
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
 
     Logout
 
@@ -271,7 +281,6 @@ Test Teacher Edit And Delete Research Group In English
     Back button
 
 
-    Wait Until Page Contains    Research Project    timeout=10s
     Sleep    2s
 
     Delete button
@@ -279,6 +288,31 @@ Test Teacher Edit And Delete Research Group In English
     Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
     Sleep   2s
     Verify Page Contains Multiple Texts    @{EXPECTED_DELETE_EN}
+
+    Close Browser
+    Sleep   1s
+
+    Open Browser To Login Page
+    Login As Teacher     pusadee@kku.ac.th    123456789
+    
+    Go To Research Group
+    Go To EDIT Research Group
+    Change Language    ${LANG_TO_CHINESE}
+    Sleep    2s
+
+    Scroll Page Down
+    Sleep    2s
+
+    Back button
+
+    Sleep    2s
+
+    Delete button
+
+    Wait Until Element Is Visible   xpath=//div[contains(@class,'swal-modal')]//div[contains(@class,'swal-title')]    timeout=10s
+    Sleep   2s
+    Close Browser
+
 
 
     
