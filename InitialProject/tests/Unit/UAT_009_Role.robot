@@ -166,23 +166,27 @@ Verify Page Contains Multiple Texts
     END
 
 *** Test Cases ***
-Test Admin Users In English
+Test Admin Roles In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Go To Role
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_USER_PAGE_EN}
 
     Change Language    ${LANG_TO_THAI}
     Sleep    2s
     Logout
 
-Test Admin Add ROLE In English
+Test Admin Add Roles In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
     Change Language    ${LANG_TO_ENGLISH}
     Go To Role
     Go To Add Role
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_USERS_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -191,12 +195,12 @@ Test Admin Add ROLE In English
     
     Logout
 
- Test Admin View ROLE detail In English
+ Test Admin View Roles detail In English
      Open Browser To Login Page
      Login As Admin    admin@gmail.com    12345678
-     Change Language    ${LANG_TO_ENGLISH}
      Go To Role
      Go To VIEW Role
+     Change Language    ${LANG_TO_ENGLISH}
      Sleep    2s
      Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
     

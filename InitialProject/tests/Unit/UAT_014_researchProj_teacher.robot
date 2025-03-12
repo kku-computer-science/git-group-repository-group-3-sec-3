@@ -240,8 +240,9 @@ Verify Page Contains Multiple Texts
 Test Teacher Research Project 
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Project
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_RPJ_PAGE_EN}
     Sleep    2s
     Change Language    ${LANG_TO_THAI}
@@ -251,9 +252,10 @@ Test Teacher Research Project
 Test Teacher Add Research Project In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Project
     Go To Add Research Project
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_RESEARCH_PROJECT_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -265,9 +267,9 @@ Test Teacher Add Research Project In English
 Test Teacher View Research Project detail In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Project
     Go To VIEW Research Project
+    Change Language    ${LANG_TO_ENGLISH}
     Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
     Change Language    ${LANG_TO_THAI}
@@ -277,9 +279,10 @@ Test Teacher View Research Project detail In English
 Test Teacher Edit And Delete Research Project detail In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Project
     Go To EDIT Research Project
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_EN}
     
     Scroll Page Down

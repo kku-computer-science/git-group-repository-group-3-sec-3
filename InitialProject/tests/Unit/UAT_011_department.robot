@@ -168,9 +168,11 @@ Verify Page Contains Multiple Texts
 Test Admin Department In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Scroll Page Down
     Go To Department
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_DEPARTMENT_PAGE_EN}
 
     Change Language    ${LANG_TO_THAI}
@@ -180,10 +182,12 @@ Test Admin Department In English
 Test Admin Add Department In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Scroll Page Down
     Go To Department
     Go To Add Department
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_DEPARTMENT_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -195,10 +199,11 @@ Test Admin Add Department In English
  Test Admin View Department detail In English
      Open Browser To Login Page
      Login As Admin    admin@gmail.com    12345678
-     Change Language    ${LANG_TO_ENGLISH}
+     
      Scroll Page Down
      Go To Department
      Go To VIEW Department
+     Change Language    ${LANG_TO_ENGLISH}
      Sleep    2s
      Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
     

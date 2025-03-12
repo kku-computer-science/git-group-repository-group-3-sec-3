@@ -4,7 +4,7 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}         chrome
-${LOGIN_URL}       https://cssoften0368.cpkkuhost.com/login
+${LOGIN_URL}       https://cssoften0368.cpkkuhost.com/    login
 
 # Login Page Elements
 ${LOGIN_PAGE_HEADER}    xpath=//h1[contains(text(), 'Account Login') or contains(text(), 'เข้าสู่ระบบบัญชี') or contains(text(), '账户登录')]
@@ -166,9 +166,10 @@ Verify Page Contains Multiple Texts
 Test Admin Permissions In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
     Scroll Page Down
     Go To Permissions
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_USER_PAGE_EN}
 
     Change Language    ${LANG_TO_THAI}
@@ -178,10 +179,12 @@ Test Admin Permissions In English
 Test Admin Add Permissions In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Scroll Page Down
     Go To Permissions
     Go To Add Permission
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_PERMISSIONS_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -193,10 +196,10 @@ Test Admin Add Permissions In English
  Test Admin View Permissions detail In English
      Open Browser To Login Page
      Login As Admin    admin@gmail.com    12345678
-     Change Language    ${LANG_TO_ENGLISH}
      Scroll Page Down
      Go To Permissions
      Go To VIEW Permission
+     Change Language    ${LANG_TO_ENGLISH}
      Sleep    2s
      Verify Page Contains Multiple Texts    @{EXPECTED_Detail_EN}
     

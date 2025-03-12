@@ -202,9 +202,11 @@ Verify Page Contains Multiple Texts
 Test Teacher Book In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Go To ManagePub
     Go To Book
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Book_PAGE_EN}
     Scroll Page Down
     Sleep    2s
@@ -217,10 +219,12 @@ Test Teacher Book In English
 Test Teacher Add Book In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Go To ManagePub
     Go To Book
     Go To Add Book
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_Book_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -232,10 +236,12 @@ Test Teacher Add Book In English
 Test Teacher View Book Detail In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Go To ManagePub
     Go To Book
     Go To VIEW BOOK
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_VIEW_Book_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -247,10 +253,12 @@ Test Teacher View Book Detail In English
 Test Teacher Edit Book Detail In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Go To ManagePub
     Go To Book
     Go To EDIT Book
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_Book_PAGE_EN}
     Scroll Page Down
     Scroll Up

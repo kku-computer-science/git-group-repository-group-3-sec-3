@@ -254,10 +254,13 @@ Verify Page Contains Multiple Texts
 Test Teacher PAPER In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To ManagePub
     Go To Pub
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Paper_PAGE_EN}
+    Scroll Page Down
+    Scroll Up
     Change Language    ${LANG_TO_THAI}
     Verify Page Contains Multiple Texts    @{EXPECTED_Paper_PAGE_TH}
     Sleep    1s
@@ -266,10 +269,11 @@ Test Teacher PAPER In English
 Test Teacher Add PAPER In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To ManagePub
     Go To Pub
     Go To Add Paper
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_Paper_PAGE_EN}
     Scroll Page Down
     Scroll Up
@@ -281,10 +285,11 @@ Test Teacher Add PAPER In English
 Test Teacher View PAPER detail In English
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
     Go To ManagePub
     Go To Pub
     Go To VIEW Paper
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Scroll Page Down
     Scroll Up
     Sleep    2s
@@ -298,10 +303,12 @@ Test Teacher View PAPER detail In English
 Test Teacher Edit Paper
     Open Browser To Login Page
     Login As Teacher     pusadee@kku.ac.th    123456789
-    Change Language    ${LANG_TO_ENGLISH}
+    
     Go To ManagePub
     Go To Pub
     Go To EDIT Paper
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_EDIT_EN}
     Scroll Page Down
     Sleep    2s

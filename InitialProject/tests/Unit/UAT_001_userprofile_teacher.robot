@@ -42,8 +42,11 @@ ${LANG_TO_CHINESE}    xpath=//a[contains(text(), '中文')]
 ...    Password Settings    
 ...    Old Password    New Password    Confirm Password  
 
+@{EXPECTED_EXPECTED_TH}    
+...    ความเชี่ยวชาญ    วิศวกรรมซอฟต์แวร์    กระบวนการพัฒนาซอฟต์แวร์    คุณภาพของโค้ดและซอฟต์แวร์    วิศวกรรมซอฟต์แวร์ที่ปลอดภัย    ความปลอดภัยของเครือข่ายคอมพิวเตอร์    ตัวแทนเคลื่อนที่และระบบหลายเอเยนต์   
+
 @{EXPECTED_EXPECTED_EN}    
-...    Expertise    
+...    Expertise    Software Engineering    Software Process    Code Smells and Software Quality    Secure Software Engineering    Computer Network Security    Mobile Agent and Multi-Agent Systems    
 
 @{EXPECTED_EDUCATION_EN}    
 ...    Education History    Bachelor degree    Name of university    Degree Name    Year of graduation
@@ -105,8 +108,7 @@ Verify Page Contains Multiple Texts
 
 
 *** Test Cases ***
-
-Test Teacher Update User Profile
+Test Teacher Account Tab
     Open Browser To Login Page
     Login As Teacher    chitsutha@kku.ac.th    123456789
     Go To User Profile    
@@ -126,27 +128,7 @@ Test Teacher Update User Profile
     Sleep    2s
     Logout
 
-Test Teacher Add Expertise
-    Open Browser To Login Page
-    Login As Teacher    chitsutha@kku.ac.th    123456789
-    Go To User Profile    
-    Click Element    ${EXPERTISE_TAB} 
-    Sleep    2s
-    Click Element    ${EXPERTISE_TAB}   
-    Sleep    2s
-    Change Language    ${LANG_TO_ENGLISH}
-    Click Element    ${EXPERTISE_TAB} 
-    Sleep    2s
-    Click Element    ${EXPERTISE_TAB}   
-    Sleep    2s
-    Execute JavaScript    window.scrollTo(0,1000)    
-    Sleep    2s
-    Scroll Up
-    Sleep    2s
-    Verify Page Contains Multiple Texts    @{EXPECTED_EXPECTED_EN}   
-    Logout
-
-Test Teacher Navigate to Password Tab
+Test Teacher Password Tab
     Open Browser To Login Page
     Login As Teacher    chitsutha@kku.ac.th    123456789
     Go To User Profile    
@@ -163,7 +145,34 @@ Test Teacher Navigate to Password Tab
     Sleep    2s
     Logout
 
-Test Teacher Navigate to Education Tab
+Test Teacher Expertise Tab
+    Open Browser To Login Page
+    Login As Teacher    chitsutha@kku.ac.th    123456789
+    Go To User Profile    
+    Click Element    ${EXPERTISE_TAB} 
+    Sleep    2s
+    Click Element    ${EXPERTISE_TAB}   
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_EXPECTED_TH} 
+    Execute JavaScript    window.scrollTo(0,1000) 
+    Sleep    1s
+    Execute JavaScript    window.scrollTo(0,0) 
+    Sleep    1s
+    Change Language    ${LANG_TO_ENGLISH}
+    Click Element    ${EXPERTISE_TAB} 
+    Sleep    2s
+    Click Element    ${EXPERTISE_TAB}   
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0,1000)    
+    Sleep    2s
+    Scroll Up
+    Sleep    2s
+    Verify Page Contains Multiple Texts    @{EXPECTED_EXPECTED_EN}   
+    Logout
+
+
+
+Test Teacher Education Tab
     Open Browser To Login Page
     Login As Teacher    chitsutha@kku.ac.th    123456789
     Go To User Profile    

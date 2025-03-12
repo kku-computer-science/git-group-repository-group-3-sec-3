@@ -207,10 +207,10 @@ Verify Page Contains Multiple Texts
 Test Admin Research Group In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Group
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep   2s
     Verify Page Contains Multiple Texts    @{EXPECTED_RPG_PAGE_EN}
-
     Change Language    ${LANG_TO_THAI}
     Sleep    2s
     Logout
@@ -218,9 +218,10 @@ Test Admin Research Group In English
 Test Admin Add Research Group In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
     Go To Research Group
     Go To Add Research Group
+    Change Language    ${LANG_TO_ENGLISH}
+    Sleep   2s
     Verify Page Contains Multiple Texts    @{EXPECTED_ADD_RESEARCH_GROUP_PAGE_EN}
     Scroll Page Down
     Scroll Up
