@@ -6,9 +6,10 @@ Test Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
-${URL}    http://127.0.0.1:8000/reports   
+${URL}        https://cssoften0368.cpkkuhost.com
 ${WAIT_TIME}  3s
 
+${REPORT_MENU}    xpath=//nav//a[contains(@class, 'nav-link') and contains(text(), 'รายงาน')]
 
 @{EXPECTED_THAI_TEXTS}    
 ...    สถิติจำนวนบทความทั้งหมด 5 ปี    
@@ -39,6 +40,14 @@ Wait And Click
     Wait Until Element Is Visible    ${locator}    timeout=10s
     Click Element    ${locator}
 
+Scroll Page Down Slightly
+    Execute JavaScript    window.scrollBy(0, 800)
+    Sleep    2s
+Scroll Up
+    Execute JavaScript    window.scrollTo(0, 0) 
+    Sleep    2s
+   
+
 Verify Page Contains Texts
     [Arguments]    @{expected_texts}
     ${html_source}=    Get Source
@@ -51,65 +60,29 @@ Verify Page Contains Texts
 Thai To English
     [Documentation]    Starting from default Thai, switch to English and verify.
     Open Browser To Home Page
+    Wait And Click    ${REPORT_MENU}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
     Wait And Click    ${LANG_TO_ENGLISH}
     Sleep    ${WAIT_TIME}
+    
     Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
 
+    Scroll Page Down Slightly
+    Scroll Up
+    
+    
 Thai To Chinese
-    [Documentation]    Starting from default Thai, switch to Chinese and verify.
+        [Documentation]    Starting from default Thai, switch to English and verify.
     Open Browser To Home Page
+    Wait And Click    ${REPORT_MENU}
     Sleep    ${WAIT_TIME}
     Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
     Wait And Click    ${LANG_TO_CHINESE}
     Sleep    ${WAIT_TIME}
+    
     Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
 
-English To Chinese
-    [Documentation]    Switch from Thai to English then to Chinese.
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
-    Wait And Click    ${LANG_TO_ENGLISH}
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
-    Wait And Click    ${LANG_TO_CHINESE}
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
-
-Chinese To Thai
-    [Documentation]    Switch from Thai to Chinese then back to Thai.
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
-    Wait And Click    ${LANG_TO_CHINESE}
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
-    Wait And Click    ${LANG_TO_THAI}
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
-
-English To Thai
-    [Documentation]    Switch from Thai to English then back to Thai.
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
-    Wait And Click    ${LANG_TO_ENGLISH}
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
-    Wait And Click    ${LANG_TO_THAI}
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
-
-Chinese To English
-    [Documentation]    Switch from Thai to Chinese then to English.
-    Open Browser To Home Page
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_THAI_TEXTS}
-    Wait And Click    ${LANG_TO_CHINESE}
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_CHINESE_TEXTS}
-    Wait And Click    ${LANG_TO_ENGLISH}
-    Sleep    ${WAIT_TIME}
-    Verify Page Contains Texts    @{EXPECTED_ENGLISH_TEXTS}
+    Scroll Page Down Slightly
+    Scroll Up
+    

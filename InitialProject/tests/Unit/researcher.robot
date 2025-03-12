@@ -18,7 +18,7 @@ ${LANG_TO_ENGLISH}    xpath=//a[contains(text(), 'English')]
 ${LANG_TO_CHINESE}    xpath=//a[contains(text(), '中文')]
 
 # ตรวจสอบข้อความทั่วไปของหน้า Researcher
-@{EXPECTED_TH}    
+@{EXPECTED_RESEARCHER_TH}    
 ...    นักวิจัย    
 ...    ค้นหา    
 ...    คำค้นหาที่สนใจ    
@@ -38,8 +38,8 @@ ${LANG_TO_CHINESE}    xpath=//a[contains(text(), '中文')]
 @{EXPECTED_RESEARCHER_CN}    
 ...    Punyaphol Horata    
 ...    Assoc. Prof. Dr.  
-${EXPECTED_RESEARCHER_EN}    Punyaphol Horata, Ph.D. 
-@{EXPECTED_RESEARCHER_TH}    
+${EXPECTED_RESEARCHER_NAME_EN}    Punyaphol Horata, Ph.D. 
+@{EXPECTED_RESEARCHER_NAME_TH}    
 ...    รศ.ดร.    
 ...    ปัญญาพล หอระตะ
 
@@ -124,14 +124,14 @@ Test Researcher Name In English
     Open Browser To Home Page
     Navigate To Researcher Page
     Wait And Click    ${LANG_TO_ENGLISH}
-    Verify Page Contains Multiple Texts    ${EXPECTED_RESEARCHER_EN}
+    Verify Page Contains Multiple Texts    ${EXPECTED_RESEARCHER_NAME_EN}
     Close Browser
 
 Test Researcher Name In Thai
     Open Browser To Home Page
     Navigate To Researcher Page
     Sleep    ${WAIT_TIME}
-    Verify Page Contains Multiple Texts    @{EXPECTED_RESEARCHER_TH}
+    Verify Page Contains Multiple Texts    @{EXPECTED_RESEARCHER_NAME_TH}
     Close Browser
 
 # ✅ ทดสอบว่าความเชี่ยวชาญของผู้วิจัยแสดงถูกต้อง

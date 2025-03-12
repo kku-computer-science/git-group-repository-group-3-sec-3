@@ -24,7 +24,8 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 # Manage Fund Elements
 
 ${Expertise_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Expertise') or contains(text(),'ความเชี่ยวชาญ') or contains(text(),'权限'))]]
-
+${SORT_BY_ID_TH}    xpath=//th[contains(@class, 'sorting') and contains(@aria-label, 'ไอดี')]
+${SORT_BY_ID}    xpath=//th[contains(@class, 'sorting') and contains(@aria-label, 'ID')]
 # ปุ่ม 
 ${ADD_Expertise_BUTTON}    xpath=//div[contains(@class,'card-header')]//a[contains(@href, '/Expertises/create')]
 ${VIEW_Expertise_BUTTON}    xpath=//div[contains(@class,'card-body')]//a[contains(@class, 'btn-outline-primary') and .//i[contains(@class, 'mdi-eye')]]
@@ -35,11 +36,13 @@ ${BACK_BUTTON}    xpath=//a[contains(text(), 'Back')]
 
 
 @{EXPECTED_Expertise_PAGE_EN}    
-...    Teacher Expertise    ID    Teacher Name    Name    Action   
+...    Teacher Expertise    ID    Teacher Name    Name    Action    Show     entries    Search:    
+...    	Sartra Wongthanavasu    	Big Data Analytics    Computer Vision    	Cellular Automata
 @{EXPECTED_Expertise_PAGE_TH}    
-...    ความเชี่ยวชาญของอาจารย์    ไอดี    ชื่ออาจารย์     ชื่อ    การกระทำ   
+...    ความเชี่ยวชาญของอาจารย์    ไอดี    ชื่ออาจารย์     ชื่อ    การกระทำ    แสดง     รายการ    ค้นหา:    
+...    	ศาสตรา วงศ์ธนวสุ    	การวิเคราะห์ข้อมูลขนาดใหญ่    	การมองเห็นของคอมพิวเตอร์    ออโตมาตาของเซลลูลาร์   
 @{EXPECTED_Expertise_PAGE_CN}    
-...    教师专长    编号    教师姓名    名称    操作
+...    教师专长    编号    教师姓名    名称    操作    	Sartra Wongthanavasu    大数据分析    	计算机视觉    细胞自动机
 	           
 
 
@@ -95,6 +98,10 @@ Scroll Page Down
         Execute JavaScript    window.scrollTo(0, ${scroll_position})
         Sleep    0.5s
     END
+
+Scroll Page Down Slightly
+    Execute JavaScript    window.scrollBy(0, 5000)
+    Sleep    0.5s
 
 Scroll Up
     Execute JavaScript    window.scrollTo(0, 0)
@@ -161,12 +168,17 @@ Verify Page Contains Multiple Texts
 Test Admin Expertise In English
     Open Browser To Login Page
     Login As Admin    admin@gmail.com    12345678
-    Change Language    ${LANG_TO_ENGLISH}
     Scroll Page Down
     Go To Expertise
+    Sleep    5s
+    Click Element    ${SORT_BY_ID_TH}
+    Sleep    2s
+    Change Language    ${LANG_TO_ENGLISH}
+    Click Element    ${SORT_BY_ID}
+    Sleep    2s
     Verify Page Contains Multiple Texts    @{EXPECTED_Expertise_PAGE_EN}
-
-    Change Language    ${LANG_TO_THAI}
+    Scroll Page Down Slightly
+    Scroll Up
     Sleep    2s
     Logout
 
