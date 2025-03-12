@@ -1051,4 +1051,90 @@ return [
      'Research Group'        => '研究小组',
      'Group Name'            => '小组名称',
      
+
+     'departments_created_successfully' => '部门创建成功',
+    'department_updated_successfully'  => '部门更新成功',
+    'department_deleted_successfully'  => '部门删除成功',
+
+    'profile_info_updated_successfully' => '您的个人信息已成功更新',    
+
+    'expertise_created_successfully' => '专业条目创建成功',
+    'expertise_updated_successfully' => '专业数据更新成功',
+    'expertise_deleted_successfully' => '专业条目删除成功',
+
+    'file_uploaded_successfully' => '文件上传成功',
+    'post_updated_successfully'  => '帖子更新成功',
+
+
+    'fund_created_successfully' => '资金创建成功',
+    'fund_updated_successfully' => '资金更新成功',
+    'fund_deleted_successfully' => '资金删除成功',
+
+    'file_imported_successfully' => '文件已成功导入',
+
+
+    'file_deleted_successfully' => '文件删除成功。',
+
+
+    'papers_created_successfully' => '论文创建成功',
+    'papers_updated_successfully' => '论文更新成功',
+    'page_not_found'              => '页面未找到',
+
+
+    'patent_created_successfully' => '专利创建成功',
+    'patent_updated_successfully' => '专利更新成功',
+    'patent_deleted_successfully' => '专利删除成功',
+
+
+    'permission_created_successfully' => '权限创建成功',
+    'permission_updated_successfully' => '权限更新成功',
+    'permission_deleted_successfully' => '权限删除成功',
+
+
+    'post_created_successfully' => '帖子创建成功',
+    'post_updated_successfully' => '帖子更新成功',
+    'post_deleted_successfully' => '帖子删除成功',
+
+
+    'something_went_wrong'                 => '发生了一些错误。',
+    'profile_updated_successfully'         => '个人资料更新成功。',
+    'picture_upload_failed'                => '文件上传失败。',
+    'picture_update_failed'                => '更新数据库中的图片失败。',
+    'profile_picture_updated_successfully' => '您的个人资料图片更新成功。',
+    'password_update_failed'               => '更新密码失败。',
+    'password_changed_successfully'        => '您的密码已成功更改。',
+
+
+    'program_created_successfully' => '项目创建成功',
+    'program_updated_successfully' => '项目数据更新成功',
+
+
+    'research_group_created_successfully' => '研究组创建成功',
+    'research_group_updated_successfully' => '研究组更新成功',
+    'research_group_deleted_successfully' => '研究组删除成功',  
+
+
+    'research_project_created_successfully' => '研究项目创建成功',
+    'research_project_updated_successfully' => '研究项目更新成功',
+    'research_project_deleted_successfully' => '研究项目删除成功',
+
+
+    'role_created_successfully' => '角色创建成功',
+    'role_updated_successfully' => '角色更新成功',
+    'role_deleted_successfully' => '角色删除成功',
+
+
+    'source_data_created_successfully' => '来源数据创建成功。',
+    'source_data_updated_successfully' => '来源数据更新成功。',
+
+
+    'papers_updated_successfully' => '论文更新成功！',
+
+
+    'user_created_successfully'           => '用户创建成功',
+    'user_updated_successfully'           => '用户更新成功',
+    'user_deleted_successfully'           => '用户删除成功',
+    'picture_upload_failed'               => '上传新图片失败',
+    'picture_update_failed'               => '更新数据库中的图片失败',
+    'profile_picture_updated_successfully'=> '个人资料图片更新成功',
 ];

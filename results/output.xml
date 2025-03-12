@@ -1,50 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.11.8 on win32)" generated="2025-03-12T14:50:29.328576" rpa="false" schemaversion="5">
-<suite id="s1" name="Git-Group-Repository-Group-3-Sec-3" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3">
-<suite id="s1-s1" name="InitialProject" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject">
-<suite id="s1-s1-s1" name="Tests" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests">
-<suite id="s1-s1-s1-s1" name="Unit" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests\Unit">
-<suite id="s1-s1-s1-s1-s1" name="Reports" source="D:\Cs2567-2\SoftwareEn\LocalRepo\git-group-repository-group-3-sec-3\InitialProject\tests\Unit\reports.robot">
-<test id="s1-s1-s1-s1-s1-t1" name="Thai To English" line="58">
+<robot generator="Robot 7.1.1 (Python 3.12.1 on win32)" generated="2025-03-12T22:05:00.662780" rpa="false" schemaversion="5">
+<suite id="s1" name="Git-Group-Repository-Group-3-Sec-3" source="C:\Users\aekka\OneDrive\Desktop\Work\git-group-repository-group-3-sec-3">
+<suite id="s1-s1" name="Version3" source="C:\Users\aekka\OneDrive\Desktop\Work\git-group-repository-group-3-sec-3\Version3">
+<suite id="s1-s1-s1" name="Code" source="C:\Users\aekka\OneDrive\Desktop\Work\git-group-repository-group-3-sec-3\Version3\code">
+<suite id="s1-s1-s1-s1" name="Src" source="C:\Users\aekka\OneDrive\Desktop\Work\git-group-repository-group-3-sec-3\Version3\code\src">
+<suite id="s1-s1-s1-s1-s1" name="Tests" source="C:\Users\aekka\OneDrive\Desktop\Work\git-group-repository-group-3-sec-3\Version3\code\src\tests">
+<suite id="s1-s1-s1-s1-s1-s1" name="Unit" source="C:\Users\aekka\OneDrive\Desktop\Work\git-group-repository-group-3-sec-3\Version3\code\src\tests\Unit">
+<suite id="s1-s1-s1-s1-s1-s1-s1" name="UAT 022 reports Visitor" source="C:\Users\aekka\OneDrive\Desktop\Work\git-group-repository-group-3-sec-3\Version3\code\src\tests\Unit\UAT_022_reports_Visitor.robot">
+<test id="s1-s1-s1-s1-s1-s1-s1-t1" name="Thai To English" line="60">
 <kw name="Open Browser To Home Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:29.641684" level="INFO">Opening browser 'chrome' to base url 'https://cssoften0368.cpkkuhost.com'.</msg>
+<msg time="2025-03-12T22:05:01.014834" level="INFO">Opening browser 'chrome' to base url 'https://cssoften0368.cpkkuhost.com'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T14:50:29.641684" elapsed="6.230310"/>
+<status status="PASS" start="2025-03-12T22:05:01.013833" elapsed="12.423183"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T14:50:35.871994" elapsed="0.029083"/>
+<status status="PASS" start="2025-03-12T22:05:13.438017" elapsed="0.062535"/>
 </kw>
-<status status="PASS" start="2025-03-12T14:50:29.640698" elapsed="6.260379"/>
+<status status="PASS" start="2025-03-12T22:05:01.013833" elapsed="12.486719"/>
 </kw>
 <kw name="Wait And Click">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T14:50:35.902076" elapsed="0.025335"/>
+<status status="PASS" start="2025-03-12T22:05:13.503551" elapsed="0.071077"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:35.928550" level="INFO">Clicking element 'xpath=//nav//a[contains(@class, 'nav-link') and contains(text(), 'รายงาน')]'.</msg>
+<msg time="2025-03-12T22:05:13.575630" level="INFO">Clicking element 'xpath=//nav//a[contains(@class, 'nav-link') and contains(text(), 'รายงาน')]'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T14:50:35.927411" elapsed="0.619453"/>
+<status status="PASS" start="2025-03-12T22:05:13.574628" elapsed="0.782266"/>
 </kw>
 <arg>${REPORT_MENU}</arg>
-<status status="PASS" start="2025-03-12T14:50:35.901077" elapsed="0.646787"/>
+<status status="PASS" start="2025-03-12T22:05:13.501548" elapsed="0.856345"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T14:50:39.548989" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-03-12T22:05:17.359615" level="INFO">Slept 3 seconds.</msg>
 <arg>${WAIT_TIME}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T14:50:36.547864" elapsed="3.001125"/>
+<status status="PASS" start="2025-03-12T22:05:14.357893" elapsed="3.002327"/>
 </kw>
 <kw name="Verify Page Contains Texts">
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:39.553994" level="INFO">${html_source} = &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+<msg time="2025-03-12T22:05:17.371232" level="INFO">${html_source} = &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
 .count {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -59,10 +61,10 @@
   ...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T14:50:39.549994" elapsed="0.005000"/>
+<status status="PASS" start="2025-03-12T22:05:17.362232" elapsed="0.010001"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T14:50:39.554994" level="INFO">HTML Source: &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+<msg time="2025-03-12T22:05:17.373230" level="INFO">HTML Source: &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
 .count {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -654,7 +656,7 @@ new Chart(barChartCanvas, {
 &lt;/body&gt;&lt;/html&gt;</msg>
 <arg>HTML Source: ${html_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T14:50:39.554994" elapsed="0.001000"/>
+<status status="PASS" start="2025-03-12T22:05:17.372233" elapsed="0.003001"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -662,63 +664,63 @@ new Chart(barChartCanvas, {
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:39.556995" elapsed="0.001058"/>
+<status status="PASS" start="2025-03-12T22:05:17.377236" elapsed="0.000000"/>
 </kw>
 <var name="${text}">สถิติจำนวนบทความทั้งหมด 5 ปี</var>
-<status status="PASS" start="2025-03-12T14:50:39.556995" elapsed="0.001058"/>
+<status status="PASS" start="2025-03-12T22:05:17.376233" elapsed="0.001003"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:39.558053" elapsed="0.001012"/>
+<status status="PASS" start="2025-03-12T22:05:17.378234" elapsed="0.000995"/>
 </kw>
 <var name="${text}">สถิติจำนวนบทความที่ได้รับการอ้างอิง</var>
-<status status="PASS" start="2025-03-12T14:50:39.558053" elapsed="0.001012"/>
+<status status="PASS" start="2025-03-12T22:05:17.378234" elapsed="0.000995"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:39.559065" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:17.379229" elapsed="0.001007"/>
 </kw>
 <var name="${text}">แหล่งที่มา</var>
-<status status="PASS" start="2025-03-12T14:50:39.559065" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:17.379229" elapsed="0.001007"/>
 </iter>
 <var>${text}</var>
 <value>@{expected_texts}</value>
-<status status="PASS" start="2025-03-12T14:50:39.556995" elapsed="0.003070"/>
+<status status="PASS" start="2025-03-12T22:05:17.375234" elapsed="0.005002"/>
 </for>
 <arg>@{EXPECTED_THAI_TEXTS}</arg>
-<status status="PASS" start="2025-03-12T14:50:39.549994" elapsed="0.010071"/>
+<status status="PASS" start="2025-03-12T22:05:17.361230" elapsed="0.019006"/>
 </kw>
 <kw name="Wait And Click">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T14:50:39.560065" elapsed="0.014603"/>
+<status status="PASS" start="2025-03-12T22:05:17.382235" elapsed="0.053763"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:39.575672" level="INFO">Clicking element 'xpath=//a[contains(text(), 'English')]'.</msg>
+<msg time="2025-03-12T22:05:17.437000" level="INFO">Clicking element 'xpath=//a[contains(text(), 'English')]'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T14:50:39.575672" elapsed="1.258559"/>
+<status status="PASS" start="2025-03-12T22:05:17.435998" elapsed="1.989211"/>
 </kw>
 <arg>${LANG_TO_ENGLISH}</arg>
-<status status="PASS" start="2025-03-12T14:50:39.560065" elapsed="1.274166"/>
+<status status="PASS" start="2025-03-12T22:05:17.381234" elapsed="2.044972"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T14:50:43.835891" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-03-12T22:05:22.429869" level="INFO">Slept 3 seconds.</msg>
 <arg>${WAIT_TIME}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T14:50:40.834231" elapsed="3.001660"/>
+<status status="PASS" start="2025-03-12T22:05:19.427211" elapsed="3.002658"/>
 </kw>
 <kw name="Verify Page Contains Texts">
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:43.841528" level="INFO">${html_source} = &lt;html lang="en" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+<msg time="2025-03-12T22:05:22.435914" level="INFO">${html_source} = &lt;html lang="en" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
 .count {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -733,10 +735,10 @@ new Chart(barChartCanvas, {
   ...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T14:50:43.836896" elapsed="0.004632"/>
+<status status="PASS" start="2025-03-12T22:05:22.430895" elapsed="0.005019"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T14:50:43.843028" level="INFO">HTML Source: &lt;html lang="en" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+<msg time="2025-03-12T22:05:22.435914" level="INFO">HTML Source: &lt;html lang="en" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
 .count {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -1328,7 +1330,7 @@ new Chart(barChartCanvas, {
 &lt;/body&gt;&lt;/html&gt;</msg>
 <arg>HTML Source: ${html_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T14:50:43.841528" elapsed="0.002004"/>
+<status status="PASS" start="2025-03-12T22:05:22.435914" elapsed="0.000980"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1336,113 +1338,119 @@ new Chart(barChartCanvas, {
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:43.844977" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:22.437894" elapsed="0.000000"/>
 </kw>
 <var name="${text}">Total number of articles statistics for 5 years</var>
-<status status="PASS" start="2025-03-12T14:50:43.844977" elapsed="0.001056"/>
+<status status="PASS" start="2025-03-12T22:05:22.436894" elapsed="0.001000"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:43.846033" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:22.438894" elapsed="0.000000"/>
 </kw>
 <var name="${text}">Statistics on the number of articles cited</var>
-<status status="PASS" start="2025-03-12T14:50:43.846033" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:22.437894" elapsed="0.001000"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:43.847032" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:22.438894" elapsed="0.000000"/>
 </kw>
 <var name="${text}">Source</var>
-<status status="PASS" start="2025-03-12T14:50:43.847032" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:22.438894" elapsed="0.000000"/>
 </iter>
 <var>${text}</var>
 <value>@{expected_texts}</value>
-<status status="PASS" start="2025-03-12T14:50:43.843532" elapsed="0.003500"/>
+<status status="PASS" start="2025-03-12T22:05:22.436894" elapsed="0.002000"/>
 </for>
 <arg>@{EXPECTED_ENGLISH_TEXTS}</arg>
-<status status="PASS" start="2025-03-12T14:50:43.836896" elapsed="0.010136"/>
+<status status="PASS" start="2025-03-12T22:05:22.429869" elapsed="0.009025"/>
 </kw>
 <kw name="Scroll Page Down Slightly">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:43.849118" level="INFO">Executing JavaScript:
-window.scrollBy(0, 1000)
+<msg time="2025-03-12T22:05:22.444894" level="INFO">Executing JavaScript:
+window.scrollBy(0, 800)
 Without any arguments.</msg>
-<arg>window.scrollBy(0, 1000)</arg>
+<arg>window.scrollBy(0, 800)</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T14:50:43.848036" elapsed="0.004904"/>
+<status status="PASS" start="2025-03-12T22:05:22.443910" elapsed="0.006985"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T14:50:44.354090" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
+<msg time="2025-03-12T22:05:24.452709" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T14:50:43.853970" elapsed="0.500120"/>
+<status status="PASS" start="2025-03-12T22:05:22.450895" elapsed="2.002820"/>
 </kw>
-<status status="PASS" start="2025-03-12T14:50:43.848036" elapsed="0.506560"/>
+<status status="PASS" start="2025-03-12T22:05:22.443910" elapsed="2.009805"/>
 </kw>
 <kw name="Scroll Up">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:44.355601" level="INFO">Executing JavaScript:
+<msg time="2025-03-12T22:05:24.455729" level="INFO">Executing JavaScript:
 window.scrollTo(0, 0)
 Without any arguments.</msg>
 <arg>window.scrollTo(0, 0)</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T14:50:44.355601" elapsed="0.004631"/>
+<status status="PASS" start="2025-03-12T22:05:24.455729" elapsed="0.006985"/>
 </kw>
-<status status="PASS" start="2025-03-12T14:50:44.354596" elapsed="0.005636"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T22:05:26.463306" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T22:05:24.462714" elapsed="2.000592"/>
+</kw>
+<status status="PASS" start="2025-03-12T22:05:24.454714" elapsed="2.008592"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T14:50:44.361232" elapsed="2.148753"/>
+<status status="PASS" start="2025-03-12T22:05:26.465330" elapsed="2.239488"/>
 </kw>
 <doc>Starting from default Thai, switch to English and verify.</doc>
-<status status="PASS" start="2025-03-12T14:50:29.639669" elapsed="16.870316"/>
+<status status="PASS" start="2025-03-12T22:05:01.011833" elapsed="27.693970"/>
 </test>
-<test id="s1-s1-s1-s1-s1-t2" name="Thai To Chinese" line="73">
+<test id="s1-s1-s1-s1-s1-s1-s1-t2" name="Thai To Chinese" line="75">
 <kw name="Open Browser To Home Page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:46.513456" level="INFO">Opening browser 'chrome' to base url 'https://cssoften0368.cpkkuhost.com'.</msg>
+<msg time="2025-03-12T22:05:28.710819" level="INFO">Opening browser 'chrome' to base url 'https://cssoften0368.cpkkuhost.com'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-12T14:50:46.513456" elapsed="5.665657"/>
+<status status="PASS" start="2025-03-12T22:05:28.710819" elapsed="8.946075"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-12T14:50:52.180110" elapsed="0.028192"/>
+<status status="PASS" start="2025-03-12T22:05:37.656894" elapsed="0.056231"/>
 </kw>
-<status status="PASS" start="2025-03-12T14:50:46.512078" elapsed="5.696224"/>
+<status status="PASS" start="2025-03-12T22:05:28.709820" elapsed="9.004309"/>
 </kw>
 <kw name="Wait And Click">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T14:50:52.209780" elapsed="0.019073"/>
+<status status="PASS" start="2025-03-12T22:05:37.716125" elapsed="0.036042"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:52.229892" level="INFO">Clicking element 'xpath=//nav//a[contains(@class, 'nav-link') and contains(text(), 'รายงาน')]'.</msg>
+<msg time="2025-03-12T22:05:37.753136" level="INFO">Clicking element 'xpath=//nav//a[contains(@class, 'nav-link') and contains(text(), 'รายงาน')]'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T14:50:52.228853" elapsed="0.651256"/>
+<status status="PASS" start="2025-03-12T22:05:37.753136" elapsed="0.817783"/>
 </kw>
 <arg>${REPORT_MENU}</arg>
-<status status="PASS" start="2025-03-12T14:50:52.209780" elapsed="0.670329"/>
+<status status="PASS" start="2025-03-12T22:05:37.715125" elapsed="0.855794"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T14:50:55.881675" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-03-12T22:05:41.572068" level="INFO">Slept 3 seconds.</msg>
 <arg>${WAIT_TIME}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T14:50:52.880109" elapsed="3.001566"/>
+<status status="PASS" start="2025-03-12T22:05:38.571919" elapsed="3.000149"/>
 </kw>
 <kw name="Verify Page Contains Texts">
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:55.886779" level="INFO">${html_source} = &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+<msg time="2025-03-12T22:05:41.577252" level="INFO">${html_source} = &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
 .count {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -1457,10 +1465,10 @@ Without any arguments.</msg>
   ...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T14:50:55.883185" elapsed="0.004098"/>
+<status status="PASS" start="2025-03-12T22:05:41.573582" elapsed="0.003670"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T14:50:55.887283" level="INFO">HTML Source: &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+<msg time="2025-03-12T22:05:41.578291" level="INFO">HTML Source: &lt;html lang="th" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
 .count {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -2052,7 +2060,7 @@ new Chart(barChartCanvas, {
 &lt;/body&gt;&lt;/html&gt;</msg>
 <arg>HTML Source: ${html_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T14:50:55.887283" elapsed="0.001005"/>
+<status status="PASS" start="2025-03-12T22:05:41.578291" elapsed="0.011022"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -2060,63 +2068,63 @@ new Chart(barChartCanvas, {
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:55.889288" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:41.591380" elapsed="0.000925"/>
 </kw>
 <var name="${text}">สถิติจำนวนบทความทั้งหมด 5 ปี</var>
-<status status="PASS" start="2025-03-12T14:50:55.889288" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:41.590291" elapsed="0.002014"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:55.890289" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:41.593292" elapsed="0.000000"/>
 </kw>
 <var name="${text}">สถิติจำนวนบทความที่ได้รับการอ้างอิง</var>
-<status status="PASS" start="2025-03-12T14:50:55.889288" elapsed="0.001001"/>
+<status status="PASS" start="2025-03-12T22:05:41.592305" elapsed="0.000987"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:50:55.891288" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:41.594277" elapsed="0.000000"/>
 </kw>
 <var name="${text}">แหล่งที่มา</var>
-<status status="PASS" start="2025-03-12T14:50:55.890289" elapsed="0.000999"/>
+<status status="PASS" start="2025-03-12T22:05:41.593292" elapsed="0.000985"/>
 </iter>
 <var>${text}</var>
 <value>@{expected_texts}</value>
-<status status="PASS" start="2025-03-12T14:50:55.888288" elapsed="0.003000"/>
+<status status="PASS" start="2025-03-12T22:05:41.589313" elapsed="0.005980"/>
 </for>
 <arg>@{EXPECTED_THAI_TEXTS}</arg>
-<status status="PASS" start="2025-03-12T14:50:55.882180" elapsed="0.009108"/>
+<status status="PASS" start="2025-03-12T22:05:41.572575" elapsed="0.022718"/>
 </kw>
 <kw name="Wait And Click">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-12T14:50:55.892289" elapsed="0.014076"/>
+<status status="PASS" start="2025-03-12T22:05:41.596279" elapsed="0.057652"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:50:55.907723" level="INFO">Clicking element 'xpath=//a[contains(text(), '中文')]'.</msg>
+<msg time="2025-03-12T22:05:41.654926" level="INFO">Clicking element 'xpath=//a[contains(text(), '中文')]'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-12T14:50:55.906365" elapsed="1.125753"/>
+<status status="PASS" start="2025-03-12T22:05:41.653931" elapsed="2.200564"/>
 </kw>
 <arg>${LANG_TO_CHINESE}</arg>
-<status status="PASS" start="2025-03-12T14:50:55.891288" elapsed="1.140830"/>
+<status status="PASS" start="2025-03-12T22:05:41.595293" elapsed="2.259202"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T14:51:00.033467" level="INFO">Slept 3 seconds.</msg>
+<msg time="2025-03-12T22:05:46.855685" level="INFO">Slept 3 seconds.</msg>
 <arg>${WAIT_TIME}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T14:50:57.033112" elapsed="3.000355"/>
+<status status="PASS" start="2025-03-12T22:05:43.855480" elapsed="3.000205"/>
 </kw>
 <kw name="Verify Page Contains Texts">
 <kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:51:00.038500" level="INFO">${html_source} = &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+<msg time="2025-03-12T22:05:46.864259" level="INFO">${html_source} = &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
 .count {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -2131,10 +2139,10 @@ new Chart(barChartCanvas, {
   ...</msg>
 <var>${html_source}</var>
 <doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.034829" elapsed="0.003671"/>
+<status status="PASS" start="2025-03-12T22:05:46.856689" elapsed="0.007570"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-03-12T14:51:00.039007" level="INFO">HTML Source: &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
+<msg time="2025-03-12T22:05:46.865259" level="INFO">HTML Source: &lt;html lang="cn" class="hydrated"&gt;&lt;head&gt;&lt;style&gt;
 .count {
     background-color: #f5f5f5;
     padding: 20px 0;
@@ -2314,7 +2322,7 @@ new Chart(barChartCanvas, {
             &lt;h5 class="card-title" style="padding: 16px;"&gt;5年文章总数统计&lt;/h5&gt;
                 &lt;div class="row"&gt;
                     &lt;div class="col-md-6 p-5"&gt;
-                        &lt;div style="width:520px;height:250px"&gt;&lt;div class="chartjs-size-monitor"&gt;&lt;div class="chartjs-size-monitor-expand"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="chartjs-size-monitor-shrink"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+                        &lt;div style="width:520px;height:250px"&gt;
                             &lt;canvas id="barChart1" width="650" height="312" style="display: block; height: 250px; width: 520px;" class="chartjs-render-monitor"&gt;&lt;/canvas&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
@@ -2342,7 +2350,7 @@ new Chart(barChartCanvas, {
             &lt;h5 class="card-title" style="padding: 16px;"&gt;引用文章数量统计&lt;/h5&gt;
                 &lt;div class="row"&gt;
                     &lt;div class="col-md-6 p-5"&gt;
-                        &lt;div style="width:520px;height:250px"&gt;&lt;div class="chartjs-size-monitor"&gt;&lt;div class="chartjs-size-monitor-expand"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="chartjs-size-monitor-shrink"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="chartjs-size-monitor"&gt;&lt;div class="chartjs-size-monitor-expand"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="chartjs-size-monitor-shrink"&gt;&lt;div class=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+                        &lt;div style="width:520px;height:250px"&gt;
                             &lt;canvas id="barChart2" width="650" height="312" style="display: block; height: 250px; width: 520px;" class="chartjs-render-monitor"&gt;&lt;/canvas&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
@@ -2726,7 +2734,7 @@ new Chart(barChartCanvas, {
 &lt;/body&gt;&lt;/html&gt;</msg>
 <arg>HTML Source: ${html_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.039007" elapsed="0.001008"/>
+<status status="PASS" start="2025-03-12T22:05:46.865259" elapsed="0.001108"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -2734,83 +2742,93 @@ new Chart(barChartCanvas, {
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.041449" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:46.867369" elapsed="0.000999"/>
 </kw>
 <var name="${text}">5年文章总数统计</var>
-<status status="PASS" start="2025-03-12T14:51:00.040015" elapsed="0.001434"/>
+<status status="PASS" start="2025-03-12T22:05:46.867369" elapsed="0.000999"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.042451" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:46.868368" elapsed="0.000000"/>
 </kw>
 <var name="${text}">引用文章数量统计</var>
-<status status="PASS" start="2025-03-12T14:51:00.042451" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:46.868368" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${html_source}</arg>
 <arg>${text}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.043450" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:46.868368" elapsed="0.001604"/>
 </kw>
 <var name="${text}">来源</var>
-<status status="PASS" start="2025-03-12T14:51:00.043450" elapsed="0.000000"/>
+<status status="PASS" start="2025-03-12T22:05:46.868368" elapsed="0.001604"/>
 </iter>
 <var>${text}</var>
 <value>@{expected_texts}</value>
-<status status="PASS" start="2025-03-12T14:51:00.040015" elapsed="0.003435"/>
+<status status="PASS" start="2025-03-12T22:05:46.867369" elapsed="0.002603"/>
 </for>
 <arg>@{EXPECTED_CHINESE_TEXTS}</arg>
-<status status="PASS" start="2025-03-12T14:51:00.033467" elapsed="0.010983"/>
+<status status="PASS" start="2025-03-12T22:05:46.856689" elapsed="0.013283"/>
 </kw>
 <kw name="Scroll Page Down Slightly">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:51:00.045452" level="INFO">Executing JavaScript:
-window.scrollBy(0, 1000)
+<msg time="2025-03-12T22:05:46.871076" level="INFO">Executing JavaScript:
+window.scrollBy(0, 800)
 Without any arguments.</msg>
-<arg>window.scrollBy(0, 1000)</arg>
+<arg>window.scrollBy(0, 800)</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.044450" elapsed="0.004656"/>
+<status status="PASS" start="2025-03-12T22:05:46.871076" elapsed="0.009902"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-12T14:51:00.549461" level="INFO">Slept 500 milliseconds.</msg>
-<arg>0.5s</arg>
+<msg time="2025-03-12T22:05:48.881195" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.049106" elapsed="0.500355"/>
+<status status="PASS" start="2025-03-12T22:05:46.880978" elapsed="2.000217"/>
 </kw>
-<status status="PASS" start="2025-03-12T14:51:00.044450" elapsed="0.505011"/>
+<status status="PASS" start="2025-03-12T22:05:46.869972" elapsed="2.011223"/>
 </kw>
 <kw name="Scroll Up">
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-12T14:51:00.550882" level="INFO">Executing JavaScript:
+<msg time="2025-03-12T22:05:48.882852" level="INFO">Executing JavaScript:
 window.scrollTo(0, 0)
 Without any arguments.</msg>
 <arg>window.scrollTo(0, 0)</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.550882" elapsed="0.003557"/>
+<status status="PASS" start="2025-03-12T22:05:48.881796" elapsed="0.038124"/>
 </kw>
-<status status="PASS" start="2025-03-12T14:51:00.549461" elapsed="0.004978"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-12T22:05:50.920988" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-12T22:05:48.919920" elapsed="2.001068"/>
+</kw>
+<status status="PASS" start="2025-03-12T22:05:48.881796" elapsed="2.039192"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-12T14:51:00.555817" elapsed="2.134894"/>
+<status status="PASS" start="2025-03-12T22:05:50.921995" elapsed="2.169619"/>
 </kw>
 <doc>Starting from default Thai, switch to English and verify.</doc>
-<status status="PASS" start="2025-03-12T14:50:46.510991" elapsed="16.179720"/>
+<status status="PASS" start="2025-03-12T22:05:28.707820" elapsed="24.383794"/>
 </test>
 <doc>Test suite for verifying language switching functionality on the report page</doc>
-<status status="PASS" start="2025-03-12T14:50:29.367552" elapsed="33.324169"/>
+<status status="PASS" start="2025-03-12T22:05:00.731482" elapsed="52.368151"/>
 </suite>
-<status status="PASS" start="2025-03-12T14:50:29.366348" elapsed="33.326730"/>
+<status status="PASS" start="2025-03-12T22:05:00.728483" elapsed="52.376148"/>
 </suite>
-<status status="PASS" start="2025-03-12T14:50:29.364350" elapsed="33.329822"/>
+<status status="PASS" start="2025-03-12T22:05:00.725482" elapsed="52.383135"/>
 </suite>
-<status status="PASS" start="2025-03-12T14:50:29.361903" elapsed="33.333274"/>
+<status status="PASS" start="2025-03-12T22:05:00.723482" elapsed="52.398176"/>
 </suite>
-<status status="PASS" start="2025-03-12T14:50:29.342562" elapsed="33.353865"/>
+<status status="PASS" start="2025-03-12T22:05:00.721483" elapsed="52.407160"/>
+</suite>
+<status status="PASS" start="2025-03-12T22:05:00.718481" elapsed="52.414399"/>
+</suite>
+<status status="PASS" start="2025-03-12T22:05:00.697801" elapsed="52.439062"/>
 </suite>
 <statistics>
 <total>
@@ -2819,11 +2837,13 @@ Without any arguments.</msg>
 <tag>
 </tag>
 <suite>
-<stat name="Git-Group-Repository-Group-3-Sec-3" id="s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3</stat>
-<stat name="InitialProject" id="s1-s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject</stat>
-<stat name="Tests" id="s1-s1-s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests</stat>
-<stat name="Unit" id="s1-s1-s1-s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests.Unit</stat>
-<stat name="Reports" id="s1-s1-s1-s1-s1" pass="2" fail="0" skip="0">Git-Group-Repository-Group-3-Sec-3.InitialProject.Tests.Unit.Reports</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Git-Group-Repository-Group-3-Sec-3">Git-Group-Repository-Group-3-Sec-3</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Version3">Git-Group-Repository-Group-3-Sec-3.Version3</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1" name="Code">Git-Group-Repository-Group-3-Sec-3.Version3.Code</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1-s1" name="Src">Git-Group-Repository-Group-3-Sec-3.Version3.Code.Src</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1-s1-s1" name="Tests">Git-Group-Repository-Group-3-Sec-3.Version3.Code.Src.Tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1-s1-s1-s1" name="Unit">Git-Group-Repository-Group-3-Sec-3.Version3.Code.Src.Tests.Unit</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1-s1-s1-s1-s1" name="UAT 022 reports Visitor">Git-Group-Repository-Group-3-Sec-3.Version3.Code.Src.Tests.Unit.UAT 022 reports Visitor</stat>
 </suite>
 </statistics>
 <errors>

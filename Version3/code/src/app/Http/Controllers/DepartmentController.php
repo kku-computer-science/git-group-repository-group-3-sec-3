@@ -27,7 +27,7 @@ class DepartmentController extends Controller
     {
         $data = Department::latest()->paginate(5);
 
-        return view('departments.index',compact('data'));
+        return view('departments.index', compact('data'));
     }
 
     /**
@@ -40,7 +40,6 @@ class DepartmentController extends Controller
         return view('departments.create');
     }
 
-    
     /**
      * Store a newly created resource in storage.
      *
@@ -58,57 +57,57 @@ class DepartmentController extends Controller
         Department::create($input);
     
         return redirect()->route('departments.index')
-            ->with('success','departments created successfully.');
+            ->with('success', trans('dashboard.departments_created_successfully'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
     public function show(Department $department)
     {
-        return view('departments.show',compact('department'));
+        return view('departments.show', compact('department'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
     public function edit(Department $department)
     {
-        $department=Department::find($department->id);
+        $department = Department::find($department->id);
        
-        return view('departments.edit',compact('department'));
+        return view('departments.edit', compact('department'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Department $department)
     {
         $department->update($request->all());
         return redirect()->route('departments.index')
-                        ->with('success','Department updated successfully');
+                        ->with('success', trans('dashboard.department_updated_successfully'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
     public function destroy(Department $department)
     {
         $department->delete();
         return redirect()->route('departments.index')
-                        ->with('success','Department delete successfully');
+                        ->with('success', trans('dashboard.department_deleted_successfully'));
     }
 }

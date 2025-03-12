@@ -27,7 +27,6 @@ class ResearchGroupController extends Controller
 
     public function index()
     {
-        //$researchGroups = ResearchGroup::latest()->paginate(5);
         $researchGroups = ResearchGroup::with('User')->get();
         return view('research_groups.index', compact('researchGroups'));
     }
@@ -55,30 +54,31 @@ class ResearchGroupController extends Controller
         $request->validate([
             'group_name_th' => 'required',
             'group_name_en' => 'required',
-            'head' => 'required',
-            //'group_image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'head'          => 'required',
+            //'group_image'  => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
+
         $input = $request->all();
+
         if ($request->group_image) {
             $input['group_image'] = time() . '.' . $request->group_image->extension();
             $request->group_image->move(public_path('img'), $input['group_image']);
         }
-        // $input['group_image'] = time().'.'.$request->group_image->extension();
-        // $request->group_image->move(public_path('img'), $input['group_image']);
-        //return $input['group_image'];
+
         $researchGroup = ResearchGroup::create($input);
         $head = $request->head;
         $fund = $request->fund;
         $researchGroup->user()->attach($head, ['role' => 1]);
+
         if ($request->moreFields) {
             foreach ($request->moreFields as $key => $value) {
-
                 if ($value['userid'] != null) {
                     $researchGroup->user()->attach($value, ['role' => 2]);
                 }
             }
         }
-        return redirect()->route('researchGroups.index')->with('success', 'research group created successfully.');
+        return redirect()->route('researchGroups.index')
+            ->with('success', trans('dashboard.research_group_created_successfully'));
     }
 
     /**
@@ -89,11 +89,6 @@ class ResearchGroupController extends Controller
      */
     public function show(ResearchGroup $researchGroup)
     {
-        #$researchGroup=ResearchGroup::find($researchGroup->id);
-        //dd($researchGroup->id);
-        //$data=ResearchGroup::find($researchGroup->id)->get(); 
-
-        //return $data;
         return view('research_groups.show', compact('researchGroup'));
     }
 
@@ -109,7 +104,6 @@ class ResearchGroupController extends Controller
         $this->authorize('update', $researchGroup);
         $researchGroup = ResearchGroup::with(['user'])->where('id', $researchGroup->id)->first();
         $users = User::get();
-        //return $users;
         return view('research_groups.edit', compact('researchGroup', 'users'));
     }
 
@@ -125,35 +119,31 @@ class ResearchGroupController extends Controller
         $request->validate([
             'group_name_th' => 'required',
             'group_name_en' => 'required',
-
         ]);
-        $input = $request->all();
-        if ($request->group_image) {
-            //dd($request->file('group_image'));
-            $input['group_image'] = time() . '.' . $request->group_image->extension();
-            //$file = $request->file('image');
 
-            //$url = Storage::putFileAs('images', $file, $name . '.' . $file->extension());
-            //dd($input['group_image']);
+        $input = $request->all();
+
+        if ($request->group_image) {
+            $input['group_image'] = time() . '.' . $request->group_image->extension();
             $request->group_image->move(public_path('img'), $input['group_image']);
         }
+
         $researchGroup->update($input);
         $head = $request->head;
         $researchGroup->user()->detach();
-        $researchGroup->user()->attach(array(
-            $head => array('role' => 1),
-        ));
+        $researchGroup->user()->attach([
+            $head => ['role' => 1],
+        ]);
 
         if ($request->moreFields) {
             foreach ($request->moreFields as $key => $value) {
-
                 if ($value['userid'] != null) {
                     $researchGroup->user()->attach($value, ['role' => 2]);
                 }
             }
         }
         return redirect()->route('researchGroups.index')
-            ->with('success', 'researchGroups updated successfully');
+            ->with('success', trans('dashboard.research_group_updated_successfully'));
     }
 
     /**
@@ -167,6 +157,6 @@ class ResearchGroupController extends Controller
         $this->authorize('delete', $researchGroup);
         $researchGroup->delete();
         return redirect()->route('researchGroups.index')
-            ->with('success', 'researchGroups deleted successfully');
+            ->with('success', trans('dashboard.research_group_deleted_successfully'));
     }
 }
