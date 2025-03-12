@@ -1015,5 +1015,31 @@ return [
     'Edit Research Group' => 'แก้ไขกลุ่มวิจัย',
     'Fill in the edited research group details' => 'กรอกข้อมูลรายละเอียดกลุ่มวิจัยที่แก้ไขแล้ว',
 
+    'teacher_expertise'         => 'ความเชี่ยวชาญของอาจารย์',
+    'id'                        => 'ไอดี',
+    'teacher_name'              => 'ชื่ออาจารย์',
+    'name'                      => 'ชื่อ',
+    'action'                    => 'การกระทำ',
+    'add_new_expertise'         => 'เพิ่มความเชี่ยวชาญใหม่',
+    'edit_expertise'            => 'แก้ไขความเชี่ยวชาญ',
+    'submit'                    => 'ส่ง',
+    'cancel'                    => 'ยกเลิก',
+    'edit'                      => 'แก้ไข',
+    'delete'                    => 'ลบ',
+    'are_you_sure'              => 'คุณแน่ใจหรือไม่?',
+    'not_recover_file'          => 'คุณจะไม่สามารถกู้คืนไฟล์นี้ได้!',
+    'delete_successfully'       => 'ลบสำเร็จ',
+    'entry_deleted_successfully'=> 'ลบรายการเรียบร้อยแล้ว',
+    'expert_name_placeholder'   => 'กรอกชื่อความเชี่ยวชาญ',
+
+    'title' => 'คุณแน่ใจหรือไม่?',
+    'text' => 'คุณจะไม่สามารถกู้คืนข้อมูลนี้ได้!',
+    'cancel' => 'ยกเลิก',
+    'ok' => 'ตกลง',
+    'DeleteSuccessfully' => 'ลบข้อมูลเรียบร้อยแล้ว!',
+
+    
+    'Update Info'             => 'อัปเดตข้อมูล',
+
 ];
 ?>
