@@ -26,5 +26,9 @@ return [
     'type' => '类型',
     'date' => '注册日期',
     'numdata' => '注册编号',
-
+    'first_author' => '第一作者',
+    'co_author' => '共同作者',
+    'corresponding_author' => '通讯作者',
+    'select_user' => '选择用户',
+    'enter' => '请输入您的名字',
 ];
