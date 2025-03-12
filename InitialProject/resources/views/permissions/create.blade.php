@@ -4,27 +4,27 @@
     <div class="justify-content-center">
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+                <strong>{{ trans('dashboard.oops') }}</strong>{{ trans('dashboard.something_went_wrong') }}<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                    <li>{{ trans('dashboard.validation_required') }}</li>
                     @endforeach
                 </ul>
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Create permission
+            <div class="card-header">{{ __('dashboard.permission-create') }}
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('permissions.index') }}">Permissions</a>
+                    <a class="btn btn-primary" href="{{ route('permissions.index') }}">{{ __('dashboard.Permissions') }}</a>
                 </span>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => 'permissions.store','method'=>'POST')) !!}
                     <div class="form-group">
-                        <strong>Name:</strong>
-                        {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                        <strong>{{ __('dashboard.Name') }}</strong>
+                        {!! Form::text('name', null, array('placeholder' => '','class' => 'form-control')) !!}
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">{{ __('dashboard.Submit') }}</button>
                 {!! Form::close() !!}
             </div>
         </div>

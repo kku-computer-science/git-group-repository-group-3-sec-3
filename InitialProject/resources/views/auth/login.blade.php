@@ -374,12 +374,18 @@
 			</div>
 		</div>
 	</div> -->
-
-	<div class="form">
+<!-- ------------------------------------------- -->
+	<!-- <div class="form">
 		<div class="form-toggle"></div>
 		<div class="form-panel one">
 			<div class="form-header">
-				<h1>Account Login</h1>
+			<h1>{{ __('messages.login') }}</h1>
+			<label for="username">{{ __('messages.username') }}</label>
+			<label for="password">{{ __('messages.password') }}</label>
+			<p style="color: red; text-align: right;">{{ __('messages.forgot_password') }}</p>
+			<li>{{ __('messages.use_kku_mail') }}</li>
+			<li>{{ __('messages.first_time_login') }}</li>
+
 			</div>
 			<div class="form-content">
 				<form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
@@ -391,7 +397,7 @@
 					</div>
 					@endif
 					<!-- <div class="form-group validate-input" data-validate="Valid email is required: ex@abc.xyz"> -->
-					<div class="form-group validate-input">
+					<!-- <div class="form-group validate-input">
 						<label for="email">Username</label>
 						<input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
 						@error('username')
@@ -418,10 +424,87 @@
 					<ul>
 						<li>สำหรับ Username ใช้ KKU-Mail ในการเข้าสู่ระบบ</li>
 						<li>สำหรับนักศึกษาที่เข้าระบบเป็นครั้งแรกให้เข้าสู่ระด้วยรหัสนักศึกษา</li>
+
+						<!-- Add Bottom for change languages -->
+						<!-- <li class="nav-item">
+                        <span class="nav-link">
+                            <strong>{{ Config::get('languages')[App::getLocale()]['display'] }}</strong> |
+                            @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                            <a class="text-decoration-none" href="{{ route('langswitch', $lang) }}">{{ $language['display'] }}</a>
+                            @endif
+                            @endforeach
+                        </span>
+                    </li>
+					</ul>
+				</form>
+			</div>
+		</div>   -->
+<!-- ------------------------------------------------ -->
+	<div class="form">
+		<div class="form-panel one">
+			<div class="form-header">
+				<h1>{{ __('login.title') }}</h1>
+			</div>
+			<div class="form-content">
+				<form method="POST" class="validate-form" autocomplete="off" action="{{ route('login') }}">
+					@csrf
+					@if($errors->any())
+					<div class="alert alert-danger alert-block">
+						<button type="button" class="close" data-dismiss="alert"></button>
+						<strong>{{__('login.login_failed') }}</strong>
+					</div>
+					@endif
+					
+					<div class="form-group validate-input">
+						<label for="username">{{ __('login.username') }}</label>
+						<input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
+						@error('username')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
+					
+					<div class="form-group validate-input">
+						<label for="password">{{ __('login.password') }}</label>
+						<input id="password" class="form-control" type="password" name="password" required>
+					</div>
+					
+					<div class="form-group">
+						<label class="form-remember">
+							<input id="ckb1" name="remember" type="checkbox"> {{ __('login.remember') }}
+						</label>
+					</div>
+					
+					<div class="form-group">
+						<button type="submit">{{ __('login.title') }}</button>
+					</div>
+					
+					<div class="form-remember pb-3">
+						<p style="color: red; text-align: right;">*** {{ __('login.forgot_password') }}</p>
+					</div>
+					
+					<ul>
+						<li>{{ __('login.use_kku_mail') }}</li>
+						<li>{{ __('login.first_time_login') }}</li>
+						
+						<li class="nav-item">
+							<span class="nav-link">
+								<strong>{{ Config::get('languages')[App::getLocale()]['display'] }}</strong> |
+								@foreach (Config::get('languages') as $lang => $language)
+								@if ($lang != App::getLocale())
+								<a class="text-decoration-none" href="{{ route('langswitch', $lang) }}">{{ $language['display'] }}</a>
+								@endif
+								@endforeach
+							</span>
+						</li>
 					</ul>
 				</form>
 			</div>
 		</div>
+	</div>
+
 
 
 	</div>

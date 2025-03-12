@@ -5,12 +5,15 @@
     @foreach($request as $res)
     <span>
         <ion-icon name="caret-forward-outline" size="small"> </ion-icon>
-        @if (!is_null($res->program_name_en))
-        {{ app()->getLocale() == 'en' ? $res->program_name_en : $res->program_name_th }}
-        @endif
-
-
-        <!-- {{$res->program_name_en}}  -->
+        @php
+        $locale = app()->getLocale();
+        $program_name = match ($locale) {
+        'th' => $res->program_name_th,
+        'cn' => $res->program_name_cn ?? $res->program_name_en,
+        default => $res->program_name_en,
+        };
+        @endphp
+        {{ $program_name }}
     </span>
     <div class="d-flex">
         <div class="ml-auto">
@@ -45,30 +48,50 @@
                     <div class="col-sm-4">
                         <img class="card-image" src="{{ $r->picture}}" alt="">
                     </div>
-                    <div class="col-sm-8 overflow-hidden" style="text-overflow: clip; @if(app()->getLocale() == 'en') max-height: 220px; @else max-height: 210px;@endif">
+                    <div class="col-sm-8 overflow-hidden"
+                        style="text-overflow: clip; max-height: {{ app()->getLocale() == 'en' ? '220px' : '210px' }};">
                         <div class="card-body">
-                            @if(app()->getLocale() == 'en')
+                            @if (app()->getLocale() == 'th')
+                            <h5 class="card-title-2">
+                                {{ $r->{'position_'.app()->getLocale()} }} {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
+                            </h5>
+                            @else
+                            @php
+                            $position = str_replace('Dr.', '', $r->position_en);
+                            $name = "{$r->fname_en} {$r->lname_en}";
+                            $degree = ($r->doctoral_degree == 'Ph.D.') ? ', Ph.D.' : '';
+                            @endphp
 
-                            @if($r->doctoral_degree == 'Ph.D.')
-                            <h5 class="card-title">{{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}, {{$r->doctoral_degree}}
-                                @else
-                                <h5 class="card-title">{{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}</h5>
-                                @endif
+                            <h5 class="card-title-2">
+                                {{ trim("$position $name$degree") }}
+                            </h5>
+                            @endif
 
 
-                                <!-- <h5 class="card-title">{{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}</h5> -->
-                                <h5 class="card-title-2">{{ $r->{'academic_ranks_'.app()->getLocale()} }}</h5>
-                                @else
-                                <h5 class="card-title">{{ $r->{'position_'.app()->getLocale()} }}
-                                    {{ $r->{'fname_'.app()->getLocale()} }} {{ $r->{'lname_'.app()->getLocale()} }}
-                                </h5>
-                                @endif
-                                <p class="card-text-1">{{ trans('message.expertise') }}</p>
-                                <div class="card-expertise">
-                                    @foreach($r->expertise->sortBy('expert_name') as $exper)
-                                    <p class="card-text"> {{$exper->expert_name}}</p>
-                                    @endforeach
-                                </div>
+
+
+
+
+
+
+
+
+
+
+                            <p class="card-text-1">{{ trans('message.expertise') }}</p>
+                            <div class="card-expertise">
+                                @foreach($r->expertise->sortBy('expert_name') as $exper)
+                                @php
+                                $locale = app()->getLocale();
+                                $expertise_name = match ($locale) {
+                                'th' => $exper->expert_name_th,
+                                'cn' => $exper->expert_name_cn,
+                                default => $exper->expert_name,
+                                };
+                                @endphp
+                                <p class="card-text"> {{ $expertise_name }}</p>
+                                @endforeach
+                            </div>
                         </div>
                     </diV>
                 </div>

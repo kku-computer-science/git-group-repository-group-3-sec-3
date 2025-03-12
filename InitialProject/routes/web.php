@@ -117,6 +117,8 @@ Route::get('bib/{id}', [BibtexController::class, 'getbib'])->name('bibtex');
 //Route::get('bib/{id}', [BibtexController::class, 'index'])->name('bibtex');
 //Route::get('change/lang', [LocalizationController::class,'lang_change'])->name('LangChange');
 
+Route::get('/callpaper/{id}', [App\Http\Controllers\UpdatePaperController::class, 'create'])->name('callpaper');
+Route::get('/test-scholar/{id}', [App\Http\Controllers\ScholarCallController::class, 'create'])->name('callscholar');
 Route::get('/callscopus/{id}', [App\Http\Controllers\ScopuscallController::class, 'create'])->name('callscopus');
 //Route::get('/showscopus', [App\Http\Controllers\ScopuscallController::class, 'index'])->name('showscopus');
 
@@ -163,6 +165,8 @@ Route::group(['middleware' => ['auth', 'PreventBackHistory']], function () {
     Route::get('/ajax-get-subcat', [UserController::class, 'getCategory']);
     Route::get('tests', [TestController::class, 'index']); //call department
     Route::get('tests/{id}', [TestController::class, 'getCategory'])->name('tests'); //call program
+    
+    Route::get('/experts/get-names', [App\Http\Controllers\ExpertController::class, 'getNames'])->name('experts.getNames');
 
 });
 

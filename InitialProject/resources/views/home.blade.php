@@ -32,6 +32,7 @@
         color: #4ad1e5;
     }
 </style>
+
 @section('content')
 <div class="container home">
     <div class="container d-sm-flex justify-content-center mt-5">
@@ -42,12 +43,16 @@
                 <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                 aria-label="Slide 3"></button> -->
             </div>
+
+            @php
+                $locale = app()->getLocale();
+            @endphp
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('img/Banner1.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{ asset("img/$locale/Banner1.png") }}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/Banner2.png')}}" class="d-block w-100" alt="...">
+                    <img src="{{ asset("img/$locale/Banner2.png") }}" class="d-block w-100" alt="...">
                 </div>
                 <!-- <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
@@ -132,7 +137,7 @@
         <h3>{{ trans('message.publications') }}</h3>
         @foreach($papers as $n => $pe)
 
-        
+
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
@@ -152,8 +157,6 @@
                         {{$n}}
                         @endif
                         @endif
-                        
-                        
 
                     </button>
                 </h2>
@@ -169,13 +172,27 @@
                             <div id="paper2" class="col-sm-11">
                                 <p class="hidden">
                                     <b>{{$p['paper_name']}}</b> (
-                                    <link>{{$p['author']}}</link>), {{$p['paper_sourcetitle']}}, {{$p['paper_volume']}},
-                                    {{$p['paper_yearpub']}}.
+                                    @if(app()->getLocale() == 'th')
+                                        <link>
+                                            @if(isset($p['author_fname_th']) && $p['author_fname_th'])
+                                                {{ mb_substr($p['author_fname_th'], 0, 1, 'UTF-8') }}. 
+                                            @else
+                                                {{ $p['author'] ?? '' }}
+                                            @endif
+                                            {{ isset($p['author_lname_th']) && $p['author_lname_th'] ? $p['author_lname_th'] : '' }}
+                                        </link>
+                                    @else
+                                        <link>{{ $p['author'] ?? '' }}</link>
+                                    @endif
+                                    ), {{$p['paper_sourcetitle']}}, {{$p['paper_volume']}},
+
+                                    @if (app()->getLocale() == 'th')
+                                        {{$p['paper_yearpub']+543}}
+                                    @else
+                                        {{$p['paper_yearpub']}}
+                                    @endif
                                     <a href="{{$p['paper_url']}} " target="_blank">[url]</a> <a href="https://doi.org/{{$p['paper_doi']}}" target="_blank">[doi]</a>
-                                    <!-- <a href="{{ route('bibtex',['id'=>$p['id']])}}">
-                                        [อ้างอิง]
-                                    </a> -->
-                                    <button style="padding: 0;"class="btn btn-link open_modal" value="{{$p['id']}}">[{{ trans('home.ref') }}]</button>
+                                    <button style="padding: 0;" class="btn btn-link open_modal" value="{{$p['id']}}">[{{ trans('home.ref') }}]</button>
                                 </p>
                             </div>
                         </div>
@@ -211,15 +228,15 @@
     var year = <?php echo $year; ?>;
     let currentLocale = '{{ app()->getLocale() }}';
 
-if (currentLocale === 'th') {
-    year = year.map(y => typeof y === "number" ? y + 543 : y);  // Add 543 for Thai year
+    if (currentLocale === 'th') {
+        year = year.map(y => typeof y === "number" ? y + 543 : y); // Add 543 for Thai year
 
 
 
-} else {
-    // For English or other languages, leave the year as is
-    year = year.map(y => typeof y === "number" ? y : y);
-}
+    } else {
+        // For English or other languages, leave the year as is
+        year = year.map(y => typeof y === "number" ? y : y);
+    }
 
 
     var paper_tci = <?php echo $paper_tci; ?>;
@@ -288,7 +305,8 @@ if (currentLocale === 'th') {
                 },
                 scaleLabel: {
                     display: true,
-                     labelString: currentLocale === 'th' ? 'จำนวนบทความ' : 'Number',
+                    labelString: currentLocale === 'th' ? 'จำนวนบทความ' : currentLocale === 'cn' 
+                    ? '文章数量' : 'Number',
 
                 },
                 ticks: {
@@ -299,7 +317,8 @@ if (currentLocale === 'th') {
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: currentLocale === 'th' ? 'ปี' : 'Year'
+                    labelString: currentLocale === 'th' ? 'ปี' : currentLocale === 'cn' 
+                    ? '年': 'Year'
                 }
             }]
         },
@@ -307,7 +326,11 @@ if (currentLocale === 'th') {
         title: {
 
             display: true,
-            text: currentLocale === 'th' ? 'รายงานจำนวนบทความทั้งหมด (สะสมตลอด 5 ปี)' : 'Report the total number of articles ( 5 years : cumulative)',
+            text: currentLocale === 'th' 
+        ? 'รายงานจำนวนบทความทั้งหมด (สะสมตลอด 5 ปี)' 
+        : currentLocale === 'cn' 
+            ? '报告总文章数 (5年累计)' 
+            : 'Report the total number of articles (5 years : cumulative)',
             fontSize: 20
         }
 
@@ -319,9 +342,6 @@ if (currentLocale === 'th') {
         data: barChartData,
         options: barChartOptions
     })
-
-
-
 </script>
 <script>
     var paper_tci = <?php echo $paper_tci_numall; ?>;
@@ -332,7 +352,7 @@ if (currentLocale === 'th') {
     let sumsco = paper_scopus;
     let sumwos = paper_wos;
     (function($) {
-        
+
         let sum = paper_wos + paper_tci + paper_scopus;
         //console.log(sum);
         //$("#scopus").append('data-to="100"');
@@ -458,7 +478,7 @@ if (currentLocale === 'th') {
         $.get('/bib/' + tour_id, function(data) {
             //success data
             console.log(data);
-            $( ".bibtex-biblio" ).remove();
+            $(".bibtex-biblio").remove();
             document.getElementById("name").innerHTML += `${data}`
             // $('#tour_id').val(data.id);
             // $('#name').val(data);

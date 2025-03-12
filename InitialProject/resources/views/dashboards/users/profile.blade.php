@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group col-sm-4">
-                                <label>Name title</label>
+                                <label>{{trans('dashboard.Name title')}}</label>
                                 <select class="custom-select my-select " name="title_name_en">
                                     <option value="Mr." {{ Auth::user()->title_name_en == 'Mr.' ? 'selected' : '' }}>{{ trans('dashboard.Mr.') }}</option>
                                     <option value="Miss" {{ Auth::user()->title_name_en == 'Miss' ? 'selected' : '' }}>{{ trans('dashboard.Mrs.') }}</option>
@@ -336,7 +336,15 @@
                     </tr>
                     @foreach (Auth::user()->expertise as $expert)
                     <tr id="expert_id_{{ $expert->id }}">
-                        <td>{{ $expert->expert_name }}</td>
+                         <td>
+                            @if (app()->getLocale() == 'th')
+                                {{ $expert->expert_name_th }}
+                            @elseif (app()->getLocale() == 'cn')
+                                {{ $expert->expert_name_cn }}
+                            @else
+                                {{ $expert->expert_name }}
+                            @endif
+                        </td>
                         <td width="180px">
                             <form action="{{ route('experts.destroy',$expert->id) }}" method="POST">
                                 <!-- <a class="btn btn-info" id="show-expertise" data-toggle="modal" data-id="{{ $expert->id }}">Show</a> -->

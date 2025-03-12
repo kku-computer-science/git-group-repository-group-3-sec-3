@@ -178,6 +178,7 @@
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closest("form");
+        
         event.preventDefault();
         swal({
             title: "{{ __('dashboard.Are you sure?') }}",
