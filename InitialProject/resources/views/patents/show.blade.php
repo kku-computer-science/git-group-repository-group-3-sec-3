@@ -77,9 +77,19 @@
 
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ trans('dashboard.Type') }}</b></p>
-                <p class="card-text col-sm-9">{{ $typeDisplay }}</p>
+                <div class="row mt-2">
+                    <p class="card-text col-sm-3"><b>{{ trans('dashboard.Type') }}</b></p>
+                    <p class="card-test col-sm-9">
+                        @if($locale == 'th')
+                        {{ $typeDisplay->ac_type }}
+                    @elseif($locale == 'cn')
+                        {{ $typeDisplay->ac_type_cn }}
+                    @else
+                        {{ $typeDisplay->ac_type_en }}
+                    @endif
+    
+                    </p>
             </div>
-            
             <div class="row mt-2">
                 <p class="card-text col-sm-3"><b>{{ trans('dashboard.Registration Date') }}</b></p>
                 <p class="card-text col-sm-9">{{ $patent->ac_year }}</p>
