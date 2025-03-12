@@ -1,0 +1,21 @@
+<?php
+return [
+    'Title' => '学术服务项目 / 研究项目',
+    'Order' => '订单',
+    'Year' => '年份',
+    'ProjectName' => '项目名称',
+    'Detail' => '详情',
+    'ProjectSuper' => '项目负责人',
+    'Status' => '状态',
+    'Duration' => '持续时间',
+    'ResearchType' => '研究类型',
+    'Funding_Agency' => '资助机构',
+    'Responsible_agency' => '责任机构',
+    'Budget' => '项目预算',
+    'Baht' => '泰铢',
+    'Request' => '请求',
+    'On_going' => '进行中',
+    'Completed' => '已完成',
+    'To' => '至',
+    'date_format' => 'Y年j月d日',
+];
