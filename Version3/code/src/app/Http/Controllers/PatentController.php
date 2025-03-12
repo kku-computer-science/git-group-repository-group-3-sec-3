@@ -18,25 +18,14 @@ class PatentController extends Controller
     public function index()
     {
         $id = auth()->user()->id;
-        //$papers=User::find($id)->paper()->latest()->paginate(5);
-
-        //$papers = Paper::with('teacher')->get();
-        /*$user = User::find($id);
-        $papers = $user->paper()->get();
-        return response()->json($papers);*/
         if (auth()->user()->hasRole('admin') or auth()->user()->hasRole('staff')) {
-            // $patents = Paper::whereHas('source', function ($query) {
-            //     return $query->where('source_data_id', '=', 5);
-            // })->paginate(10);
             $patents = Academicwork::where('ac_type', '!=', 'book')->get();
         } else {
-            $patents = Academicwork::with('user')->where('ac_type', '!=', 'book')->whereHas('user', function ($query) use ($id) {
-                $query->where('users.id', '=', $id);
-
-                //})
-                // ->whereHas('source', function ($query) {
-                //     return $query->where('source_data_id', '=', 5);
-            })->paginate(10);
+            $patents = Academicwork::with('user')
+                ->where('ac_type', '!=', 'book')
+                ->whereHas('user', function ($query) use ($id) {
+                    $query->where('users.id', '=', $id);
+                })->paginate(10);
         }
         return view('patents.index', compact('patents'));
     }
@@ -61,17 +50,13 @@ class PatentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'ac_name' => 'required',
-            'ac_type' => 'required',
-            'ac_year' => 'required',
-            'ac_refnumber' => 'required',
+            'ac_name'       => 'required',
+            'ac_type'       => 'required',
+            'ac_year'       => 'required',
+            'ac_refnumber'  => 'required',
         ]);
 
         $input = $request->except(['_token']);
-        //return $input;
-        //$input['ac_type'] = 'patent';
-        //$input['paper_yearpub'] = $input['paper_yearpub'];
-        //return $input;
         $acw = Academicwork::create($input);
 
         $id = auth()->user()->id;
@@ -88,24 +73,17 @@ class PatentController extends Controller
                 } else {
                     $acw->user()->attach($value, ['author_type' => 2]);
                 }
-                //$acw->user()->attach($value);
             }
             $x++;
         }
 
         $x = 1;
-        //return (isset($input['fname']));
-        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))){
-            //return (!empty($input['fname']));
+        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))) {
             $length = count($request->input('fname'));
             foreach ($request->input('fname') as $key => $value) {
-                //return $input['fname'][$key];
                 $data['fname'] = $input['fname'][$key];
                 $data['lname'] = $input['lname'][$key];
-                //return $data['lname'];
-                //if (Author::where(['author_fname', '=', $data['fname']])->orWhere('author_lname', '=', $data['lname'])->first() == null) {
                 if (Author::where([['author_fname', '=', $data['fname']], ['author_lname', '=', $data['lname']]])->first() == null) {
-
                     $author = new Author;
                     $author->author_fname = $data['fname'];
                     $author->author_lname = $data['lname'];
@@ -118,9 +96,7 @@ class PatentController extends Controller
                         $acw->author()->attach($author, ['author_type' => 2]);
                     }
                 } else {
-                    
                     $author = Author::where([['author_fname', '=', $data['fname']], ['author_lname', '=', $data['lname']]])->first();
-                    
                     $authorid = $author->id;
                     if ($x === 1) {
                         $acw->author()->attach($authorid, ['author_type' => 1]);
@@ -134,7 +110,8 @@ class PatentController extends Controller
             }
         }
 
-        return redirect()->route('patents.index')->with('success', 'patent created successfully.');
+        return redirect()->route('patents.index')
+            ->with('success', trans('dashboard.patent_created_successfully'));
     }
 
     /**
@@ -173,31 +150,17 @@ class PatentController extends Controller
     public function update(Request $request, $id)
     {
         $patent = Academicwork::find($id);
-        //return $book;
         $input = $request->except(['_token']);
         $patent->update([
-            'ac_name' => $request->ac_name,
-            'ac_type' => $request->ac_type,
-            'ac_year' => $request->ac_year,
+            'ac_name'      => $request->ac_name,
+            'ac_type'      => $request->ac_type,
+            'ac_year'      => $request->ac_year,
             'ac_refnumber' => $request->ac_refnumber,
         ]);
+
         $acw = $patent;
-        // foreach ($request->input('name') as $key => $value) {
-        //     if (Author::where('author_name', '=', $value)->first() == null) {
-        //         $author = new Author;
-        //         $author->author_name = $value;
-        //         $author->save();
-        //         $book->author()->attach($author);
-        //     } else {
-        //         $author = Author::where('author_name', '=', $value)->first();
-        //         $authorid = $author->id;
-        //         $book->author()->detach($authorid);
-        //         $book->author()->attach($authorid);
-        //     }
-        // }
         $patent->user()->detach();
         $x = 1;
-
         $length = count($request->moreFields);
         foreach ($request->moreFields as $key => $value) {
             if ($value['userid'] != null) {
@@ -208,22 +171,18 @@ class PatentController extends Controller
                 } else {
                     $acw->user()->attach($value, ['author_type' => 2]);
                 }
-                //$acw->user()->attach($value);
             }
             $x++;
         }
 
         $patent->author()->detach();
         $x = 1;
-        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))){
-
+        if (isset($input['fname'][0]) and (!empty($input['fname'][0]))) {
             $length = count($request->input('fname'));
             foreach ($request->input('fname') as $key => $value) {
                 $data['fname'] = $input['fname'][$key];
                 $data['lname'] = $input['lname'][$key];
-                //if (Author::where(['author_fname', '=', $data['fname']])->orWhere('author_lname', '=', $data['lname'])->first() == null) {
                 if (Author::where([['author_fname', '=', $data['fname']], ['author_lname', '=', $data['lname']]])->first() == null) {
-
                     $author = new Author;
                     $author->author_fname = $data['fname'];
                     $author->author_lname = $data['lname'];
@@ -236,7 +195,7 @@ class PatentController extends Controller
                         $acw->author()->attach($author, ['author_type' => 2]);
                     }
                 } else {
-                    $author = Author::where([['author_fname', '=', $data['fname']],['author_lname', '=', $data['lname']]])->first();
+                    $author = Author::where([['author_fname', '=', $data['fname']], ['author_lname', '=', $data['lname']]])->first();
                     $authorid = $author->id;
                     if ($x === 1) {
                         $acw->author()->attach($authorid, ['author_type' => 1]);
@@ -251,7 +210,7 @@ class PatentController extends Controller
         }
 
         return redirect()->route('patents.index')
-            ->with('success', 'Patent updated successfully');
+            ->with('success', trans('dashboard.patent_updated_successfully'));
     }
 
     /**
@@ -267,6 +226,6 @@ class PatentController extends Controller
         $patent->delete();
 
         return redirect()->route('patents.index')
-            ->with('success', 'Product deleted successfully');
+            ->with('success', trans('dashboard.patent_deleted_successfully'));
     }
 }

@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Permission;
 class PermissionController extends Controller
 {
     /**
-     * create a new instance of the class
+     * Create a new instance of the class.
      *
      * @return void
      */
@@ -29,7 +29,6 @@ class PermissionController extends Controller
     public function index(Request $request)
     {
         $data = Permission::all();
-
         return view('permissions.index', compact('data'));
     }
 
@@ -58,7 +57,7 @@ class PermissionController extends Controller
         Permission::create(['name' => $request->input('name')]);
     
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission created successfully.');
+            ->with('success', trans('dashboard.permission_created_successfully'));
     }
 
     /**
@@ -70,7 +69,6 @@ class PermissionController extends Controller
     public function show($id)
     {
         $permission = Permission::find($id);
-    
         return view('permissions.show', compact('permission'));
     }
 
@@ -83,7 +81,6 @@ class PermissionController extends Controller
     public function edit($id)
     {
         $permission = Permission::find($id);
-    
         return view('permissions.edit', compact('permission'));
     }
 
@@ -105,7 +102,7 @@ class PermissionController extends Controller
         $permission->save();
         
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission updated successfully.');
+            ->with('success', trans('dashboard.permission_updated_successfully'));
     }
 
     /**
@@ -119,6 +116,6 @@ class PermissionController extends Controller
         Permission::find($id)->delete();
         
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission deleted successfully');
+            ->with('success', trans('dashboard.permission_deleted_successfully'));
     }
 }

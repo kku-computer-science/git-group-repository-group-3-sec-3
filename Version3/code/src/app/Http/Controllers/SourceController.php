@@ -17,10 +17,8 @@ class SourceController extends Controller
     public function index()
     {
         $sources = Source_data::paginate(4);
-        //return $sources;
-		return view('source_data.index',compact('sources'))->with('i', (request()->input('page', 1) - 1) * 4);
-
-        
+        return view('source_data.index', compact('sources'))
+            ->with('i', (request()->input('page', 1) - 1) * 4);
     }
 
     /**
@@ -41,20 +39,23 @@ class SourceController extends Controller
      */
     public function store(Request $request)
     {
-        $r=$request->validate([
+        $r = $request->validate([
             'source_name' => 'required',
-
-            ]);
+        ]);
     
-            $source_id = $request->source_id;
-            //dd($custId);
+        $source_id = $request->source_id;
             
-            Source_data::updateOrCreate(['id' => $source_id],['source_name' => $request->source_name]);
-            if(empty($request->source_id))
-                $msg = 'Source Data entry created successfully.';
-            else
-                $msg = 'Source Data is updated successfully';
-            return redirect()->route('sources.index')->with('success',$msg);
+        Source_data::updateOrCreate(
+            ['id' => $source_id],
+            ['source_name' => $request->source_name]
+        );
+        
+        if (empty($request->source_id))
+            $msg = trans('dashboard.source_data_created_successfully');
+        else
+            $msg = trans('dashboard.source_data_updated_successfully');
+            
+        return redirect()->route('sources.index')->with('success', $msg);
     }
 
     /**
@@ -65,8 +66,10 @@ class SourceController extends Controller
      */
     public function show($id)
     {
-        return view('sources.show',compact('source'));
+        // Note: ตัวแปร $source ยังไม่ได้ถูกกำหนด
+        return view('sources.show', compact('source'));
     }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,8 +79,8 @@ class SourceController extends Controller
     public function edit($id)
     {
         $where = array('id' => $id);
-		$sour = Source_data::where($where)->first();
-		return response()->json($sour);
+        $sour = Source_data::where($where)->first();
+        return response()->json($sour);
     }
 
     /**

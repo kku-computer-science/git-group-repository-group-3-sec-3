@@ -23,7 +23,7 @@ ${LOGOUT_BUTTON}       xpath=//a[contains(text(), 'Logout') or contains(text(), 
 
 # Manage Fund Elements
 
-${PROGRAM_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'PROGRAM') or contains(text(),'แผนก') or contains(text(),'权限'))]]
+${PROGRAM_MENU}    xpath=//a[contains(@class,'nav-link') and .//span[contains(@class,'menu-title') and (contains(text(),'Manage Programs') or contains(text(),'แผนก') or contains(text(),'权限'))]]
 
 # ปุ่ม 
 ${ADD_PROGRAM_BUTTON}    xpath=//div[contains(@class,'card-header')]//a[contains(@href, '/PROGRAMs/create')]

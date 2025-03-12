@@ -30,7 +30,6 @@ class ProgramController extends Controller
         $programs = Program::all();
         $degree = Degree::all();
         $department = Department::all();
-        //return $programs;
         return view('programs.index', compact('programs', 'degree', 'department'));
     }
 
@@ -55,9 +54,8 @@ class ProgramController extends Controller
         $r = $request->validate([
             'program_name_th' => 'required',
             'program_name_en' => 'required',
-            'degree' => 'required',
-            'department' => 'required',
-
+            'degree'          => 'required',
+            'department'      => 'required',
         ]);
 
         $proId = $request->pro_id;
@@ -65,47 +63,34 @@ class ProgramController extends Controller
         $degree = Degree::find($request->degree);
         $department = Department::find($request->department);
 
-        //return $degree;
-        //$degree -> program() -> sync($pro);
         if (!$pro) {
             $pro2 = new Program;
-            //$pro2->department()->associate($department);
-            //$pro2->degree()->associate($degree);
-            $pro2 = $pro2->degree()->associate($degree);
-            $pro2 = $pro2->department()->associate($department);
+            // Associate degree and department
+            $pro2->degree()->associate($degree);
+            $pro2->department()->associate($department);
 
             $pro2->program_name_en = $request->program_name_en;
             $pro2->program_name_th = $request->program_name_th;
             $pro2->save();
-            //$pro2::Create(['program_name_en' => $request->program_name_en, 'program_name_th' => $request->program_name_th]);
-            //$pro2->department()->associate($department);
-            // $pro2 = $pro2->department()->save($department);
-            // $pro2 = $pro2->degree()->save($degree);
-
-
-            //$pro2->degree()->associate($degree)->save();
-            //$pro2->department()->associate($department)->save();
-            //return $pro;
-            //$pro->save();
         } else {
-            //$pro->degree()->associate($degree);
-            //$pro->comment = "Hi ItSolutionStuff.com";
-            $pro = $pro->degree()->associate($degree);
-            $pro = $pro->department()->associate($department);
+            // Associate new degree and department แล้วอัปเดตข้อมูล
+            $pro->degree()->associate($degree);
+            $pro->department()->associate($department);
             $pro->save();
-            $pro::updateOrCreate(['id' => $proId], ['program_name_en' => $request->program_name_en, 'program_name_th' => $request->program_name_th]);
-        
-            
+            $pro::updateOrCreate(
+                ['id' => $proId],
+                [
+                    'program_name_en' => $request->program_name_en,
+                    'program_name_th' => $request->program_name_th
+                ]
+            );
         }
-        
-        //$pro->save();
-        //$pro2::updateOrCreate(['id' => $proId], ['program_name_en' => $request->program_name_en, 'program_name_th' => $request->program_name_th]);
-        
 
         if (empty($request->pro_id))
-            $msg = 'Program entry created successfully.';
+            $msg = trans('dashboard.program_created_successfully');
         else
-            $msg = 'Program data is updated successfully';
+            $msg = trans('dashboard.program_updated_successfully');
+
         return redirect()->route('programs.index')->with('success', $msg);
     }
 
@@ -142,6 +127,7 @@ class ProgramController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // โค้ดสำหรับอัปเดต (ยังไม่ได้ใช้งาน)
     }
 
     /**

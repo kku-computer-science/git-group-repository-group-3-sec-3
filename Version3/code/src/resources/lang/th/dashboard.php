@@ -1041,5 +1041,87 @@ return [
     
     'Update Info'             => 'อัปเดตข้อมูล',
 
+
+    'departments_created_successfully' => 'สร้างแผนกเรียบร้อยแล้ว',
+    'department_updated_successfully'  => 'อัปเดตแผนกเรียบร้อยแล้ว',
+    'department_deleted_successfully'  => 'ลบแผนกเรียบร้อยแล้ว',
+
+    'profile_info_updated_successfully' => 'อัพเดทข้อมูลโปรไฟล์เรียบร้อยแล้ว',
+
+    'expertise_created_successfully' => 'สร้างข้อมูลความเชี่ยวชาญเรียบร้อยแล้ว',
+    'expertise_updated_successfully' => 'อัปเดตข้อมูลความเชี่ยวชาญเรียบร้อยแล้ว',
+    'expertise_deleted_successfully' => 'ลบข้อมูลความเชี่ยวชาญเรียบร้อยแล้ว',
+
+    'file_uploaded_successfully' => 'อัปโหลดไฟล์เรียบร้อยแล้ว',
+    'post_updated_successfully'  => 'อัปเดตโพสต์เรียบร้อยแล้ว',
+
+    'fund_created_successfully' => 'สร้างทุนเรียบร้อยแล้ว',
+    'fund_updated_successfully' => 'อัปเดตทุนเรียบร้อยแล้ว',
+    'fund_deleted_successfully' => 'ลบทุนเรียบร้อยแล้ว',
+
+    'file_imported_successfully' => 'นำเข้าไฟล์เรียบร้อยแล้ว',
+
+    'file_deleted_successfully' => 'ลบไฟล์เรียบร้อยแล้ว',   
+
+    'papers_created_successfully' => 'สร้างผลงานวิจัยเรียบร้อยแล้ว',
+    'papers_updated_successfully' => 'อัปเดตผลงานวิจัยเรียบร้อยแล้ว',
+    'page_not_found'              => 'ไม่พบหน้าที่ค้นหา',
+
+    'patent_created_successfully' => 'สร้างสิทธิบัตรเรียบร้อยแล้ว',
+    'patent_updated_successfully' => 'อัปเดตสิทธิบัตรเรียบร้อยแล้ว',
+    'patent_deleted_successfully' => 'ลบสิทธิบัตรเรียบร้อยแล้ว',
+
+
+    'permission_created_successfully' => 'สร้างสิทธิ์เรียบร้อยแล้ว',
+    'permission_updated_successfully' => 'อัปเดตสิทธิ์เรียบร้อยแล้ว',
+    'permission_deleted_successfully' => 'ลบสิทธิ์เรียบร้อยแล้ว',
+
+
+    'post_created_successfully' => 'สร้างโพสต์เรียบร้อยแล้ว',
+    'post_updated_successfully' => 'อัปเดตโพสต์เรียบร้อยแล้ว',
+    'post_deleted_successfully' => 'ลบโพสต์เรียบร้อยแล้ว',
+
+
+    'something_went_wrong'                 => 'เกิดข้อผิดพลาดบางอย่าง',
+    'profile_updated_successfully'         => 'อัปเดตโปรไฟล์เรียบร้อยแล้ว',
+    'picture_upload_failed'                => 'เกิดข้อผิดพลาดในการอัปโหลดรูปโปรไฟล์',
+    'picture_update_failed'                => 'เกิดข้อผิดพลาดในการอัปเดตรูปโปรไฟล์ในระบบ',
+    'profile_picture_updated_successfully' => 'อัปเดตรูปโปรไฟล์เรียบร้อยแล้ว',
+    'password_update_failed'               => 'เกิดข้อผิดพลาดในการอัปเดตรหัสผ่าน',
+    'password_changed_successfully'        => 'เปลี่ยนรหัสผ่านเรียบร้อยแล้ว',
+
+    'program_created_successfully' => 'สร้างโปรแกรมเรียบร้อยแล้ว',
+    'program_updated_successfully' => 'อัปเดตข้อมูลโปรแกรมเรียบร้อยแล้ว',
+
+
+    'research_group_created_successfully' => 'สร้างกลุ่มวิจัยเรียบร้อยแล้ว',
+    'research_group_updated_successfully' => 'อัปเดตข้อมูลกลุ่มวิจัยเรียบร้อยแล้ว',
+    'research_group_deleted_successfully' => 'ลบกลุ่มวิจัยเรียบร้อยแล้ว',
+
+
+    'research_project_created_successfully' => 'สร้างโครงการวิจัยเรียบร้อยแล้ว',
+    'research_project_updated_successfully' => 'อัปเดตข้อมูลโครงการวิจัยเรียบร้อยแล้ว',
+    'research_project_deleted_successfully' => 'ลบโครงการวิจัยเรียบร้อยแล้ว',
+
+
+    'role_created_successfully' => 'สร้างบทบาทเรียบร้อยแล้ว',
+    'role_updated_successfully' => 'อัปเดตบทบาทเรียบร้อยแล้ว',
+    'role_deleted_successfully' => 'ลบบทบาทเรียบร้อยแล้ว',
+
+
+    'source_data_created_successfully' => 'สร้างข้อมูลแหล่งที่มาของข้อมูลเรียบร้อยแล้ว',
+    'source_data_updated_successfully' => 'อัปเดตข้อมูลแหล่งที่มาของข้อมูลเรียบร้อยแล้ว',
+
+
+    'papers_updated_successfully' => 'อัปเดตกระดาษเรียบร้อยแล้ว!',  
+
+
+    'user_created_successfully'           => 'สร้างผู้ใช้เรียบร้อยแล้ว',
+    'user_updated_successfully'           => 'อัปเดตข้อมูลผู้ใช้เรียบร้อยแล้ว',
+    'user_deleted_successfully'           => 'ลบผู้ใช้เรียบร้อยแล้ว',
+    'picture_upload_failed'               => 'เกิดข้อผิดพลาดในการอัปโหลดรูปโปรไฟล์',
+    'picture_update_failed'               => 'เกิดข้อผิดพลาดในการอัปเดตรูปโปรไฟล์ในระบบ',
+    'profile_picture_updated_successfully'=> 'อัปเดตรูปโปรไฟล์เรียบร้อยแล้ว',
+
 ];
 ?>

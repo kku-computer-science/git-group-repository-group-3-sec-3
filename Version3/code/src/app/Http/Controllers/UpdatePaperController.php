@@ -30,7 +30,7 @@ class UpdatePaperController extends Controller
         // Call your Scholar update logic (ensure ScholarCallController exists and has a create() method)
         app(\App\Http\Controllers\ScholarCallController::class)->create($decryptedId);
         
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Papers updated successfully!');
+        // Redirect back with a success message using language translation
+        return redirect()->back()->with('success', trans('dashboard.papers_updated_successfully'));
     }
 }
