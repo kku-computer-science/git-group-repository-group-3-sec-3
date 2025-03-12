@@ -11,4 +11,7 @@ return [
 'education'=>'Education',
 'publications2' => 'Publications',
 'login'=>'Login',
+'success'=>'book created successfully.',
+'uSuccess'=>'book updated successfully.',
+'dSuccess'=>'Product deleted successfully',
 ];
